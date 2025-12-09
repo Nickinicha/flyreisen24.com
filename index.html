@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS เดิมและ CSS ที่ปรับปรุง */
         * {
             margin: 0;
             padding: 0;
@@ -52,12 +53,12 @@
         .logo {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.2rem; /* แก้ไข: ลดระยะห่าง */
             text-decoration: none;
         }
 
         .logo-icon {
-            max-height: 55px;
+            max-height: 70px; /* แก้ไข: ขยายโลโก้ให้ใหญ่ขึ้น */
             width: auto;
             display: block;
         }
@@ -86,7 +87,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: opacity 0.3s;
-            padding: 0.5rem 0; /* เพิ่ม padding เล็กน้อยเพื่อให้กดง่าย */
+            padding: 0.5rem 0;
         }
 
         .nav-menu a:hover {
@@ -138,47 +139,82 @@
             opacity: 0.8;
         }
 
-        /* Hero Section */
+        /* Hero Section - ปรับปรุงเพื่อใช้ภาพพื้นหลังและเน้น Search Widget */
         .hero {
-            background: linear-gradient(135deg, #0056B3 0%, #003d82 100%);
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), /* Overlay สีเข้ม */
+                url('images/hero_background.jpg') center center no-repeat; /* **ต้องเพิ่มไฟล์ภาพนี้** */
+            background-size: cover;
             color: #FFFFFF;
-            padding: 5rem 2rem;
+            padding: 5rem 2rem 8rem 2rem; /* เพิ่ม padding ด้านล่าง */
             text-align: center;
         }
+        
+        /* เพิ่มสไตล์สำหรับ Navigation Tab เหนือ Widget */
+        .search-nav {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            margin-bottom: -1px; /* ให้ชิดกับ Widget */
+        }
+
+        .search-tab {
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            padding: 0.8rem 1.5rem;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: background 0.3s;
+        }
+
+        .search-tab.active {
+            background: #FFFFFF;
+            color: #0056B3;
+            border-bottom: none;
+        }
+
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            font-size: 3.2rem; /* ทำให้ใหญ่ขึ้น */
+            font-weight: 800;
+            margin-bottom: 1rem;
             line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* ทำให้ใหญ่ขึ้น */
             margin-bottom: 3rem;
-            opacity: 0.95;
-            font-weight: 400;
+            opacity: 1;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         /* White Label Search Widget Container Styles */
         #tpwl-search {
-            max-width: 800px; 
-            margin: 3rem auto 0 auto; 
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1); 
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-height: 150px; /* เพิ่มเพื่อให้มีพื้นที่ก่อนที่ widget จะโหลด */
+            max-width: 1000px; 
+            margin: 0 auto; /* ปรับ margin ให้เป็น 0 auto */
+            padding: 2rem; /* เพิ่ม padding ให้ดูใหญ่ขึ้น */
+            background: #FFFFFF; /* เปลี่ยนเป็นสีขาวทึบเหมือนตัวอย่าง */
+            border-radius: 0 12px 12px 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            min-height: 150px; 
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
-            color: #FFFFFF;
+            color: #262626; /* เปลี่ยนสีข้อความเป็นสีดำ */
+            text-align: left;
         }
         
         /* Airline Ticker - Enhanced */
@@ -312,7 +348,7 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            color: #0056B3; /* เปลี่ยนสีไอคอนให้เข้ากับแบรนด์ */
+            color: #0056B3;
             font-size: 2.5rem;
             box-shadow: 0 4px 15px rgba(0, 86, 179, 0.1);
         }
@@ -370,12 +406,15 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1rem 6rem 1rem;
+            }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.4rem;
             }
 
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
                 margin-bottom: 2rem;
             }
 
@@ -384,7 +423,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 position: absolute;
-                top: 79px; /* ปรับให้ตรงกับความสูงของ Header โดยประมาณ */
+                top: 85px; 
                 left: 0;
                 width: 100%;
                 background-color: #0056B3;
@@ -396,6 +435,10 @@
 
             nav.active {
                 display: flex;
+            }
+            
+            .search-tab {
+                padding: 0.8rem 1rem;
             }
 
             .nav-menu {
@@ -494,29 +537,38 @@
             <h1 data-lang-key="hero-title">แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</h1>
             <p class="hero-subtitle" data-lang-key="hero-subtitle">ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก</p>
             
+            <div class="search-nav">
+                <div class="search-tab active" data-lang-key="tab-flights">✈️ เที่ยวบิน</div>
+                <div class="search-tab" data-lang-key="tab-hotels">🏨 โรงแรม</div>
+            </div>
+            
             <div id="tpwl-search">
                 <p data-lang-key="widget-loading">กำลังโหลดเครื่องมือค้นหาเที่ยวบิน...</p>
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="airline-ticker">
         <div class="ticker-container">
             <div class="ticker-track">
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Thai_Airways_International_logo.svg/1024px-Thai_Airways_International_logo.svg.png" alt="Thai Airways" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AirAsia_logo.svg/1280px-AirAsia_logo.svg.png" alt="AirAsia" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Bangkok_Airways_logo.svg/1280px-Bangkok_Airways_logo.svg.png" alt="Bangkok Airways" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Nok_Air_logo.svg/1280px-Nok_Air_logo.svg.png" alt="Nok Air" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/VietJet_Air_logo.svg/1280px-VietJet_Air_logo.svg.png" alt="VietJet Air" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Qatar_Airways_Logo.svg/1280px-Qatar_Airways_Logo.svg.png" alt="Qatar Airways" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emirates_logo.svg/1280px-Emirates_logo.svg.png" alt="Emirates" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Thai_Airways_International_logo.svg/1024px-Thai_Airways_International_logo.svg.png" alt="Thai Airways" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AirAsia_logo.svg/1280px-AirAsia_logo.svg.png" alt="AirAsia" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Bangkok_Airways_logo.svg/1280px-Bangkok_Airways_logo.svg.png" alt="Bangkok Airways" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Nok_Air_logo.svg/1280px-Nok_Air_logo.svg.png" alt="Nok Air" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/VietJet_Air_logo.svg/1280px-VietJet_Air_logo.svg.png" alt="VietJet Air" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Qatar_Airways_Logo.svg/1280px-Qatar_Airways_Logo.svg.png" alt="Qatar Airways" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emirates_logo.svg/1280px-Emirates_logo.svg.png" alt="Emirates" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/JV.png" alt="Bearskin Airlines" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/JX.png" alt="STARLUX Airlines" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/JY.png" alt="Silver Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/JZ.png" alt="JetSMART" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/PG.png" alt="Bangkok Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/QZ.png" alt="AirAsia" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/QR.png" alt="Qatar Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/EY.png" alt="Etihad" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/TK.png" alt="Turkish Airlines" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/TG.png" alt="THai Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/QF.png" alt="Qantas" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/LH.png" alt="Lufthansa" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/CA.png" alt="Air China" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/BY.png" alt="Tui" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/BR.png" alt="Eva Air" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/CX.png" alt="Cathay Pacific" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/KL.png" alt="Royai Dutch Airlines" loading="lazy"></div>
+                <div class="ticker-item"><img src="images/KE.png" alt="Korean Air" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -559,21 +611,14 @@
     <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
         // 1. White Label Widget Configuration (AFILIATE SETUP)
         window.TPWL_CONFIGURATION = {
-            // **สำคัญ:** ตั้งค่าผลลัพธ์การค้นหาจะถูกนำกลับมาที่โดเมนนี้
             resultsURL: "https://flights.flyreisen24.com", 
-            // สามารถเพิ่มการตั้งค่าอื่นๆ ได้ที่นี่
         };
 
-        // โหลดสคริปต์หลักของ White Label Widget
         (function () {
             var script = document.createElement("script");
             script.async = 1;
             script.type = "module";
-            
-            // **สำคัญ:** WL_ID=1160 คือรหัส Affiliate ของคุณ
             script.src = "https://tpembd.com/wl_web/main.js?wl_id=1160"; 
-            
-            // วางสคริปต์ลงใน <head>
             document.head.appendChild(script);
 
             // ลบข้อความสำรองเมื่อ Widget เริ่มโหลด
@@ -582,12 +627,11 @@
                 const loadingText = searchDiv.querySelector('[data-lang-key="widget-loading"]');
                 if (loadingText) {
                     loadingText.remove();
-                    searchDiv.style.minHeight = 'auto'; // คืนค่าความสูงเมื่อโหลดเสร็จ
-                    searchDiv.style.display = 'block'; // ให้ widget แสดงผลตามปกติ
+                    searchDiv.style.minHeight = 'auto'; 
+                    searchDiv.style.display = 'block'; 
                 }
             };
             script.onerror = function() {
-                // กรณีโหลด Widget ไม่สำเร็จ ให้แสดงข้อความ error
                 const searchDiv = document.getElementById('tpwl-search');
                 searchDiv.innerHTML = '<p style="color: red; font-weight: 600;" data-lang-key="widget-error">ไม่สามารถโหลดเครื่องมือค้นหาได้ในขณะนี้ โปรดลองอีกครั้งในภายหลัง</p>';
                 searchDiv.style.minHeight = 'auto'; 
@@ -614,7 +658,9 @@
                 'feature3-desc': 'ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัยและประสบการณ์การจองที่ราบรื่น',
                 'footer-terms': 'ข้อกำหนด',
                 'footer-privacy': 'นโยบายความเป็นส่วนตัว',
-                'page-title': 'flyreisen24 - แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์'
+                'page-title': 'flyreisen24 - แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์',
+                'tab-flights': '✈️ เที่ยวบิน',
+                'tab-hotels': '🏨 โรงแรม'
             },
             en: {
                 'nav-home': 'Home',
@@ -633,30 +679,25 @@
                 'feature3-desc': 'Partner with trusted providers, guaranteeing security and a smooth booking experience',
                 'footer-terms': 'Terms & Conditions',
                 'footer-privacy': 'Privacy Policy',
-                'page-title': 'flyreisen24 - Travel Platform for Every Lifestyle'
+                'page-title': 'flyreisen24 - Travel Platform for Every Lifestyle',
+                'tab-flights': '✈️ Flights',
+                'tab-hotels': '🏨 Hotels'
             }
         };
 
         // --- Initialization and Core Functions ---
 
-        // Get current language from localStorage or default to 'th'
         let currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
 
-        /**
-         * Updates all text content on the page based on the selected language.
-         * @param {string} lang The language code ('th' or 'en').
-         */
         function updateContent(lang) {
             const contentToTranslate = document.querySelectorAll('[data-lang-key]');
             const currentTranslation = translations[lang];
 
             if (!currentTranslation) return;
 
-            // 1. Update text content
             contentToTranslate.forEach(element => {
                 const key = element.getAttribute('data-lang-key');
                 if (currentTranslation[key]) {
-                    // For input, use placeholder; for everything else, use textContent
                     if (element.tagName === 'INPUT') {
                         element.placeholder = currentTranslation[key];
                     } else {
@@ -665,20 +706,12 @@
                 }
             });
 
-            // 2. Update specific elements (e.g., Page Title)
-            // Update HTML language attribute
             document.documentElement.lang = lang;
-
-            // Update Page Title
             document.title = currentTranslation['page-title'];
         }
 
-        /**
-         * Handles the language switching logic.
-         * @param {string} lang The language code to switch to.
-         */
         function switchLanguage(lang) {
-            if (lang === currentLang) return; // Prevent unnecessary updates
+            if (lang === currentLang) return; 
 
             currentLang = lang;
             localStorage.setItem('flyreisen24_lang', lang);
@@ -687,10 +720,6 @@
             updateLanguageButtons(lang);
         }
 
-        /**
-         * Updates the 'active' class on the language buttons.
-         * @param {string} activeLang The language code that is currently active.
-         */
         function updateLanguageButtons(activeLang) {
             document.querySelectorAll('.lang-btn').forEach(button => {
                 if (button.textContent.toLowerCase() === activeLang) {
@@ -701,17 +730,12 @@
             });
         }
 
-        /**
-         * Toggles the mobile navigation menu.
-         */
         function toggleMenu() {
             const nav = document.querySelector('nav');
-            // ตรวจสอบว่าเมนูถูกปิดอยู่หรือไม่ เพื่อตั้งค่า aria-expanded
             const isExpanded = nav.classList.toggle('active'); 
             document.querySelector('.menu-toggle').setAttribute('aria-expanded', isExpanded);
         }
         
-        // สำหรับการใช้งานเมนูมือถือ: ปิดเมนูเมื่อคลิก Link
         document.querySelectorAll('.nav-menu a').forEach(item => {
             item.addEventListener('click', () => {
                 const nav = document.querySelector('nav');
@@ -721,15 +745,27 @@
             });
         });
 
-        // --- Initialization on Load ---
-
-        // Wait for the DOM to be fully loaded before applying the language
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Initial Content Update
             updateContent(currentLang);
-
-            // 2. Initial Button State Update
             updateLanguageButtons(currentLang);
+        });
+        
+        // ฟังก์ชันสำหรับสลับแท็บ (ถ้าคุณจะเพิ่ม widget โรงแรมในอนาคต)
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('search-tab')) {
+                document.querySelectorAll('.search-tab').forEach(tab => tab.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                // ในโค้ดนี้ เราแค่จำลองการสลับ แต่ถ้ามี widget อื่น ๆ คุณจะเปลี่ยน ID/โค้ด Widget ตรงนี้
+                const searchDiv = document.getElementById('tpwl-search');
+                if (e.target.textContent.includes('เที่ยวบิน') || e.target.textContent.includes('Flights')) {
+                    searchDiv.innerHTML = '<p data-lang-key="widget-loading">กำลังโหลดเครื่องมือค้นหาเที่ยวบิน...</p>';
+                    // โหลด Widget เที่ยวบิน
+                } else {
+                    searchDiv.innerHTML = '<p>ฟีเจอร์การค้นหาโรงแรมจะมาเร็ว ๆ นี้!</p>';
+                    // ถ้าเป็นแท็บอื่น
+                }
+            }
         });
     </script>
 </body>
