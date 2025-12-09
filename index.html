@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flyreisen24 - แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #262626;
+            overflow-x: hidden;
+        }
+
+        /* Global Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fix Content Hidden Under Sticky Header */
+        :target {
+            scroll-padding-top: 100px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0056B3; /* สีน้ำเงินหลัก */
+            padding: 1.2rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            max-height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-text {
+            color: #FFFFFF;
+            font-size: 1.6rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 0; /* เพิ่ม padding เล็กน้อยเพื่อให้กดง่าย */
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-btn.active {
+            background: #FFFFFF;
+            color: #0056B3;
+            border-color: #FFFFFF;
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        .menu-toggle:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056B3 0%, #003d82 100%);
+            color: #FFFFFF;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        /* White Label Search Widget Container Styles */
+        #tpwl-search {
+            max-width: 800px; 
+            margin: 3rem auto 0 auto; 
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1); 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 150px; /* เพิ่มเพื่อให้มีพื้นที่ก่อนที่ widget จะโหลด */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #FFFFFF;
+        }
+        
+        /* Airline Ticker - Enhanced */
+        .airline-ticker {
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 3.5rem 0;
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .ticker-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-track {
+            display: flex;
+            animation: scroll-ticker 45s linear infinite;
+            width: fit-content;
+            will-change: transform;
+        }
+
+        .ticker-item {
+            flex: 0 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        .ticker-item img {
+            height: 55px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            opacity: 0.65;
+            transition: all 0.4s ease;
+            filter: grayscale(60%);
+        }
+
+        .ticker-item:hover img {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.15);
+        }
+
+        @keyframes scroll-ticker {
+            0% { 
+                transform: translateX(0); 
+            }
+            100% { 
+                transform: translateX(-50%); 
+            }
+        }
+
+        /* Pause animation on hover */
+        .airline-ticker:hover .ticker-track {
+            animation-play-state: paused;
+        }
+
+        /* Add subtle fade effect on edges */
+        .ticker-container::before,
+        .ticker-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        }
+
+        .ticker-container::after {
+            right: 0;
+            left: auto;
+            background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: #FFFFFF;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .features-header h2 {
+            color: #0056B3;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6edff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #0056B3; /* เปลี่ยนสีไอคอนให้เข้ากับแบรนด์ */
+            font-size: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.1);
+        }
+
+        .feature-card h3 {
+            color: #0056B3;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0056B3;
+            color: #FFFFFF;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Mobile Navigation */
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 79px; /* ปรับให้ตรงกับความสูงของ Header โดยประมาณ */
+                left: 0;
+                width: 100%;
+                background-color: #0056B3;
+                padding: 1rem 2rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                display: none;
+                z-index: 99;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .language-switcher {
+                justify-content: flex-start;
+                width: 100%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .features-header h2 {
+                font-size: 1.8rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .ticker-item {
+                padding: 0 2.5rem;
+                min-width: 150px;
+            }
+
+            .ticker-item img {
+                height: 45px;
+                max-width: 140px;
+            }
+
+            .ticker-container::before,
+            .ticker-container::after {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#hero" class="logo">
+                <img src="images/flyreisen24Logo.png" alt="flyreisen24 logo" class="logo-icon" onerror="this.style.display='none'">
+                <span class="logo-text">flyreisen24</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#hero" data-lang-key="nav-home">หน้าแรก</a></li>
+                    <li><a href="#features" data-lang-key="nav-promo">ฟีเจอร์</a></li>
+                    <li><a href="#footer" data-lang-key="nav-contact">ติดต่อเรา</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="lang-btn active" onclick="switchLanguage('th')">TH</button>
+                    <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+                </div>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 data-lang-key="hero-title">แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</h1>
+            <p class="hero-subtitle" data-lang-key="hero-subtitle">ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก</p>
+            
+            <div id="tpwl-search">
+                <p data-lang-key="widget-loading">กำลังโหลดเครื่องมือค้นหาเที่ยวบิน...</p>
+            </div>
+            </div>
+    </section>
+
+    <section class="airline-ticker">
+        <div class="ticker-container">
+            <div class="ticker-track">
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Thai_Airways_International_logo.svg/1024px-Thai_Airways_International_logo.svg.png" alt="Thai Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AirAsia_logo.svg/1280px-AirAsia_logo.svg.png" alt="AirAsia" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Bangkok_Airways_logo.svg/1280px-Bangkok_Airways_logo.svg.png" alt="Bangkok Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Nok_Air_logo.svg/1280px-Nok_Air_logo.svg.png" alt="Nok Air" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/VietJet_Air_logo.svg/1280px-VietJet_Air_logo.svg.png" alt="VietJet Air" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Qatar_Airways_Logo.svg/1280px-Qatar_Airways_Logo.svg.png" alt="Qatar Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emirates_logo.svg/1280px-Emirates_logo.svg.png" alt="Emirates" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Thai_Airways_International_logo.svg/1024px-Thai_Airways_International_logo.svg.png" alt="Thai Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AirAsia_logo.svg/1280px-AirAsia_logo.svg.png" alt="AirAsia" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Bangkok_Airways_logo.svg/1280px-Bangkok_Airways_logo.svg.png" alt="Bangkok Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Nok_Air_logo.svg/1280px-Nok_Air_logo.svg.png" alt="Nok Air" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/VietJet_Air_logo.svg/1280px-VietJet_Air_logo.svg.png" alt="VietJet Air" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Qatar_Airways_Logo.svg/1280px-Qatar_Airways_Logo.svg.png" alt="Qatar Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Emirates_logo.svg/1280px-Emirates_logo.svg.png" alt="Emirates" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="features-header">
+                <h2 data-lang-key="features-heading">ทำไมต้องเลือกเรา</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 data-lang-key="feature1-title">เปรียบเทียบราคา</h3>
+                    <p data-lang-key="feature1-desc">ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก เพื่อให้คุณได้ราคาที่ดีที่สุด</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 data-lang-key="feature2-title">ไม่มีค่าธรรมเนียมซ่อนเร้น</h3>
+                    <p data-lang-key="feature2-desc">โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย ไม่มีค่าใช้จ่ายเพิ่มเติมที่ไม่คาดคิด</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3 data-lang-key="feature3-title">ความน่าเชื่อถือสูง</h3>
+                    <p data-lang-key="feature3-desc">ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัยและประสบการณ์การจองที่ราบรื่น</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" data-lang-key="footer-terms">ข้อกำหนด</a>
+                <a href="#" data-lang-key="footer-privacy">นโยบายความเป็นส่วนตัว</a>
+            </div>
+            <p class="footer-copyright">Copyright © 2025 flyreisen24.com - All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+        // 1. White Label Widget Configuration (AFILIATE SETUP)
+        window.TPWL_CONFIGURATION = {
+            // **สำคัญ:** ตั้งค่าผลลัพธ์การค้นหาจะถูกนำกลับมาที่โดเมนนี้
+            resultsURL: "https://flights.flyreisen24.com", 
+            // สามารถเพิ่มการตั้งค่าอื่นๆ ได้ที่นี่
+        };
+
+        // โหลดสคริปต์หลักของ White Label Widget
+        (function () {
+            var script = document.createElement("script");
+            script.async = 1;
+            script.type = "module";
+            
+            // **สำคัญ:** WL_ID=1160 คือรหัส Affiliate ของคุณ
+            script.src = "https://tpembd.com/wl_web/main.js?wl_id=1160"; 
+            
+            // วางสคริปต์ลงใน <head>
+            document.head.appendChild(script);
+
+            // ลบข้อความสำรองเมื่อ Widget เริ่มโหลด
+            script.onload = function() {
+                const searchDiv = document.getElementById('tpwl-search');
+                const loadingText = searchDiv.querySelector('[data-lang-key="widget-loading"]');
+                if (loadingText) {
+                    loadingText.remove();
+                    searchDiv.style.minHeight = 'auto'; // คืนค่าความสูงเมื่อโหลดเสร็จ
+                    searchDiv.style.display = 'block'; // ให้ widget แสดงผลตามปกติ
+                }
+            };
+            script.onerror = function() {
+                // กรณีโหลด Widget ไม่สำเร็จ ให้แสดงข้อความ error
+                const searchDiv = document.getElementById('tpwl-search');
+                searchDiv.innerHTML = '<p style="color: red; font-weight: 600;" data-lang-key="widget-error">ไม่สามารถโหลดเครื่องมือค้นหาได้ในขณะนี้ โปรดลองอีกครั้งในภายหลัง</p>';
+                searchDiv.style.minHeight = 'auto'; 
+            };
+        })();
+
+
+        // 2. Language content object (สำหรับ Multilingual Functionality)
+        const translations = {
+            th: {
+                'nav-home': 'หน้าแรก',
+                'nav-promo': 'ฟีเจอร์',
+                'nav-contact': 'ติดต่อเรา',
+                'hero-title': 'แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์',
+                'hero-subtitle': 'ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก',
+                'widget-loading': 'กำลังโหลดเครื่องมือค้นหาเที่ยวบิน...',
+                'widget-error': 'ไม่สามารถโหลดเครื่องมือค้นหาได้ในขณะนี้ โปรดลองอีกครั้งในภายหลัง',
+                'features-heading': 'ทำไมต้องเลือกเรา',
+                'feature1-title': 'เปรียบเทียบราคา',
+                'feature1-desc': 'ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก เพื่อให้คุณได้ราคาที่ดีที่สุด',
+                'feature2-title': 'ไม่มีค่าธรรมเนียมซ่อนเร้น',
+                'feature2-desc': 'โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย ไม่มีค่าใช้จ่ายเพิ่มเติมที่ไม่คาดคิด',
+                'feature3-title': 'ความน่าเชื่อถือสูง',
+                'feature3-desc': 'ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัยและประสบการณ์การจองที่ราบรื่น',
+                'footer-terms': 'ข้อกำหนด',
+                'footer-privacy': 'นโยบายความเป็นส่วนตัว',
+                'page-title': 'flyreisen24 - แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-promo': 'Features',
+                'nav-contact': 'Contact Us',
+                'hero-title': 'Travel Platform for Every Lifestyle',
+                'hero-subtitle': 'Find cheap flights from top airlines worldwide',
+                'widget-loading': 'Loading flight search widget...',
+                'widget-error': 'Could not load search tool. Please try again later.',
+                'features-heading': 'Why Choose Us',
+                'feature1-title': 'Compare Prices',
+                'feature1-desc': 'Search and compare flight ticket prices from leading airlines worldwide to get the best deals',
+                'feature2-title': 'No Hidden Fees',
+                'feature2-desc': 'Complete transparency. The price you see is the price you pay, with no unexpected additional costs',
+                'feature3-title': 'High Reliability',
+                'feature3-desc': 'Partner with trusted providers, guaranteeing security and a smooth booking experience',
+                'footer-terms': 'Terms & Conditions',
+                'footer-privacy': 'Privacy Policy',
+                'page-title': 'flyreisen24 - Travel Platform for Every Lifestyle'
+            }
+        };
+
+        // --- Initialization and Core Functions ---
+
+        // Get current language from localStorage or default to 'th'
+        let currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
+
+        /**
+         * Updates all text content on the page based on the selected language.
+         * @param {string} lang The language code ('th' or 'en').
+         */
+        function updateContent(lang) {
+            const contentToTranslate = document.querySelectorAll('[data-lang-key]');
+            const currentTranslation = translations[lang];
+
+            if (!currentTranslation) return;
+
+            // 1. Update text content
+            contentToTranslate.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (currentTranslation[key]) {
+                    // For input, use placeholder; for everything else, use textContent
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = currentTranslation[key];
+                    } else {
+                        element.textContent = currentTranslation[key];
+                    }
+                }
+            });
+
+            // 2. Update specific elements (e.g., Page Title)
+            // Update HTML language attribute
+            document.documentElement.lang = lang;
+
+            // Update Page Title
+            document.title = currentTranslation['page-title'];
+        }
+
+        /**
+         * Handles the language switching logic.
+         * @param {string} lang The language code to switch to.
+         */
+        function switchLanguage(lang) {
+            if (lang === currentLang) return; // Prevent unnecessary updates
+
+            currentLang = lang;
+            localStorage.setItem('flyreisen24_lang', lang);
+
+            updateContent(lang);
+            updateLanguageButtons(lang);
+        }
+
+        /**
+         * Updates the 'active' class on the language buttons.
+         * @param {string} activeLang The language code that is currently active.
+         */
+        function updateLanguageButtons(activeLang) {
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                if (button.textContent.toLowerCase() === activeLang) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+
+        /**
+         * Toggles the mobile navigation menu.
+         */
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            // ตรวจสอบว่าเมนูถูกปิดอยู่หรือไม่ เพื่อตั้งค่า aria-expanded
+            const isExpanded = nav.classList.toggle('active'); 
+            document.querySelector('.menu-toggle').setAttribute('aria-expanded', isExpanded);
+        }
+        
+        // สำหรับการใช้งานเมนูมือถือ: ปิดเมนูเมื่อคลิก Link
+        document.querySelectorAll('.nav-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                const nav = document.querySelector('nav');
+                if (nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // --- Initialization on Load ---
+
+        // Wait for the DOM to be fully loaded before applying the language
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initial Content Update
+            updateContent(currentLang);
+
+            // 2. Initial Button State Update
+            updateLanguageButtons(currentLang);
+        });
+    </script>
+</body>
+</html>
