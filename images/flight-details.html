@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดเที่ยวบิน</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/details.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Flight Search</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="flight-details-container">
+            <div class="flight-header">
+                <h1>รายละเอียดเที่ยวบิน</h1>
+                <a href="javascript:history.back()" class="back-button">กลับไปหน้าผลการค้นหา</a>
+            </div>
+
+            <div id="flightDetailInfo" class="flight-detail-info">
+                <!-- ข้อมูลรายละเอียดเที่ยวบินจะถูกแสดงที่นี่ด้วย JavaScript -->
+                <div class="loading">กำลังโหลดข้อมูลเที่ยวบิน...</div>
+            </div>
+
+            <div class="booking-info">
+                <h2>รายละเอียดการจอง</h2>
+                <div class="fare-details">
+                    <h3>รายละเอียดค่าโดยสาร</h3>
+                    <div class="fare-item">
+                        <span>ค่าโดยสารผู้ใหญ่</span>
+                        <span id="adultFare">฿0</span>
+                    </div>
+                    <div class="fare-item">
+                        <span>ภาษีและค่าธรรมเนียม</span>
+                        <span id="taxFee">฿0</span>
+                    </div>
+                    <div class="fare-item total">
+                        <span>รวมทั้งสิ้น</span>
+                        <span id="totalFare">฿0</span>
+                    </div>
+                </div>
+
+                <div class="passenger-form">
+                    <h3>ข้อมูลผู้โดยสาร</h3>
+                    <form id="passengerForm">
+                        <div class="form-group">
+                            <label for="title">คำนำหน้า</label>
+                            <select id="title" required>
+                                <option value="">เลือกคำนำหน้า</option>
+                                <option value="mr">นาย</option>
+                                <option value="mrs">นาง</option>
+                                <option value="miss">นางสาว</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">นามสกุล</label>
+                            <input type="text" id="lastName" placeholder="นามสกุล (ภาษาอังกฤษตามหนังสือเดินทาง)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">อีเมล</label>
+                            <input type="email" id="email" placeholder="อีเมลสำหรับรับข้อมูลการจอง" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">เบอร์โทรศัพท์</label>
+                            <input type="tel" id="phone" placeholder="เบอร์โทรศัพท์ติดต่อ" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="acceptTerms" required>
+                                ยอมรับ <a href="terms.html" target="_blank">ข้อกำหนดการใช้งาน</a> และ <a href="privacy-policy.html" target="_blank">นโยบายความเป็นส่วนตัว</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-booking">ดำเนินการจอง</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="about.html">เกี่ยวกับเรา</a>
+                    <a href="contact.html">ติดต่อเรา</a>
+                    <a href="terms.html">ข้อกำหนดการใช้งาน</a>
+                    <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
+                </div>
+                <p>&copy; 2025 Flight Search. สงวนลิขสิทธิ์ทั้งหมด</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/details.js"></script>
+</body>
+</html>
