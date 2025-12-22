@@ -169,7 +169,7 @@
         .hero {
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-                url('https://nickinicha.github.io/flyreisen24.com/hero_background.jpg') center center no-repeat;
+                url('images/hero_background.jpg') center center no-repeat;
             background-size: cover;
             color: #FFFFFF;
             padding: 3rem 2rem 5rem 2rem;
@@ -353,109 +353,13 @@
 
         /* Chat Widget */
         .chat-widget {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000; 
-}
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000; 
+        }
 
         .chat-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #0056B3;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 86, 179, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chat-button:hover {
-            transform: scale(1.1);
-            background-color: #003d82;
-        }
-
-        /* ========================
-   CSS เพิ่มเติมสำหรับแก้ไข Chat Widget
-   เพิ่มที่ท้าย CSS เดิม
-   ======================== */
-
-/* แก้ไข chat-popup ให้แสดงได้ */
-.chat-popup {
-    position: absolute;
-    bottom: 75px;
-    right: 0;
-    width: 350px;
-    height: 450px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    display: none; /* เปลี่ยนจาก display: none เป็นค่าเริ่มต้น */
-    flex-direction: column;
-    overflow: hidden;
-}
-
-/* เพิ่ม state เมื่อ chat เปิด - ใช้กับ JavaScript */
-.chat-popup.active {
-    display: flex !important;
-}
-
-/* แก้ไข layout ของ message */
-.chat-messages {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.message {
-    max-width: 85%;
-    word-wrap: break-word;
-}
-
-.user-message {
-    background-color: #0056B3;
-    color: white;
-    border-radius: 15px 15px 5px 15px;
-    padding: 12px 16px;
-    margin-left: auto;
-    align-self: flex-end;
-}
-
-.bot-message {
-    background-color: #f1f3f4;
-    color: #333;
-    border-radius: 15px 15px 15px 5px;
-    padding: 12px 16px;
-    align-self: flex-start;
-}
-
-/* แก้ไข typing indicator */
-.typing-indicator {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    background-color: #f1f3f4;
-    border-radius: 15px 15px 15px 5px;
-    width: fit-content;
-    align-self: flex-start;
-}
-
-/* แก้ไขปุ่ม send เมื่อ disabled */
-.send-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-/* เพิ่ม onclick attribute สำหรับ chat button และ close button */
- .chat-button {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -487,6 +391,10 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
+        }
+
+        .chat-popup.active {
+            display: flex !important;
         }
 
         .chat-header {
@@ -590,7 +498,6 @@
             opacity: 0.6;
         }
 
-        /* Typing indicator */
         .typing-indicator {
             display: flex;
             align-items: center;
@@ -782,13 +689,13 @@
     <!-- TOP NAVIGATION -->
     <nav class="top-nav">
         <div class="top-nav-container">
-            <a href="https://flyreisen24.com" class="top-nav-logo">
-    <img src="https://nickinicha.github.io/images/fly_reisen24_logo_white.png" style="width: 200px; height: auto;" alt="FlyReisen24">
-</a>
+            <a href="index.html" class="top-nav-logo">
+                <img src="images/fly_reisen24_logo_white.png" alt="flyreisen24">
+            </a>
             
             <ul class="top-nav-menu" id="topNavMenu">
                 <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="about_th.html">เกี่ยวกับเรา</a></li>
+                <li><a href="#" id="aboutLink">เกี่ยวกับเรา</a></li>
                 <li><a href="contact.html">ติดต่อเรา</a></li>
                 <li class="language-dropdown">
                     <button class="lang-current" onclick="toggleLangDropdown()">
@@ -812,26 +719,23 @@
             <h1>แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</h1>
             <p class="hero-subtitle">ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก</p>
         
-                <div class="search-widget-container" style="max-width: 1000px; margin: 20px auto;">
-        
-    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
-  (function () {
-        var script = document.createElement("script");
-        script.async = 1;
-        script.type = "module";
-        script.src = "https://tpembd.com/wl_web/main.js?wl_id=2299";
-        document.head.appendChild(script);
+            <div class="search-widget-container" style="max-width: 1000px; margin: 20px auto;">
+                <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+                  (function () {
+                        var script = document.createElement("script");
+                        script.async = 1;
+                        script.type = "module";
+                        script.src = "https://tpembd.com/wl_web/main.js?wl_id=2299";
+                        document.head.appendChild(script);
 
-        window.TPWL_CONFIGURATION = {
-          ...window.TPWL_CONFIGURATION,
-          resultsURL: "https://flights.flyreisen24.com"
-        };
-      })();
-</script>
-
-<div id="tpwl-search"></div>
-    
-</div>
+                        window.TPWL_CONFIGURATION = {
+                          ...window.TPWL_CONFIGURATION,
+                          resultsURL: "https://flights.flyreisen24.com"
+                        };
+                      })();
+                </script>
+                <div id="tpwl-search"></div>
+            </div>
         </div>
     </section>
                  
@@ -839,23 +743,23 @@
     <section class="airline-ticker">
         <div class="ticker-container">
             <div class="ticker-track">
-                <div class="ticker-item"><img src="QR.png" alt="Qatar Airways"></div>
-                <div class="ticker-item"><img src="EY.png" alt="Etihad"></div>
-                <div class="ticker-item"><img src="TK.png" alt="Turkish Airlines"></div>
-                <div class="ticker-item"><img src="TG.png" alt="Thai Airways"></div>
-                <div class="ticker-item"><img src="PG.png" alt="Bangkok Airways"></div>
-                <div class="ticker-item"><img src="QZ.png" alt="AirAsia"></div>
-                <div class="ticker-item"><img src="LH.png" alt="Lufthansa"></div>
-                <div class="ticker-item"><img src="QF.png" alt="Qantas"></div>
-                <div class="ticker-item"><img src="KE.png" alt="Korean Air"></div>
-                <div class="ticker-item"><img src="CX.png" alt="Cathay Pacific"></div>
-                <div class="ticker-item"><img src="QR.png" alt="Qatar Airways"></div>
-                <div class="ticker-item"><img src="EY.png" alt="Etihad"></div>
+                <div class="ticker-item"><img src="images/QR.png" alt="Qatar Airways"></div>
+                <div class="ticker-item"><img src="images/EY.png" alt="Etihad"></div>
+                <div class="ticker-item"><img src="images/TK.png" alt="Turkish Airlines"></div>
+                <div class="ticker-item"><img src="images/TG.png" alt="Thai Airways"></div>
+                <div class="ticker-item"><img src="images/PG.png" alt="Bangkok Airways"></div>
+                <div class="ticker-item"><img src="images/QZ.png" alt="AirAsia"></div>
+                <div class="ticker-item"><img src="images/LH.png" alt="Lufthansa"></div>
+                <div class="ticker-item"><img src="images/QF.png" alt="Qantas"></div>
+                <div class="ticker-item"><img src="images/KE.png" alt="Korean Air"></div>
+                <div class="ticker-item"><img src="images/CX.png" alt="Cathay Pacific"></div>
+                <div class="ticker-item"><img src="images/QR.png" alt="Qatar Airways"></div>
+                <div class="ticker-item"><img src="images/EY.png" alt="Etihad"></div>
             </div>
         </div>
     </section>
 
-     <!-- FEATURES SECTION -->
+    <!-- FEATURES SECTION -->
     <section class="features">
         <div class="features-container">
             <div class="features-header">
@@ -881,7 +785,7 @@
         </div>
     </section>
 
-      <!-- CHAT WIDGET -->
+    <!-- CHAT WIDGET -->
     <div class="chat-widget">
         <div class="chat-button" onclick="toggleChat()">
             <i class="fas fa-comments"></i>
@@ -932,10 +836,10 @@
                     <h3>ลิงก์ด่วน</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">หน้าแรก</a></li>
-                        <li><a href="about_th.html">เกี่ยวกับเรา</a></li>
+                        <li><a href="#" id="footerAboutLink">เกี่ยวกับเรา</a></li>
                         <li><a href="contact.html">ติดต่อเรา</a></li>
-                        <li><a href="terms_th.html">ข้อกำหนด</a></li>
-                        <li><a href="privacy_th.html">นโยบายความเป็นส่วนตัว</a></li>
+                        <li><a href="#" id="footerTermsLink">ข้อกำหนด</a></li>
+                        <li><a href="#" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
                     </ul>
                 </div>
                 
@@ -965,6 +869,46 @@
     </footer>
     
     <script>
+        // Language URL Configuration
+        const BASE_URL = 'https://nickinicha.github.io/flyreisen24.com';
+        
+        const languageLinks = {
+            'th': {
+                about: `${BASE_URL}/th/about_th.html`,
+                terms: `${BASE_URL}/th/terms_th.html`,
+                privacy: `${BASE_URL}/th/privacy_th.html`
+            },
+            'en': {
+                about: `${BASE_URL}/en/about_en.html`,
+                terms: `${BASE_URL}/en/terms_en.html`,
+                privacy: `${BASE_URL}/en/privacy_en.html`
+            },
+            'de': {
+                about: `${BASE_URL}/de/about_de.html`,
+                terms: `${BASE_URL}/de/terms_de.html`,
+                privacy: `${BASE_URL}/de/privacy_de.html`
+            }
+        };
+
+        // Get current language (default: th)
+        function getCurrentLanguage() {
+            return localStorage.getItem('flyreisen24_lang') || 'th';
+        }
+
+        // Update all navigation links based on current language
+        function updateNavigationLinks() {
+            const currentLang = getCurrentLanguage();
+            const links = languageLinks[currentLang];
+
+            // Update navigation menu
+            document.getElementById('aboutLink').href = links.about;
+
+            // Update footer links
+            document.getElementById('footerAboutLink').href = links.about;
+            document.getElementById('footerTermsLink').href = links.terms;
+            document.getElementById('footerPrivacyLink').href = links.privacy;
+        }
+
         // Configuration
         const tpConfig = {
             marker: "189577",
@@ -1040,8 +984,10 @@
 
         // ฟังก์ชันสลับภาษา
         function switchLanguage(langCode, label) {
+            // Update language display
             document.getElementById('currentLang').innerText = label;
             
+            // Update active state in dropdown
             const langLinks = document.querySelectorAll('.lang-dropdown-menu a');
             langLinks.forEach(link => {
                 link.classList.remove('active');
@@ -1050,8 +996,16 @@
                 }
             });
             
+            // Save language preference
+            localStorage.setItem('flyreisen24_lang', langCode);
+            
+            // Update all navigation links
+            updateNavigationLinks();
+            
+            // Reload search widget
             loadSearchWidget(langCode);
             
+            // Update page content
             const content = {
                 'th': { 
                     title: 'แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์', 
@@ -1070,16 +1024,15 @@
             document.querySelector('.hero h1').innerText = content[langCode].title;
             document.querySelector('.hero-subtitle').innerText = content[langCode].sub;
             
+            // Close dropdown
             document.querySelector('.language-dropdown').classList.remove('active');
         }
 
         // ฟังก์ชัน Chat Widget
         function toggleChat() {
             const chatPopup = document.getElementById('chatPopup');
-            if (chatPopup.style.display === 'flex') {
-                chatPopup.style.display = 'none';
-            } else {
-                chatPopup.style.display = 'flex';
+            chatPopup.classList.toggle('active');
+            if (chatPopup.classList.contains('active')) {
                 document.getElementById('chatInput').focus();
             }
         }
@@ -1154,26 +1107,23 @@
         }
 
         function toggleLangDropdown() { 
-    document.querySelector('.language-dropdown').classList.toggle('active'); 
-}
-
-// ปิด Dropdown เมื่อคลิกที่อื่นข้างนอก
-document.addEventListener('click', function(event) {
-    const langDropdown = document.querySelector('.language-dropdown');
-    if (langDropdown && !langDropdown.contains(event.target)) {
-        langDropdown.classList.remove('active');
-    }
-});
+            document.querySelector('.language-dropdown').classList.toggle('active'); 
+        }
 
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
-            loadSearchWidget('th');
+            // Initialize navigation links
+            updateNavigationLinks();
             
+            // Load search widget with saved language
+            loadSearchWidget(getCurrentLanguage());
+            
+            // Close dropdown when clicking outside
             document.addEventListener('click', function(event) {
                 const langDropdown = document.querySelector('.language-dropdown');
-                const isClickInside = langDropdown.contains(event.target);
+                const isClickInside = langDropdown && langDropdown.contains(event.target);
                 
-                if (!isClickInside) {
+                if (!isClickInside && langDropdown) {
                     langDropdown.classList.remove('active');
                 }
             });
@@ -1181,6 +1131,3 @@ document.addEventListener('click', function(event) {
     </script>
 </body>
 </html>
-
-
-
