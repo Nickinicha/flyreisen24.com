@@ -8,10 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Preload Ticker Images for Mobile -->
     <link rel="preload" as="image" href="https://nickinicha.github.io/flyreisen24.com/QR.png">
     <link rel="preload" as="image" href="https://nickinicha.github.io/flyreisen24.com/EY.png">
     <link rel="preload" as="image" href="https://nickinicha.github.io/flyreisen24.com/TK.png">
+    
     <style>
         * {
             margin: 0;
@@ -355,15 +357,15 @@
             line-height: 1.8;
         }
 
-        /* Chat Widget */
-        .chat-widget {
+        /* Contact Form Widget */
+        .contact-widget {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 1000; 
+            z-index: 1000;
         }
 
-        .chat-button {
+        .contact-button {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -376,32 +378,33 @@
             box-shadow: 0 4px 20px rgba(0, 86, 179, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
+            border: none;
         }
 
-        .chat-button:hover {
+        .contact-button:hover {
             transform: scale(1.1);
             background-color: #003d82;
         }
 
-        .chat-popup {
+        .contact-popup {
             position: absolute;
             bottom: 75px;
             right: 0;
-            width: 350px;
-            height: 450px;
+            width: 380px;
+            max-height: 580px;
             background-color: white;
             border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             display: none;
             flex-direction: column;
             overflow: hidden;
         }
 
-        .chat-popup.active {
+        .contact-popup.active {
             display: flex !important;
         }
 
-        .chat-header {
+        .contact-header {
             background-color: #0056B3;
             color: white;
             padding: 20px;
@@ -410,131 +413,122 @@
             align-items: center;
         }
 
-        .close-chat {
+        .contact-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-contact {
             cursor: pointer;
             font-size: 1.2rem;
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease;
-        }
-
-        .close-chat:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            max-width: 85%;
-            word-wrap: break-word;
-        }
-
-        .user-message {
-            background-color: #0056B3;
+            border: none;
             color: white;
-            border-radius: 15px 15px 5px 15px;
-            padding: 12px 16px;
-            margin-left: auto;
-            align-self: flex-end;
         }
 
-        .bot-message {
-            background-color: #f1f3f4;
+        .close-contact:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-form-container {
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
             color: #333;
-            border-radius: 15px 15px 15px 5px;
-            padding: 12px 16px;
-            align-self: flex-start;
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
-        .chat-input {
-            display: flex;
-            padding: 20px;
-            border-top: 1px solid #e2e8f0;
-            gap: 10px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 12px 16px;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px 14px;
             border: 1px solid #e2e8f0;
-            border-radius: 25px;
+            border-radius: 8px;
             outline: none;
             font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
         }
 
-        .chat-input input:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             border-color: #0056B3;
         }
 
-        .send-btn {
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
             background-color: #0056B3;
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .send-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             background-color: #003d82;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
         }
 
-        .send-btn:disabled {
+        .submit-btn:disabled {
             background-color: #ccc;
             cursor: not-allowed;
-            opacity: 0.6;
+            transform: none;
         }
 
-        .typing-indicator {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            background-color: #f1f3f4;
-            border-radius: 15px 15px 15px 5px;
-            width: fit-content;
-            align-self: flex-start;
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #0056B3;
-            border-radius: 50%;
-            margin: 0 2px;
-            display: inline-block;
-            animation: pulse 1.4s infinite ease-in-out;
+        .success-message.show {
+            display: block;
         }
 
-        .dot:nth-child(1) { animation-delay: 0s; }
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+            font-size: 0.9rem;
+        }
 
-        @keyframes pulse {
-            0%, 60%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            30% {
-                transform: scale(1.3);
-                opacity: 1;
-            }
+        .error-message.show {
+            display: block;
         }
 
         /* Footer */
@@ -682,8 +676,8 @@
                 max-height: 60px;
             }
 
-            .chat-popup {
-                width: 300px;
+            .contact-popup {
+                width: 320px;
                 right: -30px;
             }
         }
@@ -694,7 +688,7 @@
     <nav class="top-nav">
         <div class="top-nav-container">
             <a href="index.html" class="top-nav-logo">
-                <img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png">
+                <img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" alt="flyreisen24">
             </a>
             
             <ul class="top-nav-menu" id="topNavMenu">
@@ -789,26 +783,44 @@
         </div>
     </section>
 
-    <!-- CHAT WIDGET -->
-    <div class="chat-widget">
-        <div class="chat-button" onclick="toggleChat()">
-            <i class="fas fa-comments"></i>
-        </div>
-        <div class="chat-popup" id="chatPopup">
-            <div class="chat-header">
-                <h3>ฝ่ายบริการลูกค้า</h3>
-                <span class="close-chat" onclick="toggleChat()">✕</span>
+    <!-- CONTACT FORM WIDGET -->
+    <div class="contact-widget">
+        <button class="contact-button" onclick="toggleContact()">
+            <i class="fas fa-envelope"></i>
+        </button>
+        <div class="contact-popup" id="contactPopup">
+            <div class="contact-header">
+                <h3>ติดต่อเรา</h3>
+                <button class="close-contact" onclick="toggleContact()">✕</button>
             </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot-message">
-                    สวัสดีค่ะ! ยินดีต้อนรับสู่ FlyReisen24 วันนี้มีอะไรให้ช่วยคุณไหมคะ?
+            <div class="contact-form-container">
+                <div class="success-message" id="successMessage">
+                    ✅ ข้อความของคุณถูกส่งแล้ว! เราจะติดต่อกลับเร็วๆ นี้
                 </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="พิมพ์ข้อความ..." onkeypress="handleChatKeyPress(event)">
-                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+                <div class="error-message" id="errorMessage">
+                    ❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง
+                </div>
+                <form id="contactForm" action="https://formspree.io/f/xreggjzv" method="POST">
+                    <div class="form-group">
+                        <label for="name">ชื่อ-นามสกุล *</label>
+                        <input type="text" id="name" name="name" required placeholder="กรอกชื่อของคุณ">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">อีเมล *</label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">หัวข้อ</label>
+                        <input type="text" id="subject" name="subject" placeholder="เรื่องที่ต้องการสอบถาม">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">ข้อความ *</label>
+                        <textarea id="message" name="message" required placeholder="รายละเอียดที่ต้องการติดต่อ"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> ส่งข้อความ
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -860,7 +872,7 @@
                 
                 <div class="footer-section">
                     <h3>ติดต่อเรา</h3>
-                    <p><i class="fas fa-envelope"></i> info@flyreisen24.com</p>
+                    <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae3e4ece5caece6f3f8efe3f9efe4b8bea4e9e5e7">[email&#160;protected]</a></p>
                     <p><i class="fas fa-phone"></i> 02-123-4567</p>
                     <p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
                 </div>
@@ -872,7 +884,7 @@
         </div>
     </footer>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Language URL Configuration
         const BASE_URL = 'https://nickinicha.github.io/flyreisen24.com';
         
@@ -928,7 +940,7 @@
             'de': 'de'
         };
 
-        // ฟังก์ชันโหลด Search Widget
+        // Load Search Widget
         function loadSearchWidget(langCode = 'th') {
             const container = document.getElementById('tpwl-search');
             const locale = localeMapping[langCode] || 'th';
@@ -986,12 +998,10 @@
             document.body.appendChild(script);
         }
 
-        // ฟังก์ชันสลับภาษา
+        // Switch Language
         function switchLanguage(langCode, label) {
-            // Update language display
             document.getElementById('currentLang').innerText = label;
             
-            // Update active state in dropdown
             const langLinks = document.querySelectorAll('.lang-dropdown-menu a');
             langLinks.forEach(link => {
                 link.classList.remove('active');
@@ -1000,16 +1010,10 @@
                 }
             });
             
-            // Save language preference
             localStorage.setItem('flyreisen24_lang', langCode);
-            
-            // Update all navigation links
             updateNavigationLinks();
-            
-            // Reload search widget
             loadSearchWidget(langCode);
             
-            // Update page content
             const content = {
                 'th': { 
                     title: 'แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์', 
@@ -1028,101 +1032,77 @@
             document.querySelector('.hero h1').innerText = content[langCode].title;
             document.querySelector('.hero-subtitle').innerText = content[langCode].sub;
             
-            // Close dropdown
             document.querySelector('.language-dropdown').classList.remove('active');
         }
 
-        // ฟังก์ชัน Chat Widget
-        function toggleChat() {
-            const chatPopup = document.getElementById('chatPopup');
-            chatPopup.classList.toggle('active');
-            if (chatPopup.classList.contains('active')) {
-                document.getElementById('chatInput').focus();
+        // Contact Form Functions
+        function toggleContact() {
+            const contactPopup = document.getElementById('contactPopup');
+            contactPopup.classList.toggle('active');
+            
+            if (contactPopup.classList.contains('active')) {
+                document.getElementById('name').focus();
             }
         }
 
-        function handleChatKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            
-            if (message === '') return;
-            
-            const messagesContainer = document.getElementById('chatMessages');
-            const sendBtn = document.getElementById('sendBtn');
-            
-            const userMessageDiv = document.createElement('div');
-            userMessageDiv.className = 'message user-message';
-            userMessageDiv.textContent = message;
-            messagesContainer.appendChild(userMessageDiv);
-            
-            input.value = '';
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'typing-indicator';
-            typingDiv.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
-            messagesContainer.appendChild(typingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            sendBtn.disabled = true;
-            
-            setTimeout(() => {
-                typingDiv.remove();
-                
-                const botResponse = getBotResponse(message);
-                const botMessageDiv = document.createElement('div');
-                botMessageDiv.className = 'message bot-message';
-                botMessageDiv.textContent = botResponse;
-                messagesContainer.appendChild(botMessageDiv);
-                
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                sendBtn.disabled = false;
-                input.focus();
-            }, 1000 + Math.random() * 1000);
-        }
-
-        function getBotResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('สวัสดี') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-                return 'สวัสดีค่ะ! ยินดีให้บริการค่ะ มีอะไรให้ช่วยไหมคะ?';
-            } else if (lowerMessage.includes('ราคา') || lowerMessage.includes('price')) {
-                return 'คุณสามารถค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินได้จากแบบฟอร์มด้านบนเลยค่ะ';
-            } else if (lowerMessage.includes('จอง') || lowerMessage.includes('booking')) {
-                return 'หลังจากค้นหาเที่ยวบินแล้ว คุณจะถูกนำไปยังหน้าจองตั๋วโดยตรงค่ะ';
-            } else if (lowerMessage.includes('ติดต่อ') || lowerMessage.includes('contact')) {
-                return 'คุณสามารถติดต่อเราได้ที่ info@flyreisen24.com หรือโทร 02-123-4567 ค่ะ';
-            } else if (lowerMessage.includes('ขอบคุณ') || lowerMessage.includes('thank')) {
-                return 'ยินดีค่ะ! หากมีคำถามเพิ่มเติม สอบถามได้เลยนะคะ 😊';
-            } else {
-                return 'ขอบคุณสำหรับข้อความค่ะ ทีมงานจะติดต่อกลับโดยเร็วที่สุดค่ะ';
-            }
-        }
-
-        // ฟังก์ชันเมนู
-        function toggleMenu() { 
-            document.getElementById('topNavMenu').classList.toggle('active'); 
-        }
-
-        function toggleLangDropdown() { 
-            document.querySelector('.language-dropdown').classList.toggle('active'); 
-        }
-
-        // Event Listeners
+        // Handle form submission
         document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';
+                
+                // Hide previous messages
+                successMsg.classList.remove('show');
+                errorMsg.classList.remove('show');
+                
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success
+                        successMsg.classList.add('show');
+                        form.reset();
+                        
+                        // Close form after 3 seconds
+                        setTimeout(() => {
+                            toggleContact();
+                            successMsg.classList.remove('show');
+                        }, 3000);
+                    } else {
+                        // Error
+                        errorMsg.classList.add('show');
+                    }
+                } catch (error) {
+                    errorMsg.classList.add('show');
+                }
+                
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ส่งข้อความ';
+            });
+            
             // Initialize navigation links
             updateNavigationLinks();
             
-            // Load search widget with saved language
+            // Load search widget
             loadSearchWidget(getCurrentLanguage());
             
-            // Close dropdown when clicking outside
+            // Close dropdowns when clicking outside
             document.addEventListener('click', function(event) {
                 const langDropdown = document.querySelector('.language-dropdown');
                 const isClickInside = langDropdown && langDropdown.contains(event.target);
@@ -1132,10 +1112,7 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
 
-
-
-
+        // Menu Functions
+        function toggleMenu() { 
+            document.getEl
