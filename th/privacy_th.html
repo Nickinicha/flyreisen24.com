@@ -1,924 +1,331 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>นโยบายความเป็นส่วนตัว - flyreisen24</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #262626;
-            overflow-x: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* TOP NAVIGATION BAR */
-        .top-nav {
-            background-color: #0056B3;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 200;
-        }
-
-        .top-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .top-nav-logo:hover {
-            opacity: 0.8;
-        }
-
-        .top-nav-logo img {
-            max-height: 85px;
-            width: auto;
-            display: block;
-        }
-
-        .top-nav-logo span {
-            display: none;
-        }
-
-        .top-nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .top-nav-menu > li > a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: opacity 0.3s;
-            padding: 0.5rem 0;
-        }
-
-        .top-nav-menu > li > a:hover {
-            opacity: 0.8;
-        }
-
-        .top-nav-menu > li > a.active {
-            border-bottom: 2px solid #FFFFFF;
-        }
-
-        .language-dropdown {
-            position: relative;
-        }
-
-        .lang-current {
-            background: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .lang-current:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .lang-current::after {
-            content: '▼';
-            font-size: 0.7rem;
-        }
-
-        .lang-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 0.5rem;
-            background: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            min-width: 150px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            z-index: 1000;
-        }
-
-        .language-dropdown.active .lang-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .lang-dropdown-menu a {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: #262626;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .lang-dropdown-menu a:hover {
-            background: #f0f4ff;
-        }
-
-        .lang-dropdown-menu a.active {
-            background: #e6edff;
-            color: #0056B3;
-            font-weight: 700;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #FFFFFF;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-                url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=400&fit=crop') center center no-repeat;
-            background-size: cover;
-            color: #FFFFFF;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            font-weight: 500;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        }
-
-        /* Back Button */
-        .back-button-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .back-button {
-            background: #0056B3;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #003d82;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
-        }
-
-        /* Content Section */
-        .content-section {
-            padding: 3rem 2rem;
-            background: #FFFFFF;
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .content-container h1 {
-            color: #0056B3;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .content-container .subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .content-container h2 {
-            color: #0056B3;
-            font-size: 1.6rem;
-            margin: 2.5rem 0 1rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e6edff;
-        }
-
-        .content-container h3 {
-            color: #0056B3;
-            font-size: 1.3rem;
-            margin: 2rem 0 1rem 0;
-        }
-
-        .content-container p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #333;
-        }
-
-        .content-container ul, .content-container ol {
-            margin: 1.5rem 0 1.5rem 2rem;
-            line-height: 1.8;
-        }
-
-        .content-container li {
-            margin-bottom: 0.8rem;
-            color: #333;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: #f0f4ff;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid #0056B3;
-            margin: 2.5rem 0;
-        }
-
-        .highlight-box h3 {
-            color: #0056B3;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-
-        .highlight-box p {
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight-box a {
-            color: #0056B3;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .highlight-box a:hover {
-            text-decoration: underline;
-        }
-
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #0056B3;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 86, 179, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chat-button:hover {
-            transform: scale(1.1);
-            background-color: #003d82;
-        }
-
-        .chat-popup {
-            position: absolute;
-            bottom: 75px;
-            right: 0;
-            width: 350px;
-            height: 450px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .chat-header {
-            background-color: #0056B3;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .close-chat {
-            cursor: pointer;
-            font-size: 1.2rem;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .close-chat:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            max-width: 85%;
-        }
-
-        .user-message {
-            background-color: #0056B3;
-            color: white;
-            border-radius: 15px 15px 5px 15px;
-            padding: 12px 16px;
-            margin-left: auto;
-        }
-
-        .bot-message {
-            background-color: #f1f3f4;
-            color: #333;
-            border-radius: 15px 15px 15px 5px;
-            padding: 12px 16px;
-        }
-
-        .chat-input {
-            display: flex;
-            padding: 20px;
-            border-top: 1px solid #e2e8f0;
-            gap: 10px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .chat-input input:focus {
-            border-color: #0056B3;
-        }
-
-        .send-btn {
-            background-color: #0056B3;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .send-btn:hover {
-            background-color: #003d82;
-        }
-
-        .typing-indicator {
-            display: flex;
-            padding: 12px 16px;
-        }
-
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #0056B3;
-            border-radius: 50%;
-            margin: 0 2px;
-            animation: pulse 1.4s infinite ease-in-out;
-        }
-
-        .dot:nth-child(1) { animation-delay: 0s; }
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes pulse {
-            0%, 60%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            30% {
-                transform: scale(1.3);
-                opacity: 1;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: #0056B3;
-            color: #FFFFFF;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .footer-section p {
-            opacity: 0.9;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #FFFFFF;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1.5rem;
-            text-align: center;
-        }
-
-        .footer-copyright {
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1175px) {
-            .top-nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 88px;
-                left: 0;
-                width: 100%;
-                background-color: #0056B3;
-                padding: 1rem 2rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-                gap: 0;
-            }
-
-            .top-nav-menu.active {
-                display: flex;
-            }
-
-            .top-nav-menu > li {
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .content-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .content-container h1 {
-                font-size: 2rem;
-            }
-
-            .content-container h2 {
-                font-size: 1.4rem;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .top-nav-logo img {
-                max-height: 60px;
-            }
-
-            .chat-popup {
-                width: 300px;
-                right: -30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>นโยบายความเป็นส่วนตัว - flyreisen24</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#262626;overflow-x:hidden}html{scroll-behavior:smooth}.top-nav{background-color:#0056B3;padding:1rem 2rem;box-shadow:0 2px 10px rgba(0,0,0,.1);position:sticky;top:0;z-index:200}.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.top-nav-logo{display:inline-flex;align-items:center;text-decoration:none;transition:opacity .3s}.top-nav-logo:hover{opacity:.8}.top-nav-logo img{max-height:85px;width:auto;display:block}.top-nav-menu{display:flex;gap:2rem;list-style:none;align-items:center}.top-nav-menu>li>a{color:#FFF;text-decoration:none;font-weight:500;font-size:1rem;transition:opacity .3s;padding:.5rem 0}.top-nav-menu>li>a:hover{opacity:.8}.top-nav-menu>li>a.active{border-bottom:2px solid #FFF}.language-dropdown{position:relative}.lang-current{background:rgba(255,255,255,.2);color:#FFF;border:2px solid rgba(255,255,255,.3);padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:.9rem;transition:all .3s;display:flex;align-items:center;gap:.5rem}.lang-current:hover{background:rgba(255,255,255,.3)}.lang-current::after{content:'▼';font-size:.7rem}.lang-dropdown-menu{position:absolute;top:100%;right:0;margin-top:.5rem;background:#FFF;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);min-width:150px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1000}.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.lang-dropdown-menu a{display:block;padding:.75rem 1rem;color:#262626;text-decoration:none;font-weight:500;transition:background .2s}.lang-dropdown-menu a:hover{background:#f0f4ff}.lang-dropdown-menu a.active{background:#e6edff;color:#0056B3;font-weight:700}.menu-toggle{display:none;background:0;border:none;color:#FFF;font-size:1.8rem;cursor:pointer;padding:.5rem}.hero{background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=400&fit=crop') center center no-repeat;background-size:cover;color:#FFF;padding:4rem 2rem;text-align:center}.hero-content{max-width:1100px;margin:0 auto}.hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.5)}.hero-subtitle{font-size:1.2rem;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.5)}.back-button-container{max-width:1200px;margin:2rem auto;padding:0 2rem;text-align:center}.back-button{background:#0056B3;color:#fff;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all .3s ease}.back-button:hover{background:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}.content-section{padding:3rem 2rem;background:#FFF}.content-container{max-width:1200px;margin:0 auto;background:#fff;border-radius:15px;padding:3rem;box-shadow:0 10px 30px rgba(0,0,0,.1)}.content-container h1{color:#0056B3;font-size:2.5rem;margin-bottom:1rem;text-align:center}.content-container .subtitle{text-align:center;color:#666;font-size:1.1rem;margin-bottom:3rem}.content-container h2{color:#0056B3;font-size:1.6rem;margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid #e6edff}.content-container h3{color:#0056B3;font-size:1.3rem;margin:2rem 0 1rem}.content-container p{margin-bottom:1.5rem;line-height:1.8;font-size:1.05rem;color:#333}.content-container ul,.content-container ol{margin:1.5rem 0 1.5rem 2rem;line-height:1.8}.content-container li{margin-bottom:.8rem;color:#333}.highlight-box{background:#f0f4ff;padding:2rem;border-radius:10px;border-left:5px solid #0056B3;margin:2.5rem 0}.highlight-box h3{color:#0056B3;margin-bottom:1rem;margin-top:0}.highlight-box p{margin-bottom:.5rem}.highlight-box a{color:#0056B3;text-decoration:none;font-weight:600}.highlight-box a:hover{text-decoration:underline}.warning-box{background:#fff3cd;padding:2rem;border-radius:10px;border-left:5px solid #ffc107;margin:2.5rem 0}.warning-box h3{color:#856404;margin-bottom:1rem;margin-top:0}.warning-box p{color:#856404}
+
+/* Contact Form Widget */
+.contact-widget{position:fixed;bottom:30px;right:30px;z-index:1000}.contact-button{width:60px;height:60px;border-radius:50%;background-color:#0056B3;color:white;display:flex;justify-content:center;align-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(0,86,179,.3);cursor:pointer;transition:all .3s ease;border:none}.contact-button:hover{transform:scale(1.1);background-color:#003d82}.contact-popup{position:absolute;bottom:75px;right:0;width:380px;max-height:580px;background-color:white;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden}.contact-popup.active{display:flex!important}.contact-header{background-color:#0056B3;color:white;padding:20px;display:flex;justify-content:space-between;align-items:center}.contact-header h3{margin:0;font-size:1.2rem}.close-contact{cursor:pointer;font-size:1.2rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:background .3s ease;border:none;color:white}.close-contact:hover{background:rgba(255,255,255,.3)}.contact-form-container{padding:25px;overflow-y:auto}.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:.9rem}.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1px solid #e2e8f0;border-radius:8px;outline:none;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s}.form-group input:focus,.form-group textarea:focus{border-color:#0056B3}.form-group textarea{resize:vertical;min-height:90px}.submit-btn{width:100%;padding:13px;background-color:#0056B3;color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s ease}.submit-btn:hover:not(:disabled){background-color:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}.submit-btn:disabled{background-color:#ccc;cursor:not-allowed;transform:none}.success-message{background-color:#d4edda;color:#155724;padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.success-message.show{display:block}.error-message{background-color:#f8d7da;color:#721c24;padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.error-message.show{display:block}
+
+footer{background:#0056B3;color:#FFF;padding:3rem 2rem 1.5rem}.footer-content{max-width:1200px;margin:0 auto}.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;margin-bottom:2rem}.footer-section h3{font-size:1.2rem;margin-bottom:1.5rem;font-weight:700}.footer-section p{opacity:.9;line-height:1.8;margin-bottom:1rem}.footer-links{list-style:none}.footer-links li{margin-bottom:.8rem}.footer-links a{color:#FFF;text-decoration:none;opacity:.9;transition:opacity .3s;font-weight:500}.footer-links a:hover{opacity:1;text-decoration:underline}.social-links{display:flex;gap:1rem;margin-top:1rem}.social-link{width:40px;height:40px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .3s ease;text-decoration:none}.social-link:hover{background:rgba(255,255,255,.3);transform:translateY(-3px)}.footer-bottom{border-top:1px solid rgba(255,255,255,.2);padding-top:1.5rem;text-align:center}.footer-copyright{opacity:.8;font-size:.95rem}@media (max-width:1175px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:88px;left:0;width:100%;background-color:#0056B3;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.2);gap:0}.top-nav-menu.active{display:flex}.top-nav-menu>li{width:100%;border-bottom:1px solid rgba(255,255,255,.1)}.menu-toggle{display:block}}@media (max-width:768px){.hero{padding:3rem 1rem}.hero h1{font-size:2.2rem}.hero-subtitle{font-size:1rem}.content-container{padding:2rem 1.5rem}.content-container h1{font-size:2rem}.content-container h2{font-size:1.4rem}.footer-grid{grid-template-columns:1fr}.top-nav-logo img{max-height:60px}.contact-popup{width:320px;right:-30px}}
+</style>
 </head>
 <body>
-    <!-- TOP NAVIGATION -->
-    <nav class="top-nav">
-        <div class="top-nav-container">
-            <a href="index.html" class="top-nav-logo">
-                <img src="../images/fly_reisen24_logo_white.png" alt="flyreisen24">
-            </a>
+<nav class="top-nav">
+<div class="top-nav-container">
+<a href="../index.html" class="top-nav-logo">
+<img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" alt="flyreisen24">
+</a>
+<ul class="top-nav-menu" id="topNavMenu">
+<li><a href="../index.html">หน้าแรก</a></li>
+<li><a href="#" id="aboutLink">เกี่ยวกับเรา</a></li>
+<li><a href="../contact.html">ติดต่อเรา</a></li>
+<li class="language-dropdown">
+<button class="lang-current" onclick="toggleLangDropdown()">
+<span id="currentLang">TH</span>
+</button>
+<div class="lang-dropdown-menu">
+<a href="#" class="active" onclick="switchLanguage('th','TH');return false;">ไทย (TH)</a>
+<a href="#" onclick="switchLanguage('en','EN');return false;">English (EN)</a>
+<a href="#" onclick="switchLanguage('de','DE');return false;">Deutsch (DE)</a>
+</div>
+</li>
+</ul>
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>นโยบายความเป็นส่วนตัว</h1>
+<p class="hero-subtitle">เรายึดมั่นในการปกป้องข้อมูลส่วนบุคคลของคุณ</p>
+</div>
+</section>
+
+<div class="back-button-container">
+<a href="../index.html" class="back-button"><i class="fas fa-arrow-left"></i> กลับสู่หน้าหลัก</a>
+</div>
+
+<section class="content-section">
+<div class="content-container">
+<h1>นโยบายความเป็นส่วนตัว – flyreisen24.com</h1>
+<p class="subtitle">เรียนผู้ใช้บริการทุกท่าน</p>
+
+<p>flyreisen24.com ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายความเป็นส่วนตัวนี้อธิบายวิธีการที่เราเก็บรวบรวม ใช้ และเปิดเผยข้อมูลของคุณเมื่อคุณใช้เว็บไซต์ของเรา</p>
+
+<h2>1. ข้อมูลที่เราเก็บรวบรวม</h2>
+<ul>
+<li><strong>ข้อมูลส่วนบุคคล:</strong> ชื่อ อีเมล และข้อมูลอื่นๆ ที่คุณกรอกผ่านฟอร์มบนเว็บไซต์ของเรา</li>
+<li><strong>ข้อมูลการใช้งาน:</strong> IP address, ประเภทเบราว์เซอร์, หน้าที่เข้าชม, เวลาที่ใช้บนเว็บไซต์</li>
+<li><strong>คุกกี้และเทคโนโลยีการติดตาม:</strong> เราใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ วิเคราะห์การใช้งานเว็บไซต์ และปรับแต่งเนื้อหา</li>
+<li><strong>ข้อมูลการท่องเที่ยว:</strong> เส้นทางการเดินทาง วันที่ และความต้องการพิเศษที่คุณระบุ</li>
+</ul>
+
+<h2>2. วัตถุประสงค์ในการใช้ข้อมูล</h2>
+<ul>
+<li>เพื่อให้บริการและปรับปรุงประสบการณ์ของคุณบนเว็บไซต์</li>
+<li>เพื่อดำเนินการตามคำขอของคุณ (เช่น การค้นหาเที่ยวบิน)</li>
+<li>เพื่อวิเคราะห์การใช้งานเว็บไซต์และปรับปรุงบริการของเรา</li>
+<li>เพื่อติดต่อคุณเกี่ยวกับบริการหรือข้อเสนอที่เกี่ยวข้อง หากคุณได้ให้ความยินยอม</li>
+</ul>
+
+<h2>3. การแบ่งปันข้อมูลกับบุคคลที่สาม</h2>
+<p>เราใช้บริการจากบุคคลที่สามดังต่อไปนี้:</p>
+<ul>
+<li><strong>TravelPayouts:</strong> เพื่อให้บริการค้นหาและเปรียบเทียบราคาเที่ยวบิน</li>
+<li><strong>Google Analytics:</strong> เพื่อวิเคราะห์การใช้งานเว็บไซต์</li>
+<li><strong>Netlify:</strong> เพื่อให้บริการโฮสติ้งเว็บไซต์</li>
+</ul>
+<p>เราไม่ขายหรือให้เช่าข้อมูลส่วนบุคคลของคุณแก่บุคคลที่สาม อย่างไรก็ตาม ข้อมูลบางส่วนอาจถูกแบ่งปันกับพันธมิตรเพื่อจุดประสงค์ในการให้บริการเท่านั้น</p>
+
+<h2>4. การโอนข้อมูลระหว่างประเทศ</h2>
+<p>เนื่องจากเราใช้บริการจากผู้ให้บริการระดับนานาชาติ ข้อมูลของคุณอาจถูกเก็บและประมวลผลในประเทศที่อยู่นอกประเทศของคุณ ประเทศเหล่านี้อาจมีกฎหมายคุ้มครองข้อมูลที่แตกต่างออกไป เราจะใช้มาตรการเหมาะสมเพื่อให้แน่ใจว่าข้อมูลของคุณได้รับการคุ้มครองอย่างเพียงพอไม่ว่าจะถูกประมวลผลที่ใดก็ตาม</p>
+
+<h2>5. ระยะเวลาการเก็บรักษาข้อมูล</h2>
+<p>เราจะเก็บรักษาข้อมูลส่วนบุคคลของคุณตราบเท่าที่จำเป็นเพื่อบรรลุวัตถุประสงค์ที่ระบุไว้ในนโยบายนี้ หรือตามที่กฎหมายกำหนด โดยทั่วไปไม่เกิน 2 ปี</p>
+
+<h2>6. สิทธิของคุณ</h2>
+<ul>
+<li>สิทธิในการเข้าถึงและรับสำเนาข้อมูล</li>
+<li>สิทธิในการแก้ไขหรือปรับปรุงข้อมูล</li>
+<li>สิทธิในการลบข้อมูล</li>
+<li>สิทธิในการจำกัดการประมวลผล</li>
+<li>สิทธิในการคัดค้านการประมวลผล</li>
+<li>สิทธิในการถอนความยินยอม</li>
+</ul>
+<p>หากต้องการใช้สิทธิเหล่านี้ โปรดติดต่อเราที่ info@flyreisen24.com</p>
+
+<h2>7. นโยบายสำหรับผู้เยาว์</h2>
+<p>บริการของเราไม่ได้มีวัตถุประสงค์เพื่อใช้โดยผู้ที่มีอายุต่ำกว่า 16 ปี เราไม่เก็บรวบรวมข้อมูลส่วนบุคคลจากผู้ที่เรารู้ว่ามีอายุต่ำกว่า 16 ปีโดยเจตนา หากคุณเป็นผู้ปกครองหรือผู้ดูแลและเชื่อว่าบุตรหลานของคุณได้ให้ข้อมูลส่วนบุคคลแก่เรา โปรดติดต่อเราและเราจะดำเนินการลบข้อมูลนั้นออกจากระบบของเรา</p>
+
+<h2>8. การตลาดทางอีเมล</h2>
+<p>หากคุณได้สมัครรับข่าวสารหรือโปรโมชั่นทางอีเมลจากเรา คุณสามารถยกเลิกการรับข้อมูลได้ตลอดเวลาโดยคลิกลิงก์ "ยกเลิกการสมัคร" ที่ด้านล่างของอีเมลหรือโดยติดต่อเราโดยตรงที่ info@flyreisen24.com</p>
+
+<h2>9. การตอบสนองต่อคำขอทางกฎหมาย</h2>
+<p>ในบางสถานการณ์ เราอาจต้องเปิดเผยข้อมูลส่วนบุคคลของคุณตามคำสั่งของศาล หมายศาล หรือกระบวนการทางกฎหมายอื่นๆ เราอาจเปิดเผยข้อมูลของคุณเพื่อปกป้องสิทธิของเรา ปกป้องความปลอดภัยของคุณหรือความปลอดภัยของผู้อื่น สืบสวนการฉ้อโกง หรือตอบสนองต่อคำขอจากรัฐบาล</p>
+
+<h2>10. การรักษาความปลอดภัย</h2>
+<p>เรามุ่งมั่นที่จะปกป้องข้อมูลของคุณ และใช้มาตรการทางเทคนิคและการจัดการที่เหมาะสมเพื่อปกป้องข้อมูลจากการเข้าถึง การเปิดเผย การเปลี่ยนแปลง หรือการทำลายโดยไม่ได้รับอนุญาต</p>
+
+<h2>11. การเปลี่ยนแปลงนโยบาย</h2>
+<p>เราอาจปรับปรุงนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว การเปลี่ยนแปลงจะมีผลเมื่อเราโพสต์นโยบายฉบับแก้ไขบนเว็บไซต์ แนะนำให้คุณตรวจสอบนโยบายนี้เป็นระยะเพื่อรับทราบการเปลี่ยนแปลงใดๆ</p>
+
+<h2>12. กฎหมายความเป็นส่วนตัวที่เกี่ยวข้อง</h2>
+<p>เราดำเนินการภายใต้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA) และกฎหมายคุ้มครองข้อมูลส่วนบุคคลอื่นๆ ที่เกี่ยวข้อง หากคุณอยู่ในสหภาพยุโรป เราเคารพสิทธิของคุณภายใต้กฎหมายคุ้มครองข้อมูลทั่วไป (GDPR)</p>
+
+<div class="highlight-box">
+<h3>13. ติดต่อเรา</h3>
+<p>หากคุณมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวของเรา หรือต้องการใช้สิทธิเกี่ยวกับข้อมูลส่วนบุคคลของคุณ โปรดติดต่อเราที่:</p>
+<p><i class="fas fa-envelope"></i> <strong>อีเมล:</strong> <a href="mailto:info@flyreisen24.com">info@flyreisen24.com</a></p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT FORM WIDGET -->
+<div class="contact-widget">
+<button class="contact-button" onclick="toggleContact()">
+<i class="fas fa-envelope"></i>
+</button>
+<div class="contact-popup" id="contactPopup">
+<div class="contact-header">
+<h3>ติดต่อเรา</h3>
+<button class="close-contact" onclick="toggleContact()">✕</button>
+</div>
+<div class="contact-form-container">
+<div class="success-message" id="successMessage">
+✅ ส่งข้อความสำเร็จ! เราจะติดต่อกลับเร็วๆ นี้
+</div>
+<div class="error-message" id="errorMessage">
+❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง
+</div>
+<form id="contactForm" action="https://formspree.io/f/xreggjzv" method="POST">
+<div class="form-group">
+<label for="name">ชื่อ *</label>
+<input type="text" id="name" name="name" required placeholder="ชื่อของคุณ">
+</div>
+<div class="form-group">
+<label for="email">อีเมล *</label>
+<input type="email" id="email" name="email" required placeholder="example@email.com">
+</div>
+<div class="form-group">
+<label for="subject">หัวข้อ</label>
+<input type="text" id="subject" name="subject" placeholder="เรื่องที่ต้องการสอบถาม">
+</div>
+<div class="form-group">
+<label for="message">ข้อความ *</label>
+<textarea id="message" name="message" required placeholder="ข้อความของคุณ"></textarea>
+</div>
+<button type="submit" class="submit-btn" id="submitBtn">
+<i class="fas fa-paper-plane"></i> ส่งข้อความ
+</button>
+</form>
+</div>
+</div>
+</div>
+
+<footer>
+<div class="footer-content">
+<div class="footer-grid">
+<div class="footer-section">
+<h3>FlyReisen24</h3>
+<p>เราเป็นผู้นำด้านการค้นหาและจองตั๋วเครื่องบินออนไลน์ เปรียบเทียบราคาจากสายการบินชั้นนำทั่วโลก</p>
+<div class="social-links">
+<a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+<a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+<div class="footer-section">
+<h3>ลิงก์ด่วน</h3>
+<ul class="footer-links">
+<li><a href="../index.html">หน้าแรก</a></li>
+<li><a href="#" id="footerAboutLink">เกี่ยวกับเรา</a></li>
+<li><a href="../contact.html">ติดต่อเรา</a></li>
+<li><a href="#" id="footerTermsLink">ข้อกำหนด</a></li>
+<li><a href="#" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>สายการบิน</h3>
+<ul class="footer-links">
+<li><a href="#">การบินไทย</a></li>
+<li><a href="#">บางกอกแอร์เวย์</a></li>
+<li><a href="#">แอร์เอเชีย</a></li>
+<li><a href="#">กาตาร์แอร์เวย์</a></li>
+<li><a href="#">เอมิเรตส์</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>ติดต่อเรา</h3>
+<p><i class="fas fa-envelope"></i> <span>info@flyreisen24.com</span></p>
+<p><i class="fas fa-phone"></i> 02-123-4567</p>
+<p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="footer-copyright">Copyright © 2025 flyreisen24.com - All Rights Reserved</p>
+</div>
+</div>
+</footer>
+
+<script>
+const BASE_URL = 'https://nickinicha.github.io/flyreisen24.com';
+const languageLinks = {
+    'th': {
+        about: `${BASE_URL}/th/about_th.html`,
+        terms: `${BASE_URL}/th/terms_th.html`,
+        privacy: `${BASE_URL}/th/privacy_th.html`
+    },
+    'en': {
+        about: `${BASE_URL}/en/about_en.html`,
+        terms: `${BASE_URL}/en/terms_en.html`,
+        privacy: `${BASE_URL}/en/privacy_en.html`
+    },
+    'de': {
+        about: `${BASE_URL}/de/about_de.html`,
+        terms: `${BASE_URL}/de/terms_de.html`,
+        privacy: `${BASE_URL}/de/privacy_de.html`
+    }
+};
+
+function getCurrentLanguage() {
+    return localStorage.getItem('flyreisen24_lang') || 'th';
+}
+
+function updateNavigationLinks() {
+    const currentLang = getCurrentLanguage();
+    const links = languageLinks[currentLang];
+    document.getElementById('aboutLink').href = links.about;
+    document.getElementById('footerAboutLink').href = links.about;
+    document.getElementById('footerTermsLink').href = links.terms;
+    document.getElementById('footerPrivacyLink').href = links.privacy;
+}
+
+function toggleContact() {
+    const contactPopup = document.getElementById('contactPopup');
+    contactPopup.classList.toggle('active');
+    if (contactPopup.classList.contains('active')) {
+        document.getElementById('name').focus();
+    }
+}
+
+function toggleMenu() {
+    const menu = document.getElementById('topNavMenu');
+    const toggle = document.querySelector('.menu-toggle');
+    menu.classList.toggle('active');
+    toggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
+}
+
+function toggleLangDropdown() {
+    document.querySelector('.language-dropdown').classList.toggle('active');
+}
+
+function switchLanguage(lang, display) {
+    localStorage.setItem('flyreisen24_lang', lang);
+    document.getElementById('currentLang').textContent = display;
+    document.querySelector('.language-dropdown').classList.remove('active');
+    updateNavigationLinks();
+    
+    const langMap = {'th': 'th', 'en': 'en', 'de': 'de'};
+    const page = 'privacy';
+    window.location.href = `${BASE_URL}/${langMap[lang]}/${page}_${langMap[lang]}.html`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMessage');
+    const errorMsg = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';
+        successMsg.classList.remove('show');
+        errorMsg.classList.remove('show');
+        
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {'Accept': 'application/json'}
+            });
             
-            <ul class="top-nav-menu" id="topNavMenu">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="about_th.html">เกี่ยวกับเรา</a></li>
-                <li><a href="contact.html">ติดต่อเรา</a></li>
-                <li class="language-dropdown">
-                    <button class="lang-current" onclick="toggleLangDropdown()">
-                        <span id="currentLang">TH</span>
-                    </button>
-                    <div class="lang-dropdown-menu">
-                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">ไทย (TH)</a>
-                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">English (EN)</a>
-                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">Deutsch (DE)</a>
-                    </div>
-                </li>
-            </ul>
-
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>นโยบายความเป็นส่วนตัว</h1>
-            <p class="hero-subtitle">เรายึดมั่นในการปกป้องข้อมูลส่วนบุคคลของคุณ</p>
-        </div>
-    </section>
-
-    <!-- BACK BUTTON -->
-    <div class="back-button-container">
-        <a href="index.html" class="back-button">
-            <i class="fas fa-arrow-left"></i> กลับสู่หน้าหลัก
-        </a>
-    </div>
-
-    <!-- CONTENT SECTION -->
-    <section class="content-section">
-        <div class="content-container">
-            <h1>นโยบายความเป็นส่วนตัว – flyreisen24.com</h1>
-            <p class="subtitle">เรียนผู้ใช้บริการทุกท่าน</p>
-            
-            <p>flyreisen24.com ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายความเป็นส่วนตัวนี้อธิบายวิธีการที่เราเก็บรวบรวม ใช้ และเปิดเผยข้อมูลของคุณเมื่อคุณใช้เว็บไซต์ของเรา</p>
-
-            <h2>1. ข้อมูลที่เราเก็บรวบรวม</h2>
-            <ul>
-                <li><strong>ข้อมูลส่วนบุคคล:</strong> ชื่อ อีเมล และข้อมูลอื่นๆ ที่คุณกรอกผ่านฟอร์มบนเว็บไซต์ของเรา</li>
-                <li><strong>ข้อมูลการใช้งาน:</strong> IP address, ประเภทเบราว์เซอร์, หน้าที่เข้าชม, เวลาที่ใช้บนเว็บไซต์</li>
-                <li><strong>คุกกี้และเทคโนโลยีการติดตาม:</strong> เราใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ วิเคราะห์การใช้งานเว็บไซต์ และปรับแต่งเนื้อหา</li>
-                <li><strong>ข้อมูลการท่องเที่ยว:</strong> เส้นทางการเดินทาง วันที่ และความต้องการพิเศษที่คุณระบุ</li>
-            </ul>
-
-            <h2>2. วัตถุประสงค์ในการใช้ข้อมูล</h2>
-            <ul>
-                <li>เพื่อให้บริการและปรับปรุงประสบการณ์ของคุณบนเว็บไซต์</li>
-                <li>เพื่อดำเนินการตามคำขอของคุณ (เช่น การค้นหาเที่ยวบิน)</li>
-                <li>เพื่อวิเคราะห์การใช้งานเว็บไซต์และปรับปรุงบริการของเรา</li>
-                <li>เพื่อติดต่อคุณเกี่ยวกับบริการหรือข้อเสนอที่เกี่ยวข้อง หากคุณได้ให้ความยินยอม</li>
-            </ul>
-
-            <h2>3. การแบ่งปันข้อมูลกับบุคคลที่สาม</h2>
-            <p>เราใช้บริการจากบุคคลที่สามดังต่อไปนี้:</p>
-            <ul>
-                <li><strong>TravelPayouts:</strong> เพื่อให้บริการค้นหาและเปรียบเทียบราคาเที่ยวบิน</li>
-                <li><strong>Google Analytics:</strong> เพื่อวิเคราะห์การใช้งานเว็บไซต์</li>
-                <li><strong>Netlify:</strong> เพื่อให้บริการโฮสติ้งเว็บไซต์</li>
-            </ul>
-            <p>เราไม่ขายหรือให้เช่าข้อมูลส่วนบุคคลของคุณแก่บุคคลที่สาม อย่างไรก็ตาม ข้อมูลบางส่วนอาจถูกแบ่งปันกับพันธมิตรเพื่อจุดประสงค์ในการให้บริการเท่านั้น</p>
-
-            <h2>4. การโอนข้อมูลระหว่างประเทศ</h2>
-            <p>เนื่องจากเราใช้บริการจากผู้ให้บริการระดับนานาชาติ ข้อมูลของคุณอาจถูกเก็บและประมวลผลในประเทศที่อยู่นอกประเทศของคุณ ประเทศเหล่านี้อาจมีกฎหมายคุ้มครองข้อมูลที่แตกต่างออกไป เราจะใช้มาตรการเหมาะสมเพื่อให้แน่ใจว่าข้อมูลของคุณได้รับการคุ้มครองอย่างเพียงพอไม่ว่าจะถูกประมวลผลที่ใดก็ตาม</p>
-
-            <h2>5. ระยะเวลาการเก็บรักษาข้อมูล</h2>
-            <p>เราจะเก็บรักษาข้อมูลส่วนบุคคลของคุณตราบเท่าที่จำเป็นเพื่อบรรลุวัตถุประสงค์ที่ระบุไว้ในนโยบายนี้ หรือตามที่กฎหมายกำหนด โดยทั่วไปไม่เกิน 2 ปี</p>
-
-            <h2>6. สิทธิของคุณ</h2>
-            <ul>
-                <li>สิทธิในการเข้าถึงและรับสำเนาข้อมูล</li>
-                <li>สิทธิในการแก้ไขหรือปรับปรุงข้อมูล</li>
-                <li>สิทธิในการลบข้อมูล</li>
-                <li>สิทธิในการจำกัดการประมวลผล</li>
-                <li>สิทธิในการคัดค้านการประมวลผล</li>
-                <li>สิทธิในการถอนความยินยอม</li>
-            </ul>
-            <p>หากต้องการใช้สิทธิเหล่านี้ โปรดติดต่อเราที่ support@flyreisen24.com</p>
-
-            <h2>7. นโยบายสำหรับผู้เยาว์</h2>
-            <p>บริการของเราไม่ได้มีวัตถุประสงค์เพื่อใช้โดยผู้ที่มีอายุต่ำกว่า 16 ปี เราไม่เก็บรวบรวมข้อมูลส่วนบุคคลจากผู้ที่เรารู้ว่ามีอายุต่ำกว่า 16 ปีโดยเจตนา หากคุณเป็นผู้ปกครองหรือผู้ดูแลและเชื่อว่าบุตรหลานของคุณได้ให้ข้อมูลส่วนบุคคลแก่เรา โปรดติดต่อเราและเราจะดำเนินการลบข้อมูลนั้นออกจากระบบของเรา</p>
-
-            <h2>8. การตลาดทางอีเมล</h2>
-            <p>หากคุณได้สมัครรับข่าวสารหรือโปรโมชั่นทางอีเมลจากเรา คุณสามารถยกเลิกการรับข้อมูลได้ตลอดเวลาโดยคลิกลิงก์ "ยกเลิกการสมัคร" ที่ด้านล่างของอีเมลหรือโดยติดต่อเราโดยตรงที่ support@flyreisen24.com</p>
-
-            <h2>9. การตอบสนองต่อคำขอทางกฎหมาย</h2>
-            <p>ในบางสถานการณ์ เราอาจต้องเปิดเผยข้อมูลส่วนบุคคลของคุณตามคำสั่งของศาล หมายศาล หรือกระบวนการทางกฎหมายอื่นๆ เราอาจเปิดเผยข้อมูลของคุณเพื่อปกป้องสิทธิของเรา ปกป้องความปลอดภัยของคุณหรือความปลอดภัยของผู้อื่น สืบสวนการฉ้อโกง หรือตอบสนองต่อคำขอจากรัฐบาล</p>
-
-            <h2>10. การรักษาความปลอดภัย</h2>
-            <p>เรามุ่งมั่นที่จะปกป้องข้อมูลของคุณ และใช้มาตรการทางเทคนิคและการจัดการที่เหมาะสมเพื่อปกป้องข้อมูลจากการเข้าถึง การเปิดเผย การเปลี่ยนแปลง หรือการทำลายโดยไม่ได้รับอนุญาต</p>
-
-            <h2>11. การเปลี่ยนแปลงนโยบาย</h2>
-            <p>เราอาจปรับปรุงนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว การเปลี่ยนแปลงจะมีผลเมื่อเราโพสต์นโยบายฉบับแก้ไขบนเว็บไซต์ แนะนำให้คุณตรวจสอบนโยบายนี้เป็นระยะเพื่อรับทราบการเปลี่ยนแปลงใดๆ</p>
-
-            <h2>12. กฎหมายความเป็นส่วนตัวที่เกี่ยวข้อง</h2>
-            <p>เราดำเนินการภายใต้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA) และกฎหมายคุ้มครองข้อมูลส่วนบุคคลอื่นๆ ที่เกี่ยวข้อง หากคุณอยู่ในสหภาพยุโรป เราเคารพสิทธิของคุณภายใต้กฎหมายคุ้มครองข้อมูลทั่วไป (GDPR)</p>
-
-            <div class="highlight-box">
-                <h3>13. ติดต่อเรา</h3>
-                <p>หากคุณมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวของเรา หรือต้องการใช้สิทธิเกี่ยวกับข้อมูลส่วนบุคคลของคุณ โปรดติดต่อเราที่:</p>
-                <p><i class="fas fa-envelope"></i> <strong>อีเมล:</strong> <a href="mailto:support@flyreisen24.com">support@flyreisen24.com</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CHAT WIDGET -->
-    <div class="chat-widget">
-        <div class="chat-button">
-            <i class="fas fa-comments"></i>
-        </div>
-        <div class="chat-popup">
-            <div class="chat-header">
-                <h3>ฝ่ายบริการลูกค้า</h3>
-                <span class="close-chat">✕</span>
-            </div>
-            <div class="chat-messages">
-                <div class="message bot-message">
-                    สวัสดีค่ะ! ยินดีต้อนรับสู่ FlyReisen24 วันนี้มีอะไรให้ช่วยคุณไหมคะ?
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="พิมพ์ข้อความ...">
-                <button class="send-btn">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>FlyReisen24</h3>
-                    <p>เราเป็นผู้นำด้านการค้นหาและจองตั๋วเครื่องบินออนไลน์ เปรียบเทียบราคาจากสายการบินชั้นนำทั่วโลก</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ลิงก์ด่วน</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">หน้าแรก</a></li>
-                        <li><a href="about_th.html">เกี่ยวกับเรา</a></li>
-                        <li><a href="contact.html">ติดต่อเรา</a></li>
-                        <li><a href="terms_th.html">ข้อกำหนด</a></li>
-                        <li><a href="privacy_th.html">นโยบายความเป็นส่วนตัว</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>สายการบิน</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">การบินไทย</a></li>
-                        <li><a href="#">บางกอกแอร์เวย์</a></li>
-                        <li><a href="#">แอร์เอเชีย</a></li>
-                        <li><a href="#">กาตาร์แอร์เวย์</a></li>
-                        <li><a href="#">เอมิเรตส์</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ติดต่อเรา</h3>
-                    <p><i class="fas fa-envelope"></i> info@flyreisen24.com</p>
-                    <p><i class="fas fa-phone"></i> 02-123-4567</p>
-                    <p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="footer-copyright">Copyright © 2025 flyreisen24.com - All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Navigation Functions
-        function toggleMenu() {
-            const menu = document.getElementById('topNavMenu');
-            const toggle = document.querySelector('.menu-toggle');
-            menu.classList.toggle('active');
-            toggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
-        }
-
-        function toggleLangDropdown() {
-            document.querySelector('.language-dropdown').classList.toggle('active');
-        }
-
-        function switchLanguage(lang, display) {
-            localStorage.setItem('flyreisen24_lang', lang);
-            document.getElementById('currentLang').textContent = display;
-            document.querySelector('.language-dropdown').classList.remove('active');
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            const dropdown = document.querySelector('.language-dropdown');
-            if (dropdown && !dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
+            if (response.ok) {
+                successMsg.classList.add('show');
+                form.reset();
+                setTimeout(() => {
+                    toggleContact();
+                    successMsg.classList.remove('show');
+                }, 3000);
+            } else {
+                errorMsg.classList.add('show');
             }
-        });
-
-        // Chat Widget Functions
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatButton = document.querySelector('.chat-button');
-            const chatPopup = document.querySelector('.chat-popup');
-            const closeChat = document.querySelector('.close-chat');
-            
-            chatButton.addEventListener('click', () => {
-                chatPopup.style.display = chatPopup.style.display === 'flex' ? 'none' : 'flex';
-            });
-            
-            closeChat.addEventListener('click', () => {
-                chatPopup.style.display = 'none';
-            });
-            
-            const sendBtn = document.querySelector('.send-btn');
-            const chatInput = document.querySelector('.chat-input input');
-            const chatMessages = document.querySelector('.chat-messages');
-            
-            sendBtn.addEventListener('click', sendMessage);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-            
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (message) {
-                    const userMessageDiv = document.createElement('div');
-                    userMessageDiv.classList.add('message', 'user-message');
-                    userMessageDiv.textContent = message;
-                    chatMessages.appendChild(userMessageDiv);
-                    
-                    chatInput.value = '';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    const typingIndicator = document.createElement('div');
-                    typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
-                    typingIndicator.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
-                    chatMessages.appendChild(typingIndicator);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    setTimeout(() => {
-                        chatMessages.removeChild(typingIndicator);
-                        
-                        let botResponse = "ขอบคุณสำหรับข้อความของคุณ วันนี้มีอะไรให้ช่วยเกี่ยวกับการจองเที่ยวบินไหมคะ?";
-                        
-                        const lowerMsg = message.toLowerCase();
-                        if (lowerMsg.includes('สวัสดี') || lowerMsg.includes('หวัดดี')) {
-                            botResponse = "สวัสดีค่ะ! ยินดีต้อนรับสู่ FlyReisen24 วันนี้มีอะไรให้ช่วยค้นหาเที่ยวบินไหมคะ?";
-                        } else if (lowerMsg.includes('privacy') || lowerMsg.includes('ความเป็นส่วนตัว')) {
-                            botResponse = "เราให้ความสำคัญกับความเป็นส่วนตัวของคุณอย่างมาก ข้อมูลของคุณจะได้รับการปกป้องตามนโยบายความเป็นส่วนตัวของเรา หากมีคำถามเพิ่มเติม สามารถติดต่อเราได้ที่ support@flyreisen24.com";
-                        } else if (lowerMsg.includes('ติดต่อ')) {
-                            botResponse = "คุณสามารถติดต่อทีมสนับสนุนของเราได้ที่ support@flyreisen24.com เราพร้อมให้บริการตลอด 24/7";
-                        }
-                        
-                        const botMessageDiv = document.createElement('div');
-                        botMessageDiv.classList.add('message', 'bot-message');
-                        botMessageDiv.textContent = botResponse;
-                        chatMessages.appendChild(botMessageDiv);
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 1000);
-                }
-            }
-        });
-    </script>
+        } catch (error) {
+            errorMsg.classList.add('show');
+        }
+        
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ส่งข้อความ';
+    });
+    
+    updateNavigationLinks();
+    
+    document.addEventListener('click', function(e) {
+        const dropdown = document.querySelector('.language-dropdown');
+        if (dropdown && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+});
+</script>
 </body>
 </html>
