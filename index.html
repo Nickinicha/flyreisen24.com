@@ -872,7 +872,7 @@
                 
                 <div class="footer-section">
                     <h3>ติดต่อเรา</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae3e4ece5caece6f3f8efe3f9efe4b8bea4e9e5e7">[email&#160;protected]</a></p>
+                    <p><i class="fas fa-envelope"></i> <span>info@flyreisen24.com</span></p>
                     <p><i class="fas fa-phone"></i> 02-123-4567</p>
                     <p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
                 </div>
@@ -1035,7 +1035,7 @@
             document.querySelector('.language-dropdown').classList.remove('active');
         }
 
-        // Contact Form Functions
+        // Contact Form Functions (ต้องอยู่ข้างนอก DOMContentLoaded)
         function toggleContact() {
             const contactPopup = document.getElementById('contactPopup');
             contactPopup.classList.toggle('active');
@@ -1043,6 +1043,15 @@
             if (contactPopup.classList.contains('active')) {
                 document.getElementById('name').focus();
             }
+        }
+
+        // Menu Functions
+        function toggleMenu() { 
+            document.getElementById('topNavMenu').classList.toggle('active'); 
+        }
+
+        function toggleLangDropdown() { 
+            document.querySelector('.language-dropdown').classList.toggle('active'); 
         }
 
         // Handle form submission
@@ -1112,7 +1121,6 @@
                 }
             });
         });
-
-        // Menu Functions
-        function toggleMenu() { 
-            document.getEl
+    </script>
+</body>
+</html>
