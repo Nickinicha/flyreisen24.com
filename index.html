@@ -27,15 +27,15 @@
             scroll-behavior: smooth;
         }
 
-        /* ===== AIRPAZ-STYLE NAVBAR ===== */
+        /* ===== NAVIGATION STYLE - AIRPAZ INSPIRED ===== */
         .top-nav {
-            background-color: #FFFFFF;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid #e5e7eb;
+            background-color: #ffffff !important;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .top-nav-container {
@@ -44,77 +44,61 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 30px;
         }
 
         .top-nav-logo img {
-            max-height: 50px;
+            height: 42px;
             width: auto;
-            transition: opacity 0.3s;
+            display: block;
         }
 
-        .top-nav-logo:hover img {
-            opacity: 0.8;
-        }
-
-        /* Main Menu (ซ้าย) */
+        /* Main Navigation Menu */
         .top-nav-menu {
             display: flex;
-            gap: 2.5rem;
+            gap: 35px;
             list-style: none;
             align-items: center;
         }
 
-        .top-nav-menu li a {
-            color: #6b7280;
+        .top-nav-menu a {
+            color: #6b7280 !important;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 15px;
+            transition: color 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
+            gap: 8px;
             position: relative;
         }
 
-        .top-nav-menu li a:hover {
-            color: #0056B3;
+        .top-nav-menu a:hover {
+            color: #0056B3 !important;
         }
 
-        .top-nav-menu li a::after {
-            content: '';
-            position: absolute;
-            bottom: -1.3rem;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #0056B3;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .top-nav-menu li a:hover::after {
-            transform: scaleX(1);
-        }
-
-        .top-nav-menu li a i {
-            font-size: 1rem;
+        .top-nav-menu a i {
+            font-size: 16px;
             color: #9ca3af;
+            transition: color 0.3s;
         }
 
-        .top-nav-menu li a:hover i {
+        .top-nav-menu a:hover i {
             color: #0056B3;
         }
 
-        /* Badge for Deals */
-        .deals-badge {
+        /* NEW Badge */
+        .new-badge {
             background: linear-gradient(135deg, #ff6b6b, #ff4757);
             color: white;
-            font-size: 0.65rem;
-            padding: 2px 6px;
+            font-size: 9px;
+            padding: 3px 7px;
             border-radius: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            margin-left: 0.3rem;
+            margin-left: 5px;
+            position: relative;
+            top: -2px;
             animation: pulse-badge 2s infinite;
         }
 
@@ -123,21 +107,21 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Right Utilities */
+        /* Right Side Navigation */
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 25px;
         }
 
         .nav-help {
             color: #6b7280;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 14px;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 6px;
             transition: color 0.3s;
         }
 
@@ -145,7 +129,11 @@
             color: #0056B3;
         }
 
-        /* Language Switcher */
+        .nav-help i {
+            font-size: 15px;
+        }
+
+        /* Language Dropdown */
         .language-dropdown {
             position: relative;
         }
@@ -154,20 +142,25 @@
             background: #f9fafb;
             color: #374151;
             border: 1px solid #d1d5db;
-            padding: 0.5rem 1rem;
+            padding: 8px 14px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 13px;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 6px;
         }
 
         .lang-current:hover {
             border-color: #0056B3;
             background: #f0f4ff;
+        }
+
+        .lang-current i.fa-globe {
+            font-size: 14px;
+            color: #6b7280;
         }
 
         .lang-dropdown-menu {
@@ -177,7 +170,7 @@
             background: #FFFFFF;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            min-width: 150px;
+            min-width: 160px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -195,13 +188,13 @@
         .lang-dropdown-menu a {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.75rem 1rem;
-            color: #374151;
+            gap: 10px;
+            padding: 12px 16px;
+            color: #374151 !important;
             text-decoration: none;
             font-weight: 500;
             transition: background 0.2s;
-            font-size: 0.9rem;
+            font-size: 14px;
         }
 
         .lang-dropdown-menu a:hover {
@@ -210,7 +203,7 @@
 
         .lang-dropdown-menu a.active {
             background: #e6edff;
-            color: #0056B3;
+            color: #0056B3 !important;
             font-weight: 700;
         }
 
@@ -257,13 +250,16 @@
         }
 
         /* Widget Container */
-        #tpwl-search {
+        .search-widget-container {
             max-width: 1000px;
-            margin: 0 auto;
-            padding: 1.5rem;
+            margin: 20px auto;
+        }
+
+        #tpwl-search {
             background: #FFFFFF;
             border-radius: 12px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            padding: 1.5rem;
             min-height: auto;
         }
 
@@ -706,97 +702,63 @@
             display: block;
         }
 
-        /* Footer */
-        footer {
-            background: #0056B3;
-            color: #FFFFFF;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* ===== FOOTER STYLE - CLEAN & PROFESSIONAL ===== */
+        .main-footer {
+            background-color: #ffffff;
+            border-top: 1px solid #eee;
+            padding: 60px 0 30px;
+            color: #666;
         }
 
         .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
         }
 
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+        .footer-col h4 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 16px;
             font-weight: 700;
         }
 
-        .footer-section p {
-            opacity: 0.9;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
+        .footer-col ul {
             list-style: none;
+            padding: 0;
         }
 
-        .footer-links li {
-            margin-bottom: 0.8rem;
+        .footer-col ul li {
+            margin-bottom: 12px;
         }
 
-        .footer-links a {
-            color: #FFFFFF;
+        .footer-col ul a {
+            color: #777;
             text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-            font-weight: 500;
+            font-size: 14px;
+            transition: 0.3s;
         }
 
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
+        .footer-col ul a:hover {
+            color: #0056B3;
+            padding-left: 5px;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1.5rem;
             text-align: center;
-        }
-
-        .footer-copyright {
-            opacity: 0.8;
-            font-size: 0.95rem;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 13px;
         }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .top-nav-menu {
-                gap: 1.5rem;
+                gap: 20px;
             }
         }
 
@@ -812,7 +774,7 @@
                 padding: 1rem 2rem;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
                 gap: 0;
-                border-top: 1px solid #e5e7eb;
+                border-top: 1px solid #f0f0f0;
             }
 
             .top-nav-menu.active {
@@ -825,16 +787,12 @@
                 padding: 0.8rem 0;
             }
 
-            .top-nav-menu li a::after {
-                display: none;
-            }
-
             .menu-toggle {
                 display: block;
             }
 
             .nav-right {
-                gap: 1rem;
+                gap: 15px;
             }
 
             .hero h1 {
@@ -870,7 +828,7 @@
             }
 
             .top-nav-logo img {
-                max-height: 40px;
+                max-height: 36px;
             }
 
             .contact-popup {
@@ -881,11 +839,11 @@
     </style>
 </head>
 <body>
-    <!-- AIRPAZ-STYLE NAVIGATION -->
+    <!-- NAVIGATION -->
     <nav class="top-nav">
         <div class="top-nav-container">
             <a href="index.html" class="top-nav-logo">
-                <img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
+                <img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_blue.png" alt="FlyReisen24">
             </a>
             
             <ul class="top-nav-menu" id="topNavMenu">
@@ -896,13 +854,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="hotels.html">
+                    <a href="https://trip.tpo.mx/bVJLx4bn" target="_blank">
                         <i class="fas fa-hotel"></i>
                         Hotel
                     </a>
                 </li>
                 <li>
-                    <a href="cars.html">
+                    <a href="https://klook.tpo.mx/oOSUgcwd" target="_blank">
                         <i class="fas fa-car"></i>
                         Car
                     </a>
@@ -911,7 +869,7 @@
                     <a href="#deals">
                         <i class="fas fa-tags"></i>
                         Deals
-                        <span class="deals-badge">New</span>
+                        <span class="new-badge">NEW</span>
                     </a>
                 </li>
             </ul>
@@ -922,11 +880,11 @@
                     Help
                 </a>
                 
-                <div class="language-dropdown">
+                <div class="language-dropdown" id="languageDropdown">
                     <button class="lang-current" onclick="toggleLangDropdown()">
                         <i class="fas fa-globe"></i>
                         <span id="currentLang">TH</span>
-                        <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+                        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
                     </button>
                     <div class="lang-dropdown-menu">
                         <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">
@@ -949,16 +907,26 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1>แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</h1>
-            <p class="hero-subtitle">ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก</p>
+            <h1 id="heroTitle">แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</h1>
+            <p class="hero-subtitle" id="heroSubtitle">ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก</p>
         
-            <div class="search-widget-container" style="max-width: 1000px; margin: 20px auto;">
+            <div class="search-widget-container">
                 <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
                   (function () {
                         var script = document.createElement("script");
                         script.async = 1;
                         script.type = "module";
                         script.src = "https://tpembd.com/wl_web/main.js?wl_id=2299";
+                        
+                        script.onload = function() {
+                            console.log('✅ Travelpayouts Widget loaded successfully');
+                        };
+                        
+                        script.onerror = function() {
+                            console.error('❌ Failed to load Travelpayouts Widget');
+                            document.getElementById('tpwl-search').innerHTML = '<div class="loading-widget"><p style="color: #d32f2f;">⚠️ ไม่สามารถโหลดแบบฟอร์มค้นหาได้ กรุณารีเฟรชหน้าเว็บ</p></div>';
+                        };
+                        
                         document.head.appendChild(script);
 
                         window.TPWL_CONFIGURATION = {
@@ -967,7 +935,12 @@
                         };
                       })();
                 </script>
-                <div id="tpwl-search"></div>
+                <div id="tpwl-search">
+                    <div class="loading-widget">
+                        <div class="spinner"></div>
+                        <p>กำลังโหลดแบบฟอร์มค้นหา...</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -990,7 +963,7 @@
                     <span class="btn-action">จองเที่ยวบิน</span>
                 </a>
                 
-                <a href="hotels.html" class="booking-card">
+                <a href="https://trip.tpo.mx/bVJLx4bn" target="_blank" class="booking-card">
                     <div>
                         <i class="fas fa-hotel"></i>
                         <h3>โรงแรม & ที่พัก</h3>
@@ -999,7 +972,7 @@
                     <span class="btn-action">ดูที่พัก</span>
                 </a>
                 
-                <a href="cars.html" class="booking-card">
+                <a href="https://klook.tpo.mx/oOSUgcwd" target="_blank" class="booking-card">
                     <div>
                         <i class="fas fa-car"></i>
                         <h3>รถเช่า & กิจกรรม</h3>
@@ -1114,230 +1087,143 @@
     </div>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>FlyReisen24</h3>
-                    <p>เราเป็นผู้นำด้านการค้นหาและจองตั๋วเครื่องบินออนไลน์ เปรียบเทียบราคาจากสายการบินชั้นนำทั่วโลก</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ลิงก์ด่วน</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">หน้าแรก</a></li>
-                        <li><a href="https://flights.flyreisen24.com">เที่ยวบิน</a></li>
-                        <li><a href="hotels.html">โรงแรม</a></li>
-                        <li><a href="cars.html">รถเช่า & กิจกรรม</a></li>
-                        <li><a href="#" id="footerAboutLink">เกี่ยวกับเรา</a></li>
-                        <li><a href="contact.html">ติดต่อเรา</a></li>
-                        <li><a href="#" id="footerTermsLink">ข้อกำหนด</a></li>
-                        <li><a href="#" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>สายการบิน</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">การบินไทย</a></li>
-                        <li><a href="#">บางกอกแอร์เวย์</a></li>
-                        <li><a href="#">แอร์เอเชีย</a></li>
-                        <li><a href="#">กาตาร์แอร์เวย์</a></li>
-                        <li><a href="#">เอมิเรตส์</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ติดต่อเรา</h3>
-                    <p><i class="fas fa-envelope"></i> info@flyreisen24.com</p>
-                    <p><i class="fas fa-phone"></i> 02-123-4567</p>
-                    <p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
-                </div>
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_blue.png" style="height: 35px; margin-bottom: 20px;">
+                <p style="font-size: 14px; line-height: 1.6;">แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวบรวมดีลจากพาร์ทเนอร์ชั้นนำทั่วโลกมาไว้ในที่เดียว</p>
             </div>
-            
-            <div class="footer-bottom">
-                <p class="footer-copyright">Copyright © 2025 flyreisen24.com - All Rights Reserved</p>
+            <div class="footer-col">
+                <h4>บริการของเรา</h4>
+                <ul>
+                    <li><a href="https://flights.flyreisen24.com">ค้นหาตั๋วเครื่องบิน</a></li>
+                    <li><a href="https://trip.tpo.mx/bVJLx4bn" target="_blank">จองโรงแรมที่พัก</a></li>
+                    <li><a href="https://klook.tpo.mx/oOSUgcwd" target="_blank">รถเช่าและกิจกรรม</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>ช่วยเหลือ</h4>
+                <ul>
+                    <li><a href="contact.html">ติดต่อฝ่ายบริการ</a></li>
+                    <li><a href="#">คำถามที่พบบ่อย</a></li>
+                    <li><a href="#">วิธีการจอง</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>ข้อมูลทางกฎหมาย</h4>
+                <ul>
+                    <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+                    <li><a href="#">ข้อกำหนดและเงื่อนไข</a></li>
+                    <li><a href="#">Imprint (Impressum)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 flyreisen24.com. All Rights Reserved.
         </div>
     </footer>
     
     <script>
-        // Language URL Configuration
-        const BASE_URL = 'https://nickinicha.github.io/flyreisen24.com';
-        
-        const languageLinks = {
-            'th': {
-                about: `${BASE_URL}/th/about_th.html`,
-                terms: `${BASE_URL}/th/terms_th.html`,
-                privacy: `${BASE_URL}/th/privacy_th.html`
-            },
-            'en': {
-                about: `${BASE_URL}/en/about_en.html`,
-                terms: `${BASE_URL}/en/terms_en.html`,
-                privacy: `${BASE_URL}/en/privacy_en.html`
-            },
-            'de': {
-                about: `${BASE_URL}/de/about_de.html`,
-                terms: `${BASE_URL}/de/terms_de.html`,
-                privacy: `${BASE_URL}/de/privacy_de.html`
-            }
-        };
-
-        // Get current language
-        function getCurrentLanguage() {
-            return localStorage.getItem('flyreisen24_lang') || 'th';
-        }
-
-        // Update navigation links
-        function updateNavigationLinks() {
-            const currentLang = getCurrentLanguage();
-            const links = languageLinks[currentLang];
-            const footerAbout = document.getElementById('footerAboutLink');
-            const footerTerms = document.getElementById('footerTermsLink');
-            const footerPrivacy = document.getElementById('footerPrivacyLink');
-            
-            if (footerAbout) footerAbout.href = links.about;
-            if (footerTerms) footerTerms.href = links.terms;
-            if (footerPrivacy) footerPrivacy.href = links.privacy;
-        }
-
-        // Config
-        const tpConfig = {
-            marker: "189577",
-            promo_id: "4114",
-            host: "flights.flyreisen24.com",
-            trs: "402300",
-            campaign_id: "100"
-        };
-
-        const localeMapping = { 'th': 'th', 'en': 'en', 'de': 'de' };
-
-        // Load Search Widget
-        function loadSearchWidget(langCode = 'th') {
-            const container = document.getElementById('tpwl-search');
-            const locale = localeMapping[langCode] || 'th';
-            
-            container.innerHTML = `<div class="loading-widget"><div class="spinner"></div><p>กำลังโหลดแบบฟอร์มค้นหา...</p></div>`;
-
-            const oldScript = document.getElementById('tpwl-widget-script');
-            if (oldScript) oldScript.remove();
-
-            const script = document.createElement('script');
-            script.id = 'tpwl-widget-script';
-            script.async = true;
-            script.charset = 'utf-8';
-            
-            const params = new URLSearchParams({
-                currency: 'usd', trs: tpConfig.trs, shmarker: tpConfig.marker,
-                show_hotels: 'false', powered_by: 'true', locale: locale,
-                searchUrl: 'www.aviasales.com%2Fsearch',
-                primary_override: '%231411Ec', color_button: '%231411Ec',
-                color_icons: '%231411Ec', dark: '%23262626', light: '%23FFFFFF',
-                secondary: '%23FFFFFF', special: '%23C4C4C4',
-                color_focused: '%231411Ec', border_radius: '0', plain: 'true',
-                promo_id: tpConfig.promo_id, campaign_id: tpConfig.campaign_id
-            });
-
-            script.src = `https://tpembd.com/content?${params.toString()}`;
-            script.onerror = () => {
-                container.innerHTML = `<div class="loading-widget"><p style="color: #d32f2f;">⚠️ ไม่สามารถโหลดแบบฟอร์มค้นหาได้ กรุณาลองใหม่อีกครั้ง</p></div>`;
-            };
-            document.body.appendChild(script);
+        // Toggle Language Dropdown
+        function toggleLangDropdown() {
+            document.getElementById('languageDropdown').classList.toggle('active');
         }
 
         // Switch Language
         function switchLanguage(langCode, label) {
-            document.getElementById('currentLang').innerText = label;
+            document.getElementById('currentLang').textContent = label;
+            
             document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('onclick').includes(`'${langCode}'`)) link.classList.add('active');
+                if (link.getAttribute('onclick').includes(`'${langCode}'`)) {
+                    link.classList.add('active');
+                }
             });
-            localStorage.setItem('flyreisen24_lang', langCode);
-            updateNavigationLinks();
-            loadSearchWidget(langCode);
             
-            const content = {
-                'th': { title: 'แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์', sub: 'ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก' },
-                'en': { title: 'Travel Platform for Every Lifestyle', sub: 'Find cheap flights from top airlines worldwide' },
-                'de': { title: 'Reiseplattform für jeden Lebensstil', sub: 'Günstige Flüge weltweit finden' }
-            };
-            document.querySelector('.hero h1').innerText = content[langCode].title;
-            document.querySelector('.hero-subtitle').innerText = content[langCode].sub;
-            document.querySelector('.language-dropdown').classList.remove('active');
+            localStorage.setItem('flyreisen24_lang', langCode);
+            document.getElementById('languageDropdown').classList.remove('active');
+            
+            console.log(`✅ Language switched to: ${label}`);
+        }
+
+        // Menu Functions
+        function toggleMenu() { 
+            document.getElementById('topNavMenu').classList.toggle('active'); 
         }
 
         // Contact Functions
         function toggleContact() {
             const popup = document.getElementById('contactPopup');
             popup.classList.toggle('active');
-            if (popup.classList.contains('active')) document.getElementById('name').focus();
+            if (popup.classList.contains('active')) {
+                document.getElementById('name').focus();
+            }
         }
-
-        // Menu Functions
-        function toggleMenu() { document.getElementById('topNavMenu').classList.toggle('active'); }
-        function toggleLangDropdown() { document.querySelector('.language-dropdown').classList.toggle('active'); }
 
         // Form Submission
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language
+            const currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
+            const langLabels = { 'th': 'TH', 'en': 'EN', 'de': 'DE' };
+            document.getElementById('currentLang').textContent = langLabels[currentLang];
+            
+            // Contact Form
             const form = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
             const successMsg = document.getElementById('successMessage');
             const errorMsg = document.getElementById('errorMessage');
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';
-                successMsg.classList.remove('show');
-                errorMsg.classList.remove('show');
-                
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';
+                    successMsg.classList.remove('show');
+                    errorMsg.classList.remove('show');
                     
-                    if (response.ok) {
-                        successMsg.classList.add('show');
-                        form.reset();
-                        setTimeout(() => { toggleContact(); successMsg.classList.remove('show'); }, 3000);
-                    } else {
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: new FormData(form),
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        
+                        if (response.ok) {
+                            successMsg.classList.add('show');
+                            form.reset();
+                            setTimeout(() => { 
+                                toggleContact(); 
+                                successMsg.classList.remove('show'); 
+                            }, 3000);
+                        } else {
+                            errorMsg.classList.add('show');
+                        }
+                    } catch (error) {
                         errorMsg.classList.add('show');
                     }
-                } catch (error) {
-                    errorMsg.classList.add('show');
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ส่งข้อความ';
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(event) {
+                const nav = document.querySelector('.top-nav');
+                const menu = document.getElementById('topNavMenu');
+                const langDropdown = document.getElementById('languageDropdown');
+                
+                if (nav && menu && !nav.contains(event.target) && menu.classList.contains('active')) {
+                    menu.classList.remove('active');
                 }
                 
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ส่งข้อความ';
-            });
-            
-            updateNavigationLinks();
-            loadSearchWidget(getCurrentLanguage());
-            
-            document.addEventListener('click', function(event) {
-                const langDropdown = document.querySelector('.language-dropdown');
                 if (langDropdown && !langDropdown.contains(event.target)) {
                     langDropdown.classList.remove('active');
                 }
             });
         });
+
+        console.log('✅ FlyReisen24 - Airpaz Style with Working Widget & Language Switcher');
     </script>
 </body>
 </html>
-
