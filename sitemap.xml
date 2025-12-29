@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage (Thai) -->
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="th" href="https://nickinicha.github.io/flyreisen24.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nickinicha.github.io/flyreisen24.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://nickinicha.github.io/flyreisen24.com/de/" />
+  </url>
+  
+  <!-- Booking Bridge Page -->
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/booking.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Flight Search (White Label) -->
+  <url>
+    <loc>https://flights.flyreisen24.com/</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/contact.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Legal Pages (Thai) -->
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/th/about_th.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/th/terms_th.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/th/privacy_th.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <!-- Legal Pages (English) -->
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/en/about_en.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/en/terms_en.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/en/privacy_en.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <!-- Legal Pages (German) -->
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/de/about_de.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/de/terms_de.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://nickinicha.github.io/flyreisen24.com/de/privacy_de.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+</urlset>
