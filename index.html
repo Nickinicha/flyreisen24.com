@@ -48,7 +48,7 @@
         }
 
         .top-nav-logo img {
-            height: 42px;
+            height: 75px;
             width: auto;
             display: block;
         }
@@ -828,7 +828,7 @@
             }
 
             .top-nav-logo img {
-                max-height: 36px;
+                max-height: 65px;
             }
 
             .contact-popup {
@@ -850,25 +850,25 @@
                 <li>
                     <a href="https://flights.flyreisen24.com">
                         <i class="fas fa-plane-departure"></i>
-                        Flight
+                        <span id="navFlight">Flight</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://trip.tpo.mx/bVJLx4bn" target="_blank">
                         <i class="fas fa-hotel"></i>
-                        Hotel
+                        <span id="navHotel">Hotel</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://klook.tpo.mx/oOSUgcwd" target="_blank">
                         <i class="fas fa-car"></i>
-                        Car
+                        <span id="navCar">Car</span>
                     </a>
                 </li>
                 <li>
                     <a href="#deals">
                         <i class="fas fa-tags"></i>
-                        Deals
+                        <span id="navDeals">Deals</span>
                         <span class="new-badge">NEW</span>
                     </a>
                 </li>
@@ -938,7 +938,7 @@
                 <div id="tpwl-search">
                     <div class="loading-widget">
                         <div class="spinner"></div>
-                        <p>กำลังโหลดแบบฟอร์มค้นหา...</p>
+                        <p id="loadingText">กำลังโหลดแบบฟอร์มค้นหา...</p>
                     </div>
                 </div>
             </div>
@@ -949,36 +949,36 @@
     <section class="booking-section" id="deals">
         <div class="booking-container">
             <div class="section-title">
-                <h2>วางแผนการเดินทางของคุณ</h2>
-                <p>บริการครบวงจร สำหรับทริปในฝันของคุณ</p>
+                <h2 id="sectionTitle">วางแผนการเดินทางของคุณ</h2>
+                <p id="sectionSubtitle">บริการครบวงจร สำหรับทริปในฝันของคุณ</p>
             </div>
             
             <div class="booking-grid">
                 <a href="https://flights.flyreisen24.com" class="booking-card">
                     <div>
                         <i class="fas fa-plane-departure"></i>
-                        <h3>ตั๋วเครื่องบิน</h3>
-                        <p>เปรียบเทียบราคาจากสายการบินทั่วโลก รับดีลที่ดีที่สุดสำหรับทริปถัดไปของคุณ</p>
+                        <h3 id="cardFlightTitle">ตั๋วเครื่องบิน</h3>
+                        <p id="cardFlightDesc">เปรียบเทียบราคาจากสายการบินทั่วโลก รับดีลที่ดีที่สุดสำหรับทริปถัดไปของคุณ</p>
                     </div>
-                    <span class="btn-action">จองเที่ยวบิน</span>
+                    <span class="btn-action" id="btnFlight">จองเที่ยวบิน</span>
                 </a>
                 
                 <a href="https://trip.tpo.mx/bVJLx4bn" target="_blank" class="booking-card">
                     <div>
                         <i class="fas fa-hotel"></i>
-                        <h3>โรงแรม & ที่พัก</h3>
-                        <p>โรงแรม รีสอร์ท และที่พักคุณภาพกว่า 1.4 ล้านแห่ง ในราคาพิเศษเฉพาะคุณ</p>
+                        <h3 id="cardHotelTitle">โรงแรม & ที่พัก</h3>
+                        <p id="cardHotelDesc">โรงแรม รีสอร์ท และที่พักคุณภาพกว่า 1.4 ล้านแห่ง ในราคาพิเศษเฉพาะคุณ</p>
                     </div>
-                    <span class="btn-action">ดูที่พัก</span>
+                    <span class="btn-action" id="btnHotel">ดูที่พัก</span>
                 </a>
                 
                 <a href="https://klook.tpo.mx/oOSUgcwd" target="_blank" class="booking-card">
                     <div>
                         <i class="fas fa-car"></i>
-                        <h3>รถเช่า & กิจกรรม</h3>
-                        <p>บริการรถเช่า ตั๋วรถไฟในยุโรป และกิจกรรมท่องเที่ยวทั่วโลก ครบในที่เดียว</p>
+                        <h3 id="cardCarTitle">รถเช่า & กิจกรรม</h3>
+                        <p id="cardCarDesc">บริการรถเช่า ตั๋วรถไฟในยุโรป และกิจกรรมท่องเที่ยวทั่วโลก ครบในที่เดียว</p>
                     </div>
-                    <span class="btn-action">สำรวจกิจกรรม</span>
+                    <span class="btn-action" id="btnCar">สำรวจกิจกรรม</span>
                 </a>
             </div>
         </div>
@@ -1022,23 +1022,23 @@
     <section class="features">
         <div class="features-container">
             <div class="features-header">
-                <h2>ทำไมต้องเลือกเรา</h2>
+                <h2 id="featuresTitle">ทำไมต้องเลือกเรา</h2>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🔍</div>
-                    <h3>เปรียบเทียบราคา</h3>
-                    <p>ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก</p>
+                    <h3 id="feature1Title">เปรียบเทียบราคา</h3>
+                    <p id="feature1Desc">ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3>ไม่มีค่าธรรมเนียมซ่อนเร้น</h3>
-                    <p>โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย</p>
+                    <h3 id="feature2Title">ไม่มีค่าธรรมเนียมซ่อนเร้น</h3>
+                    <p id="feature2Desc">โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⭐</div>
-                    <h3>ความน่าเชื่อถือสูง</h3>
-                    <p>ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัย</p>
+                    <h3 id="feature3Title">ความน่าเชื่อถือสูง</h3>
+                    <p id="feature3Desc">ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัย</p>
                 </div>
             </div>
         </div>
@@ -1051,7 +1051,7 @@
         </button>
         <div class="contact-popup" id="contactPopup">
             <div class="contact-header">
-                <h3>ติดต่อเรา</h3>
+                <h3 id="contactTitle">ติดต่อเรา</h3>
                 <button class="close-contact" onclick="toggleContact()">✕</button>
             </div>
             <div class="contact-form-container">
@@ -1063,23 +1063,23 @@
                 </div>
                 <form id="contactForm" action="https://formspree.io/f/xreggjzv" method="POST">
                     <div class="form-group">
-                        <label for="name">ชื่อ-นามสกุล *</label>
+                        <label for="name" id="labelName">ชื่อ-นามสกุล *</label>
                         <input type="text" id="name" name="name" required placeholder="กรอกชื่อของคุณ">
                     </div>
                     <div class="form-group">
-                        <label for="email">อีเมล *</label>
+                        <label for="email" id="labelEmail">อีเมล *</label>
                         <input type="email" id="email" name="email" required placeholder="example@email.com">
                     </div>
                     <div class="form-group">
-                        <label for="subject">หัวข้อ</label>
+                        <label for="subject" id="labelSubject">หัวข้อ</label>
                         <input type="text" id="subject" name="subject" placeholder="เรื่องที่ต้องการสอบถาม">
                     </div>
                     <div class="form-group">
-                        <label for="message">ข้อความ *</label>
+                        <label for="message" id="labelMessage">ข้อความ *</label>
                         <textarea id="message" name="message" required placeholder="รายละเอียดที่ต้องการติดต่อ"></textarea>
                     </div>
                     <button type="submit" class="submit-btn" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> ส่งข้อความ
+                        <i class="fas fa-paper-plane"></i> <span id="btnSubmit">ส่งข้อความ</span>
                     </button>
                 </form>
             </div>
@@ -1091,30 +1091,30 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" style="height: 35px; margin-bottom: 20px;">
-                <p style="font-size: 14px; line-height: 1.6;">แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวบรวมดีลจากพาร์ทเนอร์ชั้นนำทั่วโลกมาไว้ในที่เดียว</p>
+                <p id="footerDesc" style="font-size: 14px; line-height: 1.6;">แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวบรวมดีลจากพาร์ทเนอร์ชั้นนำทั่วโลกมาไว้ในที่เดียว</p>
             </div>
             <div class="footer-col">
-                <h4>บริการของเรา</h4>
+                <h4 id="footerServices">บริการของเรา</h4>
                 <ul>
-                    <li><a href="https://flights.flyreisen24.com">ค้นหาตั๋วเครื่องบิน</a></li>
-                    <li><a href="https://trip.tpo.mx/bVJLx4bn" target="_blank">จองโรงแรมที่พัก</a></li>
-                    <li><a href="https://klook.tpo.mx/oOSUgcwd" target="_blank">รถเช่าและกิจกรรม</a></li>
+                    <li><a href="https://flights.flyreisen24.com" id="footerFlights">ค้นหาตั๋วเครื่องบิน</a></li>
+                    <li><a href="https://trip.tpo.mx/bVJLx4bn" target="_blank" id="footerHotels">จองโรงแรมที่พัก</a></li>
+                    <li><a href="https://klook.tpo.mx/oOSUgcwd" target="_blank" id="footerCars">รถเช่าและกิจกรรม</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>ช่วยเหลือ</h4>
+                <h4 id="footerHelp">ช่วยเหลือ</h4>
                 <ul>
-                    <li><a href="contact.html">ติดต่อฝ่ายบริการ</a></li>
-                    <li><a href="#">คำถามที่พบบ่อย</a></li>
-                    <li><a href="#">วิธีการจอง</a></li>
+                    <li><a href="contact.html" id="footerContact">ติดต่อฝ่ายบริการ</a></li>
+                    <li><a href="#" id="footerFaq">คำถามที่พบบ่อย</a></li>
+                    <li><a href="#" id="footerBooking">วิธีการจอง</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>ข้อมูลทางกฎหมาย</h4>
+                <h4 id="footerLegal">ข้อมูลทางกฎหมาย</h4>
                 <ul>
-                    <li><a href="th/privacy_th.html">นโยบายความเป็นส่วนตัว</a></li>
-                    <li><a href="th/terms_th.html">ข้อกำหนดและเงื่อนไข</a></li>
-                    <li><a href="th/about_th.html">Imprint (Impressum)</a></li>
+                    <li><a href="#" id="footerAbout">เกี่ยวกับเรา</a></li>
+                    <li><a href="#" id="footerTerms">ข้อกำหนดและเงื่อนไข</a></li>
+                    <li><a href="#" id="footerPrivacy">นโยบายความเป็นส่วนตัว</a></li>
                 </ul>
             </div>
         </div>
@@ -1124,12 +1124,185 @@
     </footer>
     
     <script>
-        // Toggle Language Dropdown
+        // ===== TRANSLATIONS =====
+        const translations = {
+            'th': {
+                heroTitle: 'แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์',
+                heroSubtitle: 'ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก',
+                navFlight: 'Flight',
+                navHotel: 'Hotel',
+                navCar: 'Car',
+                navDeals: 'Deals',
+                loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
+                sectionTitle: 'วางแผนการเดินทางของคุณ',
+                sectionSubtitle: 'บริการครบวงจร สำหรับทริปในฝันของคุณ',
+                cardFlightTitle: 'ตั๋วเครื่องบิน',
+                cardFlightDesc: 'เปรียบเทียบราคาจากสายการบินทั่วโลก รับดีลที่ดีที่สุดสำหรับทริปถัดไปของคุณ',
+                btnFlight: 'จองเที่ยวบิน',
+                cardHotelTitle: 'โรงแรม & ที่พัก',
+                cardHotelDesc: 'โรงแรม รีสอร์ท และที่พักคุณภาพกว่า 1.4 ล้านแห่ง ในราคาพิเศษเฉพาะคุณ',
+                btnHotel: 'ดูที่พัก',
+                cardCarTitle: 'รถเช่า & กิจกรรม',
+                cardCarDesc: 'บริการรถเช่า ตั๋วรถไฟในยุโรป และกิจกรรมท่องเที่ยวทั่วโลก ครบในที่เดียว',
+                btnCar: 'สำรวจกิจกรรม',
+                featuresTitle: 'ทำไมต้องเลือกเรา',
+                feature1Title: 'เปรียบเทียบราคา',
+                feature1Desc: 'ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก',
+                feature2Title: 'ไม่มีค่าธรรมเนียมซ่อนเร้น',
+                feature2Desc: 'โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย',
+                feature3Title: 'ความน่าเชื่อถือสูง',
+                feature3Desc: 'ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัย',
+                contactTitle: 'ติดต่อเรา',
+                labelName: 'ชื่อ-นามสกุล *',
+                labelEmail: 'อีเมล *',
+                labelSubject: 'หัวข้อ',
+                labelMessage: 'ข้อความ *',
+                btnSubmit: 'ส่งข้อความ',
+                footerDesc: 'แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวบรวมดีลจากพาร์ทเนอร์ชั้นนำทั่วโลกมาไว้ในที่เดียว',
+                footerServices: 'บริการของเรา',
+                footerFlights: 'ค้นหาตั๋วเครื่องบิน',
+                footerHotels: 'จองโรงแรมที่พัก',
+                footerCars: 'รถเช่าและกิจกรรม',
+                footerHelp: 'ช่วยเหลือ',
+                footerContact: 'ติดต่อฝ่ายบริการ',
+                footerFaq: 'คำถามที่พบบ่อย',
+                footerBooking: 'วิธีการจอง',
+                footerLegal: 'ข้อมูลทางกฎหมาย',
+                footerAbout: 'เกี่ยวกับเรา',
+                footerTerms: 'ข้อกำหนดและเงื่อนไข',
+                footerPrivacy: 'นโยบายความเป็นส่วนตัว'
+            },
+            'en': {
+                heroTitle: 'Travel Platform for Every Lifestyle',
+                heroSubtitle: 'Find cheap flights from top airlines worldwide',
+                navFlight: 'Flight',
+                navHotel: 'Hotel',
+                navCar: 'Car',
+                navDeals: 'Deals',
+                loadingText: 'Loading search form...',
+                sectionTitle: 'Plan Your Journey',
+                sectionSubtitle: 'Complete services for your dream trip',
+                cardFlightTitle: 'Flight Tickets',
+                cardFlightDesc: 'Compare prices from airlines worldwide and get the best deals for your next trip',
+                btnFlight: 'Book Flights',
+                cardHotelTitle: 'Hotels & Accommodations',
+                cardHotelDesc: 'Over 1.4 million quality hotels, resorts, and accommodations at special prices',
+                btnHotel: 'View Hotels',
+                cardCarTitle: 'Car Rentals & Activities',
+                cardCarDesc: 'Car rentals, European rail tickets, and tourist activities worldwide in one place',
+                btnCar: 'Explore Activities',
+                featuresTitle: 'Why Choose Us',
+                feature1Title: 'Compare Prices',
+                feature1Desc: 'Search and compare flight ticket prices from top airlines worldwide',
+                feature2Title: 'No Hidden Fees',
+                feature2Desc: 'Transparent every step - the price shown is the real price you pay',
+                feature3Title: 'High Reliability',
+                feature3Desc: 'Work with trusted partners guaranteeing your safety',
+                contactTitle: 'Contact Us',
+                labelName: 'Name *',
+                labelEmail: 'Email *',
+                labelSubject: 'Subject',
+                labelMessage: 'Message *',
+                btnSubmit: 'Send Message',
+                footerDesc: 'The most valuable travel search platform bringing together deals from world-class partners in one place',
+                footerServices: 'Our Services',
+                footerFlights: 'Search Flight Tickets',
+                footerHotels: 'Book Hotels',
+                footerCars: 'Car Rentals & Activities',
+                footerHelp: 'Help',
+                footerContact: 'Contact Support',
+                footerFaq: 'Frequently Asked Questions',
+                footerBooking: 'How to Book',
+                footerLegal: 'Legal Information',
+                footerAbout: 'About Us',
+                footerTerms: 'Terms and Conditions',
+                footerPrivacy: 'Privacy Policy'
+            },
+            'de': {
+                heroTitle: 'Reiseplattform für jeden Lebensstil',
+                heroSubtitle: 'Finden Sie günstige Flüge von Top-Airlines weltweit',
+                navFlight: 'Flug',
+                navHotel: 'Hotel',
+                navCar: 'Auto',
+                navDeals: 'Angebote',
+                loadingText: 'Suchformular wird geladen...',
+                sectionTitle: 'Planen Sie Ihre Reise',
+                sectionSubtitle: 'Komplettservice für Ihre Traumreise',
+                cardFlightTitle: 'Flugtickets',
+                cardFlightDesc: 'Vergleichen Sie Preise von Airlines weltweit und erhalten Sie die besten Angebote für Ihre nächste Reise',
+                btnFlight: 'Flüge buchen',
+                cardHotelTitle: 'Hotels & Unterkünfte',
+                cardHotelDesc: 'Über 1,4 Millionen hochwertige Hotels, Resorts und Unterkünfte zu Sonderpreisen',
+                btnHotel: 'Hotels ansehen',
+                cardCarTitle: 'Mietwagen & Aktivitäten',
+                cardCarDesc: 'Mietwagen, Europäische Bahntickets und Touristenaktivitäten weltweit an einem Ort',
+                btnCar: 'Aktivitäten erkunden',
+                featuresTitle: 'Warum uns wählen',
+                feature1Title: 'Preise vergleichen',
+                feature1Desc: 'Suchen und vergleichen Sie Flugticketpreise von Top-Airlines weltweit',
+                feature2Title: 'Keine versteckten Gebühren',
+                feature2Desc: 'Transparent bei jedem Schritt - der angezeigte Preis ist der echte Preis, den Sie zahlen',
+                feature3Title: 'Hohe Zuverlässigkeit',
+                feature3Desc: 'Arbeiten Sie mit vertrauenswürdigen Partnern, die Ihre Sicherheit garantieren',
+                contactTitle: 'Kontaktieren Sie uns',
+                labelName: 'Name *',
+                labelEmail: 'E-Mail *',
+                labelSubject: 'Betreff',
+                labelMessage: 'Nachricht *',
+                btnSubmit: 'Nachricht senden',
+                footerDesc: 'Die wertvollste Reisesuchplattform, die Angebote von Weltklasse-Partnern an einem Ort zusammenbringt',
+                footerServices: 'Unsere Dienstleistungen',
+                footerFlights: 'Flugtickets suchen',
+                footerHotels: 'Hotels buchen',
+                footerCars: 'Mietwagen & Aktivitäten',
+                footerHelp: 'Hilfe',
+                footerContact: 'Support kontaktieren',
+                footerFaq: 'Häufig gestellte Fragen',
+                footerBooking: 'Wie buchen',
+                footerLegal: 'Rechtliche Informationen',
+                footerAbout: 'Über uns',
+                footerTerms: 'Allgemeine Geschäftsbedingungen',
+                footerPrivacy: 'Datenschutzrichtlinie'
+            }
+        };
+
+        // ===== LANGUAGE CONFIGURATION =====
+        const BASE_URL = 'https://nickinicha.github.io/flyreisen24.com';
+        const pageLinks = {
+            'th': { about: `${BASE_URL}/th/about_th.html`, terms: `${BASE_URL}/th/terms_th.html`, privacy: `${BASE_URL}/th/privacy_th.html` },
+            'en': { about: `${BASE_URL}/en/about_en.html`, terms: `${BASE_URL}/en/terms_en.html`, privacy: `${BASE_URL}/en/privacy_en.html` },
+            'de': { about: `${BASE_URL}/de/about_de.html`, terms: `${BASE_URL}/de/terms_de.html`, privacy: `${BASE_URL}/de/privacy_de.html` }
+        };
+
+        // ===== UPDATE CONTENT FUNCTION =====
+        function updateContent(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            // Update all text elements
+            Object.keys(t).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = t[key];
+                    } else {
+                        element.textContent = t[key];
+                    }
+                }
+            });
+
+            // Update footer links
+            const links = pageLinks[lang];
+            document.getElementById('footerAbout').href = links.about;
+            document.getElementById('footerTerms').href = links.terms;
+            document.getElementById('footerPrivacy').href = links.privacy;
+        }
+
+        // ===== LANGUAGE SWITCHING =====
         function toggleLangDropdown() {
             document.getElementById('languageDropdown').classList.toggle('active');
         }
 
-        // Switch Language
         function switchLanguage(langCode, label) {
             document.getElementById('currentLang').textContent = label;
             
@@ -1143,15 +1316,18 @@
             localStorage.setItem('flyreisen24_lang', langCode);
             document.getElementById('languageDropdown').classList.remove('active');
             
+            // Update content dynamically
+            updateContent(langCode);
+            
             console.log(`✅ Language switched to: ${label}`);
         }
 
-        // Menu Functions
+        // ===== MENU FUNCTIONS =====
         function toggleMenu() { 
             document.getElementById('topNavMenu').classList.toggle('active'); 
         }
 
-        // Contact Functions
+        // ===== CONTACT FUNCTIONS =====
         function toggleContact() {
             const popup = document.getElementById('contactPopup');
             popup.classList.toggle('active');
@@ -1160,12 +1336,23 @@
             }
         }
 
-        // Form Submission
+        // ===== INITIALIZE =====
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize language
+            // Initialize language from localStorage
             const currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
             const langLabels = { 'th': 'TH', 'en': 'EN', 'de': 'DE' };
             document.getElementById('currentLang').textContent = langLabels[currentLang];
+            
+            // Update content on load
+            updateContent(currentLang);
+            
+            // Update active language in dropdown
+            document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(`'${currentLang}'`)) {
+                    link.classList.add('active');
+                }
+            });
             
             // Contact Form
             const form = document.getElementById('contactForm');
@@ -1203,7 +1390,9 @@
                     }
                     
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ส่งข้อความ';
+                    const currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
+                    const btnText = translations[currentLang].btnSubmit;
+                    submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> ${btnText}`;
                 });
             }
 
@@ -1223,10 +1412,7 @@
             });
         });
 
-        console.log('✅ FlyReisen24 - Airpaz Style with Working Widget & Language Switcher');
+        console.log('✅ FlyReisen24 - Complete with Dynamic Language Switching');
     </script>
 </body>
 </html>
-
-
-
