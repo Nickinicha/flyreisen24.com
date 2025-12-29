@@ -1,912 +1,177 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับเรา - flyreisen24</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #262626;
-            overflow-x: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* TOP NAVIGATION BAR - เหมือน index.html */
-        .top-nav {
-            background-color: #0056B3;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 200;
-        }
-
-        .top-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .top-nav-logo:hover {
-            opacity: 0.8;
-        }
-
-        .top-nav-logo img {
-            max-height: 85px;
-            width: auto;
-            display: block;
-        }
-
-        .top-nav-logo span {
-            display: none;
-        }
-
-        .top-nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .top-nav-menu > li > a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: opacity 0.3s;
-            padding: 0.5rem 0;
-        }
-
-        .top-nav-menu > li > a:hover {
-            opacity: 0.8;
-        }
-
-        .top-nav-menu > li > a.active {
-            border-bottom: 2px solid #FFFFFF;
-        }
-
-        .language-dropdown {
-            position: relative;
-        }
-
-        .lang-current {
-            background: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .lang-current:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .lang-current::after {
-            content: '▼';
-            font-size: 0.7rem;
-        }
-
-        .lang-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 0.5rem;
-            background: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            min-width: 150px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            z-index: 1000;
-        }
-
-        .language-dropdown.active .lang-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .lang-dropdown-menu a {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: #262626;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .lang-dropdown-menu a:hover {
-            background: #f0f4ff;
-        }
-
-        .lang-dropdown-menu a.active {
-            background: #e6edff;
-            color: #0056B3;
-            font-weight: 700;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #FFFFFF;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        /* Hero Section - แก้ไขจาก index.html */
-        .hero {
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-                url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=400&fit=crop') center center no-repeat;
-            background-size: cover;
-            color: #FFFFFF;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        }
-
-        /* Back Button */
-        .back-button-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .back-button {
-            background: #0056B3;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #003d82;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
-        }
-
-        /* Content Section */
-        .content-section {
-            padding: 3rem 2rem;
-            background: #FFFFFF;
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .content-container h1 {
-            color: #0056B3;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .content-container h2 {
-            color: #0056B3;
-            font-size: 1.8rem;
-            margin: 2.5rem 0 1rem 0;
-            border-bottom: 2px solid #e6edff;
-            padding-bottom: 0.5rem;
-        }
-
-        .content-container p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #333;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2.5rem 0;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #f0f4ff 0%, #e6edff 100%);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #0056B3;
-        }
-
-        .feature-card h3 {
-            color: #0056B3;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: #f0f4ff;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid #0056B3;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: #0056B3;
-            margin-bottom: 1rem;
-        }
-
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #0056B3;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 86, 179, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chat-button:hover {
-            transform: scale(1.1);
-            background-color: #003d82;
-        }
-
-        .chat-popup {
-            position: absolute;
-            bottom: 75px;
-            right: 0;
-            width: 350px;
-            height: 450px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .chat-header {
-            background-color: #0056B3;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .close-chat {
-            cursor: pointer;
-            font-size: 1.2rem;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .close-chat:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            max-width: 85%;
-        }
-
-        .user-message {
-            background-color: #0056B3;
-            color: white;
-            border-radius: 15px 15px 5px 15px;
-            padding: 12px 16px;
-            margin-left: auto;
-        }
-
-        .bot-message {
-            background-color: #f1f3f4;
-            color: #333;
-            border-radius: 15px 15px 15px 5px;
-            padding: 12px 16px;
-        }
-
-        .chat-input {
-            display: flex;
-            padding: 20px;
-            border-top: 1px solid #e2e8f0;
-            gap: 10px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .chat-input input:focus {
-            border-color: #0056B3;
-        }
-
-        .send-btn {
-            background-color: #0056B3;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .send-btn:hover {
-            background-color: #003d82;
-        }
-
-        .typing-indicator {
-            display: flex;
-            padding: 12px 16px;
-        }
-
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #0056B3;
-            border-radius: 50%;
-            margin: 0 2px;
-            animation: pulse 1.4s infinite ease-in-out;
-        }
-
-        .dot:nth-child(1) { animation-delay: 0s; }
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes pulse {
-            0%, 60%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            30% {
-                transform: scale(1.3);
-                opacity: 1;
-            }
-        }
-
-        /* Footer - เหมือน index.html */
-        footer {
-            background: #0056B3;
-            color: #FFFFFF;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .footer-section p {
-            opacity: 0.9;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #FFFFFF;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1.5rem;
-            text-align: center;
-        }
-
-        .footer-copyright {
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1175px) {
-            .top-nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 88px;
-                left: 0;
-                width: 100%;
-                background-color: #0056B3;
-                padding: 1rem 2rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-                gap: 0;
-            }
-
-            .top-nav-menu.active {
-                display: flex;
-            }
-
-            .top-nav-menu > li {
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .content-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .top-nav-logo img {
-                max-height: 60px;
-            }
-
-            .chat-popup {
-                width: 300px;
-                right: -30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เกี่ยวกับเรา - flyreisen24</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#262626;overflow-x:hidden}html{scroll-behavior:smooth}
+.top-nav{background-color:#ffffff !important;padding:12px 0;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05)}.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.top-nav-logo img{height:75px;width:auto;display:block}.top-nav-menu{display:flex;gap:35px;list-style:none;align-items:center}.top-nav-menu a{color:#6b7280 !important;text-decoration:none;font-weight:500;font-size:15px;transition:color 0.3s ease;display:flex;align-items:center;gap:8px;position:relative}.top-nav-menu a:hover{color:#0056B3 !important}.top-nav-menu a.active{color:#0056B3 !important;font-weight:600}.top-nav-menu a i{font-size:16px;color:#9ca3af;transition:color 0.3s}.top-nav-menu a:hover i{color:#0056B3}.nav-right{display:flex;align-items:center;gap:25px}.nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color 0.3s}.nav-help:hover{color:#0056B3}.nav-help i{font-size:15px}.language-dropdown{position:relative}.lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all 0.3s;display:flex;align-items:center;gap:6px}.lang-current:hover{border-color:#0056B3;background:#f0f4ff}.lang-current i.fa-globe{font-size:14px;color:#6b7280}.lang-dropdown-menu{position:absolute;top:110%;right:0;background:#FFFFFF;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.15);min-width:160px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s;z-index:1000;overflow:hidden}.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151 !important;text-decoration:none;font-weight:500;transition:background 0.2s;font-size:14px}.lang-dropdown-menu a:hover{background:#f0f4ff}.lang-dropdown-menu a.active{background:#e6edff;color:#0056B3 !important;font-weight:700}.menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer;padding:0.5rem}
+.hero{background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=400&fit=crop') center center no-repeat;background-size:cover;color:#FFF;padding:5rem 2rem;text-align:center}.hero-content{max-width:1100px;margin:0 auto}.hero h1{font-size:3.2rem;font-weight:800;margin-bottom:1rem;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.5)}.hero-subtitle{font-size:1.4rem;margin-bottom:2rem;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.5)}.back-button-container{max-width:1200px;margin:2rem auto;padding:0 2rem;text-align:center}.back-button{background:#0056B3;color:#fff;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all .3s ease}.back-button:hover{background:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}
+.content-section{padding:3rem 2rem;background:#FFF}.content-container{max-width:1200px;margin:0 auto;background:#fff;border-radius:15px;padding:3rem;box-shadow:0 10px 30px rgba(0,0,0,.1)}.content-container h1{color:#0056B3;font-size:2.5rem;margin-bottom:2rem;text-align:center}.content-container h2{color:#0056B3;font-size:1.8rem;margin:2.5rem 0 1rem;border-bottom:2px solid #e6edff;padding-bottom:.5rem}.content-container p{margin-bottom:1.5rem;line-height:1.8;font-size:1.05rem;color:#333}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin:2.5rem 0}.feature-card{background:#fff;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:transform .3s ease,box-shadow .3s ease}.feature-card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,.12)}.feature-icon{width:70px;height:70px;background:linear-gradient(135deg,#f0f4ff 0%,#e6edff 100%);border-radius:50%;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#0056B3}.feature-card h3{color:#0056B3;margin-bottom:1rem;font-size:1.2rem}.feature-card p{color:#666;line-height:1.6}.highlight-box{background:#f0f4ff;padding:2rem;border-radius:10px;border-left:5px solid #0056B3;margin:2rem 0}.highlight-box h3{color:#0056B3;margin-bottom:1rem}
+.contact-widget{position:fixed;bottom:30px;right:30px;z-index:1000}.contact-button{width:60px;height:60px;border-radius:50%;background-color:#0056B3;color:white;display:flex;justify-content:center;align-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(0,86,179,.3);cursor:pointer;transition:all .3s ease;border:none}.contact-button:hover{transform:scale(1.1);background-color:#003d82}.contact-popup{position:absolute;bottom:75px;right:0;width:380px;max-height:580px;background-color:white;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden}.contact-popup.active{display:flex!important}.contact-header{background-color:#0056B3;color:white;padding:20px;display:flex;justify-content:space-between;align-items:center}.contact-header h3{margin:0;font-size:1.2rem}.close-contact{cursor:pointer;font-size:1.2rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:background .3s ease;border:none;color:white}.close-contact:hover{background:rgba(255,255,255,.3)}.contact-form-container{padding:25px;overflow-y:auto}.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:.9rem}.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1px solid #e2e8f0;border-radius:8px;outline:none;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s}.form-group input:focus,.form-group textarea:focus{border-color:#0056B3}.form-group textarea{resize:vertical;min-height:90px}.submit-btn{width:100%;padding:13px;background-color:#0056B3;color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s ease}.submit-btn:hover:not(:disabled){background-color:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}.submit-btn:disabled{background-color:#ccc;cursor:not-allowed;transform:none}.success-message{background-color:#d4edda;color:#155724;padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.success-message.show{display:block}.error-message{background-color:#f8d7da;color:#721c24;padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.error-message.show{display:block}
+.main-footer{background-color:#ffffff;border-top:1px solid #eee;padding:60px 0 30px;color:#666}.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;padding:0 20px}.footer-col h4{color:#333;margin-bottom:20px;font-size:16px;font-weight:700}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:12px}.footer-col ul a{color:#777;text-decoration:none;font-size:14px;transition:0.3s}.footer-col ul a:hover{color:#0056B3;padding-left:5px}.footer-bottom{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #f0f0f0;font-size:13px}
+@media (max-width:768px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background-color:#FFFFFF;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,0.1);gap:0;border-top:1px solid #f0f0f0}.top-nav-menu.active{display:flex !important}.top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:0.8rem 0}.menu-toggle{display:block}.hero{padding:3rem 1rem}.hero h1{font-size:2.4rem}.content-container{padding:2rem 1.5rem}.features-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.top-nav-logo img{max-height:65px}.contact-popup{width:320px;right:-30px}}
+</style>
 </head>
 <body>
-    <!-- TOP NAVIGATION -->
-    <nav class="top-nav">
-        <div class="top-nav-container">
-            <a href="index.html" class="top-nav-logo">
-                <img src="../images/fly_reisen24_logo_white.png" alt="flyreisen24">
-            </a>
-            
-            <ul class="top-nav-menu" id="topNavMenu">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="about_th.html" class="active">เกี่ยวกับเรา</a></li>
-                <li><a href="contact.html">ติดต่อเรา</a></li>
-                <li class="language-dropdown">
-                    <button class="lang-current" onclick="toggleLangDropdown()">
-                        <span id="currentLang">TH</span>
-                    </button>
-                    <div class="lang-dropdown-menu">
-                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">ไทย (TH)</a>
-                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">English (EN)</a>
-                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">Deutsch (DE)</a>
-                    </div>
-                </li>
-            </ul>
+<nav class="top-nav">
+<div class="top-nav-container">
+<a href="../index.html" class="top-nav-logo">
+<img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
+</a>
+<ul class="top-nav-menu" id="topNavMenu">
+<li><a href="../index.html"><i class="fas fa-home"></i> หน้าแรก</a></li>
+<li><a href="#" id="aboutLink" class="active"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a></li>
+<li><a href="../contact.html"><i class="fas fa-envelope"></i> ติดต่อเรา</a></li>
+</ul>
+<div class="nav-right">
+<a href="../contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
+<div class="language-dropdown" id="languageDropdown">
+<button class="lang-current" onclick="toggleLangDropdown()">
+<i class="fas fa-globe"></i>
+<span id="currentLang">TH</span>
+<i class="fas fa-chevron-down" style="font-size:10px;"></i>
+</button>
+<div class="lang-dropdown-menu">
+<a href="#" class="active" onclick="switchLanguage('th','TH');return false;">🇹🇭 ไทย (TH)</a>
+<a href="#" onclick="switchLanguage('en','EN');return false;">🇬🇧 English (EN)</a>
+<a href="#" onclick="switchLanguage('de','DE');return false;">🇩🇪 Deutsch (DE)</a>
+</div>
+</div>
+</div>
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</div>
+</nav>
 
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        </div>
-    </nav>
+<section class="hero">
+<div class="hero-content">
+<h1>เกี่ยวกับเรา</h1>
+<p class="hero-subtitle">ค้นหาหลายร้อยสายการบินและจองการผจญภัยครั้งต่อไปได้อย่างง่ายดาย</p>
+</div>
+</section>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>เกี่ยวกับเรา</h1>
-            <p class="hero-subtitle">ค้นหาหลายร้อยสายการบินและจองการผจญภัยครั้งต่อไปได้อย่างง่ายดาย</p>
-        </div>
-    </section>
+<div class="back-button-container">
+<a href="../index.html" class="back-button"><i class="fas fa-arrow-left"></i> กลับสู่หน้าหลัก</a>
+</div>
 
-    <!-- BACK BUTTON -->
-    <div class="back-button-container">
-        <a href="index.html" class="back-button">
-            <i class="fas fa-arrow-left"></i> กลับสู่หน้าหลัก
-        </a>
-    </div>
+<section class="content-section">
+<div class="content-container">
+<h1>เกี่ยวกับเรา – flyreisen24.com</h1>
+<p>flyreisen24.com เป็นแพลตฟอร์มที่เชื่อถือได้สำหรับการค้นหาและเปรียบเทียบตั๋วเครื่องบิน – ง่าย รวดเร็ว และโปร่งใส</p>
+<p>แนวคิดเบื้องหลัง flyreisen24.com เกิดจากประสบการณ์หลายปีในอุตสาหกรรมตั๋ว ทั้งโดยตรงกับสายการบินและตัวแทนท่องเที่ยว เรารู้ว่านักเดินทางต้องการอะไร: ราคาที่ยุติธรรม การจองง่าย และข้อมูลที่โปร่งใส</p>
 
-    <!-- CONTENT SECTION -->
-    <section class="content-section">
-        <div class="content-container">
-            <h1>เกี่ยวกับเรา – flyreisen24.com</h1>
-            
-            <p>flyreisen24.com เป็นแพลตฟอร์มที่เป็นมืออาชีพแต่ใช้งานง่าย สำหรับการค้นหาและเปรียบเทียบตั๋วเครื่องบินจากหลายสายการบินและตัวแทนจำหน่าย ทั้งหมดในที่เดียว</p>
-            
-            <p>แรงบันดาลใจในการสร้างแพลตฟอร์มนี้มาจากประสบการณ์การทำงานหลายปีในอุตสาหกรรมตั๋ว โดยทำงานโดยตรงกับสายการบินและตัวแทนท่องเที่ยว เรารู้ว่านักเดินทางต้องการอะไร: ความเรียบง่าย ความโปร่งใส และคุณค่าที่แท้จริง</p>
+<h2>สิ่งที่ทำให้เราพิเศษ</h2>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon"><i class="fas fa-search"></i></div>
+<h3>ค้นหาหลายผู้ให้บริการ</h3>
+<p>ค้นหาเที่ยวบินจากหลายผู้ให้บริการด้วยคำค้นหาเดียว</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+<h3>ใช้งานง่าย</h3>
+<p>อินเทอร์เฟซที่ใช้งานง่าย เหมาะสำหรับทุกคน</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"><i class="fas fa-tag"></i></div>
+<h3>ไม่มีค่าธรรมเนียมซ่อนเร้น</h3>
+<p>ไม่มีค่าใช้จ่ายที่ซ่อนเร้น ราคาแบบเรียลไทม์</p>
+</div>
+</div>
 
-            <h2>สิ่งที่ทำให้เราแตกต่าง</h2>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>ค้นหาจากหลายผู้ให้บริการ</h3>
-                    <p>ค้นหาเที่ยวบินจากหลายผู้ให้บริการด้วยการค้นหาเพียงครั้งเดียว</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>ใช้งานง่าย</h3>
-                    <p>อินเทอร์เฟซที่สะอาดและใช้งานง่าย เหมาะสำหรับทุกคน</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tag"></i>
-                    </div>
-                    <h3>ไม่มีค่าธรรมเนียมซ่อนเร้น</h3>
-                    <p>ราคาแบบเรียลไทม์ โปร่งใสทุกขั้นตอน</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>การสนับสนุนที่เป็นมิตร</h3>
-                    <p>พร้อมให้ความช่วยเหลือเมื่อคุณต้องการ</p>
-                </div>
-            </div>
-            
-            <p>เราเชื่อว่าการจองเที่ยวบินควรจะตรงไปตรงมาและปราศจากความเครียด และเราอยู่ที่นี่เพื่อให้แน่ใจว่ามันยังคงเป็นเช่นนั้น</p>
+<p>เป้าหมายของเราคือทำให้การจองตั๋วเครื่องบินง่ายและสะดวกที่สุดเท่าที่จะเป็นไปได้ สำหรับทุกคน ทุกเวลา</p>
 
-            <div class="highlight-box">
-                <h3>ติดต่อเรา</h3>
-                <p><i class="fas fa-envelope"></i> <strong>อีเมล:</strong> <a href="mailto:support@flyreisen24.com" style="color: #0056B3; text-decoration: none;">support@flyreisen24.com</a></p>
-                <p><i class="fas fa-globe"></i> <strong>ติดตามเราเพื่อรับข้อมูลอัปเดตและข้อเสนอพิเศษ</strong></p>
-            </div>
-        </div>
-    </section>
+<div class="highlight-box">
+<h3>ติดต่อเรา</h3>
+<p><i class="fas fa-envelope"></i> <strong>อีเมล:</strong> <a href="mailto:info@flyreisen24.com" style="color:#0056B3;text-decoration:none">info@flyreisen24.com</a></p>
+<p><i class="fas fa-globe"></i> <strong>ติดตามเราเพื่อรับข้อเสนอและอัปเดต</strong></p>
+</div>
+</div>
+</section>
 
-    <!-- CHAT WIDGET -->
-    <div class="chat-widget">
-        <div class="chat-button">
-            <i class="fas fa-comments"></i>
-        </div>
-        <div class="chat-popup">
-            <div class="chat-header">
-                <h3>ฝ่ายบริการลูกค้า</h3>
-                <span class="close-chat">✕</span>
-            </div>
-            <div class="chat-messages">
-                <div class="message bot-message">
-                    สวัสดีค่ะ! ยินดีต้อนรับสู่ FlyReisen24 วันนี้มีอะไรให้ช่วยคุณไหมคะ?
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="พิมพ์ข้อความ...">
-                <button class="send-btn">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+<div class="contact-widget">
+<button class="contact-button" onclick="toggleContact()"><i class="fas fa-envelope"></i></button>
+<div class="contact-popup" id="contactPopup">
+<div class="contact-header">
+<h3>ติดต่อเรา</h3>
+<button class="close-contact" onclick="toggleContact()">✕</button>
+</div>
+<div class="contact-form-container">
+<div class="success-message" id="successMessage">✅ ส่งข้อความสำเร็จ! เราจะติดต่อกลับเร็วๆ นี้</div>
+<div class="error-message" id="errorMessage">❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง</div>
+<form id="contactForm" action="https://formspree.io/f/xreggjzv" method="POST">
+<div class="form-group">
+<label for="name">ชื่อ *</label>
+<input type="text" id="name" name="name" required placeholder="ชื่อของคุณ">
+</div>
+<div class="form-group">
+<label for="email">อีเมล *</label>
+<input type="email" id="email" name="email" required placeholder="example@email.com">
+</div>
+<div class="form-group">
+<label for="subject">หัวข้อ</label>
+<input type="text" id="subject" name="subject" placeholder="เรื่องที่ต้องการสอบถาม">
+</div>
+<div class="form-group">
+<label for="message">ข้อความ *</label>
+<textarea id="message" name="message" required placeholder="ข้อความของคุณ"></textarea>
+</div>
+<button type="submit" class="submit-btn" id="submitBtn"><i class="fas fa-paper-plane"></i> ส่งข้อความ</button>
+</form>
+</div>
+</div>
+</div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>FlyReisen24</h3>
-                    <p>เราเป็นผู้นำด้านการค้นหาและจองตั๋วเครื่องบินออนไลน์ เปรียบเทียบราคาจากสายการบินชั้นนำทั่วโลก</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ลิงก์ด่วน</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">หน้าแรก</a></li>
-                        <li><a href="about_th.html">เกี่ยวกับเรา</a></li>
-                        <li><a href="contact.html">ติดต่อเรา</a></li>
-                        <li><a href="terms_th.html">ข้อกำหนด</a></li>
-                        <li><a href="privacy_th.html">นโยบายความเป็นส่วนตัว</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>สายการบิน</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">การบินไทย</a></li>
-                        <li><a href="#">บางกอกแอร์เวย์</a></li>
-                        <li><a href="#">แอร์เอเชีย</a></li>
-                        <li><a href="#">กาตาร์แอร์เวย์</a></li>
-                        <li><a href="#">เอมิเรตส์</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ติดต่อเรา</h3>
-                    <p><i class="fas fa-envelope"></i> info@flyreisen24.com</p>
-                    <p><i class="fas fa-phone"></i> 02-123-4567</p>
-                    <p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="footer-copyright">Copyright © 2025 flyreisen24.com - All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
+<footer class="main-footer">
+<div class="footer-grid">
+<div class="footer-col">
+<img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" style="height:35px;margin-bottom:20px;">
+<p style="font-size:14px;line-height:1.6;">เราเป็นแพลตฟอร์มค้นหาและจองเที่ยวบินออนไลน์ชั้นนำ เปรียบเทียบราคาจากสายการบินชั้นนำทั่วโลก</p>
+</div>
+<div class="footer-col">
+<h4>ลิงก์ด่วน</h4>
+<ul>
+<li><a href="../index.html">หน้าแรก</a></li>
+<li><a href="#" id="footerAboutLink">เกี่ยวกับเรา</a></li>
+<li><a href="../contact.html">ติดต่อเรา</a></li>
+<li><a href="#" id="footerTermsLink">ข้อกำหนด</a></li>
+<li><a href="#" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>สายการบิน</h4>
+<ul>
+<li><a href="#">การบินไทย</a></li>
+<li><a href="#">บางกอกแอร์เวย์</a></li>
+<li><a href="#">แอร์เอเชีย</a></li>
+<li><a href="#">กาตาร์แอร์เวย์</a></li>
+<li><a href="#">เอมิเรตส์</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>ติดต่อเรา</h4>
+<p><i class="fas fa-envelope"></i> info@flyreisen24.com</p>
+<p><i class="fas fa-phone"></i> 02-123-4567</p>
+<p><i class="fas fa-clock"></i> จันทร์-เสาร์: 9:00-18:00</p>
+</div>
+</div>
+<div class="footer-bottom">Copyright © 2025 flyreisen24.com - All Rights Reserved</div>
+</footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Navigation Functions
-        function toggleMenu() {
-            const menu = document.getElementById('topNavMenu');
-            const toggle = document.querySelector('.menu-toggle');
-            menu.classList.toggle('active');
-            toggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
-        }
-
-        function toggleLangDropdown() {
-            document.querySelector('.language-dropdown').classList.toggle('active');
-        }
-
-        function switchLanguage(lang, display) {
-            localStorage.setItem('flyreisen24_lang', lang);
-            document.getElementById('currentLang').textContent = display;
-            document.querySelector('.language-dropdown').classList.remove('active');
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            const dropdown = document.querySelector('.language-dropdown');
-            if (dropdown && !dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-
-        // Chat Widget Functions
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatButton = document.querySelector('.chat-button');
-            const chatPopup = document.querySelector('.chat-popup');
-            const closeChat = document.querySelector('.close-chat');
-            
-            chatButton.addEventListener('click', () => {
-                chatPopup.style.display = chatPopup.style.display === 'flex' ? 'none' : 'flex';
-            });
-            
-            closeChat.addEventListener('click', () => {
-                chatPopup.style.display = 'none';
-            });
-            
-            const sendBtn = document.querySelector('.send-btn');
-            const chatInput = document.querySelector('.chat-input input');
-            const chatMessages = document.querySelector('.chat-messages');
-            
-            sendBtn.addEventListener('click', sendMessage);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-            
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (message) {
-                    const userMessageDiv = document.createElement('div');
-                    userMessageDiv.classList.add('message', 'user-message');
-                    userMessageDiv.textContent = message;
-                    chatMessages.appendChild(userMessageDiv);
-                    
-                    chatInput.value = '';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    const typingIndicator = document.createElement('div');
-                    typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
-                    typingIndicator.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
-                    chatMessages.appendChild(typingIndicator);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    setTimeout(() => {
-                        chatMessages.removeChild(typingIndicator);
-                        
-                        let botResponse = "ขอบคุณสำหรับข้อความของคุณ วันนี้มีอะไรให้ช่วยเกี่ยวกับการจองเที่ยวบินไหมคะ?";
-                        
-                        const lowerMsg = message.toLowerCase();
-                        if (lowerMsg.includes('สวัสดี') || lowerMsg.includes('หวัดดี')) {
-                            botResponse = "สวัสดีค่ะ! ยินดีต้อนรับสู่ FlyReisen24 วันนี้มีอะไรให้ช่วยค้นหาเที่ยวบินไหมคะ?";
-                        } else if (lowerMsg.includes('จอง') || lowerMsg.includes('ตั๋ว')) {
-                            botResponse = "เราช่วยคุณค้นหาและเปรียบเทียบเที่ยวบินจากสายการบินต่างๆ เมื่อคุณเลือกเที่ยวบินที่ต้องการแล้ว คุณจะถูกนำไปยังเว็บไซต์พันธมิตรของเราเพื่อทำการจองให้เสร็จสมบูรณ์";
-                        } else if (lowerMsg.includes('ติดต่อ')) {
-                            botResponse = "คุณสามารถติดต่อทีมสนับสนุนของเราได้ที่ support@flyreisen24.com เราพร้อมให้บริการตลอด 24/7";
-                        } else if (lowerMsg.includes('ราคา')) {
-                            botResponse = "เราให้บริการค้นหาและเปรียบเทียบเที่ยวบินฟรี! ไม่มีค่าธรรมเนียมซ่อนเร้น ราคาที่คุณเห็นคือราคาจริงจากสายการบิน";
-                        } else if (lowerMsg.includes('เกี่ยวกับ')) {
-                            botResponse = "FlyReisen24 เป็นแพลตฟอร์มค้นหาเที่ยวบินสมัยใหม่ที่ช่วยคุณเปรียบเทียบราคาจากหลายสายการบินในที่เดียว เรามุ่งมั่นที่จะให้บริการที่เรียบง่าย โปร่งใส และมีคุณค่า";
-                        }
-                        
-                        const botMessageDiv = document.createElement('div');
-                        botMessageDiv.classList.add('message', 'bot-message');
-                        botMessageDiv.textContent = botResponse;
-                        chatMessages.appendChild(botMessageDiv);
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 1000);
-                }
-            }
-        });
-    </script>
+<script>
+const BASE_URL='https://nickinicha.github.io/flyreisen24.com';
+const languageLinks={'th':{about:`${BASE_URL}/th/about_th.html`,terms:`${BASE_URL}/th/terms_th.html`,privacy:`${BASE_URL}/th/privacy_th.html`},'en':{about:`${BASE_URL}/en/about_en.html`,terms:`${BASE_URL}/en/terms_en.html`,privacy:`${BASE_URL}/en/privacy_en.html`},'de':{about:`${BASE_URL}/de/about_de.html`,terms:`${BASE_URL}/de/terms_de.html`,privacy:`${BASE_URL}/de/privacy_de.html`}};
+function getCurrentLanguage(){return localStorage.getItem('flyreisen24_lang')||'th'}
+function updateNavigationLinks(){const currentLang=getCurrentLanguage();const links=languageLinks[currentLang];document.getElementById('aboutLink').href=links.about;document.getElementById('footerAboutLink').href=links.about;document.getElementById('footerTermsLink').href=links.terms;document.getElementById('footerPrivacyLink').href=links.privacy}
+function toggleContact(){const contactPopup=document.getElementById('contactPopup');contactPopup.classList.toggle('active');if(contactPopup.classList.contains('active')){document.getElementById('name').focus()}}
+function toggleMenu(){const menu=document.getElementById('topNavMenu');const toggle=document.querySelector('.menu-toggle');menu.classList.toggle('active');toggle.textContent=menu.classList.contains('active')?'✕':'☰'}
+function toggleLangDropdown(){document.getElementById('languageDropdown').classList.toggle('active')}
+function switchLanguage(lang,display){localStorage.setItem('flyreisen24_lang',lang);document.getElementById('currentLang').textContent=display;document.querySelector('.language-dropdown').classList.remove('active');updateNavigationLinks();const langMap={'th':'th','en':'en','de':'de'};const page='about';window.location.href=`${BASE_URL}/${langMap[lang]}/${page}_${langMap[lang]}.html`}
+document.addEventListener('DOMContentLoaded',function(){const form=document.getElementById('contactForm');const submitBtn=document.getElementById('submitBtn');const successMsg=document.getElementById('successMessage');const errorMsg=document.getElementById('errorMessage');form.addEventListener('submit',async function(e){e.preventDefault();submitBtn.disabled=true;submitBtn.innerHTML='<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';successMsg.classList.remove('show');errorMsg.classList.remove('show');try{const formData=new FormData(form);const response=await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});if(response.ok){successMsg.classList.add('show');form.reset();setTimeout(()=>{toggleContact();successMsg.classList.remove('show')},3000)}else{errorMsg.classList.add('show')}}catch(error){errorMsg.classList.add('show')}submitBtn.disabled=false;submitBtn.innerHTML='<i class="fas fa-paper-plane"></i> ส่งข้อความ'});updateNavigationLinks();document.addEventListener('click',function(e){const dropdown=document.querySelector('.language-dropdown');const nav=document.querySelector('.top-nav');const menu=document.getElementById('topNavMenu');if(dropdown&&!dropdown.contains(e.target)){dropdown.classList.remove('active')}if(nav&&menu&&!nav.contains(e.target)&&menu.classList.contains('active')){menu.classList.remove('active')}})});
+console.log('✅ FlyReisen24 About (TH) Ready');
+</script>
 </body>
 </html>
