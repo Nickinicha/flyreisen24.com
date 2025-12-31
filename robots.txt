@@ -1,36 +1,189 @@
-# robots.txt for FlyReisen24
-# Updated: 2025-01-05
+# robots.txt for FlyReisen24.com
+# https://flyreisen24.com/robots.txt
+
+# ========================================
+# GENERAL RULES FOR ALL BOTS
+# ========================================
 
 User-agent: *
 Allow: /
 
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
+# Allow crawling of main pages
+Allow: /index.html
+Allow: /faq*.html
+Allow: /about*.html
+Allow: /contact.html
+Allow: /terms*.html
+Allow: /privacy*.html
+Allow: /booking.html
 
-User-agent: Bingbot
-Allow: /
+# Allow crawling of static assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
 
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-# Disallow specific files/folders (if needed in future)
+# Disallow crawling of admin/private areas
 Disallow: /admin/
 Disallow: /private/
+Disallow: /temp/
+Disallow: /_archive/
+Disallow: /test/
+
+# Disallow crawling of API endpoints
+Disallow: /api/
 Disallow: /*.json$
 
-# Crawl-delay for polite crawlers
+# Disallow crawling of duplicate content
+Disallow: /*?*
+Disallow: /*utm_source=*
+Disallow: /*utm_medium=*
+Disallow: /*utm_campaign=*
+Disallow: /*ref=*
+Disallow: /*source=*
+
+# Disallow crawling of session/tracking parameters
+Disallow: /*sessionid=*
+Disallow: /*sid=*
+Disallow: /*fbclid=*
+Disallow: /*gclid=*
+
+# ========================================
+# SPECIFIC BOT RULES
+# ========================================
+
+# Google Bot - Full Access
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot - Allow Images
+User-agent: Googlebot-Image
+Allow: /images/
+Crawl-delay: 0
+
+# Bing Bot - Full Access
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Yandex - Full Access
+User-agent: Yandex
+Allow: /
 Crawl-delay: 1
 
-# Sitemap location
-Sitemap: https://nickinicha.github.io/flyreisen24.com/sitemap.xml
+# Baidu - Full Access (Important for Chinese market)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
 
-# Additional sitemaps (for future expansion)
-# Sitemap: https://nickinicha.github.io/flyreisen24.com/sitemap-blog.xml
-# Sitemap: https://nickinicha.github.io/flyreisen24.com/sitemap-destinations.xml
+# DuckDuckGo - Full Access
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
+
+# Facebook/Meta Bot - Allow for Social Sharing
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 0
+
+# Twitter Bot - Allow for Social Sharing
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 0
+
+# LinkedIn Bot - Allow for Social Sharing
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 0
+
+# Pinterest Bot - Allow for Social Sharing
+User-agent: Pinterest
+Allow: /
+Crawl-delay: 0
+
+# ========================================
+# BLOCK SPECIFIC BOTS
+# ========================================
+
+# Block AI scrapers (protect content)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Block bad bots
+User-agent: MauiBot
+Disallow: /
+
+User-agent: JobboerseBot
+Disallow: /
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# ========================================
+# SITEMAP LOCATION
+# ========================================
+
+Sitemap: https://flyreisen24.com/sitemap.xml
+
+# ========================================
+# CRAWL RATE
+# ========================================
+
+# Default crawl delay for unlisted bots
+Crawl-delay: 1
+
+# ========================================
+# NOTES
+# ========================================
+
+# Last Updated: 2025-01-01
+# This robots.txt file is optimized for:
+# - Travel/booking website
+# - Multilingual content (TH/EN/DE)
+# - SEO best practices
+# - Protection against AI scrapers
+# - Social media sharing optimization
+
+# For questions, contact: webmaster@flyreisen24.com
