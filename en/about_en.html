@@ -1,182 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us - flyreisen24</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#262626;overflow-x:hidden}html{scroll-behavior:smooth}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>About Us - FlyReisen24 | Flight & Hotel Comparison Platform</title>
+    <meta name="title" content="About Us - FlyReisen24">
+    <meta name="description" content="FlyReisen24 is a flight, hotel, and car rental comparison platform with 10+ years of airline industry experience. Travel confidently and save money.">
+    <meta name="keywords" content="About FlyReisen24, flight comparison platform, travel knowledge">
+    <meta name="author" content="FlyReisen24">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.flyreisen24.com/about.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.flyreisen24.com/about.html">
+    <meta property="og:title" content="About Us - FlyReisen24">
+    <meta property="og:description" content="Flight, hotel, and car rental comparison platform with professional travel knowledge">
+    <meta property="og:image" content="https://www.flyreisen24.com/images/og-about.jpg">
+    
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/about.html">
+    <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/about_th.html">
+    <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/about_de.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/about.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "FlyReisen24",
+      "url": "https://www.flyreisen24.com",
+      "logo": "https://www.flyreisen24.com/fly_reisen24_logo_white.png",
+      "description": "Flight, hotel, and car rental comparison platform with professional knowledge",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@flyreisen24.com",
+        "contactType": "customer support",
+        "availableLanguage": ["Thai", "English", "German"]
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.flyreisen24.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://www.flyreisen24.com/about.html"
+      }]
+    }
+    </script>
 
-/* ===== NAVIGATION STYLE - AIRPAZ INSPIRED ===== */
-.top-nav{background-color:#ffffff !important;padding:12px 0;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05)}.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.top-nav-logo img{height:75px;width:auto;display:block}.top-nav-menu{display:flex;gap:35px;list-style:none;align-items:center}.top-nav-menu a{color:#6b7280 !important;text-decoration:none;font-weight:500;font-size:15px;transition:color 0.3s ease;display:flex;align-items:center;gap:8px;position:relative}.top-nav-menu a:hover{color:#0056B3 !important}.top-nav-menu a.active{color:#0056B3 !important;font-weight:600}.top-nav-menu a i{font-size:16px;color:#9ca3af;transition:color 0.3s}.top-nav-menu a:hover i{color:#0056B3}.nav-right{display:flex;align-items:center;gap:25px}.nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color 0.3s}.nav-help:hover{color:#0056B3}.nav-help i{font-size:15px}.language-dropdown{position:relative}.lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all 0.3s;display:flex;align-items:center;gap:6px}.lang-current:hover{border-color:#0056B3;background:#f0f4ff}.lang-current i.fa-globe{font-size:14px;color:#6b7280}.lang-dropdown-menu{position:absolute;top:110%;right:0;background:#FFFFFF;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.15);min-width:160px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s;z-index:1000;overflow:hidden}.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151 !important;text-decoration:none;font-weight:500;transition:background 0.2s;font-size:14px}.lang-dropdown-menu a:hover{background:#f0f4ff}.lang-dropdown-menu a.active{background:#e6edff;color:#0056B3 !important;font-weight:700}.menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer;padding:0.5rem}
-
-.hero{background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=400&fit=crop') center center no-repeat;background-size:cover;color:#FFF;padding:5rem 2rem;text-align:center}.hero-content{max-width:1100px;margin:0 auto}.hero h1{font-size:3.2rem;font-weight:800;margin-bottom:1rem;line-height:1.2;text-shadow:0 2px 4px rgba(0,0,0,.5)}.hero-subtitle{font-size:1.4rem;margin-bottom:2rem;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.5)}.back-button-container{max-width:1200px;margin:2rem auto;padding:0 2rem;text-align:center}.back-button{background:#0056B3;color:#fff;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all .3s ease}.back-button:hover{background:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}.content-section{padding:3rem 2rem;background:#FFF}.content-container{max-width:1200px;margin:0 auto;background:#fff;border-radius:15px;padding:3rem;box-shadow:0 10px 30px rgba(0,0,0,.1)}.content-container h1{color:#0056B3;font-size:2.5rem;margin-bottom:2rem;text-align:center}.content-container h2{color:#0056B3;font-size:1.8rem;margin:2.5rem 0 1rem;border-bottom:2px solid #e6edff;padding-bottom:.5rem}.content-container p{margin-bottom:1.5rem;line-height:1.8;font-size:1.05rem;color:#333}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin:2.5rem 0}.feature-card{background:#fff;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:transform .3s ease,box-shadow .3s ease}.feature-card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,.12)}.feature-icon{width:70px;height:70px;background:linear-gradient(135deg,#f0f4ff 0%,#e6edff 100%);border-radius:50%;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#0056B3}.feature-card h3{color:#0056B3;margin-bottom:1rem;font-size:1.2rem}.feature-card p{color:#666;line-height:1.6}.highlight-box{background:#f0f4ff;padding:2rem;border-radius:10px;border-left:5px solid #0056B3;margin:2rem 0}.highlight-box h3{color:#0056B3;margin-bottom:1rem}
-
-.contact-widget{position:fixed;bottom:30px;right:30px;z-index:1000}.contact-button{width:60px;height:60px;border-radius:50%;background-color:#0056B3;color:white;display:flex;justify-content:center;align-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(0,86,179,.3);cursor:pointer;transition:all .3s ease;border:none}.contact-button:hover{transform:scale(1.1);background-color:#003d82}.contact-popup{position:absolute;bottom:75px;right:0;width:380px;max-height:580px;background-color:white;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden}.contact-popup.active{display:flex!important}.contact-header{background-color:#0056B3;color:white;padding:20px;display:flex;justify-content:space-between;align-items:center}.contact-header h3{margin:0;font-size:1.2rem}.close-contact{cursor:pointer;font-size:1.2rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:background .3s ease;border:none;color:white}.close-contact:hover{background:rgba(255,255,255,.3)}.contact-form-container{padding:25px;overflow-y:auto}.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:.9rem}.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1px solid #e2e8f0;border-radius:8px;outline:none;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s}.form-group input:focus,.form-group textarea:focus{border-color:#0056B3}.form-group textarea{resize:vertical;min-height:90px}.submit-btn{width:100%;padding:13px;background-color:#0056B3;color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s ease}.submit-btn:hover:not(:disabled){background-color:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}.submit-btn:disabled{background-color:#ccc;cursor:not-allowed;transform:none}.success-message{background-color:#d4edda;color:#155724;padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.success-message.show{display:block}.error-message{background-color:#f8d7da;color:#721c24;padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.error-message.show{display:block}
-
-.main-footer{background-color:#ffffff;border-top:1px solid #eee;padding:60px 0 30px;color:#666}.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;padding:0 20px}.footer-col h4{color:#333;margin-bottom:20px;font-size:16px;font-weight:700}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:12px}.footer-col ul a{color:#777;text-decoration:none;font-size:14px;transition:0.3s}.footer-col ul a:hover{color:#0056B3;padding-left:5px}.footer-bottom{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #f0f0f0;font-size:13px}
-
-@media (max-width:768px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background-color:#FFFFFF;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,0.1);gap:0;border-top:1px solid #f0f0f0}.top-nav-menu.active{display:flex !important}.top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:0.8rem 0}.menu-toggle{display:block}.hero{padding:3rem 1rem}.hero h1{font-size:2.4rem}.content-container{padding:2rem 1.5rem}.features-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.top-nav-logo img{height:60px}.contact-popup{width:320px;right:-30px}}
-</style>
+    <style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;line-height:1.6;color:#262626}html{scroll-behavior:smooth}.breadcrumb{background:#f8f9fa;padding:12px 0;border-bottom:1px solid #e9ecef}.breadcrumb-container{max-width:1400px;margin:0 auto;padding:0 30px}.breadcrumb-list{display:flex;list-style:none;gap:8px;font-size:14px}.breadcrumb-list a{color:#0056B3;text-decoration:none}.breadcrumb-separator{color:#9ca3af;margin:0 5px}.top-nav{background:#fff;padding:10px 0;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.top-nav-logo img{height:48px}.top-nav-menu{display:flex;gap:35px;list-style:none;align-items:center}.top-nav-menu a{color:#6b7280!important;text-decoration:none;font-weight:500;font-size:15px;transition:color .3s;display:flex;align-items:center;gap:8px}.top-nav-menu a:hover{color:#0056B3!important}.top-nav-menu a i{font-size:16px;color:#9ca3af}.new-badge{background:linear-gradient(135deg,#ff6b6b,#ff4757);color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:5px}.nav-right{display:flex;align-items:center;gap:25px}.nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px}.nav-help:hover{color:#0056B3}.language-dropdown{position:relative}.lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px}.lang-current:hover{border-color:#0056B3;background:#f0f4ff}.lang-dropdown-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);min-width:160px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1000}.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151!important;text-decoration:none;font-weight:500;font-size:14px}.lang-dropdown-menu a:hover{background:#f0f4ff}.lang-dropdown-menu a.active{background:#e6edff;color:#0056B3!important;font-weight:700}.menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer}.hero{background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url('https://www.flyreisen24.com/hero_background.jpg') center no-repeat;background-size:cover;color:#fff;padding:4rem 2rem;text-align:center}.hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;text-shadow:0 2px 4px rgba(0,0,0,.5)}.hero p{font-size:1.3rem;text-shadow:0 1px 3px rgba(0,0,0,.5)}.about-section{max-width:1200px;margin:60px auto;padding:0 30px}.content-card{background:#fff;padding:50px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.08);margin-bottom:40px}.content-card h2{color:#0056B3;font-size:2rem;margin-bottom:25px;font-weight:700}.content-card p{color:#555;font-size:1.1rem;line-height:1.9;margin-bottom:20px}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:40px 0}.feature-box{background:#fff;padding:35px 25px;border-radius:15px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08);transition:all .3s}.feature-box:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,.12)}.feature-box i{font-size:3rem;color:#0056B3;margin-bottom:20px}.feature-box h3{color:#0056B3;font-size:1.3rem;margin-bottom:15px;font-weight:700}.feature-box p{color:#666;font-size:1rem;line-height:1.7}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;background:linear-gradient(135deg,#0056B3,#003d82);padding:50px;border-radius:20px;color:#fff;text-align:center;margin:40px 0}.stat-item{padding:20px}.stat-number{font-size:3rem;font-weight:800;color:#D4AF37;display:block;margin-bottom:10px}.stat-label{font-size:1.1rem;opacity:.9}.contact-widget{position:fixed;bottom:30px;right:30px;z-index:1000}.contact-button{width:60px;height:60px;border-radius:50%;background-color:#0056B3;color:white;display:flex;justify-content:center;align-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(0,86,179,.3);cursor:pointer;transition:all .3s ease;border:none}.contact-button:hover{transform:scale(1.1);background-color:#003d82}.contact-popup{position:absolute;bottom:75px;right:0;width:380px;max-height:580px;background-color:white;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden}.contact-popup.active{display:flex!important}.contact-header{background-color:#0056B3;color:white;padding:20px;display:flex;justify-content:space-between;align-items:center}.contact-header h3{margin:0;font-size:1.2rem}.close-contact{cursor:pointer;font-size:1.2rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:background .3s ease;border:none;color:white}.close-contact:hover{background:rgba(255,255,255,.3)}.contact-form-container{padding:25px;overflow-y:auto}.form-group{margin-bottom:18px}.form-group label{display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:.9rem}.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1px solid #e2e8f0;border-radius:8px;outline:none;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s}.form-group input:focus,.form-group textarea:focus{border-color:#0056B3}.form-group textarea{resize:vertical;min-height:90px}.submit-btn{width:100%;padding:13px;background-color:#0056B3;color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s ease}.submit-btn:hover:not(:disabled){background-color:#003d82;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,86,179,.3)}.submit-btn:disabled{background-color:#ccc;cursor:not-allowed}.success-message,.error-message{padding:12px;border-radius:8px;margin-bottom:15px;display:none;text-align:center;font-size:.9rem}.success-message{background-color:#d4edda;color:#155724}.error-message{background-color:#f8d7da;color:#721c24}.success-message.show,.error-message.show{display:block}.main-footer{background:#fff;border-top:1px solid #eee;padding:60px 0 30px;color:#666}.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;padding:0 20px}.footer-col h4{color:#333;margin-bottom:20px;font-size:16px;font-weight:700}.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:12px}.footer-col ul a{color:#777;text-decoration:none;font-size:14px;transition:.3s}.footer-col ul a:hover{color:#0056B3;padding-left:5px}.footer-bottom{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #f0f0f0;font-size:13px}@media (max-width:768px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.1);gap:0;border-top:1px solid #f0f0f0}.top-nav-menu.active{display:flex!important}.top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:.8rem 0}.menu-toggle{display:block}.hero h1{font-size:2.2rem}.features-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.contact-popup{width:320px;right:-30px}}
+    </style>
 </head>
 <body>
-<nav class="top-nav">
-<div class="top-nav-container">
-<a href="../index.html" class="top-nav-logo">
-<img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
-</a>
-<ul class="top-nav-menu" id="topNavMenu">
-<li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="#" id="aboutLink" class="active"><i class="fas fa-info-circle"></i> About Us</a></li>
-<li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-</ul>
-<div class="nav-right">
-<a href="../contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
-<div class="language-dropdown" id="languageDropdown">
-<button class="lang-current" onclick="toggleLangDropdown()">
-<i class="fas fa-globe"></i>
-<span id="currentLang">EN</span>
-<i class="fas fa-chevron-down" style="font-size:10px;"></i>
-</button>
-<div class="lang-dropdown-menu">
-<a href="#" onclick="switchLanguage('th','TH');return false;">🇹🇭 ไทย (TH)</a>
-<a href="#" class="active" onclick="switchLanguage('en','EN');return false;">🇬🇧 English (EN)</a>
-<a href="#" onclick="switchLanguage('de','DE');return false;">🇩🇪 Deutsch (DE)</a>
-</div>
-</div>
-</div>
-<button class="menu-toggle" onclick="toggleMenu()">☰</button>
-</div>
-</nav>
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <ol class="breadcrumb-list">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><span class="breadcrumb-separator">/</span></li>
+                <li>About Us</li>
+            </ol>
+        </div>
+    </nav>
 
-<section class="hero">
-<div class="hero-content">
-<h1>About Us</h1>
-<p class="hero-subtitle">Search hundreds of airlines and book your next adventure with ease</p>
-</div>
-</section>
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="top-nav-logo">
+                <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
+            </a>
+            <ul class="top-nav-menu" id="topNavMenu">
+                <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> Flights</a></li>
+                <li><a href="booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> Hotels</a></li>
+                <li><a href="booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd"><i class="fas fa-car"></i> Car Rental</a></li>
+                <li><a href="faq.html"><i class="fas fa-book-open"></i> Knowledge Hub <span class="new-badge">NEW</span></a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
+                <div class="language-dropdown" id="languageDropdown">
+                    <button class="lang-current" onclick="toggleLangDropdown()">
+                        <i class="fas fa-globe"></i>
+                        <span>EN</span>
+                        <i class="fas fa-chevron-down" style="font-size:10px"></i>
+                    </button>
+                    <div class="lang-dropdown-menu">
+                        <a href="about_th.html">🇹🇭 ไทย (TH)</a>
+                        <a href="about.html" class="active">🇬🇧 English (EN)</a>
+                        <a href="about_de.html">🇩🇪 Deutsch (DE)</a>
+                    </div>
+                </div>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
 
-<div class="back-button-container">
-<a href="../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
-</div>
+    <section class="hero">
+        <h1>About FlyReisen24</h1>
+        <p>Flight, hotel, and car rental comparison platform<br>with real industry experience and professional knowledge</p>
+    </section>
 
-<section class="content-section">
-<div class="content-container">
-<h1>About Us – flyreisen24.com</h1>
-<p>flyreisen24.com is your reliable platform for searching and comparing flight tickets – simple, fast, and transparent.</p>
-<p>The idea behind flyreisen24.com came from years of experience in the ticketing industry – both directly with airlines and travel agencies. We know exactly what matters to travelers: fair prices, easy booking, and transparent information.</p>
+    <section class="about-section">
+        <div class="content-card">
+            <h2>🎯 Our Mission</h2>
+            <p>FlyReisen24 was founded with a clear vision: <strong>to make travel simple, accessible, and valuable for everyone.</strong></p>
+            <p>We believe travel shouldn't be complicated or expensive. With technology and real industry experience, we help you find the best deals quickly and confidently.</p>
+        </div>
 
-<h2>What Makes Us Special</h2>
-<div class="features-grid">
-<div class="feature-card">
-<div class="feature-icon"><i class="fas fa-search"></i></div>
-<h3>Multi-Provider Search</h3>
-<p>Search flights from multiple providers with just one query</p>
-</div>
-<div class="feature-card">
-<div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
-<h3>User-Friendly</h3>
-<p>Intuitive interface, suitable for everyone</p>
-</div>
-<div class="feature-card">
-<div class="feature-icon"><i class="fas fa-tag"></i></div>
-<h3>No Hidden Fees</h3>
-<p>No hidden charges, real-time prices</p>
-</div>
-</div>
+        <div class="content-card">
+            <h2>💡 Why FlyReisen24?</h2>
+            <p><strong>Real Experience:</strong> Our team has 10+ years in the airline and travel industry</p>
+            <p><strong>Comprehensive:</strong> Compare prices from 1,000+ sources worldwide</p>
+            <p><strong>Transparent:</strong> No hidden fees - the price you see is what you pay</p>
+            <p><strong>Knowledge Hub:</strong> Unique content from real experience you won't find elsewhere</p>
+        </div>
 
-<p>Our goal is to make flight booking as simple and pleasant as possible – for everyone, anytime.</p>
+        <h2 style="text-align:center;color:#0056B3;font-size:2.5rem;margin:40px 0">✨ Our Strengths</h2>
+        
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Price Comparison</h3>
+                <p>Search and compare prices from 1,000+ top airlines and hotels in one click</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Knowledge Hub</h3>
+                <p>Articles from 10+ years of real experience covering everything travelers need to know</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Safe & Secure</h3>
+                <p>Book through trusted partners with guarantees from direct providers</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Our team is ready to answer questions and provide guidance anytime</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-globe"></i>
+                <h3>Multilingual</h3>
+                <p>Available in Thai, English, and German for users worldwide</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Easy to Use</h3>
+                <p>Designed for simple use on all devices - mobile, tablet, and desktop</p>
+            </div>
+        </div>
 
-<div class="highlight-box">
-<h3>Contact</h3>
-<p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@flyreisen24.com" style="color:#0056B3;text-decoration:none">info@flyreisen24.com</a></p>
-<p><i class="fas fa-globe"></i> <strong>Follow us for deals and updates</strong></p>
-</div>
-</div>
-</section>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">1,000+</span>
+                <span class="stat-label">Data Sources</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Languages</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support</span>
+            </div>
+        </div>
+    </section>
 
-<div class="contact-widget">
-<button class="contact-button" onclick="toggleContact()"><i class="fas fa-envelope"></i></button>
-<div class="contact-popup" id="contactPopup">
-<div class="contact-header">
-<h3>Contact</h3>
-<button class="close-contact" onclick="toggleContact()">✕</button>
-</div>
-<div class="contact-form-container">
-<div class="success-message" id="successMessage">✅ Your message has been sent! We'll get back to you soon</div>
-<div class="error-message" id="errorMessage">❌ An error occurred. Please try again</div>
-<form id="contactForm" action="https://formspree.io/f/xreggjzv" method="POST">
-<div class="form-group">
-<label for="name">Name *</label>
-<input type="text" id="name" name="name" required placeholder="Your name">
-</div>
-<div class="form-group">
-<label for="email">Email *</label>
-<input type="email" id="email" name="email" required placeholder="example@email.com">
-</div>
-<div class="form-group">
-<label for="subject">Subject</label>
-<input type="text" id="subject" name="subject" placeholder="Your inquiry">
-</div>
-<div class="form-group">
-<label for="message">Message *</label>
-<textarea id="message" name="message" required placeholder="Your message"></textarea>
-</div>
-<button type="submit" class="submit-btn" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
-</form>
-</div>
-</div>
-</div>
+    <div class="contact-widget">
+        <button class="contact-button" onclick="toggleContact()"><i class="fas fa-envelope"></i></button>
+        <div class="contact-popup" id="contactPopup">
+            <div class="contact-header">
+                <h3>Contact Us</h3>
+                <button class="close-contact" onclick="toggleContact()">✕</button>
+            </div>
+            <div class="contact-form-container">
+                <div class="success-message" id="successMessage">✅ Message sent! We'll get back to you soon</div>
+                <div class="error-message" id="errorMessage">❌ Error occurred. Please try again</div>
+                <form id="contactForm" action="https://formspree.io/f/xdkooraa" method="POST">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="Your inquiry">
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" required placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<footer class="main-footer">
-<div class="footer-grid">
-<div class="footer-col">
-<img src="https://nickinicha.github.io/flyreisen24.com/fly_reisen24_logo_white.png" style="height:35px;margin-bottom:20px;">
-<p style="font-size:14px;line-height:1.6;">We are a leading online flight search and booking platform, comparing prices from top airlines worldwide.</p>
-</div>
-<div class="footer-col">
-<h4>Quick Links</h4>
-<ul>
-<li><a href="../index.html">Home</a></li>
-<li><a href="#" id="footerAboutLink">About Us</a></li>
-<li><a href="../contact.html">Contact</a></li>
-<li><a href="#" id="footerTermsLink">Terms</a></li>
-<li><a href="#" id="footerPrivacyLink">Privacy</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>Airlines</h4>
-<ul>
-<li><a href="#">Thai Airways</a></li>
-<li><a href="#">Bangkok Airways</a></li>
-<li><a href="#">AirAsia</a></li>
-<li><a href="#">Qatar Airways</a></li>
-<li><a href="#">Emirates</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>Contact</h4>
-<p><i class="fas fa-envelope"></i> info@flyreisen24.com</p>
-<p><i class="fas fa-phone"></i> +66 2-123-4567</p>
-<p><i class="fas fa-clock"></i> Mon-Sat: 9:00-18:00</p>
-</div>
-</div>
-<div class="footer-bottom">Copyright © 2025 flyreisen24.com - All Rights Reserved</div>
-</footer>
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" style="height:35px;margin-bottom:20px">
+                <p style="font-size:14px;line-height:1.6">The most valuable travel search platform bringing together deals from world-class partners in one place</p>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="https://flights.flyreisen24.com">Search Flights</a></li>
+                    <li><a href="booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">Book Hotels</a></li>
+                    <li><a href="booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd">Car Rentals & Activities</a></li>
+                    <li><a href="faq.html">Travel Knowledge Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Support</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 FlyReisen24. All Rights Reserved.</div>
+    </footer>
 
-<script>
-const BASE_URL='https://nickinicha.github.io/flyreisen24.com';
-const languageLinks={'th':{about:`${BASE_URL}/th/about_th.html`,terms:`${BASE_URL}/th/terms_th.html`,privacy:`${BASE_URL}/th/privacy_th.html`},'en':{about:`${BASE_URL}/en/about_en.html`,terms:`${BASE_URL}/en/terms_en.html`,privacy:`${BASE_URL}/en/privacy_en.html`},'de':{about:`${BASE_URL}/de/about_de.html`,terms:`${BASE_URL}/de/terms_de.html`,privacy:`${BASE_URL}/de/privacy_de.html`}};
-function getCurrentLanguage(){return localStorage.getItem('flyreisen24_lang')||'en'}
-function updateNavigationLinks(){const currentLang=getCurrentLanguage();const links=languageLinks[currentLang];document.getElementById('aboutLink').href=links.about;document.getElementById('footerAboutLink').href=links.about;document.getElementById('footerTermsLink').href=links.terms;document.getElementById('footerPrivacyLink').href=links.privacy}
-function toggleContact(){const contactPopup=document.getElementById('contactPopup');contactPopup.classList.toggle('active');if(contactPopup.classList.contains('active')){document.getElementById('name').focus()}}
-function toggleMenu(){const menu=document.getElementById('topNavMenu');const toggle=document.querySelector('.menu-toggle');menu.classList.toggle('active');toggle.textContent=menu.classList.contains('active')?'✕':'☰'}
+    <script>
+function toggleMenu(){document.getElementById('topNavMenu').classList.toggle('active')}
 function toggleLangDropdown(){document.getElementById('languageDropdown').classList.toggle('active')}
-function switchLanguage(lang,display){localStorage.setItem('flyreisen24_lang',lang);document.getElementById('currentLang').textContent=display;document.querySelector('.language-dropdown').classList.remove('active');updateNavigationLinks();const langMap={'th':'th','en':'en','de':'de'};const page='about';window.location.href=`${BASE_URL}/${langMap[lang]}/${page}_${langMap[lang]}.html`}
-document.addEventListener('DOMContentLoaded',function(){const form=document.getElementById('contactForm');const submitBtn=document.getElementById('submitBtn');const successMsg=document.getElementById('successMessage');const errorMsg=document.getElementById('errorMessage');form.addEventListener('submit',async function(e){e.preventDefault();submitBtn.disabled=true;submitBtn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';successMsg.classList.remove('show');errorMsg.classList.remove('show');try{const formData=new FormData(form);const response=await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});if(response.ok){successMsg.classList.add('show');form.reset();setTimeout(()=>{toggleContact();successMsg.classList.remove('show')},3000)}else{errorMsg.classList.add('show')}}catch(error){errorMsg.classList.add('show')}submitBtn.disabled=false;submitBtn.innerHTML='<i class="fas fa-paper-plane"></i> Send Message'});updateNavigationLinks();document.addEventListener('click',function(e){const dropdown=document.querySelector('.language-dropdown');const nav=document.querySelector('.top-nav');const menu=document.getElementById('topNavMenu');if(dropdown&&!dropdown.contains(e.target)){dropdown.classList.remove('active')}if(nav&&menu&&!nav.contains(e.target)&&menu.classList.contains('active')){menu.classList.remove('active')}})});
-console.log('✅ FlyReisen24 About (EN) Ready');
-</script>
+function toggleContact(){const popup=document.getElementById('contactPopup');popup.classList.toggle('active');if(popup.classList.contains('active'))document.querySelector('#contactForm input').focus()}
+document.addEventListener('DOMContentLoaded',function(){const form=document.getElementById('contactForm');const btn=document.getElementById('submitBtn');const successMsg=document.getElementById('successMessage');const errorMsg=document.getElementById('errorMessage');form.addEventListener('submit',async function(e){e.preventDefault();btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';successMsg.classList.remove('show');errorMsg.classList.remove('show');try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(response.ok){successMsg.classList.add('show');form.reset();setTimeout(()=>{toggleContact();successMsg.classList.remove('show')},3000)}else{errorMsg.classList.add('show')}}catch(error){errorMsg.classList.add('show')}btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Message'});document.addEventListener('click',function(e){const dropdown=document.getElementById('languageDropdown');if(dropdown&&!dropdown.contains(e.target))dropdown.classList.remove('active')})});
+    </script>
 </body>
 </html>
