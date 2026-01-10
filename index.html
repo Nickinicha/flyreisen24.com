@@ -1098,7 +1098,7 @@
     </style>
 </head>
 <body>
-    <!-- ===== BREADCRUMB NAVIGATION (NEW!) ===== -->
+    <!-- ===== BREADCRUMB NAVIGATION ===== -->
     <nav class="breadcrumb" aria-label="breadcrumb">
         <div class="breadcrumb-container">
             <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -1137,7 +1137,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="faq_th.html">
+                    <a href="faq_th.html" id="navKnowledgeLink">
                         <i class="fas fa-book-open"></i>
                         <span id="navKnowledge">คลังความรู้</span>
                         <span class="new-badge">NEW</span>
@@ -1259,7 +1259,7 @@
     <section class="airline-ticker">
         <div class="ticker-container">
             <div class="ticker-track">
-                  <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/QR.png" alt="Qatar Airways" loading="lazy"></div>
+                <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/QR.png" alt="Qatar Airways" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/BR.png" alt="Eva Air" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/BI.png" alt="Royal Brunei Airlines" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/TK.png" alt="Turkish Airlines" loading="lazy"></div>
@@ -1357,7 +1357,7 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER WITH DYNAMIC LANGUAGE LINKS -->
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
@@ -1370,22 +1370,22 @@
                     <li><a href="https://flights.flyreisen24.com" id="footerFlights">ค้นหาตั๋วเครื่องบิน</a></li>
                     <li><a href="booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotels">จองโรงแรมที่พัก</a></li>
                     <li><a href="booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" id="footerCars">รถเช่าและกิจกรรม</a></li>
-                    <li><a href="faq_th.html" id="footerKnowledge">คลังความรู้การเดินทาง</a></li>
+                    <li><a href="faq_th.html" id="footerKnowledgeLink">คลังความรู้การเดินทาง</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4 id="footerHelp">ช่วยเหลือ</h4>
                 <ul>
                     <li><a href="contact.html" id="footerContact">ติดต่อฝ่ายบริการ</a></li>
-                    <li><a href="faq_th.html" id="footerFaq">คำถามที่พบบ่อย</a></li>
+                    <li><a href="faq_th.html" id="footerFaqLink">คำถามที่พบบ่อย</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4 id="footerLegal">ข้อมูลทางกฎหมาย</h4>
                 <ul>
-                    <li><a href="about_th.html" id="footerAbout">เกี่ยวกับเรา</a></li>
-                    <li><a href="terms_th.html" id="footerTerms">ข้อกำหนดและเงื่อนไข</a></li>
-                    <li><a href="privacy_th.html" id="footerPrivacy">นโยบายความเป็นส่วนตัว</a></li>
+                    <li><a href="about_th.html" id="footerAboutLink">เกี่ยวกับเรา</a></li>
+                    <li><a href="terms_th.html" id="footerTermsLink">ข้อกำหนดและเงื่อนไข</a></li>
+                    <li><a href="privacy_th.html" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
                 </ul>
             </div>
         </div>
@@ -1395,6 +1395,9 @@
     </footer>
     
     <script>
+        // ==========================================
+        // TRANSLATIONS WITH LINK URLs
+        // ==========================================
         const translations = {
             'th': {
                 heroTitle: 'แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์',
@@ -1433,14 +1436,14 @@
                 footerFlights: 'ค้นหาตั๋วเครื่องบิน',
                 footerHotels: 'จองโรงแรมที่พัก',
                 footerCars: 'รถเช่าและกิจกรรม',
-                footerKnowledge: 'คลังความรู้การเดินทาง',
                 footerHelp: 'ช่วยเหลือ',
                 footerContact: 'ติดต่อฝ่ายบริการ',
-                footerFaq: 'คำถามที่พบบ่อย',
                 footerLegal: 'ข้อมูลทางกฎหมาย',
-                footerAbout: 'เกี่ยวกับเรา',
-                footerTerms: 'ข้อกำหนดและเงื่อนไข',
-                footerPrivacy: 'นโยบายความเป็นส่วนตัว'
+                // Link URLs for TH
+                faqLink: 'faq_th.html',
+                aboutLink: 'about_th.html',
+                termsLink: 'terms_th.html',
+                privacyLink: 'privacy_th.html'
             },
             'en': {
                 heroTitle: 'Travel Platform for Every Lifestyle',
@@ -1479,14 +1482,14 @@
                 footerFlights: 'Search Flight Tickets',
                 footerHotels: 'Book Hotels',
                 footerCars: 'Car Rentals & Activities',
-                footerKnowledge: 'Travel Knowledge Hub',
                 footerHelp: 'Help',
                 footerContact: 'Contact Support',
-                footerFaq: 'Frequently Asked Questions',
                 footerLegal: 'Legal Information',
-                footerAbout: 'About Us',
-                footerTerms: 'Terms and Conditions',
-                footerPrivacy: 'Privacy Policy'
+                // Link URLs for EN
+                faqLink: 'faq.html',
+                aboutLink: 'about.html',
+                termsLink: 'terms.html',
+                privacyLink: 'privacy.html'
             },
             'de': {
                 heroTitle: 'Reiseplattform für jeden Lebensstil',
@@ -1525,20 +1528,25 @@
                 footerFlights: 'Flugtickets suchen',
                 footerHotels: 'Hotels buchen',
                 footerCars: 'Mietwagen & Aktivitäten',
-                footerKnowledge: 'Reise-Wissenszentrum',
                 footerHelp: 'Hilfe',
                 footerContact: 'Support kontaktieren',
-                footerFaq: 'Häufig gestellte Fragen',
                 footerLegal: 'Rechtliche Informationen',
-                footerAbout: 'Über uns',
-                footerTerms: 'Allgemeine Geschäftsbedingungen',
-                footerPrivacy: 'Datenschutzrichtlinie'
+                // Link URLs for DE
+                faqLink: 'faq_de.html',
+                aboutLink: 'about_de.html',
+                termsLink: 'terms_de.html',
+                privacyLink: 'privacy_de.html'
             }
         };
 
+        // ==========================================
+        // UPDATE CONTENT (TEXT + LINKS)
+        // ==========================================
         function updateContent(lang) {
             const t = translations[lang];
             if (!t) return;
+            
+            // Update text content
             Object.keys(t).forEach(key => {
                 const element = document.getElementById(key);
                 if (element) {
@@ -1549,6 +1557,25 @@
                     }
                 }
             });
+            
+            // Update Navigation Menu FAQ Link
+            const navKnowledgeLink = document.getElementById('navKnowledgeLink');
+            if (navKnowledgeLink) {
+                navKnowledgeLink.href = t.faqLink;
+            }
+            
+            // Update Footer Links
+            const footerKnowledgeLink = document.getElementById('footerKnowledgeLink');
+            const footerFaqLink = document.getElementById('footerFaqLink');
+            const footerAboutLink = document.getElementById('footerAboutLink');
+            const footerTermsLink = document.getElementById('footerTermsLink');
+            const footerPrivacyLink = document.getElementById('footerPrivacyLink');
+            
+            if (footerKnowledgeLink) footerKnowledgeLink.href = t.faqLink;
+            if (footerFaqLink) footerFaqLink.href = t.faqLink;
+            if (footerAboutLink) footerAboutLink.href = t.aboutLink;
+            if (footerTermsLink) footerTermsLink.href = t.termsLink;
+            if (footerPrivacyLink) footerPrivacyLink.href = t.privacyLink;
         }
 
         function toggleLangDropdown() {
@@ -1581,6 +1608,9 @@
             }
         }
 
+        // ==========================================
+        // DOCUMENT READY
+        // ==========================================
         document.addEventListener('DOMContentLoaded', function() {
             const currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
             const langLabels = { 'th': 'TH', 'en': 'EN', 'de': 'DE' };
@@ -1593,6 +1623,7 @@
                 }
             });
             
+            // Navbar scroll effect
             let lastScrollTop = 0;
             const navbar = document.querySelector('.top-nav');
             const logo = document.querySelector('.top-nav-logo img');
@@ -1609,6 +1640,7 @@
                 lastScrollTop = scrollTop;
             });
             
+            // Contact form handling
             const form = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
             const successMsg = document.getElementById('successMessage');
@@ -1650,6 +1682,7 @@
                 });
             }
 
+            // Close dropdowns when clicking outside
             document.addEventListener('click', function(event) {
                 const nav = document.querySelector('.top-nav');
                 const menu = document.getElementById('topNavMenu');
@@ -1665,9 +1698,7 @@
             });
         });
 
-        console.log('✅ FlyReisen24 Homepage - SEO Enhanced Version');
+        console.log('✅ FlyReisen24 Homepage - SEO Enhanced + Multi-language Navigation & Footer');
     </script>
 </body>
 </html>
-
-
