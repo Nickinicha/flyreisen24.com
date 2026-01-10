@@ -1558,24 +1558,44 @@
                 }
             });
             
-            // Update Navigation Menu FAQ Link
+            // ========================================
+            // UPDATE ALL LINKS (Navigation + Footer)
+            // ========================================
+            
+            // Navigation Menu - FAQ Link
             const navKnowledgeLink = document.getElementById('navKnowledgeLink');
             if (navKnowledgeLink) {
                 navKnowledgeLink.href = t.faqLink;
+                console.log(`✅ Nav FAQ Link updated: ${t.faqLink}`);
             }
             
-            // Update Footer Links
+            // Footer Links
             const footerKnowledgeLink = document.getElementById('footerKnowledgeLink');
             const footerFaqLink = document.getElementById('footerFaqLink');
             const footerAboutLink = document.getElementById('footerAboutLink');
             const footerTermsLink = document.getElementById('footerTermsLink');
             const footerPrivacyLink = document.getElementById('footerPrivacyLink');
             
-            if (footerKnowledgeLink) footerKnowledgeLink.href = t.faqLink;
-            if (footerFaqLink) footerFaqLink.href = t.faqLink;
-            if (footerAboutLink) footerAboutLink.href = t.aboutLink;
-            if (footerTermsLink) footerTermsLink.href = t.termsLink;
-            if (footerPrivacyLink) footerPrivacyLink.href = t.privacyLink;
+            if (footerKnowledgeLink) {
+                footerKnowledgeLink.href = t.faqLink;
+                console.log(`✅ Footer Knowledge Link updated: ${t.faqLink}`);
+            }
+            if (footerFaqLink) {
+                footerFaqLink.href = t.faqLink;
+                console.log(`✅ Footer FAQ Link updated: ${t.faqLink}`);
+            }
+            if (footerAboutLink) {
+                footerAboutLink.href = t.aboutLink;
+                console.log(`✅ Footer About Link updated: ${t.aboutLink}`);
+            }
+            if (footerTermsLink) {
+                footerTermsLink.href = t.termsLink;
+                console.log(`✅ Footer Terms Link updated: ${t.termsLink}`);
+            }
+            if (footerPrivacyLink) {
+                footerPrivacyLink.href = t.privacyLink;
+                console.log(`✅ Footer Privacy Link updated: ${t.privacyLink}`);
+            }
         }
 
         function toggleLangDropdown() {
