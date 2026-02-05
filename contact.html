@@ -210,40 +210,8 @@
         <div class="footer-bottom">© 2025 FlyReisen24. All Rights Reserved.</div>
     </footer>
 
-    <script>
-function toggleMenu(){document.getElementById('topNavMenu').classList.toggle('active')}
-function toggleLangDropdown(){document.getElementById('languageDropdown').classList.toggle('active')}
-document.addEventListener('DOMContentLoaded',function(){
-const form=document.getElementById('contactForm');
-const btn=document.getElementById('submitBtn');
-const successMsg=document.getElementById('successMsg');
-const errorMsg=document.getElementById('errorMsg');
-form.addEventListener('submit',async function(e){
-e.preventDefault();
-btn.disabled=true;
-btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> กำลังส่ง...';
-successMsg.classList.remove('show');
-errorMsg.classList.remove('show');
-try{
-const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-if(response.ok){
-successMsg.classList.add('show');
-form.reset();
-setTimeout(()=>successMsg.classList.remove('show'),5000);
-}else{
-errorMsg.classList.add('show');
-}
-}catch(error){
-errorMsg.classList.add('show');
-}
-btn.disabled=false;
-btn.innerHTML='<i class="fas fa-paper-plane"></i> ส่งข้อความ';
-});
-document.addEventListener('click',function(e){
-const dropdown=document.getElementById('languageDropdown');
-if(dropdown&&!dropdown.contains(e.target)){dropdown.classList.remove('active')}
-});
-});
-    </script>
+   <!-- Common JavaScript for Navigation & Language -->
+<script src="/common.js"></script>
 </body>
+
 </html>
