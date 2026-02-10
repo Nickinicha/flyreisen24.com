@@ -250,7 +250,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ===== BREADCRUMB NAVIGATION (NEW!) ===== */
+        /* ===== BREADCRUMB NAVIGATION ===== */
         .breadcrumb {
             background: #f8f9fa;
             padding: 12px 0;
@@ -295,7 +295,7 @@
             margin: 0 5px;
         }
 
-        /* ===== NAVIGATION STYLE - AIRPAZ INSPIRED ===== */
+        /* ===== NAVIGATION STYLE ===== */
         .top-nav {
             background-color: #ffffff !important;
             padding: 10px 0;
@@ -1113,7 +1113,7 @@
     <!-- NAVIGATION -->
     <nav class="top-nav">
         <div class="top-nav-container">
-            <a href="index.html" class="top-nav-logo">
+            <a href="/" class="top-nav-logo">
                 <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24 - แพลตฟอร์มจองตั๋วเครื่องบิน โรงแรม รถเช่า" width="auto" height="48" loading="eager">
             </a>
             
@@ -1125,19 +1125,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">
+                    <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">
                         <i class="fas fa-hotel"></i>
                         <span id="navHotel">โรงแรม</span>
                     </a>
                 </li>
                 <li>
-                    <a href="booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd">
+                    <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd">
                         <i class="fas fa-car"></i>
                         <span id="navCar">รถเช่า</span>
                     </a>
                 </li>
                 <li>
-                    <a href="faq_th.html" id="navKnowledgeLink">
+                    <a href="/th/faq_th.html" id="navKnowledgeLink">
                         <i class="fas fa-book-open"></i>
                         <span id="navKnowledge">คลังความรู้</span>
                         <span class="new-badge">NEW</span>
@@ -1146,32 +1146,32 @@
             </ul>
 
             <div class="nav-right">
-                <a href="contact.html" class="nav-help">
+                <a href="/contact.html" class="nav-help">
                     <i class="fas fa-headset"></i>
                     Help
                 </a>
                 
                 <div class="language-dropdown" id="languageDropdown">
-                    <button class="lang-current" onclick="toggleLangDropdown()">
+                    <button class="lang-current">
                         <i class="fas fa-globe"></i>
                         <span id="currentLang">TH</span>
                         <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">
+                        <a href="/" class="active">
                             🇹🇭 ไทย (TH)
                         </a>
-                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">
+                        <a href="/en/">
                             🇬🇧 English (EN)
                         </a>
-                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">
+                        <a href="/de/">
                             🇩🇪 Deutsch (DE)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="menu-toggle">☰</button>
         </div>
     </nav>
         
@@ -1234,7 +1234,7 @@
                     <span class="btn-action" id="btnFlight">จองเที่ยวบิน</span>
                 </a>
                 
-                <a href="booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" class="booking-card">
+                <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" class="booking-card">
                     <div>
                         <i class="fas fa-hotel"></i>
                         <h3 id="cardHotelTitle">โรงแรม & ที่พัก</h3>
@@ -1243,7 +1243,7 @@
                     <span class="btn-action" id="btnHotel">ดูที่พัก</span>
                 </a>
                 
-                <a href="booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" class="booking-card">
+                <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" class="booking-card">
                     <div>
                         <i class="fas fa-car"></i>
                         <h3 id="cardCarTitle">รถเช่า & กิจกรรม</h3>
@@ -1368,24 +1368,24 @@
                 <h4 id="footerServices">บริการของเรา</h4>
                 <ul>
                     <li><a href="https://flights.flyreisen24.com" id="footerFlights">ค้นหาตั๋วเครื่องบิน</a></li>
-                    <li><a href="booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotels">จองโรงแรมที่พัก</a></li>
-                    <li><a href="booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" id="footerCars">รถเช่าและกิจกรรม</a></li>
-                    <li><a href="faq_th.html" id="footerKnowledgeLink">คลังความรู้การเดินทาง</a></li>
+                    <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotels">จองโรงแรมที่พัก</a></li>
+                    <li><a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" id="footerCars">รถเช่าและกิจกรรม</a></li>
+                    <li><a href="/th/faq_th.html" id="footerKnowledgeLink">คลังความรู้การเดินทาง</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4 id="footerHelp">ช่วยเหลือ</h4>
                 <ul>
-                    <li><a href="contact.html" id="footerContact">ติดต่อฝ่ายบริการ</a></li>
-                    <li><a href="faq_th.html" id="footerFaqLink">คำถามที่พบบ่อย</a></li>
+                    <li><a href="/contact.html" id="footerContact">ติดต่อฝ่ายบริการ</a></li>
+                    <li><a href="/th/faq_th.html" id="footerFaqLink">คำถามที่พบบ่อย</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4 id="footerLegal">ข้อมูลทางกฎหมาย</h4>
                 <ul>
-                    <li><a href="about_th.html" id="footerAboutLink">เกี่ยวกับเรา</a></li>
-                    <li><a href="terms_th.html" id="footerTermsLink">ข้อกำหนดและเงื่อนไข</a></li>
-                    <li><a href="privacy_th.html" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
+                    <li><a href="/th/about_th.html" id="footerAboutLink">เกี่ยวกับเรา</a></li>
+                    <li><a href="/th/terms_th.html" id="footerTermsLink">ข้อกำหนดและเงื่อนไข</a></li>
+                    <li><a href="/th/privacy_th.html" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
                 </ul>
             </div>
         </div>
@@ -1393,10 +1393,8 @@
             © 2025 FlyReisen24. All Rights Reserved.
         </div>
     </footer>
+
     <!-- Common JavaScript for Navigation & Language -->
-<script src="/common.js"></script>
+    <script src="/common.js"></script>
 </body>
 </html>
-
-
-
