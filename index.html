@@ -250,7 +250,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ===== BREADCRUMB NAVIGATION ===== */
+        /* ===== BREADCRUMB NAVIGATION (NEW!) ===== */
         .breadcrumb {
             background: #f8f9fa;
             padding: 12px 0;
@@ -295,7 +295,7 @@
             margin: 0 5px;
         }
 
-        /* ===== NAVIGATION STYLE ===== */
+        /* ===== NAVIGATION STYLE - AIRPAZ INSPIRED ===== */
         .top-nav {
             background-color: #ffffff !important;
             padding: 10px 0;
@@ -1152,26 +1152,26 @@
                 </a>
                 
                 <div class="language-dropdown" id="languageDropdown">
-                    <button class="lang-current">
+                    <button class="lang-current" onclick="toggleLangDropdown()">
                         <i class="fas fa-globe"></i>
                         <span id="currentLang">TH</span>
                         <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="/" class="active">
+                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">
                             🇹🇭 ไทย (TH)
                         </a>
-                        <a href="/en/">
+                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">
                             🇬🇧 English (EN)
                         </a>
-                        <a href="/de/">
+                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">
                             🇩🇪 Deutsch (DE)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
         
