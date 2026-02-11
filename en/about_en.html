@@ -68,7 +68,7 @@
             <div class="nav-right">
                 <a href="/en/contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
                 <div class="language-dropdown" id="languageDropdown">
-                    <button class="lang-current">
+                    <button class="lang-current" onclick="toggleLangDropdown()">
                         <i class="fas fa-globe"></i>
                         <span>EN</span>
                         <i class="fas fa-chevron-down" style="font-size:10px"></i>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
 
@@ -230,5 +230,47 @@
 
     <!-- Common JavaScript -->
     <script src="/common.js"></script>
+    
+    <!-- Page-specific JavaScript for Form Handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const btn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                successMsg.classList.remove('show');
+                errorMsg.classList.remove('show');
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {'Accept': 'application/json'}
+                    });
+                    
+                    if (response.ok) {
+                        successMsg.classList.add('show');
+                        form.reset();
+                        setTimeout(() => {
+                            toggleContact();
+                            successMsg.classList.remove('show');
+                        }, 3000);
+                    } else {
+                        errorMsg.classList.add('show');
+                    }
+                } catch (error) {
+                    errorMsg.classList.add('show');
+                }
+                
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            });
+        });
+    </script>
 </body>
 </html>
