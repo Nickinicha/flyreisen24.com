@@ -72,11 +72,24 @@
             z-index: 1;
         }
 
+        .logo-container a {
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         .logo-spinner {
             width: 140px;
             height: auto;
             animation: pulse-glow 2s ease-in-out infinite;
             filter: drop-shadow(0 4px 8px rgba(0, 86, 179, 0.2));
+            transition: all 0.3s ease;
+        }
+
+        .logo-container a:hover .logo-spinner {
+            animation: none;
+            transform: scale(1.08);
+            filter: drop-shadow(0 6px 12px rgba(0, 86, 179, 0.5));
         }
 
         @keyframes pulse-glow {
@@ -271,7 +284,9 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="https://www.flyreisen24.com/fly_reisen24_logo_blue.png" alt="FlyReisen24" class="logo-spinner">
+            <a href="/">
+                <img src="https://www.flyreisen24.com/fly_reisen24_logo_blue.png" alt="FlyReisen24" class="logo-spinner">
+            </a>
         </div>
 
         <div class="partner-badge">
@@ -327,8 +342,6 @@
     </div>
 
     <!-- Common JavaScript for Navigation & Language -->
-<script src="/common.js"></script>
+    <script src="/common.js"></script>
 </body>
-
 </html>
-
