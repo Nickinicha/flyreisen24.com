@@ -491,6 +491,162 @@
             padding: 3rem 2rem 5rem 2rem;
             text-align: center;
         }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-highlight {
+            color: #FFD700;
+            text-shadow: 0 2px 8px rgba(255,215,0,0.4);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 1.8rem auto 2rem;
+            max-width: 500px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 14px 30px;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .stat-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #FFD700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        .hero-stat-divider {
+            width: 1px;
+            height: 36px;
+            background: rgba(255,255,255,0.3);
+            margin: 0 10px;
+        }
+
+        /* TRUST SECTION */
+        .trust-section {
+            background: #fff;
+            padding: 40px 20px;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .trust-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-tagline {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .partner-logo-item {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+            opacity: 0.55;
+            transition: opacity 0.3s, transform 0.2s;
+            cursor: default;
+        }
+
+        .partner-logo-item:hover {
+            opacity: 1;
+            transform: scale(1.06);
+        }
+
+        /* Trip.com — blue */
+        .partner-logo-trip {
+            color: #0066CC;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Klook — orange */
+        .partner-logo-klook {
+            color: #FF5C00;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Travelpayouts — teal */
+        .partner-logo-tp {
+            color: #00B2A0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Formspree — pink-red */
+        .partner-logo-fs {
+            color: #E04B4B;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f4ff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #374151;
+            border: 1px solid #e6edff;
+        }
+
+        .trust-badge i {
+            color: #0056B3;
+            font-size: 1rem;
+        }
         
         .hero-content {
             max-width: 1100px;
@@ -1055,8 +1211,22 @@
             }
 
             .hero h1 {
-                font-size: 2.4rem;
+                font-size: 1.8rem;
             }
+
+            .hero-stats {
+                gap: 0;
+                padding: 12px 16px;
+            }
+
+            .stat-num { font-size: 1.1rem; }
+            .stat-label { font-size: 0.65rem; }
+
+            .partner-logos { gap: 20px; }
+            .partner-logo-item { font-size: 0.95rem; }
+
+            .trust-badges { gap: 10px; }
+            .trust-badge { font-size: 0.8rem; padding: 8px 14px; }
 
             .hero-subtitle {
                 font-size: 1.1rem;
@@ -1178,8 +1348,16 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1 id="heroTitle">แพลตฟอร์มเดินทางสำหรับทุกไลฟ์สไตล์</h1>
-            <p class="hero-subtitle" id="heroSubtitle">ค้นหาเที่ยวบินราคาถูกจากสายการบินชั้นนำทั่วโลก</p>
+            <div class="hero-badge" id="heroBadge">✈️ แพลตฟอร์มเดินทางครบวงจร</div>
+            <h1 id="heroTitle">จองเที่ยวบิน + โรงแรม + รถเช่า<br><span class="hero-highlight">ในที่เดียว</span></h1>
+            <p class="hero-subtitle" id="heroSubtitle">เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — ได้ดีลที่ดีที่สุด ไม่มีค่าธรรมเนียมซ่อน</p>
+            <div class="hero-stats">
+                <div class="hero-stat"><span class="stat-num">1.4 ล้าน+</span><span class="stat-label" id="statHotels">โรงแรมทั่วโลก</span></div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat"><span class="stat-num">500+</span><span class="stat-label" id="statAirlines">สายการบิน</span></div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat"><span class="stat-num">100+</span><span class="stat-label" id="statCountries">ประเทศ</span></div>
+            </div>
         
             <div class="search-widget-container">
                 <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
@@ -1254,7 +1432,26 @@
             </div>
         </div>
     </section>
-                 
+
+    <!-- TRUST SIGNALS SECTION -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <p class="trust-tagline" id="trustTagline">🤝 พันธมิตรที่เชื่อถือได้ของเรา</p>
+            <div class="partner-logos">
+                <div class="partner-logo-item partner-logo-trip">Trip.com</div>
+                <div class="partner-logo-item partner-logo-klook">Klook</div>
+                <div class="partner-logo-item partner-logo-tp">Travelpayouts</div>
+                <div class="partner-logo-item partner-logo-fs">Formspree</div>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge"><i class="fas fa-shield-alt"></i><span id="trustSafe">ปลอดภัย 100%</span></div>
+                <div class="trust-badge"><i class="fas fa-lock"></i><span id="trustSecure">ข้อมูลเข้ารหัส</span></div>
+                <div class="trust-badge"><i class="fas fa-certificate"></i><span id="trustVerified">พาร์ทเนอร์รับรอง</span></div>
+                <div class="trust-badge"><i class="fas fa-headset"></i><span id="trustSupport">ซัพพอร์ตพร้อม</span></div>
+            </div>
+        </div>
+    </section>
+
     <!-- AIRLINE TICKER -->
     <section class="airline-ticker">
         <div class="ticker-container">
