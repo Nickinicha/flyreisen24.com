@@ -343,5 +343,34 @@
 
     <!-- Common JavaScript for Navigation & Language -->
     <script src="/common.js"></script>
+    <script>
+    (function() {
+        // Read ?url= parameter
+        var params = new URLSearchParams(window.location.search);
+        var targetUrl = params.get('url');
+
+        // Update title/description based on destination
+        if (targetUrl) {
+            var title = document.getElementById('mainTitle');
+            var desc = document.getElementById('description');
+            var badge = document.querySelector('.partner-badge');
+
+            if (targetUrl.indexOf('trip.tpo') !== -1 || targetUrl.indexOf('trip.com') !== -1) {
+                if (title) title.textContent = 'กำลังพาคุณไป Trip.com';
+                if (desc) desc.textContent = 'เราเชื่อมต่อคุณไปยัง Trip.com เพื่อค้นหาโรงแรมและที่พักราคาพิเศษ';
+                if (badge) badge.innerHTML = '<i class="fas fa-hotel"></i> Trip.com Hotel & Resort';
+            } else if (targetUrl.indexOf('klook') !== -1) {
+                if (title) title.textContent = 'กำลังพาคุณไป Klook';
+                if (desc) desc.textContent = 'เราเชื่อมต่อคุณไปยัง Klook เพื่อค้นหารถเช่าและกิจกรรมท่องเที่ยว';
+                if (badge) badge.innerHTML = '<i class="fas fa-car"></i> Klook Car Rental & Activities';
+            }
+
+            // Redirect after progress bar animation (2.5s)
+            setTimeout(function() {
+                window.location.href = targetUrl;
+            }, 2500);
+        }
+    })();
+    </script>
 </body>
 </html>
