@@ -2,202 +2,197 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Homepage (Thai) - Highest Priority -->
+
+  <!-- ==================== HOMEPAGE ==================== -->
+
+  <!-- Homepage (Thai) -->
   <url>
-    <loc>https://flyreisen24.com/</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/en/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://flyreisen24.com/" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://flyreisen24.com/hero_background.jpg</image:loc>
+      <image:loc>https://www.flyreisen24.com/hero_background.jpg</image:loc>
       <image:title>FlyReisen24 - Travel Platform</image:title>
     </image:image>
   </url>
 
   <!-- Homepage (English) -->
   <url>
-    <loc>https://flyreisen24.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/en/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://flyreisen24.com/" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Homepage (German) -->
   <url>
-    <loc>https://flyreisen24.com/de/</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/en/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/de/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://flyreisen24.com/" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- FAQ / Knowledge Hub (Thai) - High Priority -->
+  <!-- ==================== FAQ / KNOWLEDGE HUB ==================== -->
+
+  <!-- FAQ (Thai) -->
   <url>
-    <loc>https://flyreisen24.com/faq_th.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/faq_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/faq.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/faq_de.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://flyreisen24.com/faq.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/th/faq_th.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- FAQ / Knowledge Hub (English) -->
+  <!-- FAQ (English) -->
   <url>
-    <loc>https://flyreisen24.com/faq.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/faq_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/faq.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/faq_de.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://flyreisen24.com/faq.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/en/faq_en.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- FAQ / Knowledge Hub (German) -->
+  <!-- FAQ (German) -->
   <url>
-    <loc>https://flyreisen24.com/faq_de.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/faq_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/faq.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/faq_de.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://flyreisen24.com/faq.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/de/faq_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Flight Search Results Page -->
-  <url>
-    <loc>https://flights.flyreisen24.com/</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- ==================== CONTACT ==================== -->
 
-  <!-- Booking Bridge Pages -->
   <url>
-    <loc>https://flyreisen24.com/booking.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Contact Page -->
-  <url>
-    <loc>https://flyreisen24.com/contact.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/contact.html</loc>
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- About Pages (Thai) -->
+  <!-- ==================== ABOUT ==================== -->
+
+  <!-- About (Thai) -->
   <url>
-    <loc>https://flyreisen24.com/about_th.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/about_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/about.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/about_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/about_th.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/about_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/about_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- About Pages (English) -->
+  <!-- About (English) -->
   <url>
-    <loc>https://flyreisen24.com/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/about_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/about.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/about_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/about_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/about_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- About Pages (German) -->
+  <!-- About (German) -->
   <url>
-    <loc>https://flyreisen24.com/about_de.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/about_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/about.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/about_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/about_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/about_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/about_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Terms & Conditions (Thai) -->
+  <!-- ==================== TERMS & CONDITIONS ==================== -->
+
+  <!-- Terms (Thai) -->
   <url>
-    <loc>https://flyreisen24.com/terms_th.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/terms_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/terms.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/terms_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/terms_th.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/terms_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/terms_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Terms & Conditions (English) -->
+  <!-- Terms (English) -->
   <url>
-    <loc>https://flyreisen24.com/terms.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/terms_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/terms.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/terms_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/terms_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/terms_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Terms & Conditions (German) -->
+  <!-- Terms (German) -->
   <url>
-    <loc>https://flyreisen24.com/terms_de.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/terms_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/terms.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/terms_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/terms_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/terms_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/terms_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Privacy Policy (Thai) -->
+  <!-- ==================== PRIVACY POLICY ==================== -->
+
+  <!-- Privacy (Thai) -->
   <url>
-    <loc>https://flyreisen24.com/privacy_th.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/privacy_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/privacy.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/privacy_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/privacy_th.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/privacy_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/privacy_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Privacy Policy (English) -->
+  <!-- Privacy (English) -->
   <url>
-    <loc>https://flyreisen24.com/privacy.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/privacy_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/privacy.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/privacy_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/privacy_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/privacy_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Privacy Policy (German) -->
+  <!-- Privacy (German) -->
   <url>
-    <loc>https://flyreisen24.com/privacy_de.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://flyreisen24.com/privacy_th.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://flyreisen24.com/privacy.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://flyreisen24.com/privacy_de.html" />
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.flyreisen24.com/privacy_de.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/privacy_th.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/privacy_de.html" />
+    <lastmod>2026-02-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
