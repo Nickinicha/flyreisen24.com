@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reiseangebote — Flüge, Hotels, Aktivitäten & mehr | FlyReisen24</title>
-<meta name="description" content="Suchen und vergleichen Sie Flüge, Hotels, Aktivitäten, Transfers und Mietwagen weltweit. Beste Reiseangebote powered by Trip.com, Klook, Kiwitaxi und Localrent.">
+<title>Reiseangebote — Flüge, Hotels, Aktivitäten & Mietwagen | FlyReisen24</title>
+<meta name="description" content="Beste Reiseangebote: günstige Flüge, Hotels, Flughafentransfer, Aktivitäten und Mietwagen. Compare and book in one place.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.flyreisen24.com/de/deals_de.html">
 <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/deals_th.html">
@@ -13,371 +13,405 @@
 <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/de/deals_de.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.flyreisen24.com/favicon-32x32.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.flyreisen24.com/de/"},{"@type":"ListItem","position":2,"name":"Reiseangebote","item":"https://www.flyreisen24.com/de/deals_de.html"}]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Reiseangebote","description":"Best travel deals on flights, hotels, activities and car rentals","url":"https://www.flyreisen24.com/de/deals_de.html","inLanguage":"de","dateModified":"2026-03-06"}
+</script>
 <style>
 :root{
-  --green:#1B4332;
-  --green-mid:#2D6A4F;
-  --green-light:#40916C;
-  --gold:#D4AF37;
-  --gold-light:#F1C40F;
-  --cream:#FAFAF7;
-  --white:#ffffff;
-  --gray:#6b7280;
-  --border:#e5e7eb;
-  --text:#1a2e1a;
+  --primary:#1B4332;
+  --primary-light:#2d6a4f;
+  --accent:#D4AF37;
+  --accent-light:#f0d060;
+  --bg:#f8faf8;
+  --card:#ffffff;
+  --text:#1a2e1f;
+  --text-muted:#5a7a62;
+  --border:#d0e4d5;
+  --shadow:0 4px 24px rgba(27,67,50,0.10);
+  --shadow-lg:0 12px 48px rgba(27,67,50,0.16);
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid var(--gold);box-shadow:0 2px 16px rgba(27,67,50,0.08)}
-.nav-inner{max-width:1300px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav-logo img{height:68px;width:auto;display:block}
-.nav-links{display:flex;list-style:none;gap:4px}
-.nav-links a{padding:8px 15px;border-radius:8px;color:var(--gray);text-decoration:none;font-weight:600;font-size:14px;transition:all .25s;display:flex;align-items:center;gap:7px}
-.nav-links a:hover{color:var(--green);background:#f0f7f4}
-.nav-links a.active{color:var(--green);background:#e8f5ee}
-.nav-right{display:flex;align-items:center;gap:12px}
-.lang-wrap{position:relative}
-.lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border:2px solid var(--border);border-radius:8px;background:#fff;font-weight:700;font-size:13px;color:var(--text);cursor:pointer;transition:all .25s}
-.lang-btn:hover{border-color:var(--gold)}
-.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.15);min-width:168px;border:2px solid var(--gold);overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .25s}
-.lang-wrap.open .lang-menu{opacity:1;pointer-events:all;transform:translateY(0)}
-.lang-menu a{display:flex;align-items:center;gap:10px;padding:12px 18px;color:var(--text);text-decoration:none;font-weight:600;font-size:14px;transition:background .2s;border-bottom:1px solid var(--border)}
-.lang-menu a:last-child{border-bottom:none}
-.lang-menu a:hover{background:#f0f7f4}
-.lang-menu a.active{background:var(--green);color:#fff}
-.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--gray)}
-.mobile-nav{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:2px solid var(--gold);padding:14px 20px;gap:4px;z-index:999;box-shadow:0 8px 20px rgba(0,0,0,.08)}
-.mobile-nav.open{display:flex}
-.mobile-nav a{padding:11px 14px;border-radius:8px;color:var(--gray);text-decoration:none;font-weight:600;font-size:14px;display:flex;align-items:center;gap:9px;transition:all .2s}
-.mobile-nav a:hover,.mobile-nav a.active{background:#e8f5ee;color:var(--green)}
+.top-nav{background:#fff;padding:10px 0;border-bottom:2px solid var(--accent);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.07)}
+.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}
+.top-nav-logo img{height:48px;width:auto}
+.top-nav-menu{display:flex;gap:30px;list-style:none;align-items:center}
+.top-nav-menu a{color:#6b7280;text-decoration:none;font-weight:600;font-size:15px;transition:color 0.3s;display:flex;align-items:center;gap:8px}
+.top-nav-menu a:hover{color:var(--primary)}
+.top-nav-menu a.active-page{color:var(--primary);border-bottom:2px solid var(--accent)}
+.new-badge{background:linear-gradient(135deg,#ff6b6b,#ff4757);color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:4px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;background:#f3f4f6;transition:color 0.3s}
+.nav-help:hover{color:var(--primary)}
+.language-dropdown{position:relative}
+.lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px;transition:all 0.3s}
+.lang-current:hover{border-color:var(--accent);background:#fff}
+.lang-dropdown-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.15);min-width:170px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s;z-index:1000;overflow:hidden;border:1px solid var(--border)}
+.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151;text-decoration:none;font-weight:600;transition:background 0.2s;font-size:14px}
+.lang-dropdown-menu a:hover{background:#f0faf4}
+.lang-dropdown-menu a.active{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff}
+.menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer}
 
 /* BREADCRUMB */
-.bc{background:#fff;border-bottom:1px solid var(--border);padding:11px 0}
-.bc-inner{max-width:1300px;margin:0 auto;padding:0 28px;display:flex;gap:8px;align-items:center;font-size:13px;color:var(--gray)}
-.bc-inner a{color:var(--green-mid);text-decoration:none;font-weight:600}
-.bc-inner a:hover{text-decoration:underline}
+.breadcrumb{background:#fff;padding:12px 0;border-bottom:1px solid var(--border)}
+.breadcrumb-container{max-width:1400px;margin:0 auto;padding:0 30px}
+.breadcrumb-list{display:flex;list-style:none;gap:8px;align-items:center;font-size:14px}
+.breadcrumb-list a{color:var(--primary);text-decoration:none}
+.breadcrumb-list a:hover{color:var(--accent)}
+.breadcrumb-separator{color:#ccc}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 55%,var(--green-light) 100%);color:#fff;padding:64px 28px 88px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
-.hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.2);border:1px solid rgba(212,175,55,.45);color:var(--gold-light);padding:7px 22px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:22px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.1;margin-bottom:14px}
-.hero h1 em{color:var(--gold-light);font-style:normal}
-.hero-sub{font-size:1.05rem;opacity:.9;max-width:560px;margin:0 auto 30px}
-.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:7px 18px;border-radius:30px;font-size:13px;font-weight:600}
+.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 60%,#40916c 100%);color:#fff;padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M20 20.5V18H0v5h5v5H0v5h20v-2.5h5V20.5H20zm25 5h-5v5h5v-5zm0-10h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-badge{display:inline-block;background:rgba(212,175,55,0.25);border:1px solid rgba(212,175,55,0.6);padding:6px 18px;border-radius:30px;font-size:0.85rem;font-weight:700;margin-bottom:1rem;color:var(--accent-light)}
+.hero h1{font-size:2.8rem;font-weight:800;margin-bottom:1rem;line-height:1.2}
+.hero-sub{font-size:1.15rem;opacity:0.9;max-width:580px;margin:0 auto 1.5rem}
+.hero-pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);padding:8px 18px;border-radius:30px;font-size:0.88rem;font-weight:600;display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px)}
 
-/* TABS */
-.tabs-wrap{max-width:1160px;margin:-44px auto 0;padding:0 20px 80px;position:relative;z-index:10}
-.tab-nav{display:flex;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 8px 30px rgba(27,67,50,.10);overflow-x:auto;border:2px solid var(--border);border-bottom:none;scrollbar-width:none}
-.tab-nav::-webkit-scrollbar{display:none}
-.tab-btn{flex:1;min-width:110px;display:flex;flex-direction:column;align-items:center;gap:5px;padding:18px 10px 14px;background:none;border:none;cursor:pointer;color:var(--gray);font-family:'Inter',sans-serif;font-weight:600;font-size:13px;border-bottom:3px solid transparent;transition:all .25s;position:relative}
-.tab-btn i{font-size:1.25rem}
-.tab-btn:hover{color:var(--green);background:#f5fbf7}
-.tab-btn.active{color:var(--green);border-bottom-color:var(--gold);background:#edf7f1}
-.tab-badge{position:absolute;top:8px;right:8px;background:var(--gold);color:var(--green);font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px}
-.tab-panels{background:#fff;border-radius:0 0 16px 16px;border:2px solid var(--border);border-top:none;box-shadow:0 8px 30px rgba(27,67,50,.08);overflow:hidden}
-.tab-panel{display:none;padding:36px 32px 40px}
-.tab-panel.active{display:block}
-.panel-head{margin-bottom:22px}
-.panel-head h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:var(--green);margin-bottom:6px}
-.panel-head p{color:var(--gray);font-size:.95rem}
-.divider{height:3px;width:56px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:10px 0 18px}
-.widget-box{border-radius:12px;overflow:hidden;background:#f9fdf9;border:1px solid #d4e8da;min-height:80px}
+/* DEALS GRID */
+.deals-container{max-width:1200px;margin:0 auto;padding:50px 20px 80px}
+.deals-section-title{text-align:center;margin-bottom:40px}
+.deals-section-title h2{font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:8px}
+.deals-section-title p{color:var(--text-muted);font-size:1rem}
+.deals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
 
-/* TIPS */
-.tips{background:var(--green);color:#fff;padding:52px 28px}
-.tips-inner{max-width:1160px;margin:0 auto}
-.tips-inner h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:28px;text-align:center}
-.tips-inner h2 span{color:var(--gold-light)}
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.tip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px 20px}
-.tip i{font-size:1.5rem;color:var(--gold);margin-bottom:10px;display:block}
-.tip h4{font-weight:700;margin-bottom:6px;font-size:.97rem}
-.tip p{font-size:.87rem;opacity:.82;line-height:1.6}
+/* DEAL CARD */
+.deal-card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--border);transition:all 0.3s;display:flex;flex-direction:column;text-decoration:none;color:var(--text)}
+.deal-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.deal-card-header{padding:28px 28px 0;display:flex;align-items:flex-start;gap:18px}
+.deal-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+.deal-icon.green{background:linear-gradient(135deg,#d8f3dc,#b7e4c7)}
+.deal-icon.gold{background:linear-gradient(135deg,#fef9e7,#fde68a)}
+.deal-icon.blue{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.deal-icon.orange{background:linear-gradient(135deg,#ffedd5,#fed7aa)}
+.deal-icon.purple{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+.deal-card-header-text h3{font-size:1.25rem;font-weight:800;color:var(--primary);margin-bottom:4px}
+.deal-card-header-text p{font-size:0.88rem;color:var(--text-muted)}
+.deal-card-body{padding:20px 28px 28px;flex:1;display:flex;flex-direction:column}
+.deal-highlights{list-style:none;margin-bottom:24px;flex:1}
+.deal-highlights li{padding:8px 0;border-bottom:1px solid var(--border);font-size:0.9rem;display:flex;align-items:center;gap:10px;color:var(--text)}
+.deal-highlights li:last-child{border-bottom:none}
+.deal-highlights li i{color:var(--accent);font-size:0.85rem;width:16px}
+.deal-btn{display:block;padding:13px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;text-align:center;border-radius:12px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.3s;letter-spacing:0.02em}
+.deal-btn:hover{background:linear-gradient(135deg,#0f2b1f,var(--primary));transform:translateY(-1px);box-shadow:0 6px 20px rgba(27,67,50,0.3)}
+.deal-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent-light));color:#1a2e1f;font-size:0.75rem;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em}
+
+/* CONTACT */
+.contact-widget{position:fixed;bottom:30px;right:30px;z-index:1000}
+.contact-button{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;display:flex;justify-content:center;align-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(27,67,50,0.3);cursor:pointer;transition:all 0.3s;border:none}
+.contact-button:hover{transform:scale(1.1)}
+.contact-popup{position:absolute;bottom:75px;right:0;width:380px;background:#fff;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2);display:none;flex-direction:column;overflow:hidden;border:2px solid var(--accent)}
+.contact-popup.active{display:flex!important}
+.contact-header{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
+.contact-header h3{margin:0;font-size:1.1rem;font-weight:700}
+.close-contact{cursor:pointer;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;border:none;color:#fff;font-size:1.1rem;transition:background 0.3s}
+.close-contact:hover{background:rgba(255,255,255,0.35)}
+.contact-form-container{padding:24px;overflow-y:auto}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;margin-bottom:6px;color:var(--text);font-weight:600;font-size:0.88rem}
+.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;outline:none;font-size:14px;font-family:'Inter',sans-serif;transition:border-color 0.3s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:85px}
+.submit-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s}
+.submit-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 12px rgba(27,67,50,0.3)}
+.submit-btn:disabled{background:#ccc;cursor:not-allowed}
+.success-message,.error-message{padding:12px;border-radius:8px;margin-bottom:14px;display:none;font-size:0.88rem;font-weight:600;text-align:center}
+.success-message{background:#d4edda;color:#155724}
+.error-message{background:#f8d7da;color:#721c24}
+.success-message.show,.error-message.show{display:block}
 
 /* FOOTER */
-.footer{background:#fff;border-top:3px solid var(--gold);padding:44px 28px 22px}
-.footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:32px}
-.footer-col h4{color:var(--green);font-weight:800;margin-bottom:14px;font-size:15px}
+.main-footer{background:#fff;border-top:3px solid var(--accent);padding:50px 0 25px;color:#666}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;padding:0 30px}
+.footer-col h4{color:var(--primary);margin-bottom:18px;font-size:16px;font-weight:800}
 .footer-col ul{list-style:none}
 .footer-col ul li{margin-bottom:10px}
-.footer-col ul a{color:var(--gray);text-decoration:none;font-size:14px;transition:color .2s}
-.footer-col ul a:hover{color:var(--green)}
-.footer-bottom{max-width:1160px;margin:24px auto 0;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:13px;color:#aaa}
+.footer-col ul a{color:#777;text-decoration:none;font-size:14px;transition:all 0.3s}
+.footer-col ul a:hover{color:var(--primary);padding-left:5px}
+.footer-bottom{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:#999}
 
-/* FLOAT CONTACT */
-.float{position:fixed;bottom:28px;right:28px;z-index:999}
-.float-btn{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--green-mid),var(--green));color:#fff;border:none;font-size:1.4rem;cursor:pointer;box-shadow:0 6px 24px rgba(27,67,50,.35);transition:all .3s;display:flex;align-items:center;justify-content:center}
-.float-btn:hover{transform:scale(1.08) rotate(5deg)}
-.float-popup{position:absolute;bottom:74px;right:0;width:340px;background:#fff;border-radius:18px;box-shadow:0 16px 56px rgba(0,0,0,.18);display:none;overflow:hidden;border:2px solid var(--gold)}
-.float-popup.open{display:block}
-.fp-head{background:linear-gradient(135deg,var(--green),var(--green-mid));color:#fff;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
-.fp-head h3{font-size:1.05rem;font-weight:700}
-.fp-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .25s}
-.fp-close:hover{background:rgba(255,255,255,.28);transform:rotate(90deg)}
-.fp-body{padding:22px}
-.fg{margin-bottom:15px}
-.fg label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:var(--text)}
-.fg input,.fg textarea{width:100%;padding:10px 13px;border:2px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .25s}
-.fg input:focus,.fg textarea:focus{border-color:var(--gold)}
-.fg textarea{min-height:80px;resize:vertical}
-.fp-submit{width:100%;padding:12px;background:linear-gradient(135deg,var(--green),var(--green-mid));color:#fff;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:opacity .25s}
-.fp-submit:hover{opacity:.88}
-.fp-ok{background:#d4edda;color:#155724;border:1px solid #b8dfc6;border-radius:8px;padding:10px;text-align:center;font-weight:600;font-size:13px;margin-bottom:14px;display:none}
-.fp-ok.show{display:block}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .nav-links{display:none}
-  .hamburger{display:block}
-  .tab-panel{padding:22px 16px 26px}
-  .hero{padding:46px 20px 70px}
-  .float-popup{width:88vw;right:-4px}
-}
-@media(max-width:540px){
-  .tab-btn{min-width:85px;font-size:11px;padding:13px 6px 10px}
-  .tab-btn i{font-size:1rem}
-  .tab-badge{display:none}
+@media(max-width:768px){
+  .deals-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  .top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 8px 20px rgba(0,0,0,0.1);gap:0;border-top:2px solid var(--accent)}
+  .top-nav-menu.active{display:flex!important}
+  .top-nav-menu li{width:100%;border-bottom:1px solid var(--border);padding:0.8rem 0}
+  .menu-toggle{display:block}
+  .contact-popup{width:88vw;max-width:340px;right:-15px}
+  .top-nav-logo img{height:40px}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/de/"><img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" style="height:68px"></a>
-    <ul class="nav-links">
-      <li><a href="/de/"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane"></i> Flights</a></li>
-      <li><a href="/de/deals_de.html" class="active"><i class="fas fa-tags"></i> Deals</a></li>
-      <li><a href="/de/faq_de.html"><i class="fas fa-book-open"></i> Knowledge Base</a></li>
-      <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+<nav class="breadcrumb">
+  <div class="breadcrumb-container">
+    <ol class="breadcrumb-list">
+      <li><a href="https://www.flyreisen24.com"><i class="fas fa-home"></i> Startseite</a><span class="breadcrumb-separator"> / </span></li>
+      <li>Reiseangebote</li>
+    </ol>
+  </div>
+</nav>
+
+<nav class="top-nav">
+  <div class="top-nav-container">
+    <a href="/" class="top-nav-logo">
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
+    </a>
+    <ul class="top-nav-menu" id="topNavMenu">
+      <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="navFlight">Flüge</span></a></li>
+      <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="navHotel">Hotels</span></a></li>
+      <li><a href="/de/deals_de.html" class="active-page"><i class="fas fa-tags"></i> <span id="navDeals">Angebote</span><span class="new-badge">NEW</span></a></li>
+      <li><a href="/de/faq_de.html" id="navKnowledgeLink"><i class="fas fa-book-open"></i> <span id="navKnowledge">Wissensdatenbank</span></a></li>
+      <li><a href="/de/tools_de.html" id="navToolsLink"><i class="fas fa-wrench"></i> <span id="navTools">Reise-Tools</span></a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang-wrap" id="langWrap">
-        <button class="lang-btn" onclick="toggleLang()"><i class="fas fa-globe"></i> DE <i class="fas fa-chevron-down" style="font-size:10px"></i></button>
-        <div class="lang-menu">
-          <a href="/th/deals_th.html">🇹🇭 ไทย</a>
-          <a href="/de/deals_de.html" class="active">🇬🇧 English</a>
-          <a href="/de/deals_de.html" class="active">🇩🇪 Deutsch</a>
+      <a href="/contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
+      <div class="language-dropdown" id="languageDropdown">
+        <button class="lang-current" onclick="toggleLangDropdown()">
+          <i class="fas fa-globe"></i><span id="currentLang">DE</span><i class="fas fa-chevron-down" style="font-size:10px"></i>
+        </button>
+        <div class="lang-dropdown-menu">
+          <a href="/th/deals_th.html">🇹🇭 ไทย (TH)</a>
+          <a href="/de/deals_de.html">🇬🇧 English (EN)</a>
+          <a href="/de/deals_de.html" class="active">🇩🇪 Deutsch (DE)</a>
         </div>
       </div>
-      <button class="hamburger" onclick="toggleMobile()"><i class="fas fa-bars"></i></button>
     </div>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="/de/"><i class="fas fa-home"></i> Home</a>
-    <a href="https://flights.flyreisen24.com"><i class="fas fa-plane"></i> Flights</a>
-    <a href="/de/deals_de.html" class="active"><i class="fas fa-tags"></i> Deals</a>
-    <a href="/de/faq_de.html"><i class="fas fa-book-open"></i> Knowledge Base</a>
-    <a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
 
-<!-- BREADCRUMB -->
-<nav class="bc" aria-label="breadcrumb">
-  <div class="bc-inner" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="/de/" itemprop="item"><span itemprop="name"><i class="fas fa-home"></i> Home</span></a>
-      <meta itemprop="position" content="1">
-    </span>
-    <span style="color:#d1d5db">/</span>
-    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">Travel Deals</span>
-      <meta itemprop="position" content="2">
-    </span>
-  </div>
-</nav>
-
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge"><i class="fas fa-leaf"></i> Kuratierte Angebote — Täglich aktualisiert</div>
-    <h1>Ihr bestes<br><em>Reiseangebot</em> beginnt hier</h1>
-    <p class="hero-sub">Flüge · Hotels · Aktivitäten · Transfers · Mietwagen — alles an einem Ort, in Echtzeit</p>
+  <div style="position:relative;z-index:1">
+    <div class="hero-badge">🏷️ Best Reiseangebote</div>
+    <h1>Your Complete Reiseangebote Hub</h1>
+    <p class="hero-sub">Flüge · Hotels · Aktivitäten · Flughafentransfer · Mietwagen — alles vergleichen und buchen</p>
     <div class="hero-pills">
-      <span class="pill">✈️ Trip.com Flights</span>
-      <span class="pill">🏨 Trip.com Hotels</span>
-      <span class="pill">🎯 Klook Activities</span>
-      <span class="pill">🚕 Kiwitaxi Transfers</span>
-      <span class="pill">🚗 Localrent Cars</span>
+      <span class="pill"><i class="fas fa-plane"></i> Günstige Flüge</span>
+      <span class="pill"><i class="fas fa-hotel"></i> Hotelangebote</span>
+      <span class="pill"><i class="fas fa-ticket-alt"></i> Aktivitäten</span>
+      <span class="pill"><i class="fas fa-car"></i> Mietwagen</span>
     </div>
   </div>
 </section>
 
-<!-- TABS -->
-<div class="tabs-wrap">
-  <div class="tab-nav" role="tablist">
-    <button class="tab-btn active" onclick="switchTab('flights',this)">
-      <i class="fas fa-plane"></i> Flüge
-      <span class="tab-badge">Trip.com</span>
-    </button>
-    <button class="tab-btn" onclick="switchTab('hotels',this)">
-      <i class="fas fa-hotel"></i> Hotels
-    </button>
-    <button class="tab-btn" onclick="switchTab('activities',this)">
-      <i class="fas fa-ticket-alt"></i> Aktivitäten
-    </button>
-    <button class="tab-btn" onclick="switchTab('transfers',this)">
-      <i class="fas fa-taxi"></i> Transfers
-    </button>
-    <button class="tab-btn" onclick="switchTab('cars',this)">
-      <i class="fas fa-car"></i> Mietwagen
-    </button>
+<div class="deals-container">
+  <div class="deals-section-title">
+    <h2>Alle Reisedienste entdecken</h2>
+    <p>Vertrauenswürdige Partner — beste Preise, keine versteckten Gebühren</p>
   </div>
 
-  <div class="tab-panels">
+  <div class="deals-grid">
 
-    <div class="tab-panel active" id="tab-flights">
-      <div class="panel-head">
-        <h2><i class="fas fa-plane" style="color:var(--gold);margin-right:10px"></i>Flüge suchen</h2>
-        <div class="divider"></div>
-        <p>Preise von 700+ Airlines vergleichen, powered by Trip.com — Echtzeitpreise, eine Suche</p>
+    <!-- Flights -->
+    <div class="deal-card" onclick="window.location='https://flights.flyreisen24.com'" style="cursor:pointer">
+      <div class="deal-card-header">
+        <div class="deal-icon green"><i class="fas fa-plane-departure" style="color:#1B4332"></i></div>
+        <div class="deal-card-header-text">
+          <div class="deal-badge">Beliebteste</div>
+          <h3>Flugtickets</h3>
+          <p>500+ Airlines weltweit</p>
+        </div>
       </div>
-      <div class="widget-box">
-        <script async src="https://tpembd.com/content?trs=402300&shmarker=189577&locale=de&curr=EUR&default_origin=San%20Francisco&default_destination=Bangkok&powered_by=true&border_radius=0&plain=true&color_button=%231B4332&color_button_text=%23ffffff&color_border=%231B4332&promo_id=4132&campaign_id=121" charset="utf-8"></script>
+      <div class="deal-card-body">
+        <ul class="deal-highlights">
+          <li><i class="fas fa-check"></i> Preise von 500+ Airlines vergleichen</li>
+          <li><i class="fas fa-check"></i> Einfach, Hin-/Rückflug & Multi-City</li>
+          <li><i class="fas fa-check"></i> Echtzeit-Verfügbarkeit</li>
+          <li><i class="fas fa-check"></i> Keine versteckten Buchungsgebühren</li>
+        </ul>
+        <a href="https://flights.flyreisen24.com" class="deal-btn">Flüge suchen →</a>
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-hotels">
-      <div class="panel-head">
-        <h2><i class="fas fa-hotel" style="color:var(--gold);margin-right:10px"></i>Hotels suchen</h2>
-        <div class="divider"></div>
-        <p>Beste Hotelpreise weltweit finden — powered by Trip.com mit sofortigem Preisvergleich</p>
+    <!-- Hotels -->
+    <div class="deal-card" onclick="window.location='/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn'" style="cursor:pointer">
+      <div class="deal-card-header">
+        <div class="deal-icon gold"><i class="fas fa-hotel" style="color:#92400e"></i></div>
+        <div class="deal-card-header-text">
+          <h3>Hotels & Unterkünfte</h3>
+          <p>1,4 Mio.+ Unterkünfte</p>
+        </div>
       </div>
-      <div class="widget-box">
-        <script async src="https://tpembd.com/content?trs=402300&shmarker=189577&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038" charset="utf-8"></script>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="tab-activities">
-      <div class="panel-head">
-        <h2><i class="fas fa-ticket-alt" style="color:var(--gold);margin-right:10px"></i>Touren & Aktivitäten</h2>
-        <div class="divider"></div>
-        <p>Touren, Eintrittskarten und Erlebnisse weltweit buchen — powered by Klook</p>
-      </div>
-      <div class="widget-box">
-        <script async src="https://tpembd.com/content?currency=USD&trs=402300&shmarker=189577&locale=de&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
+      <div class="deal-card-body">
+        <ul class="deal-highlights">
+          <li><i class="fas fa-check"></i> 1,4 Millionen Hotels weltweit</li>
+          <li><i class="fas fa-check"></i> Hotels, Resorts & Apartments</li>
+          <li><i class="fas fa-check"></i> Kostenlose Stornierungsoptionen</li>
+          <li><i class="fas fa-check"></i> Bestpreisgarantie</li>
+        </ul>
+        <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" class="deal-btn">Hotels ansehen →</a>
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-transfers">
-      <div class="panel-head">
-        <h2><i class="fas fa-taxi" style="color:var(--gold);margin-right:10px"></i>Flughafentransfers</h2>
-        <div class="divider"></div>
-        <p>Private Flughafentransfers in 120+ Ländern — Festpreis, keine Überraschungen, powered by Kiwitaxi</p>
+    <!-- Klook Activities -->
+    <div class="deal-card" onclick="window.location='/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd'" style="cursor:pointer">
+      <div class="deal-card-header">
+        <div class="deal-icon orange"><i class="fas fa-ticket-alt" style="color:#c2410c"></i></div>
+        <div class="deal-card-header-text">
+          <div class="deal-badge">Klook</div>
+          <h3>Aktivitäten & Erlebnisse</h3>
+          <p>Touren, Tickets & Tagesausflüge</p>
+        </div>
       </div>
-      <div class="widget-box">
-        <script async src="https://tpembd.com/content?currency=USD&trs=402300&shmarker=189577&locale=de&powered_by=true&transfer_options_limit=10&transfer_options=MCR&disable_currency_selector=true&hide_form_extras=true&hide_external_links=true&campaign_id=1&promo_id=3879" charset="utf-8"></script>
+      <div class="deal-card-body">
+        <ul class="deal-highlights">
+          <li><i class="fas fa-check"></i> Freizeitparks & Sehenswürdigkeiten</li>
+          <li><i class="fas fa-check"></i> Geführte Touren & Tagesausflüge</li>
+          <li><i class="fas fa-check"></i> Warteschlangen-Skip-Tickets</li>
+          <li><i class="fas fa-check"></i> Sofortige Bestätigung</li>
+        </ul>
+        <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" class="deal-btn">Aktivitäten erkunden →</a>
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-cars">
-      <div class="panel-head">
-        <h2><i class="fas fa-car" style="color:var(--gold);margin-right:10px"></i>Mietwagen</h2>
-        <div class="divider"></div>
-        <p>Mietwagen an Flughäfen und Städten weltweit vergleichen — powered by Localrent.com</p>
+    <!-- Flughafentransfer -->
+    <div class="deal-card" onclick="window.location='/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd'" style="cursor:pointer">
+      <div class="deal-card-header">
+        <div class="deal-icon blue"><i class="fas fa-shuttle-van" style="color:#1e40af"></i></div>
+        <div class="deal-card-header-text">
+          <h3>Flughafentransfer</h3>
+          <p>Privat- & Gemeinschaftstransfer</p>
+        </div>
       </div>
-      <div class="widget-box">
-        <script async src="//tpembd.com/content?trs=402300&shmarker=189577&locale=de&country=153&city=68511&powered_by=true&campaign_id=87&promo_id=2466" charset="utf-8"></script>
+      <div class="deal-card-body">
+        <ul class="deal-highlights">
+          <li><i class="fas fa-check"></i> Privat- & Gemeinschaftsoptionen</li>
+          <li><i class="fas fa-check"></i> Meet & Greet Service</li>
+          <li><i class="fas fa-check"></i> Flugverfolgung inklusive</li>
+          <li><i class="fas fa-check"></i> Festpreise, keine Überraschungen</li>
+        </ul>
+        <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" class="deal-btn">Transfer buchen →</a>
+      </div>
+    </div>
+
+    <!-- Mietwagen -->
+    <div class="deal-card" onclick="window.location='/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd'" style="cursor:pointer">
+      <div class="deal-card-header">
+        <div class="deal-icon purple"><i class="fas fa-car" style="color:#5b21b6"></i></div>
+        <div class="deal-card-header-text">
+          <h3>Mietwagen</h3>
+          <p>Weltweite Abdeckung</p>
+        </div>
+      </div>
+      <div class="deal-card-body">
+        <ul class="deal-highlights">
+          <li><i class="fas fa-check"></i> Kompakt- bis Luxusfahrzeuge</li>
+          <li><i class="fas fa-check"></i> Abholung am Flughafen oder in der Stadt</li>
+          <li><i class="fas fa-check"></i> Versicherungsoptionen verfügbar</li>
+          <li><i class="fas fa-check"></i> Keine versteckten Kosten</li>
+        </ul>
+        <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd" class="deal-btn">Find Mietwagen →</a>
+      </div>
+    </div>
+
+    <!-- Knowledge Hub CTA -->
+    <div class="deal-card" onclick="window.location='/de/faq_de.html'" style="cursor:pointer">
+      <div class="deal-card-header">
+        <div class="deal-icon green"><i class="fas fa-book-open" style="color:#1B4332"></i></div>
+        <div class="deal-card-header-text">
+          <h3>Reise-Wissensdatenbank</h3>
+          <p>15 Expertenratgeber</p>
+        </div>
+      </div>
+      <div class="deal-card-body">
+        <ul class="deal-highlights">
+          <li><i class="fas fa-check"></i> Visum- & Reisepassanforderungen</li>
+          <li><i class="fas fa-check"></i> EU261 Fluggastrechte</li>
+          <li><i class="fas fa-check"></i> Gepäckregeln & Tipps</li>
+          <li><i class="fas fa-check"></i> Reiseversicherungsratgeber</li>
+        </ul>
+        <a href="/de/faq_de.html" class="deal-btn">Ratgeber lesen →</a>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- TIPS -->
-<section class="tips">
-  <div class="tips-inner">
-    <h2>💡 Clevere <span>Buchungstipps</span></h2>
-    <div class="tips-grid">
-      <div class="tip"><i class="fas fa-clock"></i><h4>6–8 Wochen im Voraus buchen</h4><p>Der optimale Zeitpunkt für internationale Strecken. Preise steigen in den letzten 2 Wochen stark an.</p></div>
-      <div class="tip"><i class="fas fa-calendar-week"></i><h4>Mittwochs fliegen</h4><p>Dienstags- und Mittwochsflüge sind auf den meisten Strecken 10–15% günstiger als Wochenendflüge.</p></div>
-      <div class="tip"><i class="fas fa-exchange-alt"></i><h4>Nahe Flughäfen prüfen</h4><p>Flexibel bei Abflug oder Ziel? Alternativflughäfen können erhebliche Preisunterschiede ermöglichen.</p></div>
-      <div class="tip"><i class="fas fa-bell"></i><h4>Preisalarm einrichten</h4><p>Preise fallen ohne Vorwarnung. Alarm aktivieren und zuschlagen, wenn der Preis Ihr Ziel erreicht.</p></div>
+<!-- CONTACT WIDGET -->
+<div class="contact-widget">
+  <button class="contact-button" onclick="toggleContact()"><i class="fas fa-envelope"></i></button>
+  <div class="contact-popup" id="contactPopup">
+    <div class="contact-header">
+      <h3>Kontakt</h3>
+      <button class="close-contact" onclick="toggleContact()">×</button>
     </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-col"><h4>Navigation</h4><ul>
-      <li><a href="/de/">Startseite</a></li>
-      <li><a href="https://flights.flyreisen24.com">Flüge</a></li>
-      <li><a href="/de/deals_de.html">Reiseangebote</a></li>
-      <li><a href="/de/faq_de.html">Wissensbasis</a></li>
-      <li><a href="/contact.html">Kontakt</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Sprachen</h4><ul>
-      <li><a href="/th/deals_th.html">🇹🇭 ไทย</a></li>
-      <li><a href="/de/deals_de.html">🇬🇧 English</a></li>
-      <li><a href="/de/deals_de.html" class="active">🇩🇪 Deutsch</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Betrieben von</h4><ul>
-      <li><a href="#">Trip.com</a></li>
-      <li><a href="#">Klook</a></li>
-      <li><a href="#">Kiwitaxi</a></li>
-      <li><a href="#">Localrent.com</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Kontakt</h4><ul>
-      <li><a href="mailto:contact@flyreisen24.com"><i class="fas fa-envelope"></i> contact@flyreisen24.com</a></li>
-    </ul></div>
-  </div>
-  <div class="footer-bottom">&copy; 2026 FlyReisen24 · Alle Rechte vorbehalten · Powered by Travelpayouts</div>
-</footer>
-
-<!-- FLOAT CONTACT -->
-<div class="float">
-  <button class="float-btn" onclick="togglePopup()"><i class="fas fa-envelope"></i></button>
-  <div class="float-popup" id="floatPopup">
-    <div class="fp-head"><h3>Kontakt</h3><button class="fp-close" onclick="togglePopup()">×</button></div>
-    <div class="fp-body">
-      <div class="fp-ok" id="fpOk">✅ Nachricht gesendet! Wir antworten bald.</div>
-      <form id="cForm" action="https://formspree.io/f/xdkooraa" method="POST">
-        <div class="fg"><label>Name</label><input type="text" name="name" required></div>
-        <div class="fg"><label>E-Mail</label><input type="email" name="email" required></div>
-        <div class="fg"><label>Nachricht</label><textarea name="message" required></textarea></div>
-        <button type="submit" class="fp-submit">Nachricht senden</button>
+    <div class="contact-form-container">
+      <div class="success-message" id="successMessage">✅ Nachricht gesendet! Wir melden uns bald.</div>
+      <div class="error-message" id="errorMessage">❌ Fehler aufgetreten. Bitte erneut versuchen.</div>
+      <form id="contactForm" action="https://formspree.io/f/xdkooraa" method="POST">
+        <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+        <div class="form-group"><label>E-Mail</label><input type="email" name="email" required></div>
+        <div class="form-group"><label>Nachricht</label><textarea name="message" required></textarea></div>
+        <button type="submit" class="submit-btn">Nachricht senden</button>
       </form>
     </div>
   </div>
 </div>
 
+<footer class="main-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="https://flights.flyreisen24.com">Flüge</a></li>
+        <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">Hotels</a></li>
+        <li><a href="/de/deals_de.html">Angebote</a></li>
+        <li><a href="/de/faq_de.html">Wissensdatenbank</a></li>
+        <li><a href="/de/tools_de.html">Reise-Tools</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Sprachen</h4>
+      <ul>
+        <li><a href="/th/deals_th.html">🇹🇭 ไทย</a></li>
+        <li><a href="/de/deals_de.html">🇬🇧 English</a></li>
+        <li><a href="/de/deals_de.html">🇩🇪 Deutsch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="/about.html">Über uns</a></li>
+        <li><a href="/terms.html">AGB</a></li>
+        <li><a href="/privacy.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 FlyReisen24. Alle Rechte vorbehalten. | Powered by Travelpayouts</div>
+</footer>
+
 <script src="/common.js"></script>
 <script>
-function switchTab(id,btn){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  btn.classList.add('active');
-}
-function toggleLang(){document.getElementById('langWrap').classList.toggle('open')}
-function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open')}
-function togglePopup(){document.getElementById('floatPopup').classList.toggle('open')}
+function toggleLangDropdown(){document.getElementById('languageDropdown').classList.toggle('active')}
+function toggleMenu(){document.getElementById('topNavMenu').classList.toggle('active')}
+function toggleContact(){document.getElementById('contactPopup').classList.toggle('active')}
 document.addEventListener('click',e=>{
-  const lw=document.getElementById('langWrap');
-  if(lw&&!lw.contains(e.target))lw.classList.remove('open');
+  const d=document.getElementById('languageDropdown');
+  if(d&&!d.contains(e.target))d.classList.remove('active');
 });
-document.getElementById('cForm').addEventListener('submit',async function(e){
+document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault();
-  const btn=this.querySelector('.fp-submit');
-  btn.disabled=true;btn.textContent='Sending…';
+  const btn=this.querySelector('.submit-btn');
+  const ok=document.getElementById('successMessage');
+  const err=document.getElementById('errorMessage');
+  btn.disabled=true;btn.textContent='Wird gesendet...';
   try{
-    const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
-    if(r.ok){document.getElementById('fpOk').classList.add('show');this.reset();setTimeout(()=>{togglePopup();document.getElementById('fpOk').classList.remove('show')},3000);}
-  }finally{btn.disabled=false;btn.textContent='Send Message'}
+    const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+    if(r.ok){ok.classList.add('show');err.classList.remove('show');this.reset();setTimeout(()=>{toggleContact();ok.classList.remove('show')},3000);}
+    else throw new Error();
+  }catch{err.classList.add('show');ok.classList.remove('show');}
+  finally{btn.disabled=false;btn.textContent='Nachricht senden';}
 });
 </script>
 </body>
