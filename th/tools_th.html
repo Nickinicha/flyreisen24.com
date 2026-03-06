@@ -199,11 +199,11 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 
 <nav class="top-nav">
   <div class="top-nav-container">
-    <a href="/th/" class="top-nav-logo">
+    <a href="https://www.flyreisen24.com" class="top-nav-logo">
       <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
     </a>
     <ul class="top-nav-menu" id="topNavMenu">
-      <li><a href="/th/"><i class="fas fa-plane"></i> เที่ยวบิน</a></li>
+      <li><a href="https://www.flyreisen24.com"><i class="fas fa-plane"></i> เที่ยวบิน</a></li>
       <li><a href="/th/hotels_th.html"><i class="fas fa-hotel"></i> โรงแรม</a></li>
       <li><a href="/th/deals_th.html"><i class="fas fa-tag"></i> ดีล</a></li>
       <li><a href="/th/faq_th.html"><i class="fas fa-book-open"></i> คลังความรู้</a></li>
@@ -228,7 +228,7 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 <nav class="breadcrumb">
   <div class="breadcrumb-container">
     <ol class="breadcrumb-list">
-      <li><a href="/th/"><i class="fas fa-home"></i> หน้าแรก</a><span class="breadcrumb-separator"> / </span></li>
+      <li><a href="https://www.flyreisen24.com"><i class="fas fa-home"></i> หน้าแรก</a><span class="breadcrumb-separator"> / </span></li>
       <li>เครื่องมือเดินทาง</li>
     </ol>
   </div>
@@ -380,13 +380,13 @@ h1,h2,h3{font-family:'Playfair Display',serif}
     </div>
     <div class="footer-col">
       <h4>ติดต่อ</h4>
-      <ul><li><a href="mailto:contact@flyreisen24.com"><i class="fas fa-envelope"></i> contact@flyreisen24.com</a></li></ul>
+      <ul><li><a href="/cdn-cgi/l/email-protection#b2d1dddcc6d3d1c6f2d4decbc0d7dbc1d7dc80869cd1dddf"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="1b7874756f7a786f5b7d7762697e72687e75292f35787476">[email&#160;protected]</span></a></li></ul>
     </div>
   </div>
   <div class="footer-bottom">© 2569 FlyReisen24. สงวนลิขสิทธิ์ | Powered by Travelpayouts</div>
 </footer>
 
-<script src="/common.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/common.js"></script>
 <script>
 // ===== CURRENCY CONVERTER =====
 const POPULAR = ["USD","EUR","GBP","THB","JPY","CNY","AUD","CAD","SGD","HKD","KRW","CHF","NOK","SEK","DKK","NZD","INR","MYR","IDR","PHP","VND","AED","SAR","TRY","ZAR","BRL","MXN","PLN","CZK","HUF"];
@@ -523,16 +523,4 @@ document.getElementById("contactForm").addEventListener("submit",async function(
     const r=await fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}});
     if(r.ok){ok.classList.add("show");err.classList.remove("show");this.reset();setTimeout(()=>{toggleติดต่อ();ok.classList.remove("show")},3000);}
     else throw new Error();
-  }catch{err.classList.add("show");ok.classList.remove("show");}
-  finally{btn.disabled=false;btn.textContent="ส่งข้อความ";}
-});
-
-// ===== INIT =====
-populateCurrencies();
-buildClocks();
-updateClocks();
-setInterval(updateClocks, 1000);
-convertCurrency();
-</script>
-</body>
-</html>
+  }catch{err.classList.add("show");ok.classList.r
