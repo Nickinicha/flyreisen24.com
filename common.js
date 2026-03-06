@@ -11,8 +11,8 @@
     const PAGE_MAPPINGS = {
         'index': {
             'th': '/',
-            'en': '/en/',
-            'de': '/de/'
+            'en': '/',
+            'de': '/'
         },
         'faq': {
             'th': '/th/faq_th.html',
