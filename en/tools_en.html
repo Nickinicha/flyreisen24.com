@@ -199,11 +199,11 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 
 <nav class="top-nav">
   <div class="top-nav-container">
-    <a href="/en/" class="top-nav-logo">
+    <a href="https://www.flyreisen24.com" class="top-nav-logo">
       <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
     </a>
     <ul class="top-nav-menu" id="topNavMenu">
-      <li><a href="/en/"><i class="fas fa-plane"></i> Flights</a></li>
+      <li><a href="https://www.flyreisen24.com"><i class="fas fa-plane"></i> Flights</a></li>
       <li><a href="/en/hotels_en.html"><i class="fas fa-hotel"></i> Hotels</a></li>
       <li><a href="/en/deals_en.html"><i class="fas fa-tag"></i> Deals</a></li>
       <li><a href="/en/faq_en.html"><i class="fas fa-book-open"></i> Knowledge Hub</a></li>
@@ -228,7 +228,7 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 <nav class="breadcrumb">
   <div class="breadcrumb-container">
     <ol class="breadcrumb-list">
-      <li><a href="/en/"><i class="fas fa-home"></i> Home</a><span class="breadcrumb-separator"> / </span></li>
+      <li><a href="https://www.flyreisen24.com"><i class="fas fa-home"></i> Home</a><span class="breadcrumb-separator"> / </span></li>
       <li>Travel Tools</li>
     </ol>
   </div>
@@ -363,7 +363,7 @@ h1,h2,h3{font-family:'Playfair Display',serif}
     <div class="footer-col">
       <h4>Navigation</h4>
       <ul>
-        <li><a href="/en/">Flights</a></li>
+        <li><a href="/index.html">Flights</a></li>
         <li><a href="/en/hotels_en.html">Hotels</a></li>
         <li><a href="/en/deals_en.html">Deals</a></li>
         <li><a href="/en/faq_en.html">Knowledge Hub</a></li>
@@ -380,13 +380,13 @@ h1,h2,h3{font-family:'Playfair Display',serif}
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <ul><li><a href="mailto:contact@flyreisen24.com"><i class="fas fa-envelope"></i> contact@flyreisen24.com</a></li></ul>
+      <ul><li><a href="/cdn-cgi/l/email-protection#abc8c4c5dfcac8dfebcdc7d2d9cec2d8cec5999f85c8c4c6"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="41222e2f3520223501272d3833242832242f73756f222e2c">[email&#160;protected]</span></a></li></ul>
     </div>
   </div>
   <div class="footer-bottom">© 2026 FlyReisen24. All rights reserved. | Powered by Travelpayouts</div>
 </footer>
 
-<script src="/common.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/common.js"></script>
 <script>
 // ===== CURRENCY CONVERTER =====
 const POPULAR = ["USD","EUR","GBP","THB","JPY","CNY","AUD","CAD","SGD","HKD","KRW","CHF","NOK","SEK","DKK","NZD","INR","MYR","IDR","PHP","VND","AED","SAR","TRY","ZAR","BRL","MXN","PLN","CZK","HUF"];
@@ -523,16 +523,4 @@ document.getElementById("contactForm").addEventListener("submit",async function(
     const r=await fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}});
     if(r.ok){ok.classList.add("show");err.classList.remove("show");this.reset();setTimeout(()=>{toggleContact();ok.classList.remove("show")},3000);}
     else throw new Error();
-  }catch{err.classList.add("show");ok.classList.remove("show");}
-  finally{btn.disabled=false;btn.textContent="Send Message";}
-});
-
-// ===== INIT =====
-populateCurrencies();
-buildClocks();
-updateClocks();
-setInterval(updateClocks, 1000);
-convertCurrency();
-</script>
-</body>
-</html>
+  }catch{err.classList.add("sho
