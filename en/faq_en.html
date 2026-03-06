@@ -141,11 +141,11 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 <!-- NAVIGATION -->
 <nav class="top-nav">
 <div class="top-nav-container">
-<a href="/en/" class="top-nav-logo">
+<a href="https://www.flyreisen24.com" class="top-nav-logo">
 <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
 </a>
 <ul class="top-nav-menu" id="topNavMenu">
-<li><a href="/en/"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="https://www.flyreisen24.com"><i class="fas fa-home"></i> Home</a></li>
 <li><a href="/en/faq_en.html" class="active"><i class="fas fa-book-open"></i> Knowledge Hub</a></li>
 <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
 </ul>
@@ -1134,7 +1134,7 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 <div class="footer-col">
 <h4>Main Menu</h4>
 <ul>
-<li><a href="/en/">Home</a></li>
+<li><a href="/index.html">Home</a></li>
 <li><a href="/en/faq_en.html">Knowledge Hub</a></li>
 <li><a href="/contact.html">Contact</a></li>
 </ul>
@@ -1150,7 +1150,7 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 <div class="footer-col">
 <h4>Contact</h4>
 <ul>
-<li><a href="mailto:contact@flyreisen24.com"><i class="fas fa-envelope"></i> contact@flyreisen24.com</a></li>
+<li><a href="/cdn-cgi/l/email-protection#3a5955544e5b594e7a5c5643485f53495f54080e14595557"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="6b0804051f0a081f2b0d0712190e02180e05595f45080406">[email&#160;protected]</span></a></li>
 </ul>
 </div>
 </div>
@@ -1159,7 +1159,7 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 </div>
 </footer>
 
-<script src="/common.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/common.js"></script>
 <script>
 function toggleCategory(header){const section=header.parentElement;section.classList.toggle('active')}
 function toggleFaq(button){const item=button.parentElement;const wasActive=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));if(!wasActive){item.classList.add('active')}}
@@ -1167,8 +1167,4 @@ function toggleLangDropdown(){document.getElementById('languageDropdown').classL
 function toggleContact(){document.getElementById('contactPopup').classList.toggle('active')}
 function toggleMenu(){document.getElementById('topNavMenu').classList.toggle('active')}
 document.addEventListener('click',function(e){const dropdown=document.getElementById('languageDropdown');if(dropdown&&!dropdown.contains(e.target)){dropdown.classList.remove('active')}});
-document.getElementById('contactForm').addEventListener('submit',async function(e){e.preventDefault();const form=e.target;const submitBtn=form.querySelector('.submit-btn');const successMsg=document.getElementById('successMessage');const errorMsg=document.getElementById('errorMessage');submitBtn.disabled=true;submitBtn.textContent='Sending...';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(response.ok){successMsg.classList.add('show');errorMsg.classList.remove('show');form.reset();setTimeout(()=>{toggleContact();successMsg.classList.remove('show')},3000)}else{throw new Error('Form submission failed')}}catch(error){errorMsg.classList.add('show');successMsg.classList.remove('show')}finally{submitBtn.disabled=false;submitBtn.textContent='Send Message'}});
-document.querySelectorAll('.category-section').forEach((section,index)=>{section.style.animationDelay=`${index*0.1}s`});
-</script>
-</body>
-</html>
+document.getElementById('contactForm').addEventListener('submit',async function(e){e.preventDefault();const form=e.target;const submitBtn=form.querySelector('.submit-btn');const successMsg=document.getElementById('successMessage');const errorMsg=document.getElementById('errorMessage');submitBtn.disabled=true;submitBtn.textContent='Sending...';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(response.ok){successMsg.classList.add('show');errorMsg.classList.remove('show');form.reset();setTimeout(()=>{toggleContact();successMsg.classList.remove('show')},3000)}else{throw new Error('Form submission failed')}}catch(error){errorMsg.classList.add('show');succes
