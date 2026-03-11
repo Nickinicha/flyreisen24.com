@@ -114,7 +114,10 @@
             footerLegal: 'ข้อมูลทางกฎหมาย',
             footerAbout: 'เกี่ยวกับเรา',
             footerTerms: 'ข้อกำหนดและเงื่อนไข',
-            footerPrivacy: 'นโยบายความเป็นส่วนตัว'
+            footerPrivacy: 'นโยบายความเป็นส่วนตัว',
+            heroBadge: '✈️ มุมมองจากฝั่งตรงข้าม counter เช็คอิน',
+            heroTitle: 'จองเที่ยวบิน + โรงแรม + ดีล<br><span class="hero-highlight">ในที่เดียว</span>',
+            heroSubtitle: 'เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — ได้ดีลที่ดีที่สุด ไม่มีค่าธรรมเนียมซ่อน'
         },
         'en': {
             navFlight: 'Flights',
@@ -157,7 +160,10 @@
             footerLegal: 'Legal',
             footerAbout: 'About Us',
             footerTerms: 'Terms & Conditions',
-            footerPrivacy: 'Privacy Policy'
+            footerPrivacy: 'Privacy Policy',
+            heroBadge: '✈️ Ground staff perspective — from behind the check-in counter',
+            heroTitle: 'Book Flights + Hotels + Deals<br><span class="hero-highlight">in One Place</span>',
+            heroSubtitle: 'Compare prices from top airlines, hotels, and car rental services worldwide — best deals, no hidden fees'
         },
         'de': {
             navFlight: 'Flüge',
@@ -200,7 +206,10 @@
             footerLegal: 'Rechtliches',
             footerAbout: 'Über uns',
             footerTerms: 'AGB',
-            footerPrivacy: 'Datenschutz'
+            footerPrivacy: 'Datenschutz',
+            heroBadge: '✈️ Perspektive vom Check-in-Schalter — 10+ Jahre Bodenabfertigung',
+            heroTitle: 'Flüge + Hotels + Angebote<br><span class="hero-highlight">an einem Ort</span>',
+            heroSubtitle: 'Preise von Top-Airlines, Hotels und Mietwagen weltweit vergleichen — beste Deals, keine versteckten Gebühren'
         }
     };
 
@@ -211,11 +220,14 @@
         const t = translations[lang];
         if (!t) return;
         
+        const htmlKeys = ['heroTitle', 'heroSubtitle'];
         Object.keys(t).forEach(key => {
             const element = document.getElementById(key);
             if (element) {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                     element.placeholder = t[key];
+                } else if (htmlKeys.includes(key)) {
+                    element.innerHTML = t[key];
                 } else {
                     element.textContent = t[key];
                 }
