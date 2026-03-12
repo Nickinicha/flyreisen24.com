@@ -110,6 +110,21 @@ body{font-family:var(--font-th);background:var(--bg);color:var(--text);line-heig
 
 /* WORLD CLOCK */
 .clocks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.clock-search-row{display:flex;gap:10px;margin-bottom:16px;align-items:center}
+.clock-search-wrap{position:relative;flex:1}
+.clock-search-input{width:100%;padding:10px 14px 10px 36px;border:1.5px solid var(--border);border-radius:10px;font-size:0.92rem;font-family:inherit;outline:none;transition:border-color 0.3s;background:#fff}
+.clock-search-input:focus{border-color:var(--accent)}
+.clock-search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:0.85rem;pointer-events:none}
+.clock-search-dropdown{position:absolute;top:110%;left:0;right:0;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid var(--border);z-index:100;max-height:220px;overflow-y:auto;display:none}
+.clock-search-dropdown.show{display:block}
+.clock-search-option{padding:10px 14px;cursor:pointer;font-size:0.88rem;display:flex;align-items:center;gap:8px;transition:background 0.15s}
+.clock-search-option:hover{background:#f0faf4}
+.clock-add-btn{background:linear-gradient(135deg,var(--accent),var(--accent-light));border:none;border-radius:10px;padding:10px 16px;font-size:0.85rem;font-weight:700;cursor:pointer;color:var(--text);white-space:nowrap;transition:all 0.3s;display:flex;align-items:center;gap:6px}
+.clock-add-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(212,175,55,0.4)}
+.clock-item{position:relative}
+.clock-remove{position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.08);border:none;border-radius:50%;width:20px;height:20px;font-size:0.7rem;cursor:pointer;display:none;align-items:center;justify-content:center;color:#666;transition:background 0.2s;line-height:1}
+.clock-item:hover .clock-remove{display:flex}
+.clock-item.default-city .clock-remove{display:none!important}
 .clock-item{background:linear-gradient(135deg,#f8faf8,#f0f4f1);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;transition:all 0.3s}
 .clock-item:hover{border-color:var(--accent);background:#fff}
 .clock-flag{font-size:1.8rem;line-height:1;margin-bottom:6px}
@@ -290,6 +305,18 @@ body{font-family:var(--font-th);background:var(--bg);color:var(--text);line-heig
         </div>
       </div>
       <div class="tool-card-body">
+        <div class="clock-search-row">
+          <div class="clock-search-wrap">
+            <i class="fas fa-search clock-search-icon"></i>
+            <input type="text" class="clock-search-input" id="clockSearchInput"
+              placeholder="🔍 เพิ่มเมือง เช่น Paris, Seoul, Mumbai..."
+              oninput="searchCity(this.value)" autocomplete="off">
+            <div class="clock-search-dropdown" id="clockDropdown"></div>
+          </div>
+          <button class="clock-add-btn" id="clockAddBtn" onclick="addSelectedCity()" disabled>
+            <i class="fas fa-plus"></i> <span id="addCityBtnText">เพิ่ม</span>
+          </button>
+        </div>
         <div class="clocks-grid" id="clocksGrid"></div>
       </div>
     </div>
@@ -345,7 +372,8 @@ body{font-family:var(--font-th);background:var(--bg);color:var(--text);line-heig
     <div class="contact-form-container">
       <div class="success-msg" id="successMsg">✅ <span id="successText">ส่งข้อความแล้ว!</span></div>
       <div class="error-msg" id="errorMsg">❌ <span id="errorText">เกิดข้อผิดพลาด</span></div>
-      <form id="contactForm" action="https://formspree.io/f/xdkooraa" method="POST">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
         <div class="form-group"><label id="lblName">ชื่อ *</label><input type="text" name="name" required></div>
         <div class="form-group"><label id="lblEmail">อีเมล *</label><input type="email" name="email" required></div>
         <div class="form-group"><label id="lblMsg">ข้อความ *</label><textarea name="message" required></textarea></div>
@@ -579,7 +607,7 @@ async function convertCurrency() {
 // =============================================
 // WORLD CLOCK
 // =============================================
-const CLOCKS = [
+const DEFAULT_CLOCKS = [
   {flag:'🇹🇭',city:'Bangkok',tz:'Asia/Bangkok'},
   {flag:'🇩🇪',city:'Frankfurt',tz:'Europe/Berlin'},
   {flag:'🇬🇧',city:'London',tz:'Europe/London'},
@@ -591,21 +619,68 @@ const CLOCKS = [
   {flag:'🇨🇳',city:'Shanghai',tz:'Asia/Shanghai'},
 ];
 
+// All searchable cities
+const ALL_CITIES = [
+  {flag:'🇹🇭',city:'Bangkok',tz:'Asia/Bangkok'},
+  {flag:'🇩🇪',city:'Berlin',tz:'Europe/Berlin'},
+  {flag:'🇩🇪',city:'Frankfurt',tz:'Europe/Berlin'},
+  {flag:'🇬🇧',city:'London',tz:'Europe/London'},
+  {flag:'🇺🇸',city:'New York',tz:'America/New_York'},
+  {flag:'🇺🇸',city:'Los Angeles',tz:'America/Los_Angeles'},
+  {flag:'🇺🇸',city:'Chicago',tz:'America/Chicago'},
+  {flag:'🇯🇵',city:'Tokyo',tz:'Asia/Tokyo'},
+  {flag:'🇸🇬',city:'Singapore',tz:'Asia/Singapore'},
+  {flag:'🇦🇪',city:'Dubai',tz:'Asia/Dubai'},
+  {flag:'🇦🇺',city:'Sydney',tz:'Australia/Sydney'},
+  {flag:'🇦🇺',city:'Melbourne',tz:'Australia/Melbourne'},
+  {flag:'🇨🇳',city:'Shanghai',tz:'Asia/Shanghai'},
+  {flag:'🇨🇳',city:'Beijing',tz:'Asia/Shanghai'},
+  {flag:'🇰🇷',city:'Seoul',tz:'Asia/Seoul'},
+  {flag:'🇮🇳',city:'Mumbai',tz:'Asia/Kolkata'},
+  {flag:'🇮🇳',city:'Delhi',tz:'Asia/Kolkata'},
+  {flag:'🇫🇷',city:'Paris',tz:'Europe/Paris'},
+  {flag:'🇳🇱',city:'Amsterdam',tz:'Europe/Amsterdam'},
+  {flag:'🇨🇭',city:'Zurich',tz:'Europe/Zurich'},
+  {flag:'🇮🇹',city:'Rome',tz:'Europe/Rome'},
+  {flag:'🇪🇸',city:'Madrid',tz:'Europe/Madrid'},
+  {flag:'🇲🇾',city:'Kuala Lumpur',tz:'Asia/Kuala_Lumpur'},
+  {flag:'🇻🇳',city:'Ho Chi Minh',tz:'Asia/Ho_Chi_Minh'},
+  {flag:'🇮🇩',city:'Jakarta',tz:'Asia/Jakarta'},
+  {flag:'🇵🇭',city:'Manila',tz:'Asia/Manila'},
+  {flag:'🇹🇼',city:'Taipei',tz:'Asia/Taipei'},
+  {flag:'🇭🇰',city:'Hong Kong',tz:'Asia/Hong_Kong'},
+  {flag:'🇿🇦',city:'Johannesburg',tz:'Africa/Johannesburg'},
+  {flag:'🇧🇷',city:'São Paulo',tz:'America/Sao_Paulo'},
+  {flag:'🇲🇽',city:'Mexico City',tz:'America/Mexico_City'},
+  {flag:'🇨🇦',city:'Toronto',tz:'America/Toronto'},
+  {flag:'🇷🇺',city:'Moscow',tz:'Europe/Moscow'},
+  {flag:'🇹🇷',city:'Istanbul',tz:'Europe/Istanbul'},
+  {flag:'🇶🇦',city:'Doha',tz:'Asia/Qatar'},
+  {flag:'🇸🇦',city:'Riyadh',tz:'Asia/Riyadh'},
+  {flag:'🇳🇿',city:'Auckland',tz:'Pacific/Auckland'},
+];
+
+let activeCities = [...DEFAULT_CLOCKS];
+let selectedCity = null;
+
 function buildClocks() {
   const grid = document.getElementById('clocksGrid');
-  grid.innerHTML = CLOCKS.map(c => `
-    <div class="clock-item">
+  grid.innerHTML = activeCities.map((c,i) => {
+    const isDefault = i < DEFAULT_CLOCKS.length && DEFAULT_CLOCKS.some(d => d.tz === c.tz && d.city === c.city);
+    return `<div class="clock-item${isDefault?' default-city':''}">
+      <button class="clock-remove" onclick="removeCity('${c.tz}','${c.city}')" title="ลบ">×</button>
       <div class="clock-flag">${c.flag}</div>
       <div class="clock-city">${c.city}</div>
-      <div class="clock-time" id="clock-${c.tz.replace(/\//g,'-')}">--:--:--</div>
-      <div class="clock-date" id="date-${c.tz.replace(/\//g,'-')}">---</div>
-    </div>`).join('');
+      <div class="clock-time" id="clock-${c.tz.replace(/\//g,'-')}-${c.city.replace(/ /g,'_')}">--:--:--</div>
+      <div class="clock-date" id="date-${c.tz.replace(/\//g,'-')}-${c.city.replace(/ /g,'_')}">---</div>
+    </div>`;
+  }).join('');
 }
 
 function updateClocks() {
   const now = new Date();
-  CLOCKS.forEach(c => {
-    const id = c.tz.replace(/\//g,'-');
+  activeCities.forEach(c => {
+    const id = c.tz.replace(/\//g,'-')+'-'+c.city.replace(/ /g,'_');
     const timeEl = document.getElementById('clock-'+id);
     const dateEl = document.getElementById('date-'+id);
     if(!timeEl) return;
@@ -613,6 +688,59 @@ function updateClocks() {
     dateEl.textContent = now.toLocaleDateString('en-GB',{timeZone:c.tz,day:'2-digit',month:'short'});
   });
 }
+
+function searchCity(query) {
+  const dropdown = document.getElementById('clockDropdown');
+  const addBtn = document.getElementById('clockAddBtn');
+  selectedCity = null;
+  addBtn.disabled = true;
+
+  if(!query || query.length < 1) { dropdown.classList.remove('show'); return; }
+
+  const q = query.toLowerCase();
+  const results = ALL_CITIES.filter(c =>
+    c.city.toLowerCase().includes(q) &&
+    !activeCities.some(a => a.city === c.city && a.tz === c.tz)
+  ).slice(0, 8);
+
+  if(results.length === 0) { dropdown.classList.remove('show'); return; }
+
+  dropdown.innerHTML = results.map(c =>
+    `<div class="clock-search-option" onclick="selectCity('${c.flag}','${c.city}','${c.tz}')">
+      <span>${c.flag}</span><span>${c.city}</span>
+    </div>`
+  ).join('');
+  dropdown.classList.add('show');
+}
+
+function selectCity(flag, city, tz) {
+  selectedCity = {flag, city, tz};
+  document.getElementById('clockSearchInput').value = flag + ' ' + city;
+  document.getElementById('clockDropdown').classList.remove('show');
+  document.getElementById('clockAddBtn').disabled = false;
+}
+
+function addSelectedCity() {
+  if(!selectedCity) return;
+  activeCities.push(selectedCity);
+  buildClocks();
+  document.getElementById('clockSearchInput').value = '';
+  document.getElementById('clockAddBtn').disabled = true;
+  selectedCity = null;
+}
+
+function removeCity(tz, city) {
+  activeCities = activeCities.filter(c => !(c.tz === tz && c.city === city));
+  buildClocks();
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', e => {
+  const wrap = document.querySelector('.clock-search-wrap');
+  if(wrap && !wrap.contains(e.target)) {
+    document.getElementById('clockDropdown').classList.remove('show');
+  }
+});
 
 // =============================================
 // FLIGHT WIDGET (Travelpayouts)
