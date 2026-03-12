@@ -53,7 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://tpembd.com">
-    <link rel="dns-prefetch" href="https://formspree.io">
+    <link rel="dns-prefetch" href="https://api.web3forms.com">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -588,7 +588,8 @@
             <div class="contact-form-container">
                 <div class="success-message" id="successMessage">✅ ข้อความของคุณถูกส่งแล้ว! เราจะติดต่อกลับเร็วๆ นี้</div>
                 <div class="error-message" id="errorMessage">❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง</div>
-                <form id="contactForm" action="https://formspree.io/f/xdkooraa" method="POST">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
                     <div class="form-group">
                         <label for="name" id="labelName">ชื่อ-นามสกุล *</label>
                         <input type="text" id="name" name="name" required placeholder="กรอกชื่อของคุณ">
