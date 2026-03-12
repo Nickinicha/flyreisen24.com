@@ -41,7 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="dns-prefetch" href="https://formspree.io">
+<link rel="dns-prefetch" href="https://api.web3forms.com">
 <link rel="dns-prefetch" href="https://tpembd.com">
 
 <!-- Fonts with Display Swap -->
@@ -145,7 +145,7 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24">
 </a>
 <ul class="top-nav-menu" id="topNavMenu">
-<li><a href="https://www.flyreisen24.com"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="/"><i class="fas fa-home"></i> Home</a></li>
 <li><a href="/en/faq_en.html" class="active"><i class="fas fa-book-open"></i> Knowledge Hub</a></li>
 <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
 </ul>
@@ -173,7 +173,7 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 <div class="breadcrumb-container">
 <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
 <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-<a href="/en/" itemprop="item"><span itemprop="name"><i class="fas fa-home"></i> Home</span></a>
+<a href="/" itemprop="item"><span itemprop="name"><i class="fas fa-home"></i> Home</span></a>
 <meta itemprop="position" content="1">
 <span class="breadcrumb-separator">/</span>
 </li>
@@ -1109,7 +1109,8 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 <div class="contact-form-container">
 <div class="success-message" id="successMessage">✅ Message sent! We'll get back to you soon.</div>
 <div class="error-message" id="errorMessage">❌ An error occurred. Please try again.</div>
-<form id="contactForm" action="https://formspree.io/f/xdkooraa" method="POST">
+<form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
 <div class="form-group">
 <label for="name">Name</label>
 <input type="text" id="name" name="name" required>
