@@ -70,7 +70,7 @@
     }
 
     // ==========================================
-    // TRANSLATIONS — ✅ อัปเดตให้ตรง HTML ปัจจุบัน
+    // TRANSLATIONS
     // ==========================================
     const translations = {
         'th': {
@@ -248,13 +248,13 @@
         if (navDealsLink) navDealsLink.href = PAGE_MAPPINGS['deals'][lang];
 
         const footerLinks = {
-            'footerFaqLink':     'faq',
+            'footerFaqLink':       'faq',
             'footerKnowledgeLink': 'faq',
-            'footerAboutLink':   'about',
-            'footerTermsLink':   'terms',
-            'footerPrivacyLink': 'privacy',
-            'footerDeals':       'deals',
-            'footerTools':       'tools'
+            'footerAboutLink':     'about',
+            'footerTermsLink':     'terms',
+            'footerPrivacyLink':   'privacy',
+            'footerDeals':         'deals',
+            'footerTools':         'tools'
         };
 
         Object.keys(footerLinks).forEach(id => {
@@ -291,7 +291,6 @@
 
         const currentPage = getCurrentPageType();
 
-        // ✅ ถ้า mapping มีอยู่ → ไปหน้านั้น, ถ้าไม่มี → ไป homepage ของภาษานั้น
         if (PAGE_MAPPINGS[currentPage] && PAGE_MAPPINGS[currentPage][langCode]) {
             window.location.href = PAGE_MAPPINGS[currentPage][langCode];
         } else {
@@ -301,7 +300,7 @@
     }
 
     // ==========================================
-    // TOGGLE FUNCTIONS
+    // TOGGLE FUNCTIONS — Navigation
     // ==========================================
     function toggleLangDropdown() {
         const dropdown = document.getElementById('languageDropdown');
@@ -321,6 +320,40 @@
                 const nameField = document.getElementById('name');
                 if (nameField) nameField.focus();
             }
+        }
+    }
+
+    // ==========================================
+    // TOGGLE FUNCTIONS — FAQ Page
+    // ==========================================
+    function toggleCategory(header) {
+        const section = header.parentElement;
+        section.classList.toggle('active');
+    }
+
+    function toggleFaq(button) {
+        const item = button.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) { item.classList.add('active'); }
+    }
+
+    function toggleReadMore(btn) {
+        const faqAnswerContent = btn.closest('.faq-answer-content');
+        const fullContent = faqAnswerContent.querySelector('.article-full');
+        const expandBtn = faqAnswerContent.querySelector('.expand-btn-wrap');
+        const collapseBtn = faqAnswerContent.querySelector('.collapse-btn-wrap');
+        const isHidden = fullContent.style.display === 'none' || fullContent.style.display === '';
+
+        if (isHidden) {
+            fullContent.style.display = 'block';
+            if (expandBtn) expandBtn.style.display = 'none';
+            if (collapseBtn) collapseBtn.style.display = 'block';
+            setTimeout(() => fullContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+        } else {
+            fullContent.style.display = 'none';
+            if (expandBtn) expandBtn.style.display = 'block';
+            if (collapseBtn) collapseBtn.style.display = 'none';
         }
     }
 
@@ -359,9 +392,10 @@
             });
         }
 
-        // Contact form
+        // Contact form — attach only once
         const form = document.getElementById('contactForm');
-        if (form) {
+        if (form && !form.dataset.listenerAttached) {
+            form.dataset.listenerAttached = 'true';
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const submitBtn = document.getElementById('submitBtn');
@@ -423,6 +457,9 @@
     window.switchLanguage = switchLanguage;
     window.toggleMenu = toggleMenu;
     window.toggleContact = toggleContact;
+    window.toggleCategory = toggleCategory;
+    window.toggleFaq = toggleFaq;
+    window.toggleReadMore = toggleReadMore;
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initialize);
