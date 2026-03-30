@@ -1249,6 +1249,37 @@ table{width:100%;border-collapse:collapse;margin:20px 0}th{padding:12px;border:1
 
 <!-- common.js จัดการทุกอย่าง — ไม่มี script ซ้ำ -->
 <script src="/common.js"></script>
+<script>
+if (typeof window.toggleCategory !== 'function') {
+  window.toggleCategory = function(header) {
+    const section = header && header.parentElement;
+    if (section) section.classList.toggle('active');
+  };
+}
+if (typeof window.toggleFaq !== 'function') {
+  window.toggleFaq = function(button) {
+    const item = button && button.parentElement;
+    if (!item) return;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('active'); });
+    if (!wasActive) item.classList.add('active');
+  };
+}
+if (typeof window.toggleReadMore !== 'function') {
+  window.toggleReadMore = function(btn) {
+    const content = btn.closest('.faq-answer-content');
+    if (!content) return;
+    const full = content.querySelector('.article-full');
+    const expand = content.querySelector('.expand-btn-wrap');
+    const collapse = content.querySelector('.collapse-btn-wrap');
+    if (!full) return;
+    const hidden = full.style.display === 'none' || full.style.display === '';
+    full.style.display = hidden ? 'block' : 'none';
+    if (expand) expand.style.display = hidden ? 'none' : 'block';
+    if (collapse) collapse.style.display = hidden ? 'block' : 'none';
+  };
+}
+</script>
 
 </body>
 </html>
