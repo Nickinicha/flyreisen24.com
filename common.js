@@ -357,6 +357,47 @@
         }
     }
 
+    function injectFullFaqContentFromLegacy() {
+        const legacyRoot = document.querySelector('.legacy-faq');
+        if (!legacyRoot) return;
+
+        const visibleItems = document.querySelectorAll('.faq-container > .category-section .faq-item');
+        const legacyItems = legacyRoot.querySelectorAll('.faq-item');
+        if (!visibleItems.length || !legacyItems.length) return;
+
+        const lang = (document.documentElement.getAttribute('lang') || 'th').toLowerCase();
+        const labels = {
+            th: { more: 'อ่านต่อ', less: 'ย่อเนื้อหา' },
+            en: { more: 'Read more', less: 'Show less' },
+            de: { more: 'Mehr lesen', less: 'Weniger anzeigen' }
+        };
+        const ui = labels[lang] || labels.th;
+
+        const maxCount = Math.min(visibleItems.length, legacyItems.length);
+        for (let i = 0; i < maxCount; i++) {
+            const visibleAnswer = visibleItems[i].querySelector('.faq-answer-content');
+            const legacyAnswer = legacyItems[i].querySelector('.faq-answer-content');
+            if (!visibleAnswer || !legacyAnswer) continue;
+            if (visibleAnswer.querySelector('.article-full')) continue;
+
+            const summaryHtml = visibleAnswer.innerHTML.trim();
+            const fullHtml = legacyAnswer.innerHTML.trim();
+            if (!fullHtml) continue;
+
+            visibleAnswer.innerHTML =
+                summaryHtml +
+                '<div class="expand-btn-wrap" style="margin-top:14px;">' +
+                '<button class="read-more-btn" type="button" onclick="toggleReadMore(this)">' + ui.more + '</button>' +
+                '</div>' +
+                '<div class="article-full" style="display:none;margin-top:14px;">' +
+                fullHtml +
+                '<div class="collapse-btn-wrap" style="display:none;margin-top:14px;">' +
+                '<button class="read-more-btn" type="button" onclick="toggleReadMore(this)">' + ui.less + '</button>' +
+                '</div>' +
+                '</div>';
+        }
+    }
+
     // ==========================================
     // INITIALIZE
     // ==========================================
