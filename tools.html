@@ -223,6 +223,7 @@ body{font-family:var(--font-th);background:var(--bg);color:var(--text);line-heig
       <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="navHotel">โรงแรม</span></a></li>
       <li><a href="/th/deals_th.html" id="navDealsLink"><i class="fas fa-tags"></i> <span id="navDeals">ดีล</span><span class="new-badge">NEW</span></a></li>
       <li><a href="/th/faq_th.html" id="navKnowledgeLink"><i class="fas fa-book-open"></i> <span id="navKnowledge">คลังความรู้</span></a></li>
+      <li><a href="/th/faq_landing_th.html" id="navFaqLink"><i class="fas fa-circle-question"></i> <span id="navFaq">คำถามที่พบบ่อย</span></a></li>
       <li><a href="/tools.html" class="active-page"><i class="fas fa-wrench"></i> <span id="navTools">เครื่องมือ</span></a></li>
     </ul>
     <div class="nav-right">
@@ -425,7 +426,7 @@ const API_KEY = 'YOUR_API_KEY_HERE'; // ← เปลี่ยนตรงนี
 const T = {
   th: {
     bcHome:'หน้าแรก', bcTools:'เครื่องมือเดินทาง',
-    navFlight:'เที่ยวบิน', navHotel:'โรงแรม', navDeals:'ดีล', navKnowledge:'คลังความรู้', navTools:'เครื่องมือ', navHelp:'ช่วยเหลือ',
+    navFlight:'เที่ยวบิน', navHotel:'โรงแรม', navDeals:'ดีล', navKnowledge:'คลังความรู้', navFaq:'คำถามที่พบบ่อย', navTools:'เครื่องมือ', navHelp:'ช่วยเหลือ',
     heroBadge:'เครื่องมือเดินทาง', heroTitle:'เครื่องมือเดินทางครบครัน', heroSub:'แปลงเงิน · นาฬิกาโลก · ค้นหาเที่ยวบิน · ข่าวการบินล่าสุด',
     currTitle:'แปลงอัตราแลกเปลี่ยน', currSub:'อัตราเรียลไทม์ from exchangerate-api.com',
     lblAmount:'จำนวน', lblFrom:'จาก', lblTo:'เป็น', convertBtnText:'แปลงเงิน',
@@ -444,11 +445,11 @@ const T = {
     footerHelpTitle:'ช่วยเหลือ', footerContact:'ติดต่อฝ่ายบริการ', footerFaq:'คลังความรู้การเดินทาง',
     footerLegalTitle:'ข้อมูลทางกฎหมาย', footerAbout:'เกี่ยวกับเรา', footerTerms:'ข้อกำหนดและเงื่อนไข', footerPrivacy:'นโยบายความเป็นส่วนตัว',
     footerCopy:'© 2026 FlyReisen24. สงวนลิขสิทธิ์ | Powered by Travelpayouts',
-    dealsPath:'/th/deals_th.html', faqPath:'/th/faq_th.html', aboutPath:'/th/about_th.html', termsPath:'/th/terms_th.html', privacyPath:'/th/privacy_th.html',
+    dealsPath:'/th/deals_th.html', faqPath:'/th/faq_th.html', faqLandingPath:'/th/faq_landing_th.html', aboutPath:'/th/about_th.html', termsPath:'/th/terms_th.html', privacyPath:'/th/privacy_th.html',
   },
   en: {
     bcHome:'Home', bcTools:'Travel Tools',
-    navFlight:'Flights', navHotel:'Hotels', navDeals:'Deals', navKnowledge:'Knowledge Hub', navTools:'Tools', navHelp:'Help',
+    navFlight:'Flights', navHotel:'Hotels', navDeals:'Deals', navKnowledge:'Knowledge Hub', navFaq:'FAQ', navTools:'Tools', navHelp:'Help',
     heroBadge:'Travel Tools', heroTitle:'Your Complete Travel Toolkit', heroSub:'Currency Converter · World Clock · Flight Search · Aviation News',
     currTitle:'Currency Converter', currSub:'Real-time rates from exchangerate-api.com',
     lblAmount:'Amount', lblFrom:'From', lblTo:'To', convertBtnText:'Convert',
@@ -467,11 +468,11 @@ const T = {
     footerHelpTitle:'Help', footerContact:'Contact Support', footerFaq:'Travel Knowledge Hub',
     footerLegalTitle:'Legal', footerAbout:'About Us', footerTerms:'Terms & Conditions', footerPrivacy:'Privacy Policy',
     footerCopy:'© 2026 FlyReisen24. All rights reserved. | Powered by Travelpayouts',
-    dealsPath:'/en/deals_en.html', faqPath:'/en/faq_en.html', aboutPath:'/en/about_en.html', termsPath:'/en/terms_en.html', privacyPath:'/en/privacy_en.html',
+    dealsPath:'/en/deals_en.html', faqPath:'/en/faq_en.html', faqLandingPath:'/en/faq_landing_en.html', aboutPath:'/en/about_en.html', termsPath:'/en/terms_en.html', privacyPath:'/en/privacy_en.html',
   },
   de: {
     bcHome:'Startseite', bcTools:'Reise-Tools',
-    navFlight:'Flüge', navHotel:'Hotels', navDeals:'Angebote', navKnowledge:'Wissensdatenbank', navTools:'Reise-Tools', navHelp:'Hilfe',
+    navFlight:'Flüge', navHotel:'Hotels', navDeals:'Angebote', navKnowledge:'Wissensdatenbank', navFaq:'FAQ', navTools:'Reise-Tools', navHelp:'Hilfe',
     heroBadge:'Reise-Tools', heroTitle:'Ihr komplettes Reise-Toolkit', heroSub:'Währungsrechner · Weltzeit · Flugsuche · Luftfahrt-News',
     currTitle:'Währungsrechner', currSub:'Echtzeitkurse von exchangerate-api.com',
     lblAmount:'Betrag', lblFrom:'Von', lblTo:'Nach', convertBtnText:'Umrechnen',
@@ -490,7 +491,7 @@ const T = {
     footerHelpTitle:'Hilfe', footerContact:'Support kontaktieren', footerFaq:'Reise-Wissensdatenbank',
     footerLegalTitle:'Rechtliches', footerAbout:'Über uns', footerTerms:'AGB', footerPrivacy:'Datenschutz',
     footerCopy:'© 2026 FlyReisen24. Alle Rechte vorbehalten. | Powered by Travelpayouts',
-    dealsPath:'/de/deals_de.html', faqPath:'/de/faq_de.html', aboutPath:'/de/about_de.html', termsPath:'/de/terms_de.html', privacyPath:'/de/privacy_de.html',
+    dealsPath:'/de/deals_de.html', faqPath:'/de/faq_de.html', faqLandingPath:'/de/faq_landing_de.html', aboutPath:'/de/about_de.html', termsPath:'/de/terms_de.html', privacyPath:'/de/privacy_de.html',
   }
 };
 
@@ -501,13 +502,14 @@ function applyLang(lang) {
   const t = T[lang];
   document.documentElement.lang = lang;
   Object.keys(t).forEach(id => {
-    if(['dealsPath','faqPath','aboutPath','termsPath','privacyPath'].includes(id)) return;
+    if(['dealsPath','faqPath','faqLandingPath','aboutPath','termsPath','privacyPath'].includes(id)) return;
     const el = document.getElementById(id);
     if(el) el.textContent = t[id];
   });
   // Update nav links
   document.getElementById('navDealsLink').href = t.dealsPath;
   document.getElementById('navKnowledgeLink').href = t.faqPath;
+  document.getElementById('navFaqLink').href = t.faqLandingPath;
   document.getElementById('footerDealsLink').href = t.dealsPath;
   document.getElementById('footerFaq').href = t.faqPath;
   document.getElementById('footerAbout').href = t.aboutPath;
