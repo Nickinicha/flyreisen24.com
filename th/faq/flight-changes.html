@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เปลี่ยนตั๋ว ยกเลิกเที่ยวบิน และสิทธิ์ที่คุณมี | FlyReisen24</title>
+<meta name="description" content="เมื่อแผนเดินทางเปลี่ยน: ทุกสิ่งที่ต้องรู้เกี่ยวกับการเปลี่ยนตั๋ว ยกเลิกเที่ยวบิน EU261 และวิธีเรียกร้องสิทธิ์ชดเชยอย่างถูกต้อง">
+<link rel="canonical" href="https://flyreisen24.com/th/flight-changes.html">
+<link rel="alternate" hreflang="th" href="https://flyreisen24.com/th/flight-changes.html">
+<link rel="alternate" hreflang="en" href="https://flyreisen24.com/en/flight-changes.html">
+<link rel="alternate" hreflang="de" href="https://flyreisen24.com/de/flight-changes.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Chakra+Petch:wght@600;700&display=swap');
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --teal: #0e9f8e;
+    --teal-light: #14c4b0;
+    --gold: #e8a020;
+    --cream: #f8f5ef;
+    --text: #1a2332;
+    --text-muted: #5a6a80;
+    --border: #d8e4f0;
+    --white: #ffffff;
+    --danger: #c0392b;
+    --success: #1a8c6a;
+    --amber: #d97706;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Sarabun', sans-serif; background: var(--cream); color: var(--text); line-height: 1.9; font-size: 17px; }
+
+  .hero {
+    background: linear-gradient(135deg, #1a0a0a 0%, #3d1515 50%, #1a0a0a 100%);
+    color: white;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before { content: '✈️'; position: absolute; right: 5%; top: 50%; transform: translateY(-50%); font-size: 120px; opacity: 0.1; }
+  .hero-inner { max-width: 780px; margin: 0 auto; }
+  .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+  .breadcrumb a { color: #f9a8a8; text-decoration: none; }
+  .topic-badge { display: inline-block; background: var(--danger); color: white; font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 0.12em; padding: 4px 14px; border-radius: 20px; margin-bottom: 18px; text-transform: uppercase; }
+  .hero h1 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(26px,5vw,42px); line-height: 1.25; margin-bottom: 18px; }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 600px; line-height: 1.7; }
+  .hero-meta { margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.45); }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .article-body { padding: 56px 0 80px; }
+
+  h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(20px,3.5vw,28px); color: var(--navy); margin: 52px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); line-height: 1.35; }
+  h2:first-child { margin-top: 0; }
+  h3 { font-family: 'Sarabun', sans-serif; font-weight: 700; font-size: 19px; color: var(--navy-mid); margin: 32px 0 12px; }
+  p { margin-bottom: 20px; }
+
+  .why-box { background: linear-gradient(135deg, #fdf0f0, #fff5f5); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 28px 32px; margin: 0 0 40px; }
+  .why-box .label { font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 0.12em; color: var(--danger); text-transform: uppercase; margin-bottom: 10px; }
+  .why-box p { margin-bottom: 0; font-size: 16.5px; color: #3d1010; }
+
+  .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0 36px; }
+  .tier-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+  .tier-card .tier-name { font-family: 'Chakra Petch', sans-serif; font-size: 13px; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .tier-card.red .tier-name { color: var(--danger); }
+  .tier-card.amber .tier-name { color: var(--amber); }
+  .tier-card.green .tier-name { color: var(--success); }
+  .tier-card .tier-label { font-weight: 700; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .tier-card ul { list-style: none; padding: 0; font-size: 14px; color: var(--text-muted); }
+  .tier-card li { padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .tier-card li:last-child { border-bottom: none; }
+
+  .eu261-box { background: #f0f8ff; border: 1px solid #b8d9f0; border-radius: 14px; padding: 30px; margin: 32px 0; }
+  .eu261-box h3 { color: #0a4a7a; margin-top: 0; }
+  .eu261-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14.5px; }
+  .eu261-table th { background: #0a4a7a; color: white; padding: 10px 14px; text-align: left; font-family: 'Chakra Petch', sans-serif; font-size: 12px; }
+  .eu261-table td { padding: 10px 14px; border-bottom: 1px solid #d0e8f8; }
+  .eu261-table tr:last-child td { border-bottom: none; }
+
+  .scenario { background: white; border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 0 0 12px 12px; padding: 28px 32px; margin: 32px 0 40px; }
+  .scenario .s-label { font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .scenario .s-title { font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 10px; }
+  .scenario p { margin-bottom: 10px; font-size: 15.5px; }
+  .scenario p:last-child { margin-bottom: 0; }
+
+  .insider { background: linear-gradient(135deg, #1a0a2e, #0a1628); color: white; border-radius: 14px; padding: 30px 34px; margin: 36px 0; position: relative; overflow: hidden; }
+  .insider::before { content: '🔍'; position: absolute; right: 24px; top: 24px; font-size: 36px; opacity: 0.2; }
+  .insider .i-label { font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 0.14em; color: var(--teal-light); text-transform: uppercase; margin-bottom: 12px; }
+  .insider h3 { color: white; margin: 0 0 14px; font-size: 18px; }
+  .insider p, .insider li { color: rgba(255,255,255,0.82); font-size: 15.5px; }
+  .insider ul { padding-left: 20px; }
+  .insider li { margin-bottom: 8px; }
+
+  .warning { background: #fff8f0; border: 1px solid #f4c27a; border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 20px 26px; margin: 28px 0; font-size: 15.5px; }
+  .warning strong { color: #8a4800; }
+
+  .doc-checklist { background: #f5fdf8; border: 1px solid #a8e0c0; border-radius: 12px; padding: 26px 30px; margin: 28px 0; }
+  .doc-checklist h3 { color: var(--success); margin-top: 0; }
+  .doc-checklist ul { list-style: none; padding: 0; }
+  .doc-checklist li { padding: 8px 0; border-bottom: 1px solid #c8eedd; display: flex; gap: 10px; font-size: 15.5px; }
+  .doc-checklist li:last-child { border-bottom: none; }
+  .doc-checklist .doc-icon { font-size: 18px; flex-shrink: 0; }
+
+  .pro-tips { background: var(--navy); color: white; border-radius: 16px; padding: 38px 40px; margin: 52px 0 0; }
+  .pro-tips h2 { color: var(--gold); border-bottom-color: rgba(255,255,255,0.15); margin-top: 0; font-size: 22px; }
+  .pro-tips ul { list-style: none; padding: 0; margin: 0; }
+  .pro-tips li { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 15.5px; color: rgba(255,255,255,0.87); line-height: 1.6; }
+  .pro-tips li:last-child { border-bottom: none; }
+  .pro-tips .check { width: 24px; height: 24px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+
+  .cta-link { background: linear-gradient(135deg, var(--teal) 0%, #0a7a6e 100%); color: white; border-radius: 12px; padding: 26px 30px; margin: 40px 0; display: flex; align-items: center; gap: 18px; text-decoration: none; }
+  .cta-link:hover { opacity: 0.92; }
+  .cta-icon { font-size: 32px; flex-shrink: 0; }
+  .cta-text .cta-label { font-size: 12px; opacity: 0.8; margin-bottom: 4px; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Chakra Petch', sans-serif; }
+  .cta-text strong { font-size: 17px; display: block; }
+
+  .faq-section { margin-top: 56px; }
+  .faq-item { background: white; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .faq-q { padding: 18px 22px; font-weight: 700; font-size: 15.5px; color: var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .faq-q::after { content: '＋'; color: var(--teal); font-size: 20px; flex-shrink: 0; }
+  .faq-a { padding: 0 22px 18px; font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+
+  .schema-note { background: #f0f4f8; border-radius: 10px; padding: 20px 26px; margin-top: 60px; font-size: 13px; color: var(--text-muted); }
+  .schema-note pre { background: var(--navy); color: #a8d8c8; padding: 20px; border-radius: 8px; margin-top: 12px; font-size: 12px; overflow-x: auto; line-height: 1.6; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px 40px; }
+    .pro-tips { padding: 28px 22px; }
+    .tier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<style>
+.cw-btn{position:fixed;bottom:30px;right:30px;z-index:999;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#003d82,#0a5fd4);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 24px rgba(0,61,130,.35);transition:all .3s}
+.cw-btn:hover{transform:scale(1.1)}
+.cw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#D4AF37;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;color:#003d82}
+.cw-popup{position:fixed;bottom:108px;right:30px;z-index:998;width:340px;background:#fff;border-radius:20px;box-shadow:0 16px 60px rgba(0,30,80,.2);border:2px solid #D4AF37;display:none;flex-direction:column;overflow:hidden}
+.cw-popup.open{display:flex}
+.cw-head{background:linear-gradient(135deg,#001f45,#003d82);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cw-head-text h3{font-size:.95rem;font-weight:700;margin:0}
+.cw-head-text p{font-size:.74rem;opacity:.8;margin:3px 0 0}
+.cw-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cw-body{padding:18px 20px}
+.cw-field{margin-bottom:12px}
+.cw-field label{display:block;font-size:.76rem;font-weight:600;color:#1a2332;margin-bottom:4px}
+.cw-field input,.cw-field textarea{width:100%;padding:9px 11px;border:2px solid #e2e8f0;border-radius:9px;font-size:.86rem;color:#1a2332;outline:none;transition:border .2s;resize:none;font-family:'IBM Plex Sans Thai',sans-serif}
+.cw-field input:focus,.cw-field textarea:focus{border-color:#D4AF37}
+.cw-field textarea{min-height:80px}
+.cw-send{width:100%;padding:12px;background:linear-gradient(135deg,#003d82,#0a5fd4);color:#fff;border:none;border-radius:9px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'IBM Plex Sans Thai',sans-serif}
+.cw-ok{background:#d1fae5;color:#065f46;border:2px solid #a7f3d0;border-radius:9px;padding:10px;text-align:center;font-size:.84rem;font-weight:600;display:none;margin-bottom:10px}
+.cw-err{background:#fee2e2;color:#991b1b;border:2px solid #fca5a5;border-radius:9px;padding:10px;text-align:center;font-size:.84rem;font-weight:600;display:none;margin-bottom:10px}
+</style>
+
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <nav class="breadcrumb">
+      <a href="/th/faq_landing_th.html">คู่มือการบิน</a> › เปลี่ยนตั๋วและยกเลิกเที่ยวบิน
+    </nav>
+    <div class="topic-badge">Topic 04 · Flight Changes & Cancellations</div>
+    <h1>เมื่อแผนเดินทางพัง —<br>สิทธิ์ที่คุณมีและวิธีใช้มันจริง</h1>
+    <p class="hero-sub">การยกเลิกเที่ยวบินไม่ได้หมายความว่าคุณจะไม่ได้อะไรกลับคืน ถ้าคุณรู้ว่าต้องทำอะไร</p>
+    <div class="hero-meta">
+      <span>✍️ FlyReisen24 Aviation Desk</span>
+      <span>📖 อ่านประมาณ 9 นาที</span>
+      <span>🔄 อัปเดต 2025–2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="container article-body">
+
+  <div class="why-box">
+    <div class="label">⚡ Why This Matters</div>
+    <p>ผู้โดยสารทั่วโลกสูญเสียเงินชดเชยที่พวกเขามีสิทธิ์ได้รับไปมากกว่า 6 พันล้านดอลลาร์สหรัฐต่อปี เพียงเพราะไม่รู้ว่าตัวเองมีสิทธิ์ หรือไม่รู้ขั้นตอนการเรียกร้อง เรื่องนี้ไม่ใช่เรื่องซับซ้อน — แต่ต้องรู้ก่อน</p>
+  </div>
+
+  <h2>ตั๋วเครื่องบินไม่ได้เหมือนกันทุกใบ — ระดับความยืดหยุ่น</h2>
+
+  <p>ก่อนจะพูดถึงการเปลี่ยนหรือยกเลิก ต้องเข้าใจก่อนว่าตั๋วที่คุณซื้อนั้น "อนุญาต" ให้ทำอะไรได้บ้าง เพราะตั๋วแต่ละใบมาพร้อมชั้นความยืดหยุ่นที่ต่างกันชัดเจน</p>
+
+  <div class="tier-grid">
+    <div class="tier-card red">
+      <div class="tier-name">NON-REFUNDABLE / NON-CHANGEABLE</div>
+      <div class="tier-label">ตั๋วราคาถูกสุด</div>
+      <ul>
+        <li>เปลี่ยนวันไม่ได้</li>
+        <li>ยกเลิกแล้วไม่ได้เงินคืน</li>
+        <li>เปลี่ยนชื่อไม่ได้</li>
+        <li>ราคาต่ำสุด</li>
+      </ul>
+    </div>
+    <div class="tier-card amber">
+      <div class="tier-name">CHANGEABLE WITH FEE</div>
+      <div class="tier-label">ตั๋วชั้นกลาง</div>
+      <ul>
+        <li>เปลี่ยนวันได้ (มีค่าธรรมเนียม)</li>
+        <li>ยกเลิกแล้วได้ credit บางส่วน</li>
+        <li>บางครั้งเปลี่ยนชื่อได้</li>
+        <li>ราคาปานกลาง</li>
+      </ul>
+    </div>
+    <div class="tier-card green">
+      <div class="tier-name">FULLY FLEXIBLE</div>
+      <div class="tier-label">ตั๋วยืดหยุ่น</div>
+      <ul>
+        <li>เปลี่ยนวันได้ไม่จำกัด</li>
+        <li>ยกเลิกได้รับเงินคืนเต็ม</li>
+        <li>มักเปลี่ยนชื่อได้</li>
+        <li>ราคาสูงสุด</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>ความผิดพลาดที่เกิดบ่อยที่สุดคือการซื้อตั๋วราคาถูกสุดโดยมีแผน "เผื่อเปลี่ยน" ซึ่งเป็นไปไม่ได้กับตั๋วประเภทนี้ ถ้าแผนเดินทางของคุณมีความไม่แน่นอน การลงทุนซื้อตั๋วที่แพงขึ้นอีกเล็กน้อยคุ้มกว่าเสมอ</p>
+
+  <h3>ค่าธรรมเนียมเปลี่ยนตั๋ว — ตัวเลขที่ต้องรู้</h3>
+
+  <p>สายการบิน Full-service ส่วนใหญ่คิดค่าธรรมเนียมเปลี่ยนตั๋วระหว่าง 30–200 USD ขึ้นอยู่กับเส้นทางและ fare class บางสายการบินยังเพิ่มเงื่อนไขว่าต้องเปลี่ยนล่วงหน้าอย่างน้อย 24 ชั่วโมงก่อนเที่ยวบินจึงจะทำได้</p>
+
+  <p>แต่ตั้งแต่ช่วงโควิด หลายสายการบินได้ปรับนโยบายให้ยืดหยุ่นขึ้น โดยเฉพาะสายการบินใหญ่ในสหรัฐฯ และยุโรปหลายเจ้าที่ยกเลิกค่าธรรมเนียมเปลี่ยนตั๋วสำหรับบางชั้นโดยสถาวร — นี่คือ "new normal" ที่ควรรู้</p>
+
+  <h2>เมื่อสายการบินเป็นฝ่ายยกเลิก — นี่คือสิทธิ์ของคุณ</h2>
+
+  <p>มีความแตกต่างอย่างสำคัญระหว่างสองกรณี: คุณเป็นฝ่ายยกเลิก vs สายการบินเป็นฝ่ายยกเลิก ในกรณีหลัง คุณมีสิทธิ์มากกว่าที่คิด</p>
+
+  <h3>EU261 — กฎหมายที่แข็งแกร่งที่สุดสำหรับผู้โดยสาร</h3>
+
+  <p>EU261/2004 เป็นกฎหมายของสหภาพยุโรปที่กำหนดให้สายการบินต้องชดเชยผู้โดยสารเมื่อเกิดกรณีดีเลย์นาน ยกเลิกเที่ยวบิน หรือถูกปฏิเสธขึ้นเครื่อง กฎนี้ใช้บังคับกับเที่ยวบินที่ออกจากสนามบินใน EU ทุกสายการบิน และเที่ยวบินที่บินเข้า EU โดยสายการบินที่จดทะเบียนใน EU</p>
+
+  <div class="eu261-box">
+    <h3>ตารางค่าชดเชยภายใต้ EU261</h3>
+    <table class="eu261-table">
+      <thead>
+        <tr>
+          <th>ระยะทาง</th>
+          <th>ดีเลย์ที่เข้าเงื่อนไข</th>
+          <th>ค่าชดเชย</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ต่ำกว่า 1,500 กม.</td>
+          <td>ดีเลย์ 3 ชั่วโมงขึ้นไป</td>
+          <td>€250 ต่อคน</td>
+        </tr>
+        <tr>
+          <td>1,500–3,500 กม.</td>
+          <td>ดีเลย์ 3 ชั่วโมงขึ้นไป</td>
+          <td>€400 ต่อคน</td>
+        </tr>
+        <tr>
+          <td>มากกว่า 3,500 กม.</td>
+          <td>ดีเลย์ 4 ชั่วโมงขึ้นไป</td>
+          <td>€600 ต่อคน</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>ตัวเลขเหล่านี้อาจลดลง 50% ถ้าสายการบินเสนอเที่ยวบินทดแทนที่ถึงปลายทางใกล้เคียงกับเวลาเดิม และที่สำคัญ สิทธิ์เหล่านี้จะ <em>ไม่เกิดขึ้น</em> ถ้าสายการบินสามารถพิสูจน์ว่าเหตุการณ์เกิดจาก "สถานการณ์พิเศษ" (extraordinary circumstances) เช่น พายุรุนแรง ความไม่สงบทางการเมือง หรือความเสี่ยงด้านความปลอดภัยที่อยู่นอกเหนือการควบคุม</p>
+
+  <div class="scenario">
+    <div class="s-label">🎬 Real-World Scenario</div>
+    <div class="s-title">เที่ยวบินจากมิวนิคถูกยกเลิกเพราะปัญหาเทคนิค</div>
+    <p>คุณ B มีเที่ยวบิน Munich–Bangkok เวลา 14:00 สายการบินประกาศยกเลิกเวลา 10:00 เพราะปัญหาเชิงกลไกของเครื่อง และเสนอเที่ยวบินทดแทนวันรุ่งขึ้นเวลา 16:00</p>
+    <p>สิ่งที่คุณ B มีสิทธิ์: เนื่องจากปัญหาเทคนิคไม่ถือเป็น "extraordinary circumstances" คุณ B มีสิทธิ์เงินชดเชย €600 (เส้นทางเกิน 3,500 กม.) บวกกับค่าที่พักและอาหารระหว่างรอ และตั๋วรีฟันด์เต็มหากไม่ต้องการเที่ยวบินทดแทน</p>
+    <p><strong>สิ่งที่คุณ B ควรทำ:</strong> ขอเอกสารยืนยันการยกเลิกจากสายการบินทันที และยื่นเรียกร้องเป็นลายลักษณ์อักษรภายใน 3 ปี (อายุความ EU261)</p>
+  </div>
+
+  <h3>สิทธิ์นอกเหนือจากค่าชดเชย — ที่หลายคนลืม</h3>
+
+  <p>นอกจากเงินชดเชย EU261 ยังกำหนดให้สายการบินต้องดูแลผู้โดยสารระหว่างรอ ซึ่งรวมถึงอาหารและเครื่องดื่มตามสมควร การสื่อสาร (โทรศัพท์หรืออีเมล์ 2 ครั้ง) และที่พักพร้อมการเดินทางไป-กลับหากต้องรอข้ามคืน</p>
+
+  <div class="doc-checklist">
+    <h3>📁 เอกสารที่ต้องเก็บเมื่อเกิดปัญหา</h3>
+    <ul>
+      <li><span class="doc-icon">🎫</span><span>Boarding pass ทุกใบ (ทั้งขาแรกและขาเชื่อมต่อ)</span></li>
+      <li><span class="doc-icon">📧</span><span>อีเมลหรือ SMS ยืนยันการจองและการเปลี่ยนแปลง</span></li>
+      <li><span class="doc-icon">📋</span><span>เอกสารยืนยันการยกเลิก/ดีเลย์จากสายการบิน</span></li>
+      <li><span class="doc-icon">📸</span><span>ภาพถ่ายหน้าจอแสดงเวลาเที่ยวบินและสถานะ</span></li>
+      <li><span class="doc-icon">🧾</span><span>ใบเสร็จค่าอาหาร ที่พัก และการเดินทางระหว่างรอ</span></li>
+      <li><span class="doc-icon">📞</span><span>บันทึกการโทรหาสายการบิน (วันเวลา ชื่อเจ้าหน้าที่)</span></li>
+    </ul>
+  </div>
+
+  <h2>เที่ยวบินดีเลย์ vs ยกเลิก — ต่างกันอย่างไรในแง่สิทธิ์</h2>
+
+  <p>คนจำนวนมากคิดว่าดีเลย์ทุกกรณีต้องได้ชดเชย แต่ไม่ใช่แบบนั้น EU261 กำหนดว่าดีเลย์ที่เข้าเกณฑ์ต้องมีระยะเวลาถึงปลายทาง (arrival delay) ไม่ใช่เวลาออกเดินทาง ดังนั้นถ้าเที่ยวบินออกช้า 2 ชั่วโมงแต่นักบินเร่งความเร็วจนถึงปลายทางช้าแค่ 1.5 ชั่วโมง คุณก็ไม่มีสิทธิ์ชดเชย</p>
+
+  <div class="insider">
+    <div class="i-label">🔍 Insider Secret</div>
+    <h3>วิธีที่สายการบินหลีกเลี่ยงการจ่ายชดเชย</h3>
+    <ul>
+      <li><strong>อ้าง "extraordinary circumstances"</strong> กับกรณีที่จริง ๆ แล้วไม่ใช่ เช่น ปัญหาเทคนิคที่พบล่วงหน้าบางกรณีถือเป็นความบกพร่องของสายการบิน ไม่ใช่เหตุสุดวิสัย</li>
+      <li><strong>เสนอ voucher แทน</strong> เพราะผู้โดยสารหลายคนรับ voucher โดยไม่รู้ว่ามีสิทธิ์ได้เงินสดตาม EU261</li>
+      <li><strong>ขอเอกสารที่ซับซ้อนเกินจำเป็น</strong> เพื่อให้ผู้โดยสารเลิกล้มความตั้งใจ</li>
+      <li><strong>ตอบช้า</strong> เพราะอายุความมี 3 ปี แต่หลายคนเลิกรอก่อน</li>
+    </ul>
+    <p style="margin-top:14px;">ถ้าสายการบินปฏิเสธ ให้ยื่นเรื่องกับ National Enforcement Body (NEB) ของประเทศที่เที่ยวบินออกเดินทาง ซึ่งทำได้ฟรีและมักมีน้ำหนักมากกว่าการร้องเรียนโดยตรง</li>
+  </div>
+
+  <h3>สถานการณ์นอก EU — มีกฎอะไรบ้าง</h3>
+
+  <p>ถ้าเที่ยวบินของคุณไม่เกี่ยวกับ EU เลย สิทธิ์ก็แตกต่างกันไปตามประเทศ สหรัฐอเมริกามีกฎ DOT ที่คุ้มครองบางกรณี ออสเตรเลียมี ACCC แต่ไทยและหลายประเทศในเอเชียมีกฎที่ยังพัฒนาต่อไป ดังนั้นถ้าเส้นทางของคุณไม่ผ่าน EU เลย สิทธิ์หลักที่มีคือสิ่งที่ระบุไว้ในสัญญาการซื้อตั๋ว</p>
+
+  <a href="/th/faq_landing_th.html" class="cta-link">
+    <div class="cta-icon">📋</div>
+    <div class="cta-text">
+      <div class="cta-label">กลับสู่คู่มือหลัก</div>
+      <strong>ดูคำถามทั้ง 10 หัวข้อเกี่ยวกับการบิน →</strong>
+    </div>
+  </a>
+
+  <div class="faq-section">
+    <h2>คำถามที่พบบ่อย: การเปลี่ยนตั๋วและยกเลิกเที่ยวบิน</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">ถ้าเที่ยวบินดีเลย์กี่ชั่วโมงถึงจะได้ชดเชย?</div>
+      <div class="faq-a">ภายใต้ EU261 ต้องดีเลย์ถึงปลายทางอย่างน้อย 3 ชั่วโมง (สำหรับเส้นทางต่ำกว่า 3,500 กม.) หรือ 4 ชั่วโมง (เส้นทางไกลกว่า) และต้องไม่ใช่เหตุสุดวิสัยที่อยู่นอกเหนือการควบคุมของสายการบิน</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">สายการบินเสนอ voucher แทนเงินสด ควรรับไหม?</div>
+      <div class="faq-a">ขึ้นอยู่กับสถานการณ์ ถ้ามีสิทธิ์ชดเชยตาม EU261 คุณมีสิทธิ์เรียกร้องเงินสดแทน voucher ได้ ควรศึกษาสิทธิ์ก่อนตัดสินใจ เพราะ voucher มักมีเงื่อนไขการใช้งานและวันหมดอายุ</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">ตั๋วที่ซื้อผ่าน OTA (เช่น Booking.com หรือ Trip.com) เรียกร้องสิทธิ์กับใคร?</div>
+      <div class="faq-a">สิทธิ์ EU261 เรียกร้องกับสายการบินโดยตรง ไม่ใช่ OTA OTA เป็นเพียงตัวกลางขาย ความรับผิดชอบด้านการบินอยู่ที่สายการบิน แต่ถ้าต้องการ refund ตามเงื่อนไขตั๋ว อาจต้องผ่าน OTA</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">เที่ยวบินยกเลิกเพราะพายุ ได้ชดเชยไหม?</div>
+      <div class="faq-a">พายุรุนแรงที่อยู่นอกเหนือการควบคุมของสายการบินถือเป็น "extraordinary circumstances" ซึ่งยกเว้นจากการชดเชยเงิน แต่สายการบินยังต้องเสนอเที่ยวบินทดแทนหรือ refund และต้องดูแลผู้โดยสารระหว่างรอ</div>
+    </div>
+  </div>
+
+  <div class="pro-tips">
+    <h2>✅ Pro-Tips Checklist: เปลี่ยนตั๋วและยกเลิกเที่ยวบิน</h2>
+    <ul>
+      <li><span class="check">✓</span><span>ก่อนซื้อตั๋ว: ดูเงื่อนไข refund และ change policy ให้ชัดเจน ไม่ใช่แค่ราคา</span></li>
+      <li><span class="check">✓</span><span>ถ้าแผนเดินทางไม่แน่นอน เลือก fare ที่เปลี่ยนได้ — ค่าธรรมเนียมเปลี่ยนตั๋วมักถูกกว่าซื้อตั๋วใหม่</span></li>
+      <li><span class="check">✓</span><span>เมื่อสายการบินยกเลิก: ติดต่อสายการบินทันที — คนที่ติดต่อเร็วมักได้ตัวเลือกดีกว่า</span></li>
+      <li><span class="check">✓</span><span>เก็บหลักฐานทุกอย่าง: boarding pass, อีเมล, ใบเสร็จค่าใช้จ่ายระหว่างรอ</span></li>
+      <li><span class="check">✓</span><span>รู้จัก EU261: ถ้าเที่ยวบินเกี่ยวกับ EU ดีเลย์ 3+ ชั่วโมงอาจได้ €250–€600 ต่อคน</span></li>
+      <li><span class="check">✓</span><span>อย่ารับ voucher โดยไม่ตรวจสิทธิ์ก่อน คุณอาจมีสิทธิ์ได้เงินสดแทน</span></li>
+      <li><span class="check">✓</span><span>อายุความ EU261 คือ 3 ปี — ยื่นเรื่องได้แม้เที่ยวบินผ่านไปนานแล้ว</span></li>
+    </ul>
+  </div>
+
+  <div class="schema-note">
+    <strong>📄 FAQPage JSON-LD Schema</strong>
+    <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ถ้าเที่ยวบินดีเลย์กี่ชั่วโมงถึงจะได้ชดเชย?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ภายใต้ EU261 ต้องดีเลย์ถึงปลายทางอย่างน้อย 3 ชั่วโมง (เส้นทางต่ำกว่า 3,500 กม.) หรือ 4 ชั่วโมง (เส้นทางไกลกว่า) และต้องไม่ใช่เหตุสุดวิสัย"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "สายการบินเสนอ voucher แทนเงินสด ควรรับไหม?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ถ้ามีสิทธิ์ชดเชยตาม EU261 คุณมีสิทธิ์เรียกร้องเงินสดแทน voucher ได้ ควรศึกษาสิทธิ์ก่อนตัดสินใจ"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "เที่ยวบินยกเลิกเพราะพายุ ได้ชดเชยไหม?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "พายุรุนแรงถือเป็น extraordinary circumstances ยกเว้นจากค่าชดเชยเงิน แต่สายการบินยังต้องเสนอเที่ยวบินทดแทนหรือ refund"
+      }
+    }
+  ]
+}</code></pre>
+  </div>
+
+
+<section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/passport-visa.html">01 · Passport & Visa Bible</a></li><li><a href="/th/faq/connection-time.html">02 · Time Traps & Connection Flights</a></li><li><a href="/th/faq/baggage-rules.html">03 · Baggage Rules</a></li><li><strong>04 · Flight Changes & Cancellations</strong></li><li><a href="/th/faq/booking-types.html">05 · Booking Types</a></li><li><a href="/th/faq/frequent-flyer.html">06 · Frequent Flyer</a></li><li><a href="/th/faq/charter-overbooking.html">07 · Charter Flights & Overbooking</a></li><li><a href="/th/faq/online-checkin.html">08 · Online Check-in</a></li><li><a href="/th/faq/passenger-rights.html">09 · Montreal Convention & EU261</a></li><li><a href="/th/faq/saf-future.html">10 · Sustainable Aviation Fuel</a></li></ul><p style="margin-top:12px"><a href="/th/faq_landing_th.html">Back to FAQ Overview</a></p></section>
+</main>
+
+<button class="cw-btn" onclick="toggleCW()">
+  <i class="fas fa-envelope"></i>
+  <span class="cw-badge">?</span>
+</button>
+<div class="cw-popup" id="cwPopup">
+  <div class="cw-head">
+    <div class="cw-head-text"><h3>ติดต่อเรา</h3><p>มีคำถาม? เราพร้อมช่วยเหลือ</p></div>
+    <button class="cw-close" onclick="toggleCW()">✕</button>
+  </div>
+  <div class="cw-body">
+    <div class="cw-ok" id="cwOk">✅ ส่งแล้ว! เราจะติดต่อกลับเร็วๆ นี้</div>
+    <div class="cw-err" id="cwErr">❌ เกิดข้อผิดพลาด กรุณาลองใหม่</div>
+    <form id="cwForm">
+      <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
+      <div class="cw-field"><label>ชื่อ</label><input type="text" name="name" required></div>
+      <div class="cw-field"><label>อีเมล</label><input type="email" name="email" required></div>
+      <div class="cw-field"><label>ข้อความ</label><textarea name="message" required></textarea></div>
+      <button type="submit" class="cw-send" id="cwSend">ส่งข้อความ</button>
+    </form>
+  </div>
+</div>
+<script>
+function toggleCW(){document.getElementById('cwPopup').classList.toggle('open');}
+if(document.getElementById('cwForm')){
+  document.getElementById('cwForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('cwSend'),ok=document.getElementById('cwOk'),err=document.getElementById('cwErr');
+    btn.disabled=true;btn.textContent='กำลังส่ง...';ok.style.display='none';err.style.display='none';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(this)))});
+      const data=await res.json();
+      if(data.success){ok.style.display='block';this.reset();}else{err.style.display='block';}
+    }catch{err.style.display='block';}
+    btn.disabled=false;btn.textContent='ส่งข้อความ';
+  });
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('cwPopup');
+  const btn=document.querySelector('.cw-btn');
+  if(popup&&popup.classList.contains('open')&&!popup.contains(e.target)&&btn&&!btn.contains(e.target)){popup.classList.remove('open');}
+});
+</script>
+
+</body>
+</html>

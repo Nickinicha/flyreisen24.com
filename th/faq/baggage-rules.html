@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กฎสัมภาระที่ต้องรู้ก่อนขึ้นเครื่อง | FlyReisen24</title>
+<meta name="description" content="เข้าใจกฎสัมภาระสายการบินอย่างลึกซึ้ง ตั้งแต่กระเป๋าถือขึ้นเครื่อง กระเป๋าโหลด Power bank ไปจนถึงของห้ามขึ้นเครื่อง พร้อม Pro-Tips ประหยัดค่าธรรมเนียม">
+<link rel="canonical" href="https://flyreisen24.com/th/baggage-rules.html">
+<link rel="alternate" hreflang="th" href="https://flyreisen24.com/th/baggage-rules.html">
+<link rel="alternate" hreflang="en" href="https://flyreisen24.com/en/baggage-rules.html">
+<link rel="alternate" hreflang="de" href="https://flyreisen24.com/de/baggage-rules.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Chakra+Petch:wght@600;700&display=swap');
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --teal: #0e9f8e;
+    --teal-light: #14c4b0;
+    --gold: #e8a020;
+    --gold-light: #f5c050;
+    --cream: #f8f5ef;
+    --text: #1a2332;
+    --text-muted: #5a6a80;
+    --border: #d8e4f0;
+    --white: #ffffff;
+    --danger: #c0392b;
+    --success: #1a8c6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.9;
+    font-size: 17px;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 50%, var(--navy-mid) 100%);
+    color: var(--white);
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🧳';
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 120px;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 780px; margin: 0 auto; }
+  .breadcrumb {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+  }
+  .breadcrumb a { color: var(--teal-light); text-decoration: none; }
+  .topic-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: clamp(26px, 5vw, 42px);
+    line-height: 1.25;
+    margin-bottom: 18px;
+    color: var(--white);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    margin-top: 28px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Layout */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+  /* Article body */
+  .article-body { padding: 56px 0 80px; }
+
+  h2 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: clamp(20px, 3.5vw, 28px);
+    color: var(--navy);
+    margin: 52px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    line-height: 1.35;
+  }
+  h2:first-child { margin-top: 0; }
+
+  h3 {
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--navy-mid);
+    margin: 32px 0 12px;
+  }
+
+  p { margin-bottom: 20px; }
+
+  /* Why matters box */
+  .why-box {
+    background: linear-gradient(135deg, #e8f4f8 0%, #f0faf8 100%);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    margin: 0 0 40px;
+  }
+  .why-box .label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .why-box p { margin-bottom: 0; font-size: 16.5px; color: #1a3a50; }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0 36px;
+    font-size: 15.5px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+  .compare-table thead {
+    background: var(--navy);
+    color: white;
+  }
+  .compare-table th {
+    padding: 14px 18px;
+    text-align: left;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+  .compare-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) { background: #f5f9fd; }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* Scenario box */
+  .scenario {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 0 0 12px 12px;
+    padding: 28px 32px;
+    margin: 32px 0 40px;
+  }
+  .scenario .s-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .scenario .s-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .scenario p { margin-bottom: 10px; font-size: 15.5px; }
+  .scenario p:last-child { margin-bottom: 0; }
+
+  /* Insider box */
+  .insider {
+    background: linear-gradient(135deg, #1a0a2e, #0a1628);
+    color: white;
+    border-radius: 14px;
+    padding: 30px 34px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .insider::before {
+    content: '🔍';
+    position: absolute;
+    right: 24px; top: 24px;
+    font-size: 36px; opacity: 0.2;
+  }
+  .insider .i-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--teal-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .insider h3 {
+    color: white;
+    margin: 0 0 14px;
+    font-size: 18px;
+  }
+  .insider p, .insider li { color: rgba(255,255,255,0.82); font-size: 15.5px; }
+  .insider ul { padding-left: 20px; }
+  .insider li { margin-bottom: 8px; }
+
+  /* Warning box */
+  .warning {
+    background: #fff8f0;
+    border: 1px solid #f4c27a;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 26px;
+    margin: 28px 0;
+    font-size: 15.5px;
+  }
+  .warning strong { color: #8a4800; }
+
+  /* Danger box */
+  .danger-box {
+    background: #fff5f5;
+    border: 1px solid #f5c0b8;
+    border-left: 4px solid var(--danger);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 26px;
+    margin: 28px 0;
+    font-size: 15.5px;
+  }
+  .danger-box strong { color: var(--danger); }
+
+  /* Pro Tips */
+  .pro-tips {
+    background: var(--navy);
+    color: white;
+    border-radius: 16px;
+    padding: 38px 40px;
+    margin: 52px 0 0;
+  }
+  .pro-tips h2 {
+    color: var(--gold);
+    border-bottom-color: rgba(255,255,255,0.15);
+    margin-top: 0;
+    font-size: 22px;
+  }
+  .pro-tips ul { list-style: none; padding: 0; margin: 0; }
+  .pro-tips li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 15.5px;
+    color: rgba(255,255,255,0.87);
+    line-height: 1.6;
+  }
+  .pro-tips li:last-child { border-bottom: none; }
+  .pro-tips .check {
+    width: 24px; height: 24px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  /* Internal link CTA */
+  .cta-link {
+    background: linear-gradient(135deg, var(--teal) 0%, #0a7a6e 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 26px 30px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+  }
+  .cta-link:hover { opacity: 0.92; }
+  .cta-icon { font-size: 32px; flex-shrink: 0; }
+  .cta-text .cta-label { font-size: 12px; opacity: 0.8; margin-bottom: 4px; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Chakra Petch', sans-serif; }
+  .cta-text strong { font-size: 17px; display: block; }
+
+  /* FAQ section */
+  .faq-section { margin-top: 56px; }
+  .faq-section h2 { margin-top: 0; }
+  .faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    font-weight: 700;
+    font-size: 15.5px;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-q::after { content: '＋'; color: var(--teal); font-size: 20px; flex-shrink: 0; }
+  .faq-a {
+    padding: 0 22px 18px;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .schema-note {
+    background: #f0f4f8;
+    border-radius: 10px;
+    padding: 20px 26px;
+    margin-top: 60px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .schema-note pre {
+    background: var(--navy);
+    color: #a8d8c8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 12px;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px 40px; }
+    .compare-table { font-size: 13.5px; }
+    .compare-table th, .compare-table td { padding: 10px 12px; }
+    .pro-tips { padding: 28px 22px; }
+    .insider { padding: 24px 22px; }
+    .scenario { padding: 22px 20px; }
+  }
+</style>
+
+<style>
+.cw-btn{position:fixed;bottom:30px;right:30px;z-index:999;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#003d82,#0a5fd4);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 24px rgba(0,61,130,.35);transition:all .3s}
+.cw-btn:hover{transform:scale(1.1)}
+.cw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#D4AF37;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;color:#003d82}
+.cw-popup{position:fixed;bottom:108px;right:30px;z-index:998;width:340px;background:#fff;border-radius:20px;box-shadow:0 16px 60px rgba(0,30,80,.2);border:2px solid #D4AF37;display:none;flex-direction:column;overflow:hidden}
+.cw-popup.open{display:flex}
+.cw-head{background:linear-gradient(135deg,#001f45,#003d82);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cw-head-text h3{font-size:.95rem;font-weight:700;margin:0}
+.cw-head-text p{font-size:.74rem;opacity:.8;margin:3px 0 0}
+.cw-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cw-body{padding:18px 20px}
+.cw-field{margin-bottom:12px}
+.cw-field label{display:block;font-size:.76rem;font-weight:600;color:#1a2332;margin-bottom:4px}
+.cw-field input,.cw-field textarea{width:100%;padding:9px 11px;border:2px solid #e2e8f0;border-radius:9px;font-size:.86rem;color:#1a2332;outline:none;transition:border .2s;resize:none;font-family:'IBM Plex Sans Thai',sans-serif}
+.cw-field input:focus,.cw-field textarea:focus{border-color:#D4AF37}
+.cw-field textarea{min-height:80px}
+.cw-send{width:100%;padding:12px;background:linear-gradient(135deg,#003d82,#0a5fd4);color:#fff;border:none;border-radius:9px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'IBM Plex Sans Thai',sans-serif}
+.cw-ok{background:#d1fae5;color:#065f46;border:2px solid #a7f3d0;border-radius:9px;padding:10px;text-align:center;font-size:.84rem;font-weight:600;display:none;margin-bottom:10px}
+.cw-err{background:#fee2e2;color:#991b1b;border:2px solid #fca5a5;border-radius:9px;padding:10px;text-align:center;font-size:.84rem;font-weight:600;display:none;margin-bottom:10px}
+</style>
+
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <nav class="breadcrumb">
+      <a href="/th/faq_landing_th.html">คู่มือการบิน</a> › กฎสัมภาระ
+    </nav>
+    <div class="topic-badge">Topic 03 · Baggage Rules</div>
+    <h1>กฎสัมภาระที่ทำให้หลายคนเสียเงินฟรี<br>— และวิธีหลีกเลี่ยงทั้งหมด</h1>
+    <p class="hero-sub">จากกระเป๋าถือขึ้นเครื่องไปจนถึง Power bank — ทุกอย่างมีกฎของมัน และคนที่ไม่รู้ก็จะต้องจ่าย</p>
+    <div class="hero-meta">
+      <span>✍️ FlyReisen24 Aviation Desk</span>
+      <span>📖 อ่านประมาณ 8 นาที</span>
+      <span>🔄 อัปเดต 2025–2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- Article Body -->
+<main class="container article-body">
+
+  <!-- Why This Matters -->
+  <div class="why-box">
+    <div class="label">⚡ Why This Matters</div>
+    <p>กฎสัมภาระสายการบินดูเหมือนเรื่องเล็ก แต่มันทำให้ผู้โดยสารทั่วโลกเสียเงินรวมกันหลายพันล้านบาทต่อปี ไม่ใช่เพราะกฎซับซ้อนเกินไป แต่เพราะหลายคนคิดว่า "น่าจะเหมือนทุกสายการบิน" — ซึ่งนั่นคือความเข้าใจผิดที่แพงที่สุดในการเดินทาง</p>
+  </div>
+
+  <h2>เข้าใจโครงสร้างสัมภาระก่อนทุกอย่าง</h2>
+
+  <p>เวลาที่คนพูดถึง "กระเป๋า" ในบริบทการเดินทาง มักมีความเข้าใจปะปนกันสองระดับ คือระดับ <em>ประเภท</em> ของกระเป๋า กับระดับ <em>สิทธิ์</em> ที่ตั๋วของคุณรวมไว้ ซึ่งสองเรื่องนี้ไม่เหมือนกันเลย</p>
+
+  <p>สายการบินส่วนใหญ่แบ่งสัมภาระออกเป็นสามชั้นใหญ่ ๆ ได้แก่ กระเป๋าส่วนตัว (personal item) กระเป๋าถือขึ้นเครื่อง (carry-on) และกระเป๋าโหลดใต้ท้องเครื่อง (checked baggage) แต่ละชั้นมีเงื่อนไขน้ำหนัก ขนาด และจำนวนชิ้นที่แตกต่างกัน และสายการบินบางเจ้าคิดค่าธรรมเนียมสำหรับทุกชั้น ไม่ใช่แค่กระเป๋าโหลด</p>
+
+  <h3>กระเป๋าถือขึ้นเครื่อง (Carry-on) — ไม่ได้เหมือนกันทุกสายการบิน</h3>
+
+  <p>นี่คือตัวละครหลักที่ทำให้เกิดปัญหามากที่สุด เพราะผู้โดยสารมักคิดว่ากระเป๋าถือขึ้นเครื่องนั้น "ฟรีทุกสายการบิน" แต่ในความเป็นจริง:</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>ประเภทสายการบิน</th>
+        <th>กระเป๋าถือขึ้นเครื่อง</th>
+        <th>ขนาดสูงสุดทั่วไป</th>
+        <th>หมายเหตุ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Full-service (เช่น Thai Airways, Lufthansa)</td>
+        <td>รวมในตั๋วแล้ว 1 ใบ</td>
+        <td>55×40×20 ซม.</td>
+        <td>มักอนุญาต + of personal item</td>
+      </tr>
+      <tr>
+        <td>Low-cost (เช่น AirAsia, Ryanair)</td>
+        <td>ขึ้นอยู่กับ fare class</td>
+        <td>40×30×20 ซม. (บางเที่ยว)</td>
+        <td>บาง fare ต้องจ่ายเพิ่มถึงจะมี overhead bin</td>
+      </tr>
+      <tr>
+        <td>Ultra low-cost (เช่น Spirit, Wizz Air)</td>
+        <td>บางทีมีเฉพาะกระเป๋าส่วนตัวใบเล็ก</td>
+        <td>35×25×20 ซม.</td>
+        <td>กระเป๋าใหญ่กว่านี้ต้องจ่ายหน้างาน</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>สิ่งที่หลายคนไม่รู้คือ "กระเป๋าส่วนตัว" (เช่น กระเป๋าสะพาย กระเป๋าแล็ปท็อป) กับ "กระเป๋าถือขึ้นเครื่อง" นั้นเป็นคนละ slot กัน บางสายการบินอนุญาตทั้งสองใบ แต่บางสายบอกว่าคุณมีสิทธิ์แค่หนึ่งใบรวมกัน</p>
+
+  <div class="scenario">
+    <div class="s-label">🎬 Real-World Scenario</div>
+    <div class="s-title">คุณ A บินกลับจากกรุงเทพฯ สู่แฟรงก์เฟิร์ตกับสายการบิน Low-cost</div>
+    <p>คุณ A มากับกระเป๋าล้อลาก carry-on ใบหนึ่ง และกระเป๋าสะพายหลังอีกใบ คุณ A ซื้อ fare ราคาถูกสุดโดยไม่ได้อ่านเงื่อนไข</p>
+    <p>ที่ gate เจ้าหน้าที่ชั่งกระเป๋า carry-on แล้วบอกว่า fare นี้อนุญาตเฉพาะกระเป๋าส่วนตัวขนาดเล็กเท่านั้น กระเป๋าล้อลากต้องโหลดใต้เครื่อง ค่าธรรมเนียมหน้าประตู: 60–80 ยูโร</p>
+    <p><strong>บทเรียน:</strong> ก่อนซื้อตั๋ว ให้ค้นหาว่า fare class ของคุณรวมสิ่งใดบ้าง ไม่ใช่แค่ราคา</p>
+  </div>
+
+  <h2>ของเหลวและของห้ามขึ้นเครื่อง — เรื่องที่รู้แต่ยังพลาด</h2>
+
+  <p>กฎของเหลวบนเครื่องบินมีมาตั้งแต่ปี 2006 หลังจากแผนการก่อการร้ายที่ถูกป้องกันในลอนดอน ซึ่งใช้ของเหลวเป็นส่วนผสมระเบิด ตั้งแต่นั้นมากฎ 3-1-1 (หรือในยุโรปเรียก 100ml rule) ก็กลายเป็นมาตรฐานสากล</p>
+
+  <h3>กฎ 3-1-1 คืออะไรกันแน่</h3>
+
+  <p>กฎนี้หมายความว่า ของเหลวแต่ละชิ้นต้องบรรจุในภาชนะขนาดไม่เกิน 100 มล. (3.4 ออนซ์) ทุกชิ้นต้องใส่ในถุงพลาสติกใสขนาด 1 ลิตรที่ปิดผนึกได้ และแต่ละคนมีสิทธิ์ 1 ถุงเท่านั้น</p>
+
+  <p>แต่สิ่งที่หลายคนไม่รู้คือ "ของเหลว" ในที่นี้หมายความกว้างกว่าที่คิด ครอบคลุมถึงเจล ครีม โฟม น้ำหอม ยาสีฟัน แชมพู ลิปสติก และแม้แต่ peanut butter ที่มีความข้นเกินมาตรฐาน</p>
+
+  <div class="warning">
+    <strong>⚠️ ข้อยกเว้นที่ควรรู้:</strong> นมสำหรับทารก ยาที่มีใบสั่งแพทย์ และอาหารพิเศษทางการแพทย์ ได้รับการยกเว้นจากกฎ 100ml แต่ต้องแจ้งเจ้าหน้าที่ตรวจและอาจต้องแสดงเอกสาร
+  </div>
+
+  <h3>สแกนเนอร์แบบใหม่กำลังเปลี่ยนกฎนี้</h3>
+
+  <p>ตั้งแต่ปี 2024 เป็นต้นมา สนามบินหลายแห่งในยุโรปและเอเชียเริ่มติดตั้งเครื่องสแกน CT (computed tomography) ซึ่งมีความสามารถสูงพอที่จะตรวจสอบของเหลวในกระเป๋าโดยไม่ต้องนำออกมาวางบนถาด บางสนามบินอนุญาตให้นำของเหลวเกิน 100ml ขึ้นเครื่องได้แล้วในช่องทางที่ติดตั้งเครื่องนี้ แต่ยังไม่ใช่ทุกสนามบิน ดังนั้นควรตรวจสอบก่อนเดินทางทุกครั้ง</p>
+
+  <h2>Power Bank — ของชิ้นเล็กที่มีกฎใหญ่</h2>
+
+  <p>Power bank เป็นหนึ่งในอุปกรณ์ที่ถูกตรวจสอบเข้มงวดที่สุดในการบิน เพราะแบตเตอรี่ลิเธียมมีความเสี่ยงในการลุกไหม้ในสภาพที่ความดันและอุณหภูมิเปลี่ยนแปลงอย่างรุนแรงในห้องโดยสารและช่องเก็บสัมภาระ</p>
+
+  <h3>กฎทั่วไปที่ใช้ได้กับเกือบทุกสายการบิน</h3>
+
+  <p>Power bank <strong>ต้องพกในกระเป๋าถือขึ้นเครื่องเท่านั้น ห้ามโหลดใต้ท้องเครื่องโดยเด็ดขาด</strong> ความจุที่อนุญาตโดยทั่วไปคือไม่เกิน 100Wh ต่อชิ้น สำหรับ power bank ที่มีความจุ 101–160Wh ต้องขอรับอนุญาตจากสายการบินล่วงหน้าและจำกัด 2 ชิ้นต่อคน ส่วนที่เกิน 160Wh ห้ามนำขึ้นเครื่องบินโดยสารเลย</p>
+
+  <p>ในแง่ตัวเลขที่เข้าใจง่ายขึ้น Power bank ขนาด 20,000mAh ที่ 3.7V มีความจุประมาณ 74Wh ซึ่งต่ำกว่าเกณฑ์ 100Wh แต่ถ้าเป็นแบบ 30,000mAh อาจอยู่ที่ประมาณ 111Wh ซึ่งเข้าโซนที่ต้องขออนุญาต</p>
+
+  <div class="insider">
+    <div class="i-label">🔍 Insider Secret</div>
+    <h3>วิธีคำนวณ Wh จากตัวเลขบน Power bank</h3>
+    <p>Power bank ส่วนใหญ่ระบุ mAh ไม่ใช่ Wh วิธีแปลงคือ: <strong>Wh = (mAh × V) ÷ 1000</strong></p>
+    <p>ตัวอย่าง: 20,000mAh × 3.7V ÷ 1000 = 74Wh — ผ่านเกณฑ์ปกติ</p>
+    <p>แต่ถ้าของคุณเป็นแบบ 5V (USB-C บางรุ่น): 20,000mAh × 5V ÷ 1000 = 100Wh — อยู่พอดีเส้นขอบ ระวังด้วย</p>
+    <ul>
+      <li>พิมพ์ตัวเลข Wh ลงกระดาษโน้ตก่อนเดินทาง</li>
+      <li>เก็บ Power bank ในที่หยิบง่ายสำหรับการตรวจ</li>
+      <li>ถ้าสายการบินถาม บอกได้เลยว่า Wh เท่าไหร่</li>
+    </ul>
+  </div>
+
+  <h2>สัมภาระพิเศษ — ของที่ระบบปกติรับไม่ได้</h2>
+
+  <p>สัมภาระพิเศษ (Special Baggage) คือหมวดที่ไม่มีกฎตายตัว เพราะสายการบินแต่ละเจ้ากำหนดเองตามนโยบายและขนาดของเครื่องบิน ของในกลุ่มนี้ได้แก่:</p>
+
+  <h3>อุปกรณ์กีฬา</h3>
+  <p>ไม้กอล์ฟ จักรยาน กระดานโต้คลื่น อุปกรณ์ดำน้ำ — ของเหล่านี้มักมีค่าธรรมเนียมเพิ่มเติมที่ต้องจองล่วงหน้า บางสายการบินคิดค่าธรรมเนียมคงที่ บางเจ้าคิดตามน้ำหนัก และบางเจ้าจำกัดเส้นทางที่รับ</p>
+
+  <h3>เครื่องดนตรี</h3>
+  <p>กีตาร์อะคูสติก ไวโอลิน ขลุ่ย — บางชิ้นอาจนำขึ้นห้องโดยสารได้ถ้าขนาดไม่เกินเกณฑ์ carry-on แต่ถ้าเกิน เช่น เชลโล่หรือกีตาร์คลาสสิก บางคนเลือกซื้อที่นั่งเพิ่มให้กระเป๋าเครื่องดนตรีนั่งข้าง ๆ แทนการโหลดใต้เครื่อง</p>
+
+  <h3>อุปกรณ์ทางการแพทย์</h3>
+  <p>เครื่อง CPAP เก้าอี้รถเข็น อุปกรณ์ออกซิเจน — มีช่องพิเศษสำหรับของเหล่านี้ แต่ต้องแจ้งสายการบินล่วงหน้าและมักต้องแนบใบรับรองแพทย์</p>
+
+  <div class="scenario">
+    <div class="s-label">🎬 Real-World Scenario</div>
+    <div class="s-title">นักดนตรีที่ถูกบังคับโหลดกีตาร์ที่ประตูขึ้นเครื่อง</div>
+    <p>ลองนึกภาพว่าคุณเป็นนักดนตรีที่พกกีตาร์ขึ้นเครื่องโดยอ้างอิงนโยบายของสายการบิน A ซึ่งระบุว่าอนุญาต แต่เที่ยวบินนั้นเป็น codeshare กับสายการบิน B ซึ่งมีนโยบายที่เข้มกว่า</p>
+    <p>ผลคือเจ้าหน้าที่ที่ gate อ้างนโยบายของสายการบินที่ให้บริการจริง (operating carrier) ไม่ใช่สายการบินที่ขายตั๋ว และบังคับให้โหลดกีตาร์ใต้เครื่อง</p>
+    <p><strong>บทเรียน:</strong> ในเที่ยวบิน codeshare ให้ตรวจสอบนโยบายของ <em>operating carrier</em> เสมอ ไม่ใช่แค่สายการบินที่ขายตั๋วให้คุณ</p>
+  </div>
+
+  <h2>กลยุทธ์ประหยัดค่าสัมภาระที่ได้ผลจริง</h2>
+
+  <p>ค่าสัมภาระที่ซื้อหน้างานสนามบินมักแพงกว่าการซื้อล่วงหน้าออนไลน์อย่างน้อย 40–80% ในบางสายการบิน ดังนั้นกลยุทธ์ที่ดีที่สุดคือการวางแผนล่วงหน้า</p>
+
+  <h3>วิธีที่ใช้ได้จริง</h3>
+
+  <p>ประการแรก ก่อนซื้อตั๋ว ให้ค้นหาว่า fare class ที่ถูกที่สุดรวมอะไรบ้าง หลายครั้งการอัปเกรด fare เพิ่มขึ้นอีกเล็กน้อยทำให้ได้กระเป๋าโหลด 23 กก. เพิ่มมา ซึ่งถูกกว่าการซื้อแยกมาก</p>
+
+  <p>ประการที่สอง ถ้าเดินทางหลายคน การรวมน้ำหนักกระเป๋าในกระเป๋าใบเดียวที่หนักกว่า อาจถูกกว่าการโหลดหลายใบแยกกัน แต่ต้องระวังเรื่องน้ำหนักเกินต่อชิ้น</p>
+
+  <p>ประการที่สาม ใช้เครื่องชั่งกระเป๋าแบบพกพาซื้อในราคา 150–300 บาท ลงทุนครั้งเดียวประหยัดได้มากกว่านั้นในทุกทริป</p>
+
+  <div class="insider">
+    <div class="i-label">🔍 Insider Secret</div>
+    <h3>เคล็ดลับที่ Travel Blogger ส่วนใหญ่ไม่พูดถึง</h3>
+    <ul>
+      <li><strong>Pack & Weigh Rule:</strong> หลังแพ็กกระเป๋าเสร็จ ให้ชั่งรวมน้ำหนักกระเป๋าเปล่า หลายคนแพ็กของครบแล้วพบว่ากระเป๋าใบโปรดนั้นหนักถึง 3–4 กก. เอง ก่อนใส่ของเลย</li>
+      <li><strong>Dress Heavy:</strong> สวมเสื้อผ้าที่หนักที่สุดขึ้นเครื่อง (เช่น แจ็กเก็ต รองเท้าบูท) แทนการโหลดในกระเป๋า</li>
+      <li><strong>Priority Boarding = Overhead Bin:</strong> บนเที่ยวบินที่แน่น การซื้อ priority boarding ทำให้คุณได้ช่องเก็บของใกล้ที่นั่งและไม่เสี่ยงถูกบังคับโหลดกระเป๋าที่ gate</li>
+      <li><strong>Airline Credit Card:</strong> บัตรเครดิตของสายการบินบางเจ้าให้สิทธิ์กระเป๋าโหลดฟรีสำหรับทุกคนในการจอง ซึ่งคุ้มมากถ้าเดินทางเป็นกลุ่ม</li>
+    </ul>
+  </div>
+
+  <a href="/th/faq_landing_th.html" class="cta-link">
+    <div class="cta-icon">📋</div>
+    <div class="cta-text">
+      <div class="cta-label">กลับสู่คู่มือหลัก</div>
+      <strong>ดูคำถามทั้ง 10 หัวข้อเกี่ยวกับการบิน →</strong>
+    </div>
+  </a>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2>คำถามที่พบบ่อย: กฎสัมภาระ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">กระเป๋าถือขึ้นเครื่องฟรีทุกสายการบินไหม?</div>
+      <div class="faq-a">ไม่ใช่เสมอไป สายการบิน Low-cost หลายเจ้า เช่น Ryanair, Wizz Air หรือ AirAsia บางไฟลท์ อนุญาตเฉพาะกระเป๋าส่วนตัวขนาดเล็กสำหรับ fare ราคาถูกสุด กระเป๋า carry-on ที่ต้องใส่ overhead bin ต้องซื้อเพิ่ม ควรตรวจสอบก่อนซื้อตั๋วทุกครั้ง</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Power bank ขนาด 20,000mAh นำขึ้นเครื่องได้ไหม?</div>
+      <div class="faq-a">โดยทั่วไปได้ เพราะ 20,000mAh ที่ 3.7V เท่ากับประมาณ 74Wh ซึ่งต่ำกว่าเกณฑ์ 100Wh แต่ต้องพกในกระเป๋าถือขึ้นเครื่องเท่านั้น ห้ามโหลดใต้เครื่อง และควรดูสเปคที่ระบุบน power bank ด้วย เพราะบางรุ่นมีแรงดันสูงกว่า 3.7V</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">ถ้ากระเป๋าน้ำหนักเกินที่ gate ต้องทำอย่างไร?</div>
+      <div class="faq-a">ตัวเลือกคือจ่ายค่าธรรมเนียมส่วนเกิน (ซึ่งมักแพงกว่าซื้อล่วงหน้ามาก) หรือย้ายของออกมาใส่กระเป๋าอื่นหรือสวมใส่แทน ถ้าเดินทางเป็นกลุ่ม ลองกระจายของระหว่างกันเพื่อให้น้ำหนักอยู่ในเกณฑ์</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">นำของเหลวเกิน 100ml ขึ้นเครื่องได้ไหมถ้าซื้อที่ Duty Free?</div>
+      <div class="faq-a">ได้ถ้าซื้อหลังผ่านด่านความปลอดภัยและสินค้าอยู่ในถุงซีลของ Duty Free ที่ยังไม่ถูกเปิด แต่ถ้าต้องผ่านด่านตรวจความปลอดภัยอีกครั้ง (เช่น เที่ยวบินต่อ) อาจมีปัญหา โดยเฉพาะในบางประเทศที่ไม่ยอมรับหลักฐานการซื้อ</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">กระเป๋าพิเศษ เช่น จักรยานหรือกีตาร์ต้องแจ้งล่วงหน้าไหม?</div>
+      <div class="faq-a">ใช่ ควรแจ้งล่วงหน้าและจองผ่านสายการบินโดยตรงหรือตอนจองตั๋ว สายการบินบางเจ้าจำกัดจำนวนชิ้นต่อเที่ยวบิน ถ้าแจ้งช้าอาจไม่มีที่ว่างหรือต้องจ่ายค่าธรรมเนียมสูงกว่ามาก</div>
+    </div>
+  </div>
+
+  <!-- Pro Tips -->
+  <div class="pro-tips">
+    <h2>✅ Pro-Tips Checklist: กฎสัมภาระ</h2>
+    <ul>
+      <li>
+        <span class="check">✓</span>
+        <span>ก่อนซื้อตั๋ว: ตรวจสอบว่า fare class รวมกระเป๋าถือขึ้นเครื่องและโหลดหรือไม่ — อย่าดูแค่ราคา</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span>ชั่งน้ำหนักกระเป๋าก่อนออกจากบ้านโดยใช้เครื่องชั่งแบบพกพา อย่าเดาเด็ดขาด</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span>Power bank ทุกชิ้นต้องอยู่ในกระเป๋าถือขึ้นเครื่อง คำนวณ Wh ก่อนเดินทางด้วยสูตร (mAh × V) ÷ 1000</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span>ของเหลวในกระเป๋าถือขึ้นเครื่อง: แต่ละชิ้นไม่เกิน 100ml ใส่ในถุงพลาสติกใส 1 ลิตรต่อคน</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span>ถ้าเดินทางด้วยเที่ยวบิน codeshare ให้ดูนโยบายสัมภาระของ <em>operating carrier</em> ไม่ใช่แค่สายการบินที่ขายตั๋ว</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span>ซื้อแพ็กเกจสัมภาระล่วงหน้าออนไลน์เสมอ — ถูกกว่าซื้อที่สนามบินอย่างน้อย 40%</span>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <span>สัมภาระพิเศษ เช่น อุปกรณ์กีฬาหรือเครื่องดนตรี ต้องแจ้งสายการบินล่วงหน้าเสมอ อย่ารอถึงวันเดินทาง</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Schema -->
+  <div class="schema-note">
+    <strong>📄 FAQPage JSON-LD Schema สำหรับหน้านี้</strong> — วางในส่วน &lt;head&gt; หรือก่อน &lt;/body&gt;
+    <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "กระเป๋าถือขึ้นเครื่องฟรีทุกสายการบินไหม?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ไม่ใช่เสมอไป สายการบิน Low-cost หลายเจ้าอนุญาตเฉพาะกระเป๋าส่วนตัวขนาดเล็กสำหรับ fare ราคาถูกสุด กระเป๋า carry-on ที่ต้องใส่ overhead bin ต้องซื้อเพิ่ม ควรตรวจสอบก่อนซื้อตั๋วทุกครั้ง"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Power bank ขนาด 20,000mAh นำขึ้นเครื่องได้ไหม?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "โดยทั่วไปได้ เพราะ 20,000mAh ที่ 3.7V เท่ากับประมาณ 74Wh ซึ่งต่ำกว่าเกณฑ์ 100Wh แต่ต้องพกในกระเป๋าถือขึ้นเครื่องเท่านั้น ห้ามโหลดใต้เครื่อง"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "นำของเหลวเกิน 100ml ขึ้นเครื่องได้ไหมถ้าซื้อที่ Duty Free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ได้ถ้าซื้อหลังผ่านด่านความปลอดภัยและสินค้าอยู่ในถุงซีลของ Duty Free ที่ยังไม่ถูกเปิด แต่ถ้าต้องผ่านด่านตรวจความปลอดภัยอีกครั้งในเที่ยวบินต่ออาจมีปัญหา"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "กระเป๋าพิเศษ เช่น จักรยานหรือกีตาร์ต้องแจ้งล่วงหน้าไหม?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ใช่ ควรแจ้งล่วงหน้าและจองผ่านสายการบินโดยตรงหรือตอนจองตั๋ว เพราะสายการบินบางเจ้าจำกัดจำนวนชิ้นต่อเที่ยวบิน"
+      }
+    }
+  ]
+}</code></pre>
+  </div>
+
+
+<section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/passport-visa.html">01 · Passport & Visa Bible</a></li><li><a href="/th/faq/connection-time.html">02 · Time Traps & Connection Flights</a></li><li><strong>03 · Baggage Rules</strong></li><li><a href="/th/faq/flight-changes.html">04 · Flight Changes & Cancellations</a></li><li><a href="/th/faq/booking-types.html">05 · Booking Types</a></li><li><a href="/th/faq/frequent-flyer.html">06 · Frequent Flyer</a></li><li><a href="/th/faq/charter-overbooking.html">07 · Charter Flights & Overbooking</a></li><li><a href="/th/faq/online-checkin.html">08 · Online Check-in</a></li><li><a href="/th/faq/passenger-rights.html">09 · Montreal Convention & EU261</a></li><li><a href="/th/faq/saf-future.html">10 · Sustainable Aviation Fuel</a></li></ul><p style="margin-top:12px"><a href="/th/faq_landing_th.html">Back to FAQ Overview</a></p></section>
+</main>
+
+
+<button class="cw-btn" onclick="toggleCW()">
+  <i class="fas fa-envelope"></i>
+  <span class="cw-badge">?</span>
+</button>
+<div class="cw-popup" id="cwPopup">
+  <div class="cw-head">
+    <div class="cw-head-text"><h3>ติดต่อเรา</h3><p>มีคำถาม? เราพร้อมช่วยเหลือ</p></div>
+    <button class="cw-close" onclick="toggleCW()">✕</button>
+  </div>
+  <div class="cw-body">
+    <div class="cw-ok" id="cwOk">✅ ส่งแล้ว! เราจะติดต่อกลับเร็วๆ นี้</div>
+    <div class="cw-err" id="cwErr">❌ เกิดข้อผิดพลาด กรุณาลองใหม่</div>
+    <form id="cwForm">
+      <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
+      <div class="cw-field"><label>ชื่อ</label><input type="text" name="name" required></div>
+      <div class="cw-field"><label>อีเมล</label><input type="email" name="email" required></div>
+      <div class="cw-field"><label>ข้อความ</label><textarea name="message" required></textarea></div>
+      <button type="submit" class="cw-send" id="cwSend">ส่งข้อความ</button>
+    </form>
+  </div>
+</div>
+<script>
+function toggleCW(){document.getElementById('cwPopup').classList.toggle('open');}
+if(document.getElementById('cwForm')){
+  document.getElementById('cwForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('cwSend'),ok=document.getElementById('cwOk'),err=document.getElementById('cwErr');
+    btn.disabled=true;btn.textContent='กำลังส่ง...';ok.style.display='none';err.style.display='none';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(this)))});
+      const data=await res.json();
+      if(data.success){ok.style.display='block';this.reset();}else{err.style.display='block';}
+    }catch{err.style.display='block';}
+    btn.disabled=false;btn.textContent='ส่งข้อความ';
+  });
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('cwPopup');
+  const btn=document.querySelector('.cw-btn');
+  if(popup&&popup.classList.contains('open')&&!popup.contains(e.target)&&btn&&!btn.contains(e.target)){popup.classList.remove('open');}
+});
+</script>
+
+</body>
+</html>
