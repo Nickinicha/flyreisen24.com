@@ -183,8 +183,16 @@
     }
 
     function ensureGlobalNavbarMarkup() {
-        const nav = document.querySelector('nav.top-nav');
-        if (!nav) return;
+        let nav = document.querySelector('nav.top-nav');
+        if (!nav) {
+            nav = document.createElement('nav');
+            nav.className = 'top-nav';
+            if (document.body) {
+                document.body.insertBefore(nav, document.body.firstChild);
+            } else {
+                return;
+            }
+        }
         const menu = nav.querySelector('#topNavMenu');
         const hasCanonicalStructure = menu && menu.querySelector('.dropdown-toggle') && menu.querySelector('#navResources');
         if (!hasCanonicalStructure) {
