@@ -16,8 +16,8 @@
 
   <!-- FAQ / KNOWLEDGE HUB -->
   <url>
-    <loc>https://www.flyreisen24.com/th/faq_th.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq_th.html"/>
+    <loc>https://www.flyreisen24.com/th/faq/landing.html</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq/landing.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html"/>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://www.flyreisen24.com/en/faq_en.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq_th.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq/landing.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html"/>
@@ -37,7 +37,7 @@
   </url>
   <url>
     <loc>https://www.flyreisen24.com/de/faq_de.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq_th.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq/landing.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html"/>

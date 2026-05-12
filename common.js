@@ -55,13 +55,13 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="/th/faq_th.html" id="navKnowledgeLink">
+                            <a href="/th/faq/landing.html" id="navKnowledgeLink">
                                 <i class="fas fa-book-open"></i>
                                 <span id="navKnowledge">คลังความรู้</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/th/faq_landing_th.html" id="navFaqLink">
+                            <a href="/th/faq/landing.html" id="navFaqLink">
                                 <i class="fas fa-circle-question"></i>
                                 <span id="navFaq">คำถามที่พบบ่อย</span>
                             </a>
@@ -105,7 +105,7 @@
             'de': '/de/'
         },
         'faq': {
-            'th': '/th/faq_th.html',
+            'th': '/th/faq/landing.html',
             'en': '/en/faq_en.html',
             'de': '/de/faq_de.html'
         },
@@ -187,7 +187,10 @@
         if (!nav) {
             nav = document.createElement('nav');
             nav.className = 'top-nav';
-            if (document.body) {
+            const mount = document.getElementById('site-nav-root');
+            if (mount && mount.parentNode) {
+                mount.replaceWith(nav);
+            } else if (document.body) {
                 document.body.insertBefore(nav, document.body.firstChild);
             } else {
                 return;

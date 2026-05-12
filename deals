@@ -173,7 +173,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
       <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="navFlight">เที่ยวบิน</span></a></li>
       <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="navHotel">โรงแรม</span></a></li>
       <li><a href="/deals.html" class="active-page"><i class="fas fa-tags"></i> <span id="navDeals">ดีล</span><span class="new-badge">NEW</span></a></li>
-      <li><a href="/th/faq_th.html" id="navKnowledgeLink"><i class="fas fa-book-open"></i> <span id="navKnowledge">คลังความรู้</span></a></li>
+      <li><a href="/th/faq/landing.html" id="navKnowledgeLink"><i class="fas fa-book-open"></i> <span id="navKnowledge">คลังความรู้</span></a></li>
       <li><a href="/tools.html"><i class="fas fa-wrench"></i> <span id="navTools">เครื่องมือ</span></a></li>
     </ul>
     <div class="nav-right">
@@ -321,7 +321,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
       </div>
     </div>
 <!-- Knowledge Hub CTA -->
-    <div class="deal-card" onclick="window.location='/th/faq_th.html'" style="cursor:pointer">
+    <div class="deal-card" onclick="window.location='/th/faq/landing.html'" style="cursor:pointer">
       <div class="deal-card-header">
         <div class="deal-icon green"><i class="fas fa-book-open" style="color:#1B4332"></i></div>
         <div class="deal-card-header-text">
@@ -336,7 +336,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
           <li><i class="fas fa-check"></i> กฎสัมภาระและเคล็ดลับ</li>
           <li><i class="fas fa-check"></i> คู่มือประกันการเดินทาง</li>
         </ul>
-        <a href="/th/faq_th.html" class="deal-btn">อ่านคู่มือ →</a>
+        <a href="/th/faq/landing.html" class="deal-btn">อ่านคู่มือ →</a>
       </div>
     </div>
 
@@ -632,7 +632,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
         <li><a href="https://flights.flyreisen24.com" id="footerFlight">เที่ยวบิน</a></li>
         <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotel">โรงแรม</a></li>
         <li><a href="/deals.html" id="footerDeals">ดีล</a></li>
-        <li><a href="/th/faq_th.html" id="footerKnowledge">คลังความรู้</a></li>
+        <li><a href="/th/faq/landing.html" id="footerKnowledge">คลังความรู้</a></li>
         <li><a href="/tools.html" id="footerTools">เครื่องมือเดินทาง</a></li>
       </ul>
     </div>
@@ -664,7 +664,7 @@ const T = {
     pageDesc: 'เปรียบเทียบดีลท่องเที่ยวที่ดีที่สุด จากผู้เชี่ยวชาญที่มีประสบการณ์จริงในสนามบิน',
     breadHome: 'หน้าแรก', breadDeals: 'ดีลการเดินทาง',
     navFlight: 'เที่ยวบิน', navHotel: 'โรงแรม', navDeals: 'ดีล',
-    navKnowledge: 'คลังความรู้', navKnowledgeHref: '/th/faq_th.html',
+    navKnowledge: 'คลังความรู้', navKnowledgeHref: '/th/faq/landing.html',
     navTools: 'เครื่องมือ',
     currentLang: 'TH',
     heroBadge: '🏷️ Best ดีลการเดินทาง',
