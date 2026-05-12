@@ -101,8 +101,8 @@
     const PAGE_MAPPINGS = {
         'index': {
             'th': '/',
-            'en': '/',
-            'de': '/'
+            'en': '/en/',
+            'de': '/de/'
         },
         'faq': {
             'th': '/th/faq_th.html',
@@ -457,11 +457,18 @@
     }
 
     function closeAllNavDropdowns() {
-        document.querySelectorAll('.top-nav-menu li.dropdown-active').forEach(item => {
+        document.querySelectorAll('nav.top-nav li.dropdown-active').forEach(item => {
             item.classList.remove('dropdown-active');
             const toggle = item.querySelector('.dropdown-toggle');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            const menu = item.querySelector('.dropdown-menu');
+            let menu = null;
+            for (let i = 0; i < item.children.length; i++) {
+                const ch = item.children[i];
+                if (ch.classList && ch.classList.contains('dropdown-menu')) {
+                    menu = ch;
+                    break;
+                }
+            }
             if (menu) menu.classList.remove('show');
         });
     }
@@ -470,18 +477,63 @@
         if (!trigger) return;
         if (event) {
             event.preventDefault();
-            event.stopPropagation();
+            event.stopImmediatePropagation();
         }
         const parentLi = trigger.closest('li');
         if (!parentLi) return;
+        let submenu = null;
+        for (let i = 0; i < parentLi.children.length; i++) {
+            const ch = parentLi.children[i];
+            if (ch.classList && ch.classList.contains('dropdown-menu')) {
+                submenu = ch;
+                break;
+            }
+        }
+        if (!submenu) return;
         const isOpen = parentLi.classList.contains('dropdown-active');
         closeAllNavDropdowns();
         if (!isOpen) {
+            const topNavMenu = document.getElementById('topNavMenu');
+            if (topNavMenu && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+                topNavMenu.classList.add('active');
+            }
             parentLi.classList.add('dropdown-active');
             trigger.setAttribute('aria-expanded', 'true');
-            const menu = parentLi.querySelector('.dropdown-menu');
-            if (menu) menu.classList.add('show');
+            submenu.classList.add('show');
         }
+    }
+
+    function bindGlobalNavUiOnce() {
+        if (window.__flyreisen24NavUiBound) return;
+        window.__flyreisen24NavUiBound = true;
+
+        document.addEventListener('click', function(event) {
+            const trigger = event.target.closest('.dropdown-toggle');
+            if (!trigger) return;
+            const nav = trigger.closest('nav.top-nav');
+            const topMenu = document.getElementById('topNavMenu');
+            if (!nav || !topMenu || !topMenu.contains(trigger)) return;
+            toggleNavDropdown(event, trigger);
+        }, true);
+
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav.top-nav');
+            const topMenu = document.getElementById('topNavMenu');
+            const langDropdown = document.getElementById('languageDropdown');
+
+            if (nav && topMenu && !nav.contains(event.target) && topMenu.classList.contains('active')) {
+                topMenu.classList.remove('active');
+            }
+            if (langDropdown && !langDropdown.contains(event.target)) {
+                langDropdown.classList.remove('active');
+            }
+
+            const insideOpenDropdown = event.target.closest('nav.top-nav li.dropdown-active');
+            const onAnyDropdownToggle = event.target.closest('nav.top-nav .dropdown-toggle');
+            if (!insideOpenDropdown && !onAnyDropdownToggle) {
+                closeAllNavDropdowns();
+            }
+        }, false);
     }
 
     function toggleContact() {
@@ -574,8 +626,12 @@
     // INITIALIZE
     // ==========================================
     function initialize() {
+        if (window.__flyreisen24CommonInit) return;
+        window.__flyreisen24CommonInit = true;
+
         ensureGlobalNavbarMarkup();
         ensureGlobalNavStyles();
+        bindGlobalNavUiOnce();
 
         const currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
         const langLabels = { 'th': 'TH', 'en': 'EN', 'de': 'DE' };
@@ -648,29 +704,6 @@
                 if (submitBtn && t) submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + t.btnSubmit;
             });
         }
-
-        // Global delegated navigation handling (works with dynamic navbar HTML)
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('.top-nav');
-            const menu = document.getElementById('topNavMenu');
-            const langDropdown = document.getElementById('languageDropdown');
-            const dropdownTrigger = event.target.closest('.dropdown-toggle');
-
-            if (dropdownTrigger) {
-                toggleNavDropdown(event, dropdownTrigger);
-                return;
-            }
-
-            if (nav && menu && !nav.contains(event.target) && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-            }
-            if (langDropdown && !langDropdown.contains(event.target)) {
-                langDropdown.classList.remove('active');
-            }
-            if (!event.target.closest('.top-nav-menu')) {
-                closeAllNavDropdowns();
-            }
-        });
 
         console.log('✅ FlyReisen24 common.js initialized | page: ' + getCurrentPageType() + ' | lang: ' + currentLang);
     }

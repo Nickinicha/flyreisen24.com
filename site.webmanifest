@@ -1,0 +1,21 @@
+{
+  "name": "FlyReisen24",
+  "short_name": "FlyReisen24",
+  "description": "Flights, hotels, deals, and travel resources.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#0056B3",
+  "icons": [
+    {
+      "src": "https://www.flyreisen24.com/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.flyreisen24.com/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
