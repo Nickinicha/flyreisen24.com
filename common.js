@@ -74,10 +74,15 @@
     // ==========================================
     const translations = {
         'th': {
+            navServices: 'บริการ',
+            navResources: 'คลังข้อมูล',
             navFlight: 'เที่ยวบิน',
             navHotel: 'โรงแรม',
+            navCarRental: 'รถเช่า',
             navDeals: 'ดีล',
             navKnowledge: 'คลังความรู้',
+            navFaq: 'คำถามที่พบบ่อย',
+            navTools: 'เครื่องมือ',
             loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
             sectionTitle: 'วางแผนการเดินทางของคุณ',
             sectionSubtitle: 'บริการครบวงจร สำหรับทริปในฝันของคุณ',
@@ -120,10 +125,15 @@
             heroSubtitle: 'เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — ได้ดีลที่ดีที่สุด ไม่มีค่าธรรมเนียมซ่อน'
         },
         'en': {
+            navServices: 'Services',
+            navResources: 'Resources',
             navFlight: 'Flights',
             navHotel: 'Hotels',
+            navCarRental: 'Car Rentals',
             navDeals: 'Deals',
             navKnowledge: 'Knowledge Hub',
+            navFaq: 'FAQ',
+            navTools: 'Tools',
             loadingText: 'Loading search form...',
             sectionTitle: 'Plan Your Journey',
             sectionSubtitle: 'Complete services for your dream trip',
@@ -166,10 +176,15 @@
             heroSubtitle: 'Compare prices from top airlines, hotels, and car rental services worldwide — best deals, no hidden fees'
         },
         'de': {
+            navServices: 'Services',
+            navResources: 'Ressourcen',
             navFlight: 'Flüge',
             navHotel: 'Hotels',
+            navCarRental: 'Mietwagen',
             navDeals: 'Angebote',
             navKnowledge: 'Wissensdatenbank',
+            navFaq: 'FAQ',
+            navTools: 'Tools',
             loadingText: 'Suchformular wird geladen...',
             sectionTitle: 'Planen Sie Ihre Reise',
             sectionSubtitle: 'Komplettservice für Ihre Traumreise',
@@ -244,8 +259,14 @@
         const navKnowledgeLink = document.getElementById('navKnowledgeLink');
         if (navKnowledgeLink) navKnowledgeLink.href = PAGE_MAPPINGS['faq'][lang];
 
+        const navFaqLink = document.getElementById('navFaqLink');
+        if (navFaqLink) navFaqLink.href = PAGE_MAPPINGS['faq'][lang];
+
         const navDealsLink = document.getElementById('navDealsLink');
         if (navDealsLink) navDealsLink.href = PAGE_MAPPINGS['deals'][lang];
+
+        const navToolsLink = document.getElementById('navToolsLink');
+        if (navToolsLink) navToolsLink.href = PAGE_MAPPINGS['tools'][lang];
 
         const footerLinks = {
             'footerFaqLink':       'faq',
@@ -310,6 +331,30 @@
     function toggleMenu() {
         const menu = document.getElementById('topNavMenu');
         if (menu) menu.classList.toggle('active');
+    }
+
+    function closeAllNavDropdowns() {
+        document.querySelectorAll('.top-nav-menu li.dropdown-active').forEach(item => {
+            item.classList.remove('dropdown-active');
+            const toggle = item.querySelector('.dropdown-toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    function toggleNavDropdown(event, trigger) {
+        if (!trigger) return;
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        const parentLi = trigger.closest('li');
+        if (!parentLi) return;
+        const isOpen = parentLi.classList.contains('dropdown-active');
+        closeAllNavDropdowns();
+        if (!isOpen) {
+            parentLi.classList.add('dropdown-active');
+            trigger.setAttribute('aria-expanded', 'true');
+        }
     }
 
     function toggleContact() {
@@ -486,6 +531,16 @@
             if (langDropdown && !langDropdown.contains(event.target)) {
                 langDropdown.classList.remove('active');
             }
+            if (!event.target.closest('.top-nav-menu')) {
+                closeAllNavDropdowns();
+            }
+        });
+
+        // Robust delegated dropdown handling for any .dropdown-toggle item
+        document.addEventListener('click', function(event) {
+            const trigger = event.target.closest('.dropdown-toggle');
+            if (!trigger) return;
+            toggleNavDropdown(event, trigger);
         });
 
         console.log('✅ FlyReisen24 common.js initialized | page: ' + getCurrentPageType() + ' | lang: ' + currentLang);
@@ -497,6 +552,7 @@
     window.toggleLangDropdown = toggleLangDropdown;
     window.switchLanguage = switchLanguage;
     window.toggleMenu = toggleMenu;
+    window.toggleNavDropdown = toggleNavDropdown;
     window.toggleContact = toggleContact;
     window.toggleCategory = toggleCategory;
     window.toggleFaq = toggleFaq;
