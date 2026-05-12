@@ -6,6 +6,96 @@
     'use strict';
 
     const BASE_URL = 'https://www.flyreisen24.com/';
+    const GLOBAL_NAV_STYLE_ID = 'flyreisen24-global-nav-styles';
+    const GLOBAL_NAV_MARKUP = `
+        <div class="top-nav-container">
+            <a href="/" class="top-nav-logo">
+                <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" width="auto" height="48" loading="eager">
+            </a>
+            <ul class="top-nav-menu" id="topNavMenu">
+                <li>
+                    <a href="#" class="dropdown-toggle" aria-expanded="false">
+                        <i class="fas fa-briefcase"></i>
+                        <span id="navServices">บริการ</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="https://flights.flyreisen24.com">
+                                <i class="fas fa-plane-departure"></i>
+                                <span id="navFlight">เที่ยวบิน</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">
+                                <i class="fas fa-hotel"></i>
+                                <span id="navHotel">โรงแรม</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd">
+                                <i class="fas fa-car"></i>
+                                <span id="navCarRental">รถเช่า</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/th/deals_th.html" id="navDealsLink" class="top-nav-prominent-link">
+                        <i class="fas fa-tags"></i>
+                        <span id="navDeals">ดีล</span>
+                        <span class="new-badge">NEW</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" aria-expanded="false">
+                        <i class="fas fa-headset"></i>
+                        <span id="navResources">คลังข้อมูล</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/th/faq_th.html" id="navKnowledgeLink">
+                                <i class="fas fa-book-open"></i>
+                                <span id="navKnowledge">คลังความรู้</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/th/faq_landing_th.html" id="navFaqLink">
+                                <i class="fas fa-circle-question"></i>
+                                <span id="navFaq">คำถามที่พบบ่อย</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/tools.html" id="navToolsLink">
+                                <i class="fas fa-wrench"></i>
+                                <span id="navTools">เครื่องมือ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-right">
+                <a href="/contact.html" class="nav-help">
+                    <i class="fas fa-headset"></i>
+                    Help
+                </a>
+                <div class="language-dropdown" id="languageDropdown">
+                    <button class="lang-current" onclick="toggleLangDropdown()">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">TH</span>
+                        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+                    </button>
+                    <div class="lang-dropdown-menu">
+                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
+                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
+                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
+                    </div>
+                </div>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    `;
     
     // ✅ PAGE_MAPPINGS — ครบทุกหน้าที่มีอยู่จริง
     const PAGE_MAPPINGS = {
@@ -67,6 +157,39 @@
         if (path.includes('contact')) return 'contact';
         
         return 'index';
+    }
+
+    function ensureGlobalNavStyles() {
+        if (document.getElementById(GLOBAL_NAV_STYLE_ID)) return;
+        const style = document.createElement('style');
+        style.id = GLOBAL_NAV_STYLE_ID;
+        style.textContent = [
+            '.top-nav-menu > li{position:relative;}',
+            '.dropdown-toggle{cursor:pointer;}',
+            '.dropdown-toggle .fa-chevron-down{font-size:11px;margin-left:4px;transition:transform .2s ease;}',
+            '.dropdown-active > .dropdown-toggle .fa-chevron-down{transform:rotate(180deg);}',
+            '.dropdown-menu{display:none;position:absolute;top:100%;left:0;margin-top:10px;min-width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:10px 0;list-style:none;z-index:9999;}',
+            '.dropdown-menu.show{display:block;}',
+            '.dropdown-menu li{padding:0;border:none;}',
+            '.dropdown-menu a{padding:10px 16px;font-size:14px;width:100%;}',
+            '.top-nav-prominent-link{color:#0056B3!important;font-weight:700!important;}',
+            '.top-nav-prominent-link i{color:#0056B3!important;}',
+            '.top-nav-prominent-link:hover{color:#003d82!important;}',
+            '.top-nav-prominent-link:hover i{color:#003d82!important;}',
+            '.dropdown-menu .new-badge{margin-left:auto;top:0;}',
+            '@media (max-width:768px){.dropdown-menu{position:static;border:none;box-shadow:none;min-width:100%;padding:8px 0 0 14px;margin-top:0;}.dropdown-menu li{border-bottom:none;padding:.3rem 0;}.dropdown-menu a{padding:6px 0;}}'
+        ].join('');
+        document.head.appendChild(style);
+    }
+
+    function ensureGlobalNavbarMarkup() {
+        const nav = document.querySelector('nav.top-nav');
+        if (!nav) return;
+        const menu = nav.querySelector('#topNavMenu');
+        const hasCanonicalStructure = menu && menu.querySelector('.dropdown-toggle') && menu.querySelector('#navResources');
+        if (!hasCanonicalStructure) {
+            nav.innerHTML = GLOBAL_NAV_MARKUP;
+        }
     }
 
     // ==========================================
@@ -338,6 +461,8 @@
             item.classList.remove('dropdown-active');
             const toggle = item.querySelector('.dropdown-toggle');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            const menu = item.querySelector('.dropdown-menu');
+            if (menu) menu.classList.remove('show');
         });
     }
 
@@ -354,6 +479,8 @@
         if (!isOpen) {
             parentLi.classList.add('dropdown-active');
             trigger.setAttribute('aria-expanded', 'true');
+            const menu = parentLi.querySelector('.dropdown-menu');
+            if (menu) menu.classList.add('show');
         }
     }
 
@@ -447,6 +574,9 @@
     // INITIALIZE
     // ==========================================
     function initialize() {
+        ensureGlobalNavbarMarkup();
+        ensureGlobalNavStyles();
+
         const currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
         const langLabels = { 'th': 'TH', 'en': 'EN', 'de': 'DE' };
 
@@ -519,11 +649,17 @@
             });
         }
 
-        // Close dropdowns on outside click
+        // Global delegated navigation handling (works with dynamic navbar HTML)
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('.top-nav');
             const menu = document.getElementById('topNavMenu');
             const langDropdown = document.getElementById('languageDropdown');
+            const dropdownTrigger = event.target.closest('.dropdown-toggle');
+
+            if (dropdownTrigger) {
+                toggleNavDropdown(event, dropdownTrigger);
+                return;
+            }
 
             if (nav && menu && !nav.contains(event.target) && menu.classList.contains('active')) {
                 menu.classList.remove('active');
@@ -534,13 +670,6 @@
             if (!event.target.closest('.top-nav-menu')) {
                 closeAllNavDropdowns();
             }
-        });
-
-        // Robust delegated dropdown handling for any .dropdown-toggle item
-        document.addEventListener('click', function(event) {
-            const trigger = event.target.closest('.dropdown-toggle');
-            if (!trigger) return;
-            toggleNavDropdown(event, trigger);
         });
 
         console.log('✅ FlyReisen24 common.js initialized | page: ' + getCurrentPageType() + ' | lang: ' + currentLang);

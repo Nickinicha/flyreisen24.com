@@ -1,0 +1,95 @@
+<!-- Reusable FlyReisen24 Navbar -->
+<nav class="top-nav">
+  <div class="top-nav-container">
+    <a href="/" class="top-nav-logo">
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" width="auto" height="48" loading="eager">
+    </a>
+
+    <ul class="top-nav-menu" id="topNavMenu">
+      <li>
+        <a href="#" class="dropdown-toggle" aria-expanded="false">
+          <i class="fas fa-briefcase"></i>
+          <span id="navServices">บริการ</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="https://flights.flyreisen24.com">
+              <i class="fas fa-plane-departure"></i>
+              <span id="navFlight">เที่ยวบิน</span>
+            </a>
+          </li>
+          <li>
+            <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">
+              <i class="fas fa-hotel"></i>
+              <span id="navHotel">โรงแรม</span>
+            </a>
+          </li>
+          <li>
+            <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd">
+              <i class="fas fa-car"></i>
+              <span id="navCarRental">รถเช่า</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="/th/deals_th.html" id="navDealsLink" class="top-nav-prominent-link">
+          <i class="fas fa-tags"></i>
+          <span id="navDeals">ดีล</span>
+          <span class="new-badge">NEW</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="dropdown-toggle" aria-expanded="false">
+          <i class="fas fa-headset"></i>
+          <span id="navResources">คลังข้อมูล</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="/th/faq_th.html" id="navKnowledgeLink">
+              <i class="fas fa-book-open"></i>
+              <span id="navKnowledge">คลังความรู้</span>
+            </a>
+          </li>
+          <li>
+            <a href="/th/faq_landing_th.html" id="navFaqLink">
+              <i class="fas fa-circle-question"></i>
+              <span id="navFaq">คำถามที่พบบ่อย</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tools.html" id="navToolsLink">
+              <i class="fas fa-wrench"></i>
+              <span id="navTools">เครื่องมือ</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="/contact.html" class="nav-help">
+        <i class="fas fa-headset"></i>
+        Help
+      </a>
+      <div class="language-dropdown" id="languageDropdown">
+        <button class="lang-current" onclick="toggleLangDropdown()">
+          <i class="fas fa-globe"></i>
+          <span id="currentLang">TH</span>
+          <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+        </button>
+        <div class="lang-dropdown-menu">
+          <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
+          <a href="#" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
+          <a href="#" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
