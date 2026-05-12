@@ -246,6 +246,26 @@ BTN_CTA_CSS = """
 """
 
 
+_INLINE_TOC_RE = re.compile(
+    r"(?:<!--\s*TOC\s*-->\s*)?<nav\s+class=[\"']toc[\"']>[\s\S]*?</nav>\s*",
+    re.I,
+)
+
+
+_ARTICLE_START_MARKER = "<!-- ════ เนื้อหาเริ่มที่นี่ ════ -->"
+
+
+def strip_leading_article_marker(inner: str) -> str:
+    s = inner.lstrip()
+    while s.startswith(_ARTICLE_START_MARKER):
+        s = s[len(_ARTICLE_START_MARKER) :].lstrip()
+    return s
+
+
+def strip_article_inline_toc(inner: str) -> str:
+    return _INLINE_TOC_RE.sub("", inner, count=1)
+
+
 def extract_article_from_html(html: str) -> str:
     for pat in (
         r'<article class="article-body">([\s\S]*)</article>',
@@ -253,7 +273,8 @@ def extract_article_from_html(html: str) -> str:
     ):
         m = re.search(pat, html, re.I)
         if m:
-            return m.group(1).strip()
+            inner = strip_article_inline_toc(m.group(1).strip())
+            return strip_leading_article_marker(inner)
     return ""
 
 

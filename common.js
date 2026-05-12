@@ -49,7 +49,7 @@
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" aria-expanded="false">
-                        <i class="fas fa-headset"></i>
+                        <i class="fas fa-book-open"></i>
                         <span id="navResources">คลังข้อมูล</span>
                         <i class="fas fa-chevron-down"></i>
                     </a>
@@ -57,13 +57,7 @@
                         <li>
                             <a href="/th/faq/landing.html" id="navKnowledgeLink">
                                 <i class="fas fa-book-open"></i>
-                                <span id="navKnowledge">คลังความรู้</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/th/faq/landing.html" id="navFaqLink">
-                                <i class="fas fa-circle-question"></i>
-                                <span id="navFaq">คำถามที่พบบ่อย</span>
+                                <span id="navKnowledge">15 คำถามก่อนบิน</span>
                             </a>
                         </li>
                         <li>
@@ -214,7 +208,7 @@
             navHotel: 'โรงแรม',
             navCarRental: 'รถเช่า',
             navDeals: 'ดีล',
-            navKnowledge: 'คลังความรู้',
+            navKnowledge: '15 คำถามก่อนบิน',
             navFaq: 'คำถามที่พบบ่อย',
             navTools: 'เครื่องมือ',
             loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
@@ -265,7 +259,7 @@
             navHotel: 'Hotels',
             navCarRental: 'Car Rentals',
             navDeals: 'Deals',
-            navKnowledge: 'Knowledge Hub',
+            navKnowledge: '15 Pre-Flight Questions',
             navFaq: 'FAQ',
             navTools: 'Tools',
             loadingText: 'Loading search form...',
@@ -316,7 +310,7 @@
             navHotel: 'Hotels',
             navCarRental: 'Mietwagen',
             navDeals: 'Angebote',
-            navKnowledge: 'Wissensdatenbank',
+            navKnowledge: '15 Fragen vor dem Flug',
             navFaq: 'FAQ',
             navTools: 'Tools',
             loadingText: 'Suchformular wird geladen...',
@@ -392,9 +386,6 @@
     function updateNavigationLinks(lang) {
         const navKnowledgeLink = document.getElementById('navKnowledgeLink');
         if (navKnowledgeLink) navKnowledgeLink.href = PAGE_MAPPINGS['faq'][lang];
-
-        const navFaqLink = document.getElementById('navFaqLink');
-        if (navFaqLink) navFaqLink.href = PAGE_MAPPINGS['faq'][lang];
 
         const navDealsLink = document.getElementById('navDealsLink');
         if (navDealsLink) navDealsLink.href = PAGE_MAPPINGS['deals'][lang];
