@@ -18,29 +18,29 @@
   <url>
     <loc>https://www.flyreisen24.com/th/faq/landing.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq/landing.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq/landing.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq/landing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq/landing.html"/>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.flyreisen24.com/en/faq_en.html</loc>
+    <loc>https://www.flyreisen24.com/en/faq/landing.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq/landing.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq/landing.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq/landing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq/landing.html"/>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.flyreisen24.com/de/faq_de.html</loc>
+    <loc>https://www.flyreisen24.com/de/faq/landing.html</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/th/faq/landing.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq_en.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq_de.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq_en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq/landing.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq/landing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/en/faq/landing.html"/>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -174,4 +174,199 @@
     <priority>0.5</priority>
   </url>
 
+
+
+  <!-- FAQ EN/DE series -->
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/landing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/landing.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/01-passport-visa.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/01-passport-visa.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/02-connection-time.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/02-connection-time.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/03-baggage-rules.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/03-baggage-rules.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/04-flight-changes.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/04-flight-changes.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/05-codeshare-stopover.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/05-codeshare-stopover.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/06-frequent-flyer.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/06-frequent-flyer.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/07-charter-overbooking.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/07-charter-overbooking.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/08-online-checkin.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/08-online-checkin.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/09-montreal-eu261.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/09-montreal-eu261.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/10-saf-future.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/10-saf-future.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/11-airport-security.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/11-airport-security.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/12-travel-insurance.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/12-travel-insurance.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/13-airport-lounge.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/13-airport-lounge.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/14-special-needs.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/14-special-needs.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/15-booking-tips.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/15-booking-tips.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>

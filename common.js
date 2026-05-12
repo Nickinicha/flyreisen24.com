@@ -100,8 +100,8 @@
         },
         'faq': {
             'th': '/th/faq/landing.html',
-            'en': '/en/faq_en.html',
-            'de': '/de/faq_de.html'
+            'en': '/en/faq/landing.html',
+            'de': '/de/faq/landing.html'
         },
         'deals': {
             'th': '/th/deals_th.html',

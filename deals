@@ -448,7 +448,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
       </div>
     </div>
 <!-- Knowledge Hub CTA -->
-    <div class="deal-card" onclick="window.location='/en/faq_en.html'" style="cursor:pointer">
+    <div class="deal-card" onclick="window.location='/en/faq/landing.html'" style="cursor:pointer">
       <div class="deal-card-header">
         <div class="deal-icon green"><i class="fas fa-book-open" style="color:#1B4332"></i></div>
         <div class="deal-card-header-text">
@@ -463,7 +463,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
           <li><i class="fas fa-check"></i> Baggage rules & tips</li>
           <li><i class="fas fa-check"></i> Travel insurance guide</li>
         </ul>
-        <a href="/en/faq_en.html" class="deal-btn">Read Guides →</a>
+        <a href="/en/faq/landing.html" class="deal-btn">Read Guides →</a>
       </div>
     </div>
 
@@ -575,7 +575,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
       </div>
     </div>
 <!-- Knowledge Hub CTA -->
-    <div class="deal-card" onclick="window.location='/de/faq_de.html'" style="cursor:pointer">
+    <div class="deal-card" onclick="window.location='/de/faq/landing.html'" style="cursor:pointer">
       <div class="deal-card-header">
         <div class="deal-icon green"><i class="fas fa-book-open" style="color:#1B4332"></i></div>
         <div class="deal-card-header-text">
@@ -590,7 +590,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
           <li><i class="fas fa-check"></i> Gepäckregeln & Tipps</li>
           <li><i class="fas fa-check"></i> Reiseversicherungsratgeber</li>
         </ul>
-        <a href="/de/faq_de.html" class="deal-btn">Ratgeber lesen →</a>
+        <a href="/de/faq/landing.html" class="deal-btn">Ratgeber lesen →</a>
       </div>
     </div>
 
@@ -690,7 +690,7 @@ const T = {
     pageDesc: 'Compare the best travel deals. Expert guidance from 10+ years of real airport experience.',
     breadHome: 'Home', breadDeals: 'Travel Deals',
     navFlight: 'Flights', navHotel: 'Hotels', navDeals: 'Deals',
-    navKnowledge: 'Knowledge Hub', navKnowledgeHref: '/en/faq_en.html',
+    navKnowledge: 'Knowledge Hub', navKnowledgeHref: '/en/faq/landing.html',
     navTools: 'Tools',
     currentLang: 'EN',
     heroBadge: '🏷️ Best Travel Deals',
@@ -716,7 +716,7 @@ const T = {
     pageDesc: 'Vergleichen Sie die besten Reiseangebote. Expertenwissen aus 10+ Jahren Bodenabfertigung am Flughafen.',
     breadHome: 'Startseite', breadDeals: 'Reiseangebote',
     navFlight: 'Flüge', navHotel: 'Hotels', navDeals: 'Angebote',
-    navKnowledge: 'Wissensdatenbank', navKnowledgeHref: '/de/faq_de.html',
+    navKnowledge: 'Wissensdatenbank', navKnowledgeHref: '/de/faq/landing.html',
     navTools: 'Tools',
     currentLang: 'DE',
     heroBadge: '🏷️ Beste Reiseangebote',
