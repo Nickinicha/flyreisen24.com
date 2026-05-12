@@ -1,851 +1,384 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Charter Flights และ Overbooking คืออะไร | FlyReisen24</title>
-<link rel="canonical" href="https://flyreisen24.com/th/charter-overbooking.html">
-<meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=IBM+Plex+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* ===== BREADCRUMB ===== */
-        .breadcrumb { background: #f8f9fa; padding: 12px 0; border-bottom: 1px solid #e9ecef; }
-        .breadcrumb-container { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
-        .breadcrumb-list { display: flex; list-style: none; gap: 8px; align-items: center; font-size: 14px; flex-wrap: wrap; }
-        .breadcrumb-list li { color: #6b7280; }
-        .breadcrumb-list a { color: #0056B3; text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
-        .breadcrumb-list a:hover { color: #003d82; text-decoration: underline; }
-        .breadcrumb-separator { color: #9ca3af; margin: 0 5px; }
+  <!-- ═══ SEO — แก้ต่อไปนี้ทุกหน้า ═══ -->
+  <title>Charter Flights และ Overbooking: สิทธิที่ต้องรู้ | FlyReisen24</title>
+  <meta name="description" content="Charter flight ต่างจากเที่ยวบินปกติอย่างไร Overbooking คืออะไร และขอเอกสารอะไรทันทีเมื่อถูกปฏิเสธขึ้นเครื่อง">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://www.flyreisen24.com/th/faq/07-charter-overbooking.html">
 
-        /* ===== NAVIGATION ===== */
-        .top-nav { background-color: #ffffff !important; padding: 10px 0; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .top-nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
-        .top-nav-logo img { height: 48px; width: auto; display: block; transition: height 0.3s ease; }
-        .top-nav-menu { display: flex; gap: 22px; list-style: none; align-items: center; }
-        .top-nav-menu > li { position: relative; }
-        .top-nav-menu a { color: #6b7280 !important; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.3s ease; display: flex; align-items: center; gap: 8px; position: relative; }
-        .top-nav-menu a:hover { color: #0056B3 !important; }
-        .top-nav-menu a i { font-size: 16px; color: #9ca3af; transition: color 0.3s; }
-        .top-nav-menu a:hover i { color: #0056B3; }
-        .top-nav-prominent-link { color: #0056B3 !important; font-weight: 700 !important; }
-        .top-nav-prominent-link i { color: #0056B3 !important; }
-        .top-nav-prominent-link:hover { color: #003d82 !important; }
-        .top-nav-prominent-link:hover i { color: #003d82 !important; }
-        .dropdown-toggle { cursor: pointer; }
-        .dropdown-toggle .fa-chevron-down { font-size: 11px; margin-left: 4px; transition: transform 0.2s ease; }
-        .dropdown-active > .dropdown-toggle .fa-chevron-down { transform: rotate(180deg); }
-        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; margin-top: 10px; min-width: 230px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); padding: 10px 0; list-style: none; z-index: 9999; }
-        .dropdown-menu.show { display: block; }
-        .dropdown-menu li { padding: 0; border: none; }
-        .dropdown-menu a { padding: 10px 16px; font-size: 14px; width: 100%; }
-        .dropdown-menu .new-badge { margin-left: auto; top: 0; }
-        .new-badge { background: linear-gradient(135deg, #ff6b6b, #ff4757); color: white; font-size: 9px; padding: 3px 7px; border-radius: 10px; font-weight: 700; text-transform: uppercase; margin-left: 5px; position: relative; top: -2px; animation: pulse-badge 2s infinite; }
-        @keyframes pulse-badge { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .nav-right { display: flex; align-items: center; gap: 25px; }
-        .nav-help { color: #6b7280; text-decoration: none; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; transition: color 0.3s; }
-        .nav-help:hover { color: #0056B3; }
-        .language-dropdown { position: relative; }
-        .lang-current { background: #f9fafb; color: #374151; border: 1px solid #d1d5db; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s; display: flex; align-items: center; gap: 6px; }
-        .lang-current:hover { border-color: #0056B3; background: #f0f4ff; }
-        .lang-dropdown-menu { position: absolute; top: 110%; right: 0; background: #FFFFFF; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); min-width: 160px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; z-index: 1000; overflow: hidden; }
-        .language-dropdown.active .lang-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .lang-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: #374151 !important; text-decoration: none; font-weight: 500; transition: background 0.2s; font-size: 14px; }
-        .lang-dropdown-menu a:hover { background: #f0f4ff; }
-        .lang-dropdown-menu a.active { background: #e6edff; color: #0056B3 !important; font-weight: 700; }
-        .menu-toggle { display: none; background: none; border: none; color: #6b7280; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="th"        href="https://www.flyreisen24.com/th/faq/07-charter-overbooking.html">
+  <link rel="alternate" hreflang="en"        href="https://www.flyreisen24.com/en/faq/07-charter-overbooking.html">
+  <link rel="alternate" hreflang="de"        href="https://www.flyreisen24.com/de/faq/07-charter-overbooking.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/th/faq/07-charter-overbooking.html">
 
-/* ===== FOOTER ===== */
-        .main-footer { background-color: #ffffff; border-top: 1px solid #eee; padding: 60px 0 30px; color: #666; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 0 20px; }
-        .footer-col h4 { color: #333; margin-bottom: 20px; font-size: 16px; font-weight: 700; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul a { color: #777; text-decoration: none; font-size: 14px; transition: 0.3s; }
-        .footer-col ul a:hover { color: #0056B3; padding-left: 5px; }
-        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #f0f0f0; font-size: 13px; }
+  <!-- OG -->
+  <meta property="og:type"        content="article">
+  <meta property="og:url"         content="https://www.flyreisen24.com/th/faq/07-charter-overbooking.html">
+  <meta property="og:title"       content="Charter Flights และ Overbooking: สิทธิที่ต้องรู้ | FlyReisen24">
+  <meta property="og:description" content="Charter flight ต่างจากเที่ยวบินปกติอย่างไร Overbooking คืออะไร และขอเอกสารอะไรทันทีเมื่อถูกปฏิเสธขึ้นเครื่อง">
+  <meta property="og:image"       content="https://www.flyreisen24.com/images/og-homepage.jpg">
+  <meta property="og:locale"      content="th_TH">
+  <meta property="article:modified_time" content="2026-05-01T00:00:00+07:00">
 
-/* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) { .top-nav-menu { gap: 20px; } }
-        @media (max-width: 768px) {
-            .breadcrumb-container { padding: 0 15px; }
-            .top-nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: #FFFFFF; padding: 1rem 2rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1); gap: 0; border-top: 1px solid #f0f0f0; }
-            .top-nav-menu.active { display: flex !important; }
-            .top-nav-menu li { width: 100%; border-bottom: 1px solid #f3f4f6; padding: 0.8rem 0; }
-            .top-nav-menu > li:last-child { border-bottom: none; }
-            .top-nav-prominent-link { color: #0056B3 !important; }
-            .dropdown-menu { position: static; border: none; box-shadow: none; min-width: 100%; padding: 8px 0 0 14px; margin-top: 0; }
-            .dropdown-menu.show { display: block; }
-            .dropdown-menu li { border-bottom: none; padding: 0.3rem 0; }
-            .dropdown-menu a { padding: 6px 0; }
-            .menu-toggle { display: block; }
-            .nav-right { gap: 15px; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero-stats { gap: 0; padding: 12px 16px; }
-            .stat-num { font-size: 1.1rem; }
-            .stat-label { font-size: 0.65rem; }
-            .partner-logos { gap: 20px; }
-            .partner-logo-item { font-size: 0.95rem; }
-            .trust-badges { gap: 10px; }
-            .trust-badge { font-size: 0.8rem; padding: 8px 14px; }
-            .hero-subtitle { font-size: 1.1rem; }
-            #tpwl-search { padding: 1.5rem; }
-            .booking-grid { grid-template-columns: 1fr; }
-            .booking-section { padding: 40px 15px; }
-            .section-title h2 { font-size: 2rem; }
-            .features-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .top-nav-logo img { height: 40px; }
-            .contact-popup { width: 320px; right: -30px; }
-        }
-
-/* === FAQ series (from th/faq/landing.html, minus duplicate nav/breadcrumb) === */
-:root {
-      --blue:       #0056B3;
-      --blue-dark:  #003d82;
-      --blue-light: #e8f0fe;
-      --gold:       #f59e0b;
-      --text:       #1a1a2e;
-      --muted:      #6b7280;
-      --border:     #e5e7eb;
-      --bg:         #f8f9fc;
-      --white:      #ffffff;
-      --radius:     12px;
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Charter Flights และ Overbooking: สิทธิที่ต้องรู้",
+    "url": "https://www.flyreisen24.com/th/faq/07-charter-overbooking.html",
+    "inLanguage": "th",
+    "dateModified": "2026-05-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FlyReisen24",
+      "logo": { "@type": "ImageObject", "url": "https://www.flyreisen24.com/fly_reisen24_logo_white.png" }
     }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, #1a6fd4 100%);
-      color: var(--white);
-      padding: 56px 24px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      backdrop-filter: blur(6px);
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 18px;
-      letter-spacing: 0.3px;
-    }
-    .hero h1 {
-      font-family: 'IBM Plex Sans Thai', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 14px;
-    }
-    .hero h1 span { color: #fbbf24; }
-    .hero-sub {
-      font-size: 1.05rem;
-      opacity: 0.88;
-      max-width: 560px;
-      margin: 0 auto 28px;
-    }
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      opacity: 0.75;
-    }
-    .hero-meta span { display: flex; align-items: center; gap: 5px; }
-
-    .summary-strip {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 24px;
-    }
-    .summary-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .summary-icon {
-      flex-shrink: 0;
-      width: 44px; height: 44px;
-      background: var(--blue-light);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue);
-      font-size: 20px;
-    }
-    .summary-text { font-size: 14.5px; color: #374151; line-height: 1.65; }
-    .summary-text strong { color: var(--text); }
-
-    .page-body {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px 64px;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 36px;
-      align-items: start;
-    }
-
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--blue);
-      margin-bottom: 20px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .topic-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-
-    .topic-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      text-decoration: none;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: all 0.22s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .topic-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--blue);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform 0.22s ease;
-      border-radius: 0 2px 2px 0;
-    }
-    .topic-card:hover {
-      border-color: var(--blue);
-      box-shadow: 0 4px 20px rgba(0,86,179,0.1);
-      transform: translateY(-2px);
-    }
-    .topic-card:hover::before { transform: scaleY(1); }
-
-    .card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    .card-num {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--blue);
-      background: var(--blue-light);
-      padding: 2px 8px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
-    .card-tag {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 2px 8px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
-    .tag-must  { background: #fef3c7; color: #92400e; }
-    .tag-tips  { background: #d1fae5; color: #065f46; }
-    .tag-rights{ background: #ede9fe; color: #5b21b6; }
-    .tag-tech  { background: #fce7f3; color: #9d174d; }
-
-    .card-icon { font-size: 22px; margin-bottom: 2px; }
-    .card-title {
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1.4;
-      color: var(--text);
-    }
-    .card-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-      flex: 1;
-    }
-    .card-cta {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue);
-      margin-top: 4px;
-    }
-    .card-cta i { font-size: 11px; transition: transform 0.2s; }
-    .topic-card:hover .card-cta i { transform: translateX(3px); }
-    .checklist-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 40px;
-    }
-    .checklist-box h2 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 13.5px;
-      color: #374151;
-    }
-    .check-item i {
-      color: #16a34a;
-      font-size: 13px;
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-
-    .table-section {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 40px;
-    }
-    .table-header {
-      background: var(--blue);
-      color: var(--white);
-      padding: 16px 20px;
-      font-size: 15px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-    }
-    .compare-table th {
-      background: #f1f5f9;
-      padding: 10px 16px;
-      text-align: left;
-      font-weight: 700;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-    }
-    .compare-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid #f0f4f8;
-      color: #374151;
-    }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table tr:hover td { background: #fafbff; }
-    .badge-red    { color: #dc2626; font-weight: 700; }
-    .badge-green  { color: #16a34a; font-weight: 700; }
-    .badge-yellow { color: #d97706; font-weight: 700; }
-
-    .sidebar { display: flex; flex-direction: column; gap: 20px; }
-
-    .side-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .side-card-head {
-      background: var(--blue-light);
-      padding: 14px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--blue);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .side-card-body { padding: 16px 18px; }
-
-    .toc-list { list-style: none; font-size: 13px; }
-    .toc-list li {
-      border-bottom: 1px solid #f3f4f6;
-      padding: 7px 0;
-    }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a {
-      color: #374151;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-    .toc-list a:hover { color: var(--blue); }
-    .toc-num {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--blue);
-      background: var(--blue-light);
-      padding: 1px 6px;
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
-
-    .mct-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 0;
-      border-bottom: 1px solid #f3f4f6;
-      font-size: 13px;
-    }
-    .mct-row:last-child { border-bottom: none; }
-    .mct-code { font-weight: 700; color: var(--text); }
-    .mct-time {
-      font-weight: 700;
-      color: var(--blue);
-      background: var(--blue-light);
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-    }
-
-    .cta-side {
-      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 24px 20px;
-      text-align: center;
-    }
-    .cta-side h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .cta-side p  { font-size: 12.5px; opacity: 0.85; margin-bottom: 16px; line-height: 1.5; }
-    .btn-white {
-      display: inline-block;
-      background: var(--white);
-      color: var(--blue);
-      padding: 10px 22px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 13px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
-
-    .bottom-cta {
-      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-      color: var(--white);
-      text-align: center;
-      padding: 56px 24px;
-    }
-    .bottom-cta h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
-    .bottom-cta p  { font-size: 1rem; opacity: 0.85; margin-bottom: 28px; }
-    .btn-cta-row   { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--white);
-      color: var(--blue);
-      padding: 13px 30px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 15px;
-      transition: all 0.2s;
-    }
-    .btn-primary:hover { background: #f0f4ff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-    .btn-outline {
-      border: 2px solid rgba(255,255,255,0.6);
-      color: var(--white);
-      padding: 13px 30px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 15px;
-      transition: all 0.2s;
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-
-    .page-footer {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 20px 24px;
-      text-align: center;
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-    .page-footer a { color: var(--blue); text-decoration: none; }
-
-    .lang-toggle-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-    .lang-pill {
-      border: 1px solid var(--border);
-      background: #fff;
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--text);
-      font-family: inherit;
-    }
-    .lang-pill:hover { border-color: var(--blue); color: var(--blue); }
-    .lang-pill.active { background: var(--blue); color: #fff; border-color: var(--blue); }
-    .lang-page-note {
-      display: none;
-      margin-top: 12px;
-      font-size: 11px;
-      color: #92400e;
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-radius: 8px;
-      padding: 8px 10px;
-      line-height: 1.45;
-    }
-    .lang-page-note.is-visible { display: block; }
-
-    @media (max-width: 768px) {
-      .top-nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; padding: 1rem 1.25rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1); gap: 0; border-top: 1px solid #f0f0f0; }
-      .top-nav-menu.active { display: flex !important; }
-      .top-nav-menu li { width: 100%; border-bottom: 1px solid #f3f4f6; padding: 0.5rem 0; }
-      .menu-toggle { display: block; }
-      .top-nav-logo img { height: 40px; }
-      .page-body {
-        grid-template-columns: 1fr;
-        padding: 28px 16px 48px;
-      }
-      .topic-grid { grid-template-columns: 1fr; }
-      .checklist-grid { grid-template-columns: 1fr; }
-      .sidebar { order: -1; }
-      .hero { padding: 40px 16px 36px; }
-      .hero h1 { font-size: 1.65rem; }
-    }
-    @media (max-width: 480px) {
-      .btn-cta-row { flex-direction: column; align-items: center; }
-    }
-
-/* === Detail layout (accent bar, reading progress; footer rules align with index) === */
-.detail-main { min-width: 0; }
-.detail-content-shell {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.detail-content-shell .article-body { padding: 1.75rem 1.5rem 2.25rem; }
-.detail-content-shell .container.article-body,
-.detail-content-shell main { padding: 1.5rem 1.25rem 2rem; }
-.detail-accent--must { border-top: 3px solid #185FA5; }
-.detail-accent--tips { border-top: 3px solid #0F6E56; }
-.detail-accent--rights { border-top: 3px solid #534AB7; }
-.detail-accent--tech { border-top: 3px solid #BA7517; }
-.reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--gold)); width: 0; z-index: 10001; }
-.main-footer { background-color: #ffffff; border-top: 1px solid #eee; padding: 60px 0 30px; color: #666; }
-.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 0 20px; }
-.footer-col h4 { color: #333; margin-bottom: 20px; font-size: 16px; font-weight: 700; }
-.footer-col ul { list-style: none; padding: 0; }
-.footer-col ul li { margin-bottom: 12px; }
-.footer-col ul a { color: #777; text-decoration: none; font-size: 14px; transition: 0.3s; }
-.footer-col ul a:hover { color: #0056B3; padding-left: 5px; }
-.footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #f0f0f0; font-size: 13px; color: #999; }
-.series-prevnext { max-width: 1100px; margin: 0 auto; padding: 0 24px 24px; }
-@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Page-specific article styles === */
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap');
-
-  :root {
-    --navy: #0a1628; --navy-mid: #112240; --teal: #0e9f8e; --teal-light: #14c4b0;
-    --gold: #e8a020; --cream: #f5f8fb; --text: #1a2332; --text-muted: #5a6a80;
-    --border: #d0dce8; --white: #ffffff; --red: #c0392b; --orange: #d97706;
   }
+  </script>
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Sarabun', sans-serif; background: var(--cream); color: var(--text); line-height: 1.9; font-size: 17px; }
-
-  .hero { background: linear-gradient(135deg, #0a1a0a 0%, #1a3020 50%, #0a1a0a 100%); color: white; padding: 80px 24px 60px; position: relative; overflow: hidden; }
-  .hero::before { content: '🛫'; position: absolute; right: 5%; top: 50%; transform: translateY(-50%); font-size: 120px; opacity: 0.1; }
-  .hero-inner { max-width: 780px; margin: 0 auto; }
-  .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
-  .breadcrumb a { color: #80d8a8; text-decoration: none; }
-  .topic-badge { display: inline-block; background: #1a6a3a; color: white; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.1em; padding: 5px 16px; border-radius: 4px; margin-bottom: 18px; }
-  .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(28px,5vw,46px); line-height: 1.2; margin-bottom: 18px; font-weight: 600; }
-  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 600px; line-height: 1.7; }
-  .hero-meta { margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.45); }
-
-  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
-  .article-body { padding: 56px 0 80px; }
-
-  h2 { font-family: 'Oswald', sans-serif; font-size: clamp(20px,3.5vw,30px); color: var(--navy); margin: 52px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); font-weight: 600; letter-spacing: 0.02em; }
-  h2:first-child { margin-top: 0; }
-  h3 { font-weight: 700; font-size: 19px; color: var(--navy-mid); margin: 32px 0 12px; }
-  p { margin-bottom: 20px; }
-
-  .why-box { background: linear-gradient(135deg, #eaf8f0, #f5fff8); border-left: 4px solid #1a8c5a; border-radius: 0 12px 12px 0; padding: 28px 32px; margin: 0 0 40px; }
-  .why-box .label { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: #1a6a3a; margin-bottom: 10px; }
-  .why-box p { margin-bottom: 0; font-size: 16.5px; color: #0a2a18; }
-
-  .compare-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 36px; }
-  .compare-col { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
-  .compare-col h3 { margin-top: 0; font-size: 16px; }
-  .compare-col.charter h3 { color: #1a6a3a; }
-  .compare-col.scheduled h3 { color: var(--navy); }
-  .compare-col ul { list-style: none; padding: 0; font-size: 14.5px; color: var(--text-muted); }
-  .compare-col li { padding: 5px 0; border-bottom: 1px solid var(--border); }
-  .compare-col li:last-child { border-bottom: none; }
-
-  .scenario { background: white; border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 0 0 12px 12px; padding: 28px 32px; margin: 32px 0 40px; }
-  .scenario .s-label { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 10px; }
-  .scenario .s-title { font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 10px; }
-  .scenario p { margin-bottom: 10px; font-size: 15.5px; }
-  .scenario p:last-child { margin-bottom: 0; }
-
-  .insider { background: linear-gradient(135deg, #1a0a2e, #0a1628); color: white; border-radius: 14px; padding: 30px 34px; margin: 36px 0; position: relative; overflow: hidden; }
-  .insider::before { content: '🔍'; position: absolute; right: 24px; top: 24px; font-size: 36px; opacity: 0.2; }
-  .insider .i-label { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.1em; color: var(--teal-light); margin-bottom: 12px; }
-  .insider h3 { color: white; margin: 0 0 14px; font-size: 18px; }
-  .insider p, .insider li { color: rgba(255,255,255,0.82); font-size: 15.5px; }
-  .insider ul { padding-left: 20px; }
-  .insider li { margin-bottom: 8px; }
-
-  .danger-box { background: #fff5f5; border: 1px solid #f5c0b8; border-left: 4px solid var(--red); border-radius: 0 10px 10px 0; padding: 20px 26px; margin: 28px 0; font-size: 15.5px; }
-  .danger-box strong { color: var(--red); }
-
-  .action-steps { background: #f0faf5; border: 1px solid #b0e0c8; border-radius: 12px; padding: 26px 30px; margin: 28px 0; }
-  .action-steps h3 { color: #1a6a3a; margin-top: 0; }
-  .action-steps ol { padding-left: 20px; }
-  .action-steps li { padding: 7px 0; border-bottom: 1px solid #c8e8d8; font-size: 15.5px; }
-  .action-steps li:last-child { border-bottom: none; }
-
-  .pro-tips { background: var(--navy); color: white; border-radius: 16px; padding: 38px 40px; margin: 52px 0 0; }
-  .pro-tips h2 { color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; margin-top: 0; }
-  .pro-tips ul { list-style: none; padding: 0; margin: 0; }
-  .pro-tips li { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 15.5px; color: rgba(255,255,255,0.87); line-height: 1.6; }
-  .pro-tips li:last-child { border-bottom: none; }
-  .pro-tips .check { width: 24px; height: 24px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; margin-top: 2px; }
-
-  .cta-link { background: linear-gradient(135deg, var(--teal) 0%, #0a7a6e 100%); color: white; border-radius: 12px; padding: 26px 30px; margin: 40px 0; display: flex; align-items: center; gap: 18px; text-decoration: none; }
-  .cta-icon { font-size: 32px; flex-shrink: 0; }
-  .cta-text .cta-label { font-size: 12px; opacity: 0.8; margin-bottom: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
-  .cta-text strong { font-size: 17px; display: block; }
-
-  .faq-section { margin-top: 56px; }
-  .faq-item { background: white; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; }
-  .faq-q { padding: 18px 22px; font-weight: 700; font-size: 15.5px; color: var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-  .faq-q::after { content: '＋'; color: var(--teal); font-size: 20px; flex-shrink: 0; }
-  .faq-a { padding: 0 22px 18px; font-size: 15px; color: var(--text-muted); line-height: 1.75; }
-
-  .schema-note { background: #f0f4f8; border-radius: 10px; padding: 20px 26px; margin-top: 60px; font-size: 13px; color: var(--text-muted); }
-  .schema-note pre { background: var(--navy); color: #a8d8c8; padding: 20px; border-radius: 8px; margin-top: 12px; font-size: 12px; overflow-x: auto; line-height: 1.6; }
-
-  @media (max-width: 600px) {
-    .hero { padding: 50px 20px 40px; }
-    .compare-box { grid-template-columns: 1fr; }
-    .pro-tips { padding: 28px 22px; }
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "หน้าแรก",    "item": "https://www.flyreisen24.com/" },
+      { "@type": "ListItem", "position": 2, "name": "คลังความรู้", "item": "https://www.flyreisen24.com/th/faq/landing.html" },
+      { "@type": "ListItem", "position": 3, "name": "Charter Flights และ Overbooking: สิทธิที่ต้องรู้", "item": "https://www.flyreisen24.com/th/faq/07-charter-overbooking.html" }
+    ]
   }
+  </script>
 
-.cw-btn{position:fixed;bottom:30px;right:30px;z-index:999;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#003d82,#0a5fd4);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 24px rgba(0,61,130,.35);transition:all .3s}
-.cw-btn:hover{transform:scale(1.1)}
-.cw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#D4AF37;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;color:#003d82}
-.cw-popup{position:fixed;bottom:108px;right:30px;z-index:998;width:340px;background:#fff;border-radius:20px;box-shadow:0 16px 60px rgba(0,30,80,.2);border:2px solid #D4AF37;display:none;flex-direction:column;overflow:hidden}
-.cw-popup.open{display:flex}
-.cw-head{background:linear-gradient(135deg,#001f45,#003d82);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.cw-head-text h3{font-size:.95rem;font-weight:700;margin:0}
-.cw-head-text p{font-size:.74rem;opacity:.8;margin:3px 0 0}
-.cw-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cw-body{padding:18px 20px}
-.cw-field{margin-bottom:12px}
-.cw-field label{display:block;font-size:.76rem;font-weight:600;color:#1a2332;margin-bottom:4px}
-.cw-field input,.cw-field textarea{width:100%;padding:9px 11px;border:2px solid #e2e8f0;border-radius:9px;font-size:.86rem;color:#1a2332;outline:none;transition:border .2s;resize:none;font-family:'IBM Plex Sans Thai',sans-serif}
-.cw-field input:focus,.cw-field textarea:focus{border-color:#D4AF37}
-.cw-field textarea{min-height:80px}
-.cw-send{width:100%;padding:12px;background:linear-gradient(135deg,#003d82,#0a5fd4);color:#fff;border:none;border-radius:9px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'IBM Plex Sans Thai',sans-serif}
-.cw-ok{background:#d1fae5;color:#065f46;border:2px solid #a7f3d0;border-radius:9px;padding:10px;text-align:center;font-size:.84rem;font-weight:600;display:none;margin-bottom:10px}
-.cw-err{background:#fee2e2;color:#991b1b;border:2px solid #fca5a5;border-radius:9px;padding:10px;text-align:center;font-size:.84rem;font-weight:600;display:none;margin-bottom:10px}
-</style>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.flyreisen24.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.flyreisen24.com/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.flyreisen24.com/apple-touch-icon.png">
 
+  <!-- Fonts & Icons — identical to index.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <style>
+    /* ════════════════════════════════════════
+       SHARED BASE — copy exact from index.html
+       ════════════════════════════════════════ */
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#262626;overflow-x:hidden;background:#f8f9fc}
+
+    /* ── NAV (identical to index.html) ── */
+    .top-nav{background:#fff!important;padding:10px 0;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    .top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}
+    .top-nav-logo img{height:48px;width:auto;display:block}
+    .top-nav-menu{display:flex;gap:22px;list-style:none;align-items:center}
+    .top-nav-menu>li{position:relative}
+    .top-nav-menu a{color:#6b7280!important;text-decoration:none;font-weight:500;font-size:15px;transition:color .3s;display:flex;align-items:center;gap:8px}
+    .top-nav-menu a:hover{color:#0056B3!important}
+    .top-nav-menu a i{font-size:16px;color:#9ca3af;transition:color .3s}
+    .top-nav-menu a:hover i{color:#0056B3}
+    .top-nav-prominent-link{color:#0056B3!important;font-weight:700!important}
+    .top-nav-prominent-link i{color:#0056B3!important}
+    .dropdown-toggle{cursor:pointer}
+    .dropdown-toggle .fa-chevron-down{font-size:11px;margin-left:4px;transition:transform .2s}
+    .dropdown-active>.dropdown-toggle .fa-chevron-down{transform:rotate(180deg)}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;margin-top:10px;min-width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:10px 0;list-style:none;z-index:9999}
+    .dropdown-menu.show{display:block}
+    .dropdown-menu li{padding:0;border:none}
+    .dropdown-menu a{padding:10px 16px;font-size:14px;width:100%}
+    .new-badge{background:linear-gradient(135deg,#ff6b6b,#ff4757);color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:5px;position:relative;top:-2px;animation:pulse-badge 2s infinite}
+    @keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    .nav-right{display:flex;align-items:center;gap:25px}
+    .nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color .3s}
+    .nav-help:hover{color:#0056B3}
+    .language-dropdown{position:relative}
+    .lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all .3s;display:flex;align-items:center;gap:6px}
+    .lang-current:hover{border-color:#0056B3;background:#f0f4ff}
+    .lang-dropdown-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);min-width:160px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1000;overflow:hidden}
+    .language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151!important;text-decoration:none;font-weight:500;transition:background .2s;font-size:14px}
+    .lang-dropdown-menu a:hover{background:#f0f4ff}
+    .lang-dropdown-menu a.active{background:#e6edff;color:#0056B3!important;font-weight:700}
+    .menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer;padding:.5rem}
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb{background:#fff;padding:12px 0;border-bottom:1px solid #e9ecef;font-size:13px}
+    .breadcrumb-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#6b7280}
+    .breadcrumb-inner a{color:#0056B3;text-decoration:none}
+    .breadcrumb-inner a:hover{text-decoration:underline}
+    .bc-sep{color:#d1d5db}
+
+    /* ── PAGE LAYOUT ── */
+    .page-wrap{max-width:1200px;margin:0 auto;padding:36px 24px 64px;display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start}
+
+    /* ── ARTICLE HERO ── */
+    .article-hero{background:linear-gradient(135deg,#003d82 0%,#0056B3 60%,#1a6fd4 100%);color:#fff;padding:40px 24px 36px;margin-bottom:0;position:relative;overflow:hidden}
+    .article-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .article-hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative}
+    .article-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:5px 14px;border-radius:30px;font-size:12px;font-weight:600;margin-bottom:14px}
+    .article-hero h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;line-height:1.25;margin-bottom:10px}
+    .article-hero h1 em{color:#fbbf24;font-style:normal}
+    .article-hero-sub{font-size:1rem;opacity:.85;max-width:600px;margin-bottom:18px}
+    .article-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;opacity:.75}
+    .article-meta span{display:flex;align-items:center;gap:5px}
+
+    /* ── PREV/NEXT (under hero) ── */
+    .nav-prevnext{background:#fff;border-bottom:1px solid #e9ecef;padding:10px 24px}
+    .nav-prevnext-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .nav-prevnext a{display:flex;align-items:center;gap:6px;color:#0056B3;text-decoration:none;font-size:13px;font-weight:600;padding:6px 12px;border:1px solid #e5e7eb;border-radius:8px;transition:all .2s;background:#fff}
+    .nav-prevnext a:hover{background:#f0f4ff;border-color:#0056B3}
+    .nav-prevnext .back-toc{color:#6b7280;border:none;background:none;font-size:13px}
+    .nav-prevnext .back-toc:hover{color:#0056B3;background:none}
+
+    /* ── MAIN ARTICLE ── */
+    .article-body{background:#fff;border:1px solid #e9ecef;border-radius:12px;padding:36px;line-height:1.8}
+
+    /* Typography */
+    .article-body h2{font-size:1.35rem;font-weight:700;color:#0056B3;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid #e8f0fe}
+    .article-body h2:first-child{margin-top:0}
+    .article-body h3{font-size:1.1rem;font-weight:700;color:#1a1a2e;margin:24px 0 10px}
+    .article-body p{color:#374151;margin-bottom:14px;font-size:15px}
+    .article-body ul,.article-body ol{margin:0 0 16px 20px;color:#374151;font-size:15px}
+    .article-body li{margin-bottom:6px}
+    .article-body strong{color:#1a1a2e}
+
+    /* Callout box */
+    .callout{border-left:4px solid #0056B3;background:#e8f0fe;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}
+    .callout.warn{border-color:#f59e0b;background:#fef3c7}
+    .callout.danger{border-color:#dc2626;background:#fef2f2}
+    .callout.success{border-color:#16a34a;background:#f0fdf4}
+    .callout p{margin:0;font-size:14px;color:#1e3a5f}
+    .callout.warn p{color:#78350f}
+    .callout.danger p{color:#7f1d1d}
+    .callout.success p{color:#14532d}
+
+    /* Tables */
+    .table-wrap{overflow-x:auto;margin:20px 0}
+    .data-table{width:100%;border-collapse:collapse;font-size:13.5px}
+    .data-table th{background:#0056B3;color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:13px}
+    .data-table td{padding:9px 14px;border-bottom:1px solid #f0f4f8;color:#374151;vertical-align:top}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:nth-child(even) td{background:#fafbff}
+    .data-table tr:hover td{background:#f0f4ff}
+    .data-table td:first-child{font-weight:600;color:#1a1a2e}
+    .td-yes{color:#16a34a;font-weight:700}
+    .td-no{color:#dc2626;font-weight:700}
+    .td-warn{color:#d97706;font-weight:700}
+    .td-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:600}
+    .badge-blue{background:#e8f0fe;color:#003d82}
+    .badge-green{background:#d1fae5;color:#065f46}
+    .badge-red{background:#fef2f2;color:#991b1b}
+    .badge-yellow{background:#fef3c7;color:#92400e}
+
+    /* Step list */
+    .steps{counter-reset:step;list-style:none;margin:0 0 20px;padding:0}
+    .steps li{counter-increment:step;display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+    .steps li::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:28px;height:28px;min-width:28px;background:#0056B3;color:#fff;border-radius:50%;font-size:13px;font-weight:700}
+    .steps li p{margin:0;font-size:14.5px;color:#374151;padding-top:3px}
+
+    /* ── SIDEBAR ── */
+    .sidebar{display:flex;flex-direction:column;gap:16px}
+
+    .side-card{background:#fff;border:1px solid #e9ecef;border-radius:12px;overflow:hidden}
+    .side-head{background:#f8f9fc;padding:12px 16px;font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #e9ecef;display:flex;align-items:center;gap:6px}
+    .side-body{padding:14px 16px}
+
+    /* TOC */
+    .toc-list{list-style:none}
+    .toc-list li{border-bottom:1px solid #f3f4f6;padding:5px 0}
+    .toc-list li:last-child{border-bottom:none}
+    .toc-list a{display:flex;align-items:center;gap:6px;text-decoration:none;font-size:12.5px;color:#6b7280;transition:color .2s}
+    .toc-list a:hover,.toc-list a.active{color:#0056B3;font-weight:600}
+    .toc-num{font-size:9px;font-weight:700;color:#0056B3;background:#e8f0fe;padding:1px 6px;border-radius:10px;flex-shrink:0;min-width:22px;text-align:center}
+    .toc-list li.current a{color:#0056B3;font-weight:700}
+
+    /* MCT */
+    .mct-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:12.5px}
+    .mct-row:last-child{border-bottom:none}
+    .mct-code{font-weight:700;color:#1a1a2e}
+    .mct-time{font-size:11px;font-weight:700;color:#003d82;background:#e8f0fe;padding:2px 8px;border-radius:10px}
+
+    /* Booking CTA */
+    .cta-side{background:linear-gradient(135deg,#0056B3,#003d82);color:#fff;border-radius:12px;padding:20px 16px;text-align:center}
+    .cta-side h3{font-size:14px;font-weight:700;margin-bottom:6px}
+    .cta-side p{font-size:12px;opacity:.85;margin-bottom:14px;line-height:1.5}
+    .btn-cta-white{display:inline-block;background:#fff;color:#0056B3;padding:9px 20px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;transition:all .2s}
+    .btn-cta-white:hover{background:#e8f0fe;transform:translateY(-1px)}
+
+    /* Lang switcher side */
+    .lang-links{display:flex;flex-direction:column;gap:4px}
+    .lang-links a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;padding:4px 0;color:#6b7280;transition:color .2s}
+    .lang-links a:hover{color:#0056B3}
+    .lang-links a.active{color:#0056B3;font-weight:700}
+
+    /* ── FOOTER — identical to index.html ── */
+    .main-footer{background:#fff;border-top:1px solid #eee;padding:50px 0 24px;color:#666;margin-top:0}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;padding:0 24px}
+    .footer-col h4{color:#333;margin-bottom:16px;font-size:15px;font-weight:700}
+    .footer-col ul{list-style:none;padding:0}
+    .footer-col ul li{margin-bottom:10px}
+    .footer-col ul a{color:#777;text-decoration:none;font-size:13.5px;transition:.3s;display:flex;align-items:center;gap:6px}
+    .footer-col ul a:hover{color:#0056B3;padding-left:4px}
+    .footer-col p{font-size:13.5px;line-height:1.65;color:#888}
+    .footer-bottom{max-width:1200px;margin:32px auto 0;padding:16px 24px 0;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12.5px;color:#9ca3af}
+    .footer-bottom a{color:#9ca3af;text-decoration:none}
+    .footer-bottom a:hover{color:#0056B3}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .page-wrap{grid-template-columns:1fr;padding:24px 16px 48px}
+      .sidebar{order:-1}
+      .nav-prevnext-inner{flex-wrap:wrap;gap:8px}
+    }
+    @media(max-width:768px){
+      .top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.1);gap:0;border-top:1px solid #f0f0f0}
+      .top-nav-menu.active{display:flex!important}
+      .top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:.8rem 0}
+      .top-nav-menu>li:last-child{border-bottom:none}
+      .dropdown-menu{position:static;border:none;box-shadow:none;min-width:100%;padding:8px 0 0 14px;margin-top:0}
+      .dropdown-menu.show{display:block}
+      .dropdown-menu li{border-bottom:none;padding:.3rem 0}
+      .menu-toggle{display:block}
+      .nav-right{gap:12px}
+      .top-nav-logo img{height:40px}
+      .article-hero{padding:28px 16px 24px}
+      .article-body{padding:24px 16px}
+    }
+
+    .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
+    .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
+
+  </style>
 </head>
 <body>
-<div class="reading-progress" id="readingProgress"></div>
+
+<!-- ══════════════════════════════════════
+     BREADCRUMB
+══════════════════════════════════════ -->
 <nav class="breadcrumb" aria-label="breadcrumb">
-    <div class="breadcrumb-container">
-        <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="/" itemprop="item"><span itemprop="name"><i class="fas fa-home"></i> หน้าแรก</span></a>
-                <meta itemprop="position" content="1">
-            </li>
-            <li class="breadcrumb-separator" aria-hidden="true">›</li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="/th/faq/landing.html" itemprop="item"><span itemprop="name">คลังความรู้</span></a>
-                <meta itemprop="position" content="2">
-            </li>
-            <li class="breadcrumb-separator" aria-hidden="true">›</li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="https://www.flyreisen24.com/th/faq/07-charter-overbooking.html" itemprop="item"><span itemprop="name">Charter & Overbooking</span></a>
-                <meta itemprop="position" content="3">
-            </li>
-        </ol>
-    </div>
+  <div class="breadcrumb-inner">
+    <a href="/"><i class="fas fa-home"></i> หน้าแรก</a>
+    <span class="bc-sep">›</span>
+    <a href="/th/faq/landing.html">คลังความรู้</a>
+    <span class="bc-sep">›</span>
+    <span>Charter & Overbooking</span>
+  </div>
 </nav>
 
+<!-- ══════════════════════════════════════
+     NAV — identical to index.html
+══════════════════════════════════════ -->
 <nav class="top-nav">
-        <div class="top-nav-container">
-            <a href="/" class="top-nav-logo">
-                <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24 - แพลตฟอร์มจองตั๋วเครื่องบิน โรงแรม รถเช่า" width="auto" height="48" loading="eager">
-            </a>
+  <div class="top-nav-container">
+    <a href="/" class="top-nav-logo">
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png"
+           alt="FlyReisen24"
+           width="auto" height="48" loading="eager">
+    </a>
 
-            <!-- Dropdown navigation -->
-            <ul class="top-nav-menu" id="topNavMenu">
-                <li>
-                    <a href="#" class="dropdown-toggle" aria-expanded="false">
-                        <i class="fas fa-briefcase"></i>
-                        <span id="navServices">บริการ</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="https://flights.flyreisen24.com">
-                                <i class="fas fa-plane-departure"></i>
-                                <span id="navFlight">เที่ยวบิน</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">
-                                <i class="fas fa-hotel"></i>
-                                <span id="navHotel">โรงแรม</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd">
-                                <i class="fas fa-car"></i>
-                                <span id="navCarRental">รถเช่า</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/th/deals_th.html" id="navDealsLink" class="top-nav-prominent-link">
-                        <i class="fas fa-tags"></i>
-                        <span id="navDeals">ดีล</span>
-                        <span class="new-badge">NEW</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" aria-expanded="false">
-                        <i class="fas fa-headset"></i>
-                        <span id="navResources">คลังข้อมูล</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/th/faq/landing.html" id="navKnowledgeLink">
-                                <i class="fas fa-book-open"></i>
-                                <span id="navKnowledge">คลังความรู้</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/th/faq/landing.html" id="navFaqLink">
-                                <i class="fas fa-circle-question"></i>
-                                <span id="navFaq">คำถามที่พบบ่อย</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/tools.html" id="navToolsLink">
-                                <i class="fas fa-wrench"></i>
-                                <span id="navTools">เครื่องมือ</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+    <ul class="top-nav-menu" id="topNavMenu">
+      <li>
+        <a href="#" class="dropdown-toggle" aria-expanded="false">
+          <i class="fas fa-briefcase"></i> <span>บริการ</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> เที่ยวบิน</a></li>
+          <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> โรงแรม</a></li>
+          <li><a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd"><i class="fas fa-car"></i> รถเช่า</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/th/deals_th.html" class="top-nav-prominent-link">
+          <i class="fas fa-tags"></i> <span>ดีล</span>
+          <span class="new-badge">NEW</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="dropdown-toggle" aria-expanded="false">
+          <i class="fas fa-headset"></i> <span>คลังข้อมูล</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/th/faq/landing.html"><i class="fas fa-book-open"></i> คลังความรู้</a></li>
+          <li><a href="/th/faq/landing.html"><i class="fas fa-circle-question"></i> คำถามที่พบบ่อย</a></li>
+          <li><a href="/tools.html"><i class="fas fa-wrench"></i> เครื่องมือ</a></li>
+        </ul>
+      </li>
+    </ul>
 
-            <div class="nav-right">
-                <a href="/contact.html" class="nav-help">
-                    <i class="fas fa-headset"></i>
-                    Help
-                </a>
-                <div class="language-dropdown" id="languageDropdown">
-                    <button class="lang-current" onclick="toggleLangDropdown()">
-                        <i class="fas fa-globe"></i>
-                        <span id="currentLang">TH</span>
-                        <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
-                    </button>
-                    <div class="lang-dropdown-menu">
-                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
-                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
-                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
-                    </div>
-                </div>
-            </div>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-right">
+      <a href="/contact.html" class="nav-help">
+        <i class="fas fa-headset"></i> Help
+      </a>
+      <div class="language-dropdown" id="languageDropdown">
+        <button class="lang-current" onclick="toggleLangDropdown()">
+          <i class="fas fa-globe"></i>
+          <span id="currentLang">TH</span>
+          <i class="fas fa-chevron-down" style="font-size:10px"></i>
+        </button>
+        <div class="lang-dropdown-menu">
+          <a href="/th/faq/07-charter-overbooking.html" class="active">🇹🇭 ไทย (TH)</a>
+          <a href="/en/faq/07-charter-overbooking.html">🇬🇧 English (EN)</a>
+          <a href="/de/faq/07-charter-overbooking.html">🇩🇪 Deutsch (DE)</a>
         </div>
-    </nav>
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge"><i class="fas fa-bookmark"></i> หัวข้อ 07/15</div>
-    <h1>Charter Flights และ Overbooking<br>— ทุกอย่างที่ผู้โดยสารควรรู้</h1>
-    <p class="hero-sub">เมื่อสายการบินขายที่นั่งเกินจำนวน และคุณเป็นหนึ่งในคนที่ไม่มีที่นั่ง — นี่คือสิ่งที่คุณต้องทำ</p>
+      </div>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     ARTICLE HERO
+══════════════════════════════════════ -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-badge">
+      <i class="fas fa-book-open"></i> Rights · หัวข้อที่ 07
+    </div>
+    <h1>Charter Flights & Overbooking<br><em>เที่ยวบินและสิทธิที่ต้องรู้</em></h1>
+    <p class="article-hero-sub">เที่ยวบินเช่าเหมาลำ การจองเกินที่นั่ง และสิทธิชดเชยเมื่อถูกปฏิเสธขึ้นเครื่อง</p>
+    <div class="article-meta">
+      <span><i class="fas fa-calendar-alt"></i> อัปเดต พ.ค. 2569</span>
+      <span><i class="fas fa-clock"></i> อ่าน 4 นาที</span>
+      <span><i class="fas fa-tag"></i> Rights</span>
+    </div>
   </div>
 </header>
-<div class="page-body">
-  <main class="detail-main">
-    <div class="detail-content-shell detail-accent--rights">
-      <article class="article-body">
-<div class="why-box">
+
+<!-- ══════════════════════════════════════
+     PREV / NEXT NAV (under hero)
+══════════════════════════════════════ -->
+<div class="nav-prevnext">
+  <div class="nav-prevnext-inner">
+    <!-- <a href="/th/faq/06-frequent-flyer.html"><i class="fas fa-arrow-left"></i> 06 — Frequent Flyer</a> = <a href="..."><i class="fas fa-arrow-left"></i> 01 — ชื่อหน้าก่อน</a> หรือ <span></span> ถ้าเป็นหน้าแรก -->
+    <a href="/th/faq/06-frequent-flyer.html"><i class="fas fa-arrow-left"></i> 06 — Frequent Flyer</a>
+    <a href="/th/faq/landing.html" class="back-toc">
+      <i class="fas fa-th-large"></i> สารบัญ
+    </a>
+    <!-- <a href="/th/faq/08-online-checkin.html">08 — Check-in Tips <i class="fas fa-arrow-right"></i></a> = <a href="...">03 — ชื่อหน้าถัดไป <i class="fas fa-arrow-right"></i></a> หรือ <span></span> ถ้าเป็นหน้าสุดท้าย -->
+    <a href="/th/faq/08-online-checkin.html">08 — Check-in Tips <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
+<div class="page-wrap">
+
+  <!-- ── ARTICLE ── -->
+  <main>
+    <article class="article-body">
+
+      <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
+      <div class="why-box">
     <div class="label">⚡ Why This Matters</div>
     <p>มีผู้โดยสารนับล้านคนต่อปีที่เจอประสบการณ์ถูก "bump" จากเที่ยวบิน — บางคนรู้สิทธิ์และได้รับเงินชดเชยหลักพัน บางคนยืนงงอยู่ที่สนามบินโดยไม่รู้ว่าตัวเองมีสิทธิ์อะไร</p>
   </div>
@@ -992,131 +525,168 @@
 
 
 <section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/01-passport-visa.html">01 · Passport & Visa Bible</a></li><li><a href="/th/faq/02-connection-time.html">02 · Time Traps & Connection Flights</a></li><li><a href="/th/faq/03-baggage-rules.html">03 · Baggage Rules</a></li><li><a href="/th/faq/04-flight-changes.html">04 · Flight Changes & Cancellations</a></li><li><a href="/th/faq/05-codeshare-stopover.html">05 · Booking Types</a></li><li><a href="/th/faq/06-frequent-flyer.html">06 · Frequent Flyer</a></li><li><strong>07 · Charter Flights & Overbooking</strong></li><li><a href="/th/faq/08-online-checkin.html">08 · Online Check-in</a></li><li><a href="/th/faq/09-montreal-eu261.html">09 · Montreal Convention & EU261</a></li><li><a href="/th/faq/10-saf-future.html">10 · Sustainable Aviation Fuel</a></li></ul><p style="margin-top:12px"><a href="/th/faq/landing.html">Back to FAQ Overview</a></p></section>
-</article>
-    </div>
+      <!-- ════ เนื้อหาจบที่นี่ ════ -->
+
+    </article>
   </main>
+
+  <!-- ── SIDEBAR ── -->
   <aside class="sidebar">
 
+    <!-- สารบัญ 15 หัวข้อ -->
     <div class="side-card">
-      <div class="side-card-head"><i class="fas fa-list"></i> สารบัญ 15 หัวข้อ</div>
-      <div class="side-card-body">
+      <div class="side-head"><i class="fas fa-list"></i> สารบัญทั้ง 15 หัวข้อ</div>
+      <div class="side-body">
         <ol class="toc-list">
-          <li><a href="/th/faq/01-passport-visa.html"><span class="toc-num">01</span>Passport & Visa Bible</a></li>
-          <li><a href="/th/faq/02-connection-time.html"><span class="toc-num">02</span>Time Traps ต่อเครื่อง</a></li>
-          <li><a href="/th/faq/03-baggage-rules.html"><span class="toc-num">03</span>Baggage Rules 2026</a></li>
-          <li><a href="/th/faq/04-flight-changes.html"><span class="toc-num">04</span>Flight Changes & Cancel</a></li>
-          <li><a href="/th/faq/05-codeshare-stopover.html"><span class="toc-num">05</span>Codeshare & Open-Jaw</a></li>
-          <li><a href="/th/faq/06-frequent-flyer.html"><span class="toc-num">06</span>Frequent Flyer</a></li>
-          <li><a href="/th/faq/07-charter-overbooking.html"><span class="toc-num">07</span>Charter & Overbooking</a></li>
-          <li><a href="/th/faq/08-online-checkin.html"><span class="toc-num">08</span>Online Check-in Tips</a></li>
-          <li><a href="/th/faq/09-montreal-eu261.html"><span class="toc-num">09</span>Montreal & EU261</a></li>
-          <li><a href="/th/faq/10-saf-future.html"><span class="toc-num">10</span>SAF & การบินยั่งยืน</a></li>
-          <li><a href="/th/faq/11-airport-security.html"><span class="toc-num">11</span>Airport Security 2026</a></li>
-          <li><a href="/th/faq/12-travel-insurance.html"><span class="toc-num">12</span>ประกันการเดินทาง</a></li>
-          <li><a href="/th/faq/13-airport-lounge.html"><span class="toc-num">13</span>Airport Lounge Access</a></li>
-          <li><a href="/th/faq/14-special-needs.html"><span class="toc-num">14</span>ผู้โดยสารพิเศษ & เด็ก</a></li>
-          <li><a href="/th/faq/15-booking-tips.html"><span class="toc-num">15</span>เคล็ดลับจองตั๋วถูก</a></li>
+          <li class=""><a href="/th/faq/01-passport-visa.html"><span class="toc-num">01</span>Passport & Visa Bible</a></li>
+          <li class=""><a href="/th/faq/02-connection-time.html"><span class="toc-num">02</span>Time Traps: ต่อเครื่อง</a></li>
+          <li class=""><a href="/th/faq/03-baggage-rules.html"><span class="toc-num">03</span>Baggage Rules 2026</a></li>
+          <li class=""><a href="/th/faq/04-flight-changes.html"><span class="toc-num">04</span>Flight Changes & Cancel</a></li>
+          <li class=""><a href="/th/faq/05-codeshare-stopover.html"><span class="toc-num">05</span>Codeshare & Open-Jaw</a></li>
+          <li class=""><a href="/th/faq/06-frequent-flyer.html"><span class="toc-num">06</span>Frequent Flyer</a></li>
+          <li class="current"><a href="/th/faq/07-charter-overbooking.html"><span class="toc-num">07</span>Charter & Overbooking</a></li>
+          <li class=""><a href="/th/faq/08-online-checkin.html"><span class="toc-num">08</span>Online Check-in Tips</a></li>
+          <li class=""><a href="/th/faq/09-montreal-eu261.html"><span class="toc-num">09</span>Montreal & EU261</a></li>
+          <li class=""><a href="/th/faq/10-saf-future.html"><span class="toc-num">10</span>SAF & การบินยั่งยืน</a></li>
+          <li class=""><a href="/th/faq/11-airport-security.html"><span class="toc-num">11</span>Airport Security 2026</a></li>
+          <li class=""><a href="/th/faq/12-travel-insurance.html"><span class="toc-num">12</span>ประกันการเดินทาง</a></li>
+          <li class=""><a href="/th/faq/13-airport-lounge.html"><span class="toc-num">13</span>Airport Lounge Access</a></li>
+          <li class=""><a href="/th/faq/14-special-needs.html"><span class="toc-num">14</span>ผู้โดยสารพิเศษ & เด็ก</a></li>
+          <li class=""><a href="/th/faq/15-booking-tips.html"><span class="toc-num">15</span>เคล็ดลับจองตั๋วถูก</a></li>
         </ol>
       </div>
     </div>
+
+    <!-- MCT Quick Ref -->
     <div class="side-card">
-      <div class="side-card-head"><i class="fas fa-stopwatch"></i> MCT ขั้นต่ำ (ด่วน)</div>
-      <div class="side-card-body">
+      <div class="side-head"><i class="fas fa-stopwatch"></i> MCT ขั้นต่ำ</div>
+      <div class="side-body">
         <div class="mct-row"><span class="mct-code">BKK สุวรรณภูมิ</span><span class="mct-time">75 นาที</span></div>
         <div class="mct-row"><span class="mct-code">DXB ดูไบ</span><span class="mct-time">90 นาที</span></div>
         <div class="mct-row"><span class="mct-code">LHR ฮีทโธรว์</span><span class="mct-time">90 นาที</span></div>
         <div class="mct-row"><span class="mct-code">IST อิสตันบูล</span><span class="mct-time">100 นาที</span></div>
         <div class="mct-row"><span class="mct-code">FRA แฟรงก์เฟิร์ต</span><span class="mct-time">45 นาที</span></div>
-        <p style="font-size:11px;color:var(--muted);margin-top:10px;"><i class="fas fa-info-circle"></i> แนะนำให้เผื่อเวลาเพิ่ม 30 นาทีเสมอ</p>
+        <p style="font-size:11px;color:#9ca3af;margin-top:8px"><i class="fas fa-info-circle"></i> เผื่อเพิ่ม 30 นาทีเสมอ</p>
       </div>
     </div>
+
+    <!-- Booking CTA -->
     <div class="cta-side">
       <h3>🎯 พร้อมจองแล้ว?</h3>
-      <p>เปรียบเทียบราคาตั๋วเครื่องบินจากสายการบิน 500+ ในที่เดียว</p>
-      <a href="https://flights.flyreisen24.com" class="btn-white">ค้นหาตั๋วราคาถูก</a>
+      <p>เปรียบเทียบราคาตั๋วเครื่องบิน 500+ สายการบิน</p>
+      <a href="https://flights.flyreisen24.com" class="btn-cta-white">
+        <i class="fas fa-plane"></i> ค้นหาตั๋วราคาถูก
+      </a>
+    </div>
+
+    <!-- Language -->
+    <div class="side-card">
+      <div class="side-head"><i class="fas fa-globe"></i> ภาษา / Language</div>
+      <div class="side-body">
+        <div class="lang-links">
+          <a href="/th/faq/07-charter-overbooking.html" class="active">🇹🇭 ไทย (กำลังอ่าน)</a>
+          <a href="/en/faq/07-charter-overbooking.html">🇬🇧 English</a>
+          <a href="/de/faq/07-charter-overbooking.html">🇩🇪 Deutsch</a>
+        </div>
+      </div>
     </div>
 
   </aside>
-</div>
-<nav class="series-prevnext" aria-label="หัวข้อก่อน-ถัดไป" style="max-width:1100px;margin:2rem auto 0;padding:16px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #e2e8f0;font-family:IBM Plex Sans Thai,system-ui,sans-serif;font-size:15px"><span><a href="/th/faq/06-frequent-flyer.html" style="color:#003d82;font-weight:600;text-decoration:none">← ก่อนหน้า: Frequent Flyer</a></span><span style='text-align:right'><a href="/th/faq/08-online-checkin.html" style="color:#003d82;font-weight:600;text-decoration:none">ถัดไป: Online Check-in →</a></span></nav>
+</div><!-- /page-wrap -->
+
+<!-- ══════════════════════════════════════
+     FOOTER — identical to index.html (compact)
+══════════════════════════════════════ -->
 <footer class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24 Logo" width="auto" height="35" loading="lazy" style="height:35px;margin-bottom:20px;">
-                <p id="footerDesc" style="font-size:14px;line-height:1.6;">แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวบรวมดีลจากพาร์ทเนอร์ชั้นนำทั่วโลกมาไว้ในที่เดียว</p>
-            </div>
-            <div class="footer-col">
-                <h4 id="footerServices">บริการของเรา</h4>
-                <ul>
-                    <li><a href="https://flights.flyreisen24.com" id="footerFlights">ค้นหาตั๋วเครื่องบิน</a></li>
-                    <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotels">จองโรงแรมที่พัก</a></li>
-                    <li><a href="/th/deals_th.html" id="footerDeals">ดีลการเดินทาง</a></li>
-                    <li><a href="/tools.html" id="footerTools">เครื่องมือเดินทาง</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 id="footerHelp">ช่วยเหลือ</h4>
-                <ul>
-                    <li><a href="/contact.html" id="footerContact">ติดต่อฝ่ายบริการ</a></li>
-                    <li><a href="/th/faq/landing.html" id="footerFaqLink">คลังความรู้การเดินทาง</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 id="footerLegal">ข้อมูลทางกฎหมาย</h4>
-                <ul>
-                    <li><a href="/th/about_th.html" id="footerAboutLink">เกี่ยวกับเรา</a></li>
-                    <li><a href="/th/terms_th.html" id="footerTermsLink">ข้อกำหนดและเงื่อนไข</a></li>
-                    <li><a href="/th/privacy_th.html" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2026 FlyReisen24. All Rights Reserved. | Powered by Travelpayouts
-        </div>
-    </footer>
-<button class="cw-btn" onclick="toggleCW()">
-  <i class="fas fa-envelope"></i>
-  <span class="cw-badge">?</span>
-</button>
-<div class="cw-popup" id="cwPopup">
-  <div class="cw-head">
-    <div class="cw-head-text"><h3>ติดต่อเรา</h3><p>มีคำถาม? เราพร้อมช่วยเหลือ</p></div>
-    <button class="cw-close" onclick="toggleCW()">✕</button>
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png"
+           alt="FlyReisen24 Logo" height="32" loading="lazy"
+           style="height:32px;margin-bottom:14px;display:block">
+      <p>แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวมดีลจากพาร์ทเนอร์ชั้นนำในที่เดียว</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>บริการ</h4>
+      <ul>
+        <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> ค้นหาตั๋วเครื่องบิน</a></li>
+        <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> จองโรงแรม</a></li>
+        <li><a href="/th/deals_th.html"><i class="fas fa-tags"></i> ดีลการเดินทาง</a></li>
+        <li><a href="/tools.html"><i class="fas fa-wrench"></i> เครื่องมือ</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>คลังความรู้</h4>
+      <ul>
+        <li><a href="/th/faq/landing.html"><i class="fas fa-book-open"></i> 15 คำถามก่อนบิน</a></li>
+        <li><a href="/th/faq/01-passport-visa.html"><i class="fas fa-passport"></i> Passport & Visa</a></li>
+        <li><a href="/th/faq/03-baggage-rules.html"><i class="fas fa-suitcase"></i> Baggage Rules</a></li>
+        <li><a href="/th/faq/09-montreal-eu261.html"><i class="fas fa-gavel"></i> สิทธิผู้โดยสาร</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>ข้อมูล</h4>
+      <ul>
+        <li><a href="/contact.html"><i class="fas fa-headset"></i> ติดต่อเรา</a></li>
+        <li><a href="/th/about_th.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a></li>
+        <li><a href="/th/privacy_th.html"><i class="fas fa-lock"></i> นโยบายความเป็นส่วนตัว</a></li>
+        <li><a href="/th/terms_th.html"><i class="fas fa-file-contract"></i> ข้อกำหนด</a></li>
+      </ul>
+    </div>
+
   </div>
-  <div class="cw-body">
-    <div class="cw-ok" id="cwOk">✅ ส่งแล้ว! เราจะติดต่อกลับเร็วๆ นี้</div>
-    <div class="cw-err" id="cwErr">❌ เกิดข้อผิดพลาด กรุณาลองใหม่</div>
-    <form id="cwForm">
-      <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
-      <div class="cw-field"><label>ชื่อ</label><input type="text" name="name" required></div>
-      <div class="cw-field"><label>อีเมล</label><input type="email" name="email" required></div>
-      <div class="cw-field"><label>ข้อความ</label><textarea name="message" required></textarea></div>
-      <button type="submit" class="cw-send" id="cwSend">ส่งข้อความ</button>
-    </form>
+  <div class="footer-bottom">
+    <span>© 2026 FlyReisen24. All Rights Reserved. | Powered by Travelpayouts</span>
+    <span>
+      <a href="/th/faq/landing.html">TH</a> ·
+      <a href="/en/faq/landing.html">EN</a> ·
+      <a href="/de/faq/landing.html">DE</a>
+    </span>
   </div>
-</div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JS — nav dropdown (self-contained, no common.js dependency)
+══════════════════════════════════════ -->
 <script>
-function toggleCW(){document.getElementById('cwPopup').classList.toggle('open');}
-if(document.getElementById('cwForm')){
-  document.getElementById('cwForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-    const btn=document.getElementById('cwSend'),ok=document.getElementById('cwOk'),err=document.getElementById('cwErr');
-    btn.disabled=true;btn.textContent='กำลังส่ง...';ok.style.display='none';err.style.display='none';
-    try{
-      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(this)))});
-      const data=await res.json();
-      if(data.success){ok.style.display='block';this.reset();}else{err.style.display='block';}
-    }catch{err.style.display='block';}
-    btn.disabled=false;btn.textContent='ส่งข้อความ';
+  /* Hamburger */
+  function toggleMenu(){
+    document.getElementById('topNavMenu').classList.toggle('active');
+  }
+  /* Language dropdown */
+  function toggleLangDropdown(){
+    document.getElementById('languageDropdown').classList.toggle('active');
+  }
+  /* Dropdown menus */
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.dropdown-toggle').forEach(function(btn){
+      btn.addEventListener('click',function(e){
+        e.preventDefault();
+        var li=this.parentElement;
+        var menu=li.querySelector('.dropdown-menu');
+        var isOpen=menu.classList.contains('show');
+        /* close all */
+        document.querySelectorAll('.dropdown-menu.show').forEach(function(m){m.classList.remove('show')});
+        document.querySelectorAll('.dropdown-active').forEach(function(l){l.classList.remove('dropdown-active')});
+        if(!isOpen){menu.classList.add('show');li.classList.add('dropdown-active');}
+      });
+    });
+    /* close on outside click */
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.top-nav-menu')&&!e.target.closest('.language-dropdown')){
+        document.querySelectorAll('.dropdown-menu.show').forEach(function(m){m.classList.remove('show')});
+        document.querySelectorAll('.dropdown-active').forEach(function(l){l.classList.remove('dropdown-active')});
+        document.getElementById('languageDropdown').classList.remove('active');
+      }
+    });
   });
-}
-document.addEventListener('click',function(e){
-  const popup=document.getElementById('cwPopup');
-  const btn=document.querySelector('.cw-btn');
-  if(popup&&popup.classList.contains('open')&&!popup.contains(e.target)&&btn&&!btn.contains(e.target)){popup.classList.remove('open');}
-});
 </script>
 
+<!-- common.js for any shared init (optional) -->
 <script src="/common.js" defer></script>
+
 </body>
 </html>
