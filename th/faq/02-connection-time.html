@@ -255,6 +255,74 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
+/* CONTENT STYLES */
+.box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
+.box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.box p,.box ul{margin:0;font-size:14px}
+.box ul{padding-left:18px;margin-top:6px}
+.box ul li{margin-bottom:4px}
+.box strong{display:block;margin-bottom:4px;font-size:14px}
+.box-tip{background:#e8f0fe;border-left:4px solid #0056B3}
+.box-tip p,.box-tip ul,.box-tip strong{color:#1e3a5f}
+.box-warn{background:#fef3c7;border-left:4px solid #f59e0b}
+.box-warn p,.box-warn ul,.box-warn strong{color:#78350f}
+.box-danger{background:#fef2f2;border-left:4px solid #dc2626}
+.box-danger p,.box-danger ul,.box-danger strong{color:#7f1d1d}
+.box-insider{background:#f5f3ff;border-left:4px solid #7c3aed}
+.box-insider p,.box-insider ul,.box-insider strong{color:#3b0764}
+.box-success{background:#f0fdf4;border-left:4px solid #16a34a}
+.box-success p,.box-success ul,.box-success strong{color:#14532d}
+.mct-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.mct-table th{background:#0056B3;color:#fff;padding:9px 12px;text-align:left;font-weight:600;font-size:12px}
+.mct-table td{padding:8px 12px;border-bottom:1px solid #f0f4f8;color:#374151;vertical-align:top}
+.mct-table tr:last-child td{border-bottom:none}
+.mct-table tr:nth-child(even) td{background:#fafbff}
+.mct-table tr:hover td{background:#f0f4ff}
+.mct-table td:first-child{font-weight:600;color:#1a1a2e}
+.mct-tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.mt-ok{background:#d1fae5;color:#065f46}
+.mt-warn{background:#fef3c7;color:#92400e}
+.mt-no{background:#fef2f2;color:#991b1b}
+.midnight-box{background:#1e1e2e;border-radius:10px;padding:20px;margin:20px 0;color:#e2e8f0}
+.midnight-box h4{color:#fbbf24;font-size:15px;margin-bottom:14px}
+.midnight-row{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.midnight-row:last-child{margin-bottom:0}
+.midnight-time{background:#0056B3;color:#fff;padding:4px 10px;border-radius:6px;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.midnight-desc{font-size:13.5px;line-height:1.6}
+.midnight-wrong{color:#f87171;margin-top:5px;font-size:13px}
+.midnight-right{color:#86efac;margin-top:4px;font-size:13px}
+.scenario{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin:20px 0}
+.scenario-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6b7280;margin-bottom:6px}
+.scenario h4{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:8px}
+.scenario p{font-size:14px;color:#374151;margin-bottom:8px}
+.outcome{display:flex;gap:8px;align-items:flex-start;padding:10px 14px;border-radius:8px;font-size:13px;margin-top:10px}
+.outcome-bad{background:#fef2f2;color:#7f1d1d}
+.outcome-bad i{color:#dc2626}
+.outcome-good{background:#f0fdf4;color:#14532d}
+.outcome-good i{color:#16a34a}
+.timeline{margin:20px 0;padding-left:0}
+.tl-item{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;position:relative;padding-left:14px}
+.tl-item::before{content:'';position:absolute;left:0;top:6px;width:8px;height:8px;background:#0056B3;border-radius:50%;flex-shrink:0}
+.tl-time{font-weight:700;font-size:13.5px;color:#0056B3;min-width:170px;flex-shrink:0}
+.tl-desc{font-size:13.5px;color:#374151}
+.tl-alert{font-size:12px;color:#d97706;background:#fef3c7;padding:5px 10px;border-radius:6px;margin-top:5px}
+.pro-tips{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin:20px 0}
+.pro-tips-title{font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.pro-tips-sub{font-size:13px;color:#6b7280;margin-bottom:16px}
+.tip-item{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.tip-item:last-child{border-bottom:none}
+.tip-check{width:24px;height:24px;min-width:24px;background:#0056B3;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:2px}
+.tip-text strong{display:block;font-size:14px;color:#1a1a2e;margin-bottom:2px}
+.tip-text span{font-size:13px;color:#6b7280;line-height:1.5}
+.internal-link{display:flex;align-items:center;gap:14px;background:#f0f4ff;border:1px solid #c7d9f5;border-radius:10px;padding:16px;text-decoration:none;margin:20px 0;transition:all .2s}
+.internal-link:hover{background:#e0ecff;border-color:#0056B3}
+.il-icon{width:36px;height:36px;min-width:36px;background:#0056B3;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.il-text{flex:1}
+.il-text strong{display:block;font-size:14px;color:#0056B3;margin-bottom:2px}
+.il-text span{font-size:12.5px;color:#6b7280}
+.il-arrow{color:#0056B3;font-size:14px;flex-shrink:0}
+
+
   </style>
 </head>
 <body>
@@ -695,9 +763,6 @@
     </a>
 
   
-<section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/01-passport-visa.html">01 · Passport & Visa Bible</a></li><li><strong>02 · Time Traps & Connection Flights</strong></li><li><a href="/th/faq/03-baggage-rules.html">03 · Baggage Rules</a></li><li><a href="/th/faq/04-flight-changes.html">04 · Flight Changes & Cancellations</a></li><li><a href="/th/faq/05-codeshare-stopover.html">05 · Booking Types</a></li><li><a href="/th/faq/06-frequent-flyer.html">06 · Frequent Flyer</a></li><li><a href="/th/faq/07-charter-overbooking.html">07 · Charter Flights & Overbooking</a></li><li><a href="/th/faq/08-online-checkin.html">08 · Online Check-in</a></li><li><a href="/th/faq/09-montreal-eu261.html">09 · Montreal Convention & EU261</a></li><li><a href="/th/faq/10-saf-future.html">10 · Sustainable Aviation Fuel</a></li></ul><p style="margin-top:12px"><a href="/th/faq/landing.html">Back to FAQ Overview</a></p></section>
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
 
     </article>
