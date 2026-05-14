@@ -42,6 +42,16 @@
   }
   </script>
 
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"พาสปอร์ตต้องเหลืออายุกี่เดือนก่อนเดินทาง?","acceptedAnswer":{"@type":"Answer","text":"พาสปอร์ตต้องมีอายุเหลืออย่างน้อย 6 เดือนนับจากวันเดินทางกลับ ไม่ใช่วันออกเดินทาง ถ้ากลับวันที่ 20 มีนาคม พาสปอร์ตต้องหมดอายุไม่ก่อนวันที่ 20 กันยายน"}},
+      {"@type":"Question","name":"พาสปอร์ตต้องมีหน้าว่างกี่หน้า?","acceptedAnswer":{"@type":"Answer","text":"ส่วนใหญ่ต้องการหน้าว่างอย่างน้อย 2 หน้าเต็มสำหรับตราประทับ ถ้าพาสปอร์ตเต็มอาจถูกปฏิเสธขึ้นเครื่องแม้ยังไม่หมดอายุ"}},
+      {"@type":"Question","name":"ต้องใช้ Transit Visa ไหมถ้าไม่ออกจากสนามบิน?","acceptedAnswer":{"@type":"Answer","text":"ใช่ สำหรับบางประเทศ สหรัฐฯ อังกฤษ ออสเตรเลีย และอีกหลายประเทศบังคับใช้ Transit Visa แม้ต่อเครื่องภายในสนามบิน ตรวจสอบผ่าน IATA Timatic ก่อนจองตั๋วทุกครั้ง"}},
+      {"@type":"Question","name":"ทำไมชื่อบนตั๋วต้องตรงกับพาสปอร์ตทุกตัวอักษร?","acceptedAnswer":{"@type":"Answer","text":"สายการบินตรวจสอบชื่อกับ MRZ (Machine Readable Zone) ขณะเช็คอิน แม้ผิดแค่ตัวเดียวอาจถูกปฏิเสธขึ้นเครื่องได้ ควรกรอกชื่อจากบรรทัด MRZ ด้านล่างหน้ารูปถ่ายพาสปอร์ตเสมอ"}},
+      {"@type":"Question","name":"อะไรทำให้พาสปอร์ตถูกปฏิเสธที่สนามบิน?","acceptedAnswer":{"@type":"Answer","text":"รอยน้ำหรือความชื้น ลามิเนตลอกที่หน้ารูปถ่าย ตราประทับที่ไม่ใช่ของทางการ หรือรอยฉีกขาด เจ้าหน้าที่มีสิทธิ์ปฏิเสธพาสปอร์ตที่ดูเหมือนถูกดัดแปลงแม้จะยังใช้ได้ในทางเทคนิค"}}
+    ]}
+  </script>
+
   <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">
   {
@@ -255,6 +265,16 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
+    /* KEY TAKEAWAY */
+    .key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+    .kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+    .kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+    .kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+    .kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+    @media(max-width:600px){.kt-items{grid-template-columns:1fr}}
+
 /* ?? ARTICLE CONTENT STYLES ?? */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
@@ -435,6 +455,17 @@
 
       <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
       <!-- SECTION 1: WHY IT MATTERS -->
+      <!-- KEY TAKEAWAY -->
+      <div class="key-takeaway">
+        <div class="kt-label"><i class="fas fa-bolt"></i> สรุปสิ่งสำคัญ — อ่านใน 30 วินาที</div>
+        <div class="kt-items">
+          <div class="kt-item"><span class="kt-icon">📅</span><div class="kt-text"><strong>กฎ 6 เดือนนับจากวันกลับ ไม่ใช่วันไป</strong><span>ความผิดพลาดข้อเดียวนี้ทำให้ผู้โดยสารหลายพันคนต่อปีถูกปฏิเสธขึ้นเครื่อง</span></div></div>
+          <div class="kt-item"><span class="kt-icon">📄</span><div class="kt-text"><strong>ต้องมีหน้าว่างอย่างน้อย 2 หน้าเต็ม</strong><span>แม้พาสปอร์ตยังไม่หมดอายุ ถ้าไม่มีหน้าว่างก็ถูกปฏิเสธได้</span></div></div>
+          <div class="kt-item"><span class="kt-icon">🔢</span><div class="kt-text"><strong>กรอกชื่อตั๋วตาม MRZ ทุกตัวอักษร</strong><span>ดูจากบรรทัด Machine Readable Zone ด้านล่างหน้ารูปถ่าย ไม่ใช่ชื่อที่พิมพ์บนพาสปอร์ต</span></div></div>
+          <div class="kt-item"><span class="kt-icon">🛂</span><div class="kt-text"><strong>Transit Visa บังคับแม้ไม่ออกสนามบิน</strong><span>สหรัฐฯ อังกฤษ ออสเตรเลีย — ไม่มีข้อยกเว้นแม้ต่อเครื่องภายในสนามบิน</span></div></div>
+        </div>
+      </div>
+
     <h2 id="why-matters">ทำไมเรื่องนี้สำคัญกว่าที่คุณคิด</h2>
 
     <p>มีคนจำนวนมากที่วางแผนทริปมาเป็นเดือน จ่ายเงินค่าตั๋ว ค่าโรงแรม ค่าวีซ่า รวมกันหลายหมื่นบาท แล้วพบว่าตัวเองถูกหยุดอยู่ที่เคาน์เตอร์เช็คอิน — ไม่ใช่เพราะไม่มีวีซ่า แต่เพราะ <strong>พาสปอร์ตเหลืออายุไม่ครบ 6 เดือน</strong> จากวันเดินทางกลับ</p>
