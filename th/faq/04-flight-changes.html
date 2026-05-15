@@ -255,7 +255,17 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
-/* ?? ARTICLE CONTENT STYLES ?? */
+    /* KEY TAKEAWAY */
+    .key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+    .kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+    .kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+    .kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+    .kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+    @media(max-width:600px){.kt-items{grid-template-columns:1fr}}
+
+/* ARTICLE CONTENT STYLES */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
 .box p,.box ul{margin:0;font-size:14px}
@@ -434,6 +444,36 @@
     <article class="article-body">
 
 <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
+      <div class="key-takeaway">
+        <div class="kt-label"><i class="fas fa-bolt"></i>
+          สรุปสิ่งสำคัญ — อ่านใน 30 วินาที</div>
+        <div class="kt-items">
+          <div class="kt-item"><span class="kt-icon">🎫</span>
+            <div class="kt-text">
+              <strong>ตั๋ว Basic Economy = เปลี่ยนไม่ได้ คืนเงินไม่ได้</strong>
+              <span>อ่านเงื่อนไขก่อนซื้อทุกครั้ง</span>
+            </div>
+          </div>
+          <div class="kt-item"><span class="kt-icon">💶</span>
+            <div class="kt-text">
+              <strong>EU261 จ่ายสูงสุด 600 ยูโร ดีเลย์เกิน 3 ชม.</strong>
+              <span>ผู้โดยสารหลายล้านคนที่มีสิทธิ์ไม่เคยยื่นเรื่อง</span>
+            </div>
+          </div>
+          <div class="kt-item"><span class="kt-icon">🧾</span>
+            <div class="kt-text">
+              <strong>เก็บ Boarding Pass และใบเสร็จทุกใบ</strong>
+              <span>ไม่มีหลักฐาน เรียกร้องยาก</span>
+            </div>
+          </div>
+          <div class="kt-item"><span class="kt-icon">⏰</span>
+            <div class="kt-text">
+              <strong>สายการบิน US: ยกเลิกฟรีใน 24 ชม.</strong>
+              <span>กฎ DOT ใช้ได้ทุกประเภทตั๋ว จองล่วงหน้า 7+ วัน</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <h2 id="fc-intro">เมื่อแผนเดินทางเปลี่ยนกะทันหัน — รู้สิทธิก่อนโทรหาสายการบิน</h2>
       <p>ปีที่แล้วสายการบินทั่วโลกจ่ายค่าชดเชยให้ผู้โดยสารรวมกว่า 7 พันล้านดอลลาร์ แต่ผู้โดยสารอีกนับล้านคนที่ควรได้รับไม่ได้ยื่นเรื่อง — เพราะไม่รู้ว่าตัวเองมีสิทธิ</p>
 
@@ -476,13 +516,6 @@
         <li><p><strong>Step 3:</strong> ถ้าสายการบินปฏิเสธ → ยื่นกับหน่วยงานกำกับดูแลของประเทศที่สายการบินจดทะเบียน</p></li>
       </ol>
       <p>→ <strong>อ่านต่อ:</strong> <a href="/th/faq/09-montreal-eu261.html">Montreal Convention &amp; EU261 (ฉบับเต็ม)</a></p>
-<div class="nav-prevnext" style="margin-top:28px;padding-top:16px;border-top:1px solid #e9ecef;background:transparent">
-      <div class="nav-prevnext-inner" style="max-width:none;padding:0">
-        <a href="/th/faq/03-baggage-rules.html"><i class="fas fa-arrow-left"></i> 03 — Baggage Rules</a>
-        <a href="/th/faq/landing.html" class="back-toc"><i class="fas fa-th-large"></i> สารบัญ</a>
-        <a href="/th/faq/05-codeshare-stopover.html">05 — Codeshare <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
 
     </article>
