@@ -255,7 +255,33 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
-/* ?? ARTICLE CONTENT STYLES ?? */
+
+    .key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+    .kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+    .kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+    .kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+    .kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+    @media(max-width:600px){.kt-items{grid-template-columns:1fr}}
+
+    .checkin-timeline{margin:20px 0}
+    .checkin-timeline .tl-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+    .checkin-timeline .tl-dot{width:40px;height:40px;min-width:40px;background:#0056B3;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-align:center;line-height:1.2}
+    .checkin-timeline .tl-time{font-size:11px;color:#6b7280;margin-bottom:2px}
+    .checkin-timeline .tl-title{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+    .checkin-timeline .tl-desc{font-size:13px;color:#6b7280}
+    .checkin-timeline .tl-body{flex:1}
+
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+    .benefit-card{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center}
+    .benefit-icon{font-size:24px;margin-bottom:8px}
+    .benefit-title{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+    .benefit-desc{font-size:12px;color:#6b7280;line-height:1.4}
+    @media(max-width:768px){.benefits-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.benefits-grid{grid-template-columns:1fr}}
+
+/* ARTICLE CONTENT STYLES */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
 .box p,.box ul{margin:0;font-size:14px}
@@ -433,174 +459,68 @@
   <main>
     <article class="article-body">
 
+
       <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
-      <div class="why-box">
-    <div class="label">⚡ Why This Matters</div>
-    <p>ผู้โดยสารที่ไม่เช็คอินออนไลน์เสี่ยงหลายอย่างพร้อมกัน ทั้งถูก bump เมื่อ overbooking, ได้ที่นั่งแย่ที่สุด, เสียเวลาคิวยาวที่สนามบิน และพลาดการตรวจข้อมูลที่อาจมีข้อผิดพลาดเล็ก ๆ ที่กลายเป็นปัญหาใหญ่ที่ด่านตรวจ</p>
-  </div>
+<div class="key-takeaway"><div class="kt-label"><i class="fas fa-bolt"></i> สรุปสำคัญ — อ่านใน 30 วินาที</div><div class="kt-items"><div class="kt-item"><span class="kt-icon">⏰</span><div class="kt-text"><strong>เช็คอินออนไลน์ทันทีที่ระบบเปิด</strong><span>อย่ารอจนถึงวันเดินทาง ที่นั่งดีถูกจองหมดก่อน</span></div></div><div class="kt-item"><span class="kt-icon">🛡️</span><div class="kt-text"><strong>เช็คอินแล้วป้องกันถูก Bump</strong><span>ผู้ที่มี boarding pass ได้รับการคุ้มครองก่อนในกรณี overbooking</span></div></div><div class="kt-item"><span class="kt-icon">🔍</span><div class="kt-text"><strong>ตรวจชื่อตรงกับพาสปอร์ตทุกตัวอักษร</strong><span>ข้อผิดพลาดพบได้ตอนนี้ก่อนถึงสนามบิน</span></div></div><div class="kt-item"><span class="kt-icon">📱</span><div class="kt-text"><strong>บันทึก boarding pass ใน wallet + ภาพหน้าจอสำรอง</strong><span>ป้องกันปัญหาสัญญาณอินเทอร์เน็ต</span></div></div></div></div>
+<div class="box box-tip"><span class="box-icon">⚡</span><div><strong>ทำไมต้องอ่านเรื่องนี้</strong><p>ผู้โดยสารที่ไม่เช็คอินออนไลน์เสี่ยงหลายอย่างพร้อมกัน ทั้งถูก bump เมื่อ overbooking, ได้ที่นั่งแย่ที่สุด, เสียเวลาคิวยาวที่สนามบิน และพลาดการตรวจข้อมูลที่อาจมีข้อผิดพลาดเล็ก ๆ ที่กลายเป็นปัญหาใหญ่ที่ด่านตรวจ</p></div></div>
 
-  <h2>ระบบเช็คอินออนไลน์ทำงานอย่างไร</h2>
+      <h2 id="how">ระบบเช็คอินออนไลน์ทำงานอย่างไร</h2>
+      <p>เช็คอินออนไลน์คือกระบวนการที่ผู้โดยสารยืนยันการเดินทางล่วงหน้าผ่านเว็บไซต์หรือแอปของสายการบิน โดยไม่ต้องไปทำที่เคาน์เตอร์สนามบิน ผลลัพธ์คือ boarding pass ดิจิตอลที่ใช้ขึ้นเครื่องได้โดยตรง</p>
 
-  <p>เช็คอินออนไลน์คือกระบวนการที่ผู้โดยสารยืนยันการเดินทางล่วงหน้าผ่านเว็บไซต์หรือแอปของสายการบิน โดยไม่ต้องไปทำที่เคาน์เตอร์สนามบิน ผลลัพธ์คือ boarding pass ดิจิตอลที่ใช้ขึ้นเครื่องได้โดยตรง</p>
-
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-dot">48h</div>
-      <div class="tl-content">
-        <div class="tl-time">48 ชั่วโมงก่อนบิน</div>
-        <div class="tl-title">ระบบเช็คอินเปิด (บางสายการบิน)</div>
-        <div class="tl-desc">สายการบินเช่น Ryanair และบางเส้นทางของ Lufthansa เปิดเร็วกว่า 24 ชั่วโมง ได้ที่นั่งเลือกก่อนใครถ้าเข้าตอนนี้</div>
+      <div class="checkin-timeline">
+        <div class="tl-item">
+          <div class="tl-dot">48h</div>
+          <div class="tl-body">
+            <div class="tl-time">48 ชั่วโมงก่อนบิน</div>
+            <div class="tl-title">ระบบเช็คอินเปิด (บางสายการบิน)</div>
+            <div class="tl-desc">สายการบินเช่น Ryanair และบางเส้นทางของ Lufthansa เปิดเร็วกว่า 24 ชั่วโมง ได้ที่นั่งเลือกก่อนใครถ้าเข้าตอนนี้</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">24h</div>
+          <div class="tl-body">
+            <div class="tl-time">24 ชั่วโมงก่อนบิน</div>
+            <div class="tl-title">ระบบเปิดสำหรับสายการบินส่วนใหญ่</div>
+            <div class="tl-desc">นี่คือช่วงที่ดีที่สุดสำหรับการเลือกที่นั่ง โดยเฉพาะที่นั่งริมหน้าต่างหรือแถวทางออกฉุกเฉิน</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">3h</div>
+          <div class="tl-body">
+            <div class="tl-time">3 ชั่วโมงก่อนบิน</div>
+            <div class="tl-title">เช็คอินออนไลน์ปิด</div>
+            <div class="tl-desc">หลังจากนี้ต้องทำที่เคาน์เตอร์สนามบินเท่านั้น ที่นั่งที่เหลือจะเป็นสิ่งที่ระบบ assign ให้</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot">24h</div>
-      <div class="tl-content">
-        <div class="tl-time">24 ชั่วโมงก่อนบิน</div>
-        <div class="tl-title">ระบบเปิดสำหรับสายการบินส่วนใหญ่</div>
-        <div class="tl-desc">นี่คือช่วงที่ดีที่สุดสำหรับการเลือกที่นั่ง โดยเฉพาะที่นั่งริมหน้าต่างหรือแถวทางออกฉุกเฉิน</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot">3h</div>
-      <div class="tl-content">
-        <div class="tl-time">3 ชั่วโมงก่อนบิน</div>
-        <div class="tl-title">เช็คอินออนไลน์ปิด</div>
-        <div class="tl-desc">หลังจากนี้ต้องทำที่เคาน์เตอร์สนามบินเท่านั้น ที่นั่งที่เหลือจะเป็นสิ่งที่ระบบ assign ให้</div>
-      </div>
-    </div>
-  </div>
 
-  <h2>ประโยชน์ที่หลายคนมองข้าม</h2>
+      <h2 id="benefits">ประโยชน์ที่หลายคนมองข้าม</h2>
+      <div class="benefits-grid"><div class="benefit-card"><div class="benefit-icon">💺</div><div class="benefit-title">เลือกที่นั่งได้</div><div class="benefit-desc">ที่นั่งดีที่สุดถูกจองไปก่อนเสมอ ยิ่งเช็คอินเร็วยิ่งเลือกได้มาก</div></div><div class="benefit-card"><div class="benefit-icon">🛡️</div><div class="benefit-title">ป้องกันถูก Bump</div><div class="benefit-desc">ผู้ที่เช็คอินแล้วมี boarding pass มักได้รับความคุ้มครองก่อนในกรณี overbooking</div></div><div class="benefit-card"><div class="benefit-icon">🔍</div><div class="benefit-title">ตรวจสอบข้อมูล</div><div class="benefit-desc">ชื่อ เที่ยวบิน วันที่ สนามบิน — ข้อผิดพลาดพบได้ตรงนี้ก่อนเดินทาง</div></div><div class="benefit-card"><div class="benefit-icon">⚡</div><div class="benefit-title">ผ่านสนามบินเร็ว</div><div class="benefit-desc">ตรงไปฝากกระเป๋า (ถ้ามี) หรือตรงสู่ด่านตรวจได้เลย ไม่ต้องรอคิวเช็คอิน</div></div><div class="benefit-card"><div class="benefit-icon">📊</div><div class="benefit-title">เห็นข้อมูลเที่ยวบิน</div><div class="benefit-desc">ประตูขึ้นเครื่อง เวลาออกเดินทาง ชื่อเที่ยวบินจริง — ทั้งหมดปรากฏล่วงหน้า</div></div><div class="benefit-card"><div class="benefit-icon">📱</div><div class="benefit-title">Boarding pass ดิจิตอล</div><div class="benefit-desc">เก็บใน Apple Wallet / Google Pay ไม่ต้องพิมพ์ ไม่เสี่ยงหาย</div></div></div>
 
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <div class="benefit-icon">💺</div>
-      <div class="benefit-title">เลือกที่นั่งได้</div>
-      <div class="benefit-desc">ที่นั่งดีที่สุดถูกจองไปก่อนเสมอ ยิ่งเช็คอินเร็วยิ่งเลือกได้มาก</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">🛡️</div>
-      <div class="benefit-title">ป้องกันถูก Bump</div>
-      <div class="benefit-desc">ผู้ที่เช็คอินแล้วมี boarding pass มักได้รับความคุ้มครองก่อนในกรณี overbooking</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">🔍</div>
-      <div class="benefit-title">ตรวจสอบข้อมูล</div>
-      <div class="benefit-desc">ชื่อ เที่ยวบิน วันที่ สนามบิน — ข้อผิดพลาดพบได้ตรงนี้ก่อนเดินทาง</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">⚡</div>
-      <div class="benefit-title">ผ่านสนามบินเร็ว</div>
-      <div class="benefit-desc">ตรงไปฝากกระเป๋า (ถ้ามี) หรือตรงสู่ด่านตรวจได้เลย ไม่ต้องรอคิวเช็คอิน</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">📊</div>
-      <div class="benefit-title">เห็นข้อมูลเที่ยวบิน</div>
-      <div class="benefit-desc">ประตูขึ้นเครื่อง เวลาออกเดินทาง ชื่อเที่ยวบินจริง — ทั้งหมดปรากฏล่วงหน้า</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">📱</div>
-      <div class="benefit-title">Boarding pass ดิจิตอล</div>
-      <div class="benefit-desc">เก็บใน Apple Wallet / Google Pay ไม่ต้องพิมพ์ ไม่เสี่ยงหาย</div>
-    </div>
-  </div>
+<div class="scenario"><div class="scenario-label">กรณีจริง</div><h4>ชื่อบน Boarding Pass สะกดผิด — พบตอนเช็คอินออนไลน์ ไม่ใช่ที่สนามบิน</h4><p>คุณ G จองตั๋วผ่านเว็บ OTA ชื่อบนตั๋วถูก auto-fill มาจากฟอร์มที่ไม่มีช่องชื่อกลาง ทำให้ชื่อบนตั๋วไม่ตรงกับพาสปอร์ตอย่างสมบูรณ์</p><p>เมื่อเช็คอินออนไลน์ 24 ชั่วโมงก่อนบิน คุณ G พบความไม่สอดคล้องและติดต่อสายการบินทันที สายการบินแก้ไขได้ภายในเวลาหนึ่งชั่วโมง</p><p>ถ้าพบที่สนามบินแทน อาจต้องจ่ายค่าธรรมเนียมแก้ชื่อหลักร้อยถึงหลักพัน หรือในกรณีร้ายแรง อาจขึ้นเครื่องไม่ได้</p><p><strong>บทเรียน:</strong> เช็คอินออนไลน์ไม่ใช่แค่ความสะดวก แต่คือด่านตรวจสอบข้อมูลที่สำคัญที่สุด</p></div>
 
-  <div class="scenario">
-    <div class="s-label">🎬 Real-World Scenario</div>
-    <div class="s-title">ชื่อบน Boarding Pass สะกดผิด — พบตอนเช็คอินออนไลน์ ไม่ใช่ที่สนามบิน</div>
-    <p>คุณ G จองตั๋วผ่านเว็บ OTA ชื่อบนตั๋วถูก auto-fill มาจากฟอร์มที่ไม่มีช่องชื่อกลาง ทำให้ชื่อบนตั๋วไม่ตรงกับพาสปอร์ตอย่างสมบูรณ์</p>
-    <p>เมื่อเช็คอินออนไลน์ 24 ชั่วโมงก่อนบิน คุณ G พบความไม่สอดคล้องและติดต่อสายการบินทันที สายการบินแก้ไขได้ภายในเวลาหนึ่งชั่วโมง</p>
-    <p>ถ้าพบที่สนามบินแทน อาจต้องจ่ายค่าธรรมเนียมแก้ชื่อหลักร้อยถึงหลักพัน หรือในกรณีร้ายแรง อาจขึ้นเครื่องไม่ได้</p>
-    <p><strong>บทเรียน:</strong> เช็คอินออนไลน์ไม่ใช่แค่ความสะดวก แต่คือด่านตรวจสอบข้อมูลที่สำคัญที่สุด</p>
-  </div>
+      <h3>ข้อควรระวัง: เช็คอินแล้วแต่ยังไม่พร้อมขึ้นเครื่อง 100%</h3>
+      <p>การเช็คอินออนไลน์สำเร็จไม่ได้แปลว่าคุณผ่านทุกด่านแล้ว ยังมีสิ่งที่ต้องผ่านที่สนามบินอยู่ดี</p>
+<div class="box box-warn"><span class="box-icon">⚠️</span><div><strong>สิ่งที่ยังต้องทำที่สนามบินแม้เช็คอินออนไลน์แล้ว</strong><p>ฝากกระเป๋า (ถ้ามีกระเป๋าโหลด) · ผ่านด่านตรวจหนังสือเดินทาง · ผ่านด่านความปลอดภัย · แสดงวีซ่าหรือเอกสารเพิ่มเติม · ผ่านด่านตรวจของประเทศปลายทาง (บางเส้นทาง)</p></div></div>
 
-  <h3>ข้อควรระวัง: เช็คอินแล้วแต่ยังไม่พร้อมขึ้นเครื่อง 100%</h3>
+<div class="box box-insider"><span class="box-icon">🔍</span><div><strong>เคล็ดลับภายใน: เช็คอินออนไลน์ที่นักเดินทางบ่อยใช้</strong><ul><li><strong>ตั้ง alert ที่เวลาเปิดเช็คอิน</strong> — ถ้าเที่ยวบินบินตอน 14:00 วันพรุ่งนี้ ตั้งนาฬิกาไว้เวลา 14:01 วันนี้ เข้าระบบทันทีที่เปิด</li><li><strong>ที่นั่งแถวทางออกฉุกเฉิน</strong> มักปล่อยให้เลือกได้ตอนเช็คอินออนไลน์ แต่บางสายการบินคิดค่าใช้จ่ายเพิ่ม</li><li><strong>บันทึก boarding pass สองที่</strong> — ใน wallet app และภาพหน้าจอในโทรศัพท์ รับมือสัญญาณอินเทอร์เน็ตไม่เสถียรที่สนามบิน</li><li><strong>เช็คชื่อตรงกับพาสปอร์ตทุกตัวอักษร</strong> รวมถึงเครื่องหมายขีดและสระ</li><li><strong>บางสนามบินรับ digital boarding pass ไม่ได้</strong> ในบางประเทศยังต้องพิมพ์ ตรวจก่อนเดินทางเสมอ</li></ul></div></div>
 
-  <p>การเช็คอินออนไลน์สำเร็จไม่ได้แปลว่าคุณผ่านทุกด่านแล้ว ยังมีสิ่งที่ต้องผ่านที่สนามบินอยู่ดี</p>
+      <a href="/th/faq/landing.html" class="internal-link">
+        <span class="il-icon"><i class="fas fa-th-large"></i></span>
+        <span class="il-text"><strong>กลับสู่คลังความรู้</strong><span>ดูคำถามทั้ง 15 หัวข้อก่อนบิน</span></span>
+        <span class="il-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
 
-  <div class="warning">
-    <strong>⚠️ สิ่งที่ยังต้องทำที่สนามบินแม้เช็คอินออนไลน์แล้ว:</strong><br>
-    ฝากกระเป๋า (ถ้ามีกระเป๋าโหลด) · ผ่านด่านตรวจหนังสือเดินทาง · ผ่านด่านความปลอดภัย · แสดงวีซ่าหรือเอกสารเพิ่มเติม · ผ่านด่านตรวจของประเทศปลายทาง (บางเส้นทาง)
-  </div>
+      <h2>คำถามที่พบบ่อย: Online Check-in</h2>
+      <h3>เช็คอินออนไลน์แล้วยังต้องไปเคาน์เตอร์ไหม?</h3>
+      <p>ถ้าไม่มีกระเป๋าโหลด ไม่ต้องไปเคาน์เตอร์ ไปตรงด่านตรวจความปลอดภัยได้เลย แต่ถ้ามีกระเป๋าโหลด ต้องไปฝากกระเป๋าที่จุด bag drop ซึ่งเร็วกว่าเคาน์เตอร์เช็คอินปกติมาก</p>
+      <h3>ถ้าโทรศัพท์หมดแบต boarding pass ดิจิตอลยังใช้ได้ไหม?</h3>
+      <p>ไม่ได้ถ้าโทรศัพท์ดับ ดังนั้นควรสำรองไว้หลายทาง เช่น ภาพหน้าจอในโทรศัพท์อีกเครื่อง พิมพ์กระดาษสำรอง หรือใช้ลิงก์ email boarding pass ที่เข้าถึงจาก cache ได้แม้ไม่มีอินเทอร์เน็ต</p>
+      <h3>เช็คอินออนไลน์ได้กี่ชั่วโมงก่อนบิน?</h3>
+      <p>ขึ้นอยู่กับสายการบิน ส่วนใหญ่เปิด 24–48 ชั่วโมงก่อนเวลาบิน และปิดประมาณ 1–3 ชั่วโมงก่อนบิน ควรตรวจสอบกับสายการบินที่ใช้โดยตรง</p>
 
-  <div class="insider">
-    <div class="i-label">🔍 Insider Secret</div>
-    <h3>เทคนิคเช็คอินออนไลน์ที่นักเดินทางบ่อยใช้</h3>
-    <ul>
-      <li><strong>ตั้ง alert ที่เวลาเปิดเช็คอิน</strong> — ถ้าเที่ยวบินบินตอน 14:00 วันพรุ่งนี้ ตั้งนาฬิกาไว้เวลา 14:01 วันนี้ เข้าระบบทันทีที่เปิด</li>
-      <li><strong>ที่นั่งแถวทางออกฉุกเฉิน</strong> มักปล่อยให้เลือกได้ตอนเช็คอินออนไลน์ แต่บางสายการบินคิดค่าใช้จ่ายเพิ่ม</li>
-      <li><strong>บันทึก boarding pass สองที่</strong> — ใน wallet app และภาพหน้าจอในโทรศัพท์ รับมือสัญญาณอินเทอร์เน็ตไม่เสถียรที่สนามบิน</li>
-      <li><strong>เช็คชื่อตรงกับพาสปอร์ตทุกตัวอักษร</strong> รวมถึงเครื่องหมายขีดและสระ</li>
-      <li><strong>บางสนามบินรับ digital boarding pass ไม่ได้</strong> ในบางประเทศยังต้องพิมพ์ ตรวจก่อนเดินทางเสมอ</li>
-    </ul>
-  </div>
+<div class="pro-tips"><p class="pro-tips-title">เช็กลิสต์โปร: Online Check-in</p><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>เช็คอินออนไลน์ทันทีที่ระบบเปิด</strong><span>อย่ารอจนถึงวันเดินทาง</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>ตรวจสอบชื่อบน boarding pass</strong><span>ให้ตรงกับพาสปอร์ตทุกตัวอักษรก่อนยืนยัน</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>บันทึก boarding pass สำรอง</strong><span>ทั้งใน wallet app และเป็นภาพหน้าจอ</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>ตรวจเที่ยวบิน ประตู สนามบิน</strong><span>อีกครั้งบน boarding pass</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>มาถึงสนามบินก่อนเวลา</strong><span>แม้เช็คอินแล้ว ยังต้องผ่านด่านตรวจทุกด่าน</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>ตรวจว่าสนามบินปลายทางรับ digital pass</strong><span>บางประเทศยังต้องพิมพ์</span></div></div></div>
 
-  <a href="/th/faq/landing.html" class="cta-link">
-    <div class="cta-icon">📋</div>
-    <div class="cta-text">
-      <div class="cta-label">กลับสู่คู่มือหลัก</div>
-      <strong>ดูคำถามทั้ง 10 หัวข้อเกี่ยวกับการบิน →</strong>
-    </div>
-  </a>
-
-  <div class="faq-section">
-    <h2>คำถามที่พบบ่อย: Online Check-in</h2>
-    <div class="faq-item">
-      <div class="faq-q">เช็คอินออนไลน์แล้วยังต้องไปเคาน์เตอร์ไหม?</div>
-      <div class="faq-a">ถ้าไม่มีกระเป๋าโหลด ไม่ต้องไปเคาน์เตอร์ ไปตรงด่านตรวจความปลอดภัยได้เลย แต่ถ้ามีกระเป๋าโหลด ต้องไปฝากกระเป๋าที่จุด bag drop ซึ่งเร็วกว่าเคาน์เตอร์เช็คอินปกติมาก</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">ถ้าโทรศัพท์หมดแบต boarding pass ดิจิตอลยังใช้ได้ไหม?</div>
-      <div class="faq-a">ไม่ได้ถ้าโทรศัพท์ดับ ดังนั้นควรสำรองไว้หลายทาง เช่น ภาพหน้าจอในโทรศัพท์อีกเครื่อง พิมพ์กระดาษสำรอง หรือใช้ลิงก์ email boarding pass ที่เข้าถึงจาก cache ได้แม้ไม่มีอินเทอร์เน็ต</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">เช็คอินออนไลน์ได้กี่ชั่วโมงก่อนบิน?</div>
-      <div class="faq-a">ขึ้นอยู่กับสายการบิน ส่วนใหญ่เปิด 24–48 ชั่วโมงก่อนเวลาบิน และปิดประมาณ 1–3 ชั่วโมงก่อนบิน ควรตรวจสอบกับสายการบินที่ใช้โดยตรง</div>
-    </div>
-  </div>
-
-  <div class="pro-tips">
-    <h2>✅ Pro-Tips Checklist: Online Check-in</h2>
-    <ul>
-      <li><span class="check">✓</span><span>เช็คอินออนไลน์ทันทีที่ระบบเปิด อย่ารอจนถึงวันเดินทาง</span></li>
-      <li><span class="check">✓</span><span>ตรวจสอบชื่อบน boarding pass ให้ตรงกับพาสปอร์ตทุกตัวอักษรก่อนยืนยัน</span></li>
-      <li><span class="check">✓</span><span>บันทึก boarding pass ทั้งใน wallet app และเป็นภาพหน้าจอสำรอง</span></li>
-      <li><span class="check">✓</span><span>ตรวจเที่ยวบิน เวลา ประตู และสนามบินอีกครั้งบน boarding pass</span></li>
-      <li><span class="check">✓</span><span>แม้เช็คอินแล้ว ยังต้องมาถึงสนามบินก่อนเวลาและผ่านด่านตรวจทุกด่าน</span></li>
-      <li><span class="check">✓</span><span>ตรวจว่าสนามบินปลายทางรับ digital boarding pass หรือต้องพิมพ์</span></li>
-    </ul>
-  </div>
-
-  <div class="schema-note">
-    <strong>📄 FAQPage JSON-LD Schema</strong>
-    <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "เช็คอินออนไลน์แล้วยังต้องไปเคาน์เตอร์ไหม?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ถ้าไม่มีกระเป๋าโหลด ไม่ต้องไปเคาน์เตอร์ ไปตรงด่านตรวจความปลอดภัยได้เลย แต่ถ้ามีกระเป๋าโหลด ต้องไปฝากกระเป๋าที่จุด bag drop"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "เช็คอินออนไลน์ได้กี่ชั่วโมงก่อนบิน?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ส่วนใหญ่เปิด 24–48 ชั่วโมงก่อนเวลาบิน และปิดประมาณ 1–3 ชั่วโมงก่อนบิน"
-      }
-    }
-  ]
-}</code></pre>
-  </div>
-
-
-<section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/01-passport-visa.html">01 · Passport & Visa Bible</a></li><li><a href="/th/faq/02-connection-time.html">02 · Time Traps & Connection Flights</a></li><li><a href="/th/faq/03-baggage-rules.html">03 · Baggage Rules</a></li><li><a href="/th/faq/04-flight-changes.html">04 · Flight Changes & Cancellations</a></li><li><a href="/th/faq/05-codeshare-stopover.html">05 · Booking Types</a></li><li><a href="/th/faq/06-frequent-flyer.html">06 · Frequent Flyer</a></li><li><a href="/th/faq/07-charter-overbooking.html">07 · Charter Flights & Overbooking</a></li><li><strong>08 · Online Check-in</strong></li><li><a href="/th/faq/09-montreal-eu261.html">09 · Montreal Convention & EU261</a></li><li><a href="/th/faq/10-saf-future.html">10 · Sustainable Aviation Fuel</a></li></ul><p style="margin-top:12px"><a href="/th/faq/landing.html">Back to FAQ Overview</a></p></section>
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
 
     </article>

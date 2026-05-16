@@ -255,7 +255,24 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
-/* ?? ARTICLE CONTENT STYLES ?? */
+
+    .key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+    .kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+    .kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+    .kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+    .kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+    @media(max-width:600px){.kt-items{grid-template-columns:1fr}}
+
+    .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+    .comp-card{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:10px;padding:18px}
+    .comp-card h3{font-size:14px;font-weight:700;color:#0056B3;margin-bottom:10px}
+    .comp-card ul{margin:0 0 0 16px;padding:0;font-size:13.5px;color:#374151}
+    .comp-card ul li{margin-bottom:6px}
+    @media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+
+/* ARTICLE CONTENT STYLES */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
 .box p,.box ul{margin:0;font-size:14px}
@@ -433,156 +450,56 @@
   <main>
     <article class="article-body">
 
+
       <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
-      <div class="why-box">
-    <div class="label">⚡ Why This Matters</div>
-    <p>มีผู้โดยสารนับล้านคนต่อปีที่เจอประสบการณ์ถูก "bump" จากเที่ยวบิน — บางคนรู้สิทธิ์และได้รับเงินชดเชยหลักพัน บางคนยืนงงอยู่ที่สนามบินโดยไม่รู้ว่าตัวเองมีสิทธิ์อะไร</p>
-  </div>
+<div class="key-takeaway"><div class="kt-label"><i class="fas fa-bolt"></i> สรุปสำคัญ — อ่านใน 30 วินาที</div><div class="kt-items"><div class="kt-item"><span class="kt-icon">✈️</span><div class="kt-text"><strong>Charter flight ใช้กฎต่างจากเที่ยวบินปกติ</strong><span>มักขายผ่านทัวร์ — EU261 อาจใช้ต่างกัน</span></div></div><div class="kt-item"><span class="kt-icon">💶</span><div class="kt-text"><strong>Overbooking ถูกกฎหมาย แต่สิทธิคุณก็มี</strong><span>EU261 สูงสุด 600 ยูโร ถ้าถูก bump บนเที่ยวบิน EU</span></div></div><div class="kt-item"><span class="kt-icon">⏱️</span><div class="kt-text"><strong>เช็คอินออนไลน์คือการป้องกันหลัก</strong><span>เช็คอินช้าคือสาเหตุ #1 ที่ถูกเลือกให้ถูก bump</span></div></div><div class="kt-item"><span class="kt-icon">🗒️</span><div class="kt-text"><strong>ขอเงินสดก่อนรับ voucher เสมอ</strong><span>สายการบินมักจ่ายเงินสดถ้าถามตรงๆ</span></div></div></div></div>
+<div class="box box-tip"><span class="box-icon">⚡</span><div><strong>ทำไมต้องอ่านเรื่องนี้</strong><p>มีผู้โดยสารนับล้านคนต่อปีที่เจอประสบการณ์ถูก bump จากเที่ยวบิน — บางคนรู้สิทธิ์และได้รับเงินชดเชยหลักพัน บางคนยืนงงอยู่ที่สนามบินโดยไม่รู้ว่าตัวเองมีสิทธิ์อะไร</p></div></div>
 
-  <h2>Charter Flights — ไม่ใช่แค่เที่ยวบินพิเศษ</h2>
+      <h2 id="charter">Charter Flights — ไม่ใช่แค่เที่ยวบินพิเศษ</h2>
+      <p>Charter flight คือเที่ยวบินที่ถูก "เช่า" โดยองค์กรหนึ่ง ซึ่งอาจเป็นบริษัทจัดทัวร์ โรงแรม สายการบินอื่น หรือกลุ่มผู้โดยสาร เพื่อให้บริการตามเส้นทางหรือตารางเวลาที่ต้องการ แทนที่จะเป็นตารางบินประจำของสายการบิน</p>
 
-  <p>Charter flight คือเที่ยวบินที่ถูก "เช่า" โดยองค์กรหนึ่ง ซึ่งอาจเป็นบริษัทจัดทัวร์ โรงแรม สายการบินอื่น หรือกลุ่มผู้โดยสาร เพื่อให้บริการตามเส้นทางหรือตารางเวลาที่ต้องการ แทนที่จะเป็นตารางบินประจำของสายการบิน</p>
+      <div class="comparison-grid"><div class="comp-card"><h3>✈️ Charter Flight</h3><ul><li>ซื้อผ่านบริษัททัวร์/แพ็กเกจ</li><li>ตารางบินอาจเปลี่ยนได้มากกว่า</li><li>มักมีเส้นทางตามฤดูกาล</li><li>นโยบายคืนเงินแตกต่างกัน</li><li>บริการอาจแตกต่างจากมาตรฐาน</li></ul></div><div class="comp-card"><h3>🛫 Scheduled Flight</h3><ul><li>ซื้อตรงกับสายการบิน/OTA</li><li>ตารางบินคงที่และเผยแพร่สาธารณะ</li><li>เส้นทางประจำตลอดปี</li><li>นโยบายมาตรฐานชัดเจน</li><li>บริการตามมาตรฐานสายการบิน</li></ul></div></div>
 
-  <div class="compare-box">
-    <div class="compare-col charter">
-      <h3>✈️ Charter Flight</h3>
-      <ul>
-        <li>ซื้อผ่านบริษัททัวร์/แพ็กเกจ</li>
-        <li>ตารางบินอาจเปลี่ยนได้มากกว่า</li>
-        <li>มักมีเส้นทางตามฤดูกาล</li>
-        <li>นโยบายคืนเงินแตกต่างกัน</li>
-        <li>บริการอาจแตกต่างจากมาตรฐาน</li>
-      </ul>
-    </div>
-    <div class="compare-col scheduled">
-      <h3>🛫 Scheduled Flight</h3>
-      <ul>
-        <li>ซื้อตรงกับสายการบิน/OTA</li>
-        <li>ตารางบินคงที่และเผยแพร่สาธารณะ</li>
-        <li>เส้นทางประจำตลอดปี</li>
-        <li>นโยบายมาตรฐานชัดเจน</li>
-        <li>บริการตามมาตรฐานสายการบิน</li>
-      </ul>
-    </div>
-  </div>
+      <p>ข้อควรระวังสำคัญเมื่อเดินทางด้วย charter flight ที่รวมอยู่ในแพ็กเกจทัวร์คือ ในบางกรณี EU261 อาจไม่ครอบคลุมเต็มรูปแบบ ขึ้นอยู่กับโครงสร้างสัญญา นอกจากนี้นโยบายสัมภาระและการยกเลิกมักถูกกำหนดโดยผู้จัดทัวร์ ไม่ใช่สายการบินโดยตรง</p>
 
-  <p>ข้อควรระวังสำคัญเมื่อเดินทางด้วย charter flight ที่รวมอยู่ในแพ็กเกจทัวร์คือ ในบางกรณี EU261 อาจไม่ครอบคลุมเต็มรูปแบบ ขึ้นอยู่กับโครงสร้างสัญญา นอกจากนี้นโยบายสัมภาระและการยกเลิกมักถูกกำหนดโดยผู้จัดทัวร์ ไม่ใช่สายการบินโดยตรง</p>
+      <h2 id="overbooking">Overbooking — ทำไมสายการบินทำสิ่งนี้</h2>
+      <p>Overbooking ฟังดูเหมือนการทุจริต แต่จริง ๆ แล้วเป็นแนวปฏิบัติที่ถูกกฎหมายและเกิดขึ้นตามคณิตศาสตร์ของธุรกิจการบิน</p>
+      <p>โดยเฉลี่ยผู้โดยสาร 5–15% ที่จองตั๋วไว้จะไม่มาเช็คอิน (เรียกว่า no-show) สายการบินใช้ข้อมูลนี้ในการคำนวณว่าสามารถขายที่นั่งเกินได้กี่เปอร์เซ็นต์</p>
+      <h3>แต่เมื่อทุกคนมาพร้อมกัน</h3>
+      <p>ปัญหาเกิดขึ้นเมื่อจำนวนผู้โดยสารที่มาเช็คอินมากกว่าที่คาดการณ์ไว้ สายการบินต้องหาวิธีลดจำนวนผู้โดยสารลง ซึ่งโดยทั่วไปทำในสองขั้นตอน</p>
+      <p>ขั้นแรกคือ <strong>ขอผู้สมัครใจ</strong> — สายการบินจะประกาศขอผู้โดยสารที่ยินดีเลื่อนเที่ยวบินเพื่อแลกรับค่าชดเชย ขั้นที่สองคือ <strong>การ bump โดยไม่สมัครใจ</strong> ถ้าไม่มีผู้สมัครใจเพียงพอ</p>
 
-  <h2>Overbooking — ทำไมสายการบินทำสิ่งนี้</h2>
+<div class="box box-danger"><span class="box-icon">⚠️</span><div><strong>ใครเสี่ยงถูก bump มากที่สุด</strong><p>ผู้โดยสารที่เช็คอินช้า, ผู้ที่ซื้อตั๋วราคาถูกสุด, ผู้ที่ไม่มีสถานะสมาชิก และผู้ที่เดินทางคนเดียว</p></div></div>
 
-  <p>Overbooking ฟังดูเหมือนการทุจริต แต่จริง ๆ แล้วเป็นแนวปฏิบัติที่ถูกกฎหมายและเกิดขึ้นตามคณิตศาสตร์ของธุรกิจการบิน</p>
+<div class="scenario"><div class="scenario-label">กรณีจริง</div><h4>ถูก bump จากเที่ยวบิน Frankfurt–Bangkok — และได้ €600 กลับบ้าน</h4><p>คุณ F เช็คอินออนไลน์แล้ว แต่มาถึงประตูขึ้นเครื่องช้ากว่ากำหนด 15 นาที เจ้าหน้าที่บอกว่าที่นั่งถูก reassign ไปแล้วเพราะ overbooking</p><p>คุณ F รู้สิทธิ์ EU261 และไม่รับ voucher ทันที แต่ยืนยันขอรับการชดเชยเงินสดตามกฎหมาย เที่ยวบินนี้ระยะทางเกิน 3,500 กม. คุณ F จึงมีสิทธิ์ได้ €600 บวกกับค่าอาหารและที่พักระหว่างรอเที่ยวบินถัดไป</p><p><strong>บทเรียน:</strong> รู้สิทธิ์ก่อน ไม่รับ voucher โดยไม่ตรวจก่อน และขอเอกสารยืนยันจากสายการบินเสมอ</p></div>
 
-  <p>โดยเฉลี่ยผู้โดยสาร 5–15% ที่จองตั๋วไว้จะไม่มาเช็คอิน (เรียกว่า no-show) สายการบินใช้ข้อมูลนี้ในการคำนวณว่าสามารถขายที่นั่งเกินได้กี่เปอร์เซ็นต์ เพื่อให้เครื่องบินมีที่นั่งว่างน้อยที่สุด ซึ่งหมายถึงรายได้สูงสุดและต้นทุนต่อผู้โดยสารต่ำสุด</p>
+      <h3>วิธีป้องกันตัวเองจาก Overbooking</h3>
+      <ol class="steps">
+        <li><p>เช็คอินออนไลน์ทันทีที่ระบบเปิด (มักเปิด 24–48 ชั่วโมงก่อนบิน)</p></li>
+        <li><p>มาถึงสนามบินก่อนเวลาอย่างน้อย 2–3 ชั่วโมง</p></li>
+        <li><p>ซื้อตั๋วที่รวมการเลือกที่นั่งล่วงหน้า — คนที่มีที่นั่ง assigned มักถูก bump น้อยกว่า</p></li>
+        <li><p>สะสมสถานะสมาชิกกับสายการบิน — สมาชิกระดับสูงมักได้รับการคุ้มครองก่อน</p></li>
+        <li><p>ถ้าเที่ยวบินสำคัญมาก จองเที่ยวบินเช้า — เที่ยวบินช่วงดึกและบ่ายแก่มักมี overbooking สูงกว่า</p></li>
+      </ol>
 
-  <h3>แต่เมื่อทุกคนมาพร้อมกัน</h3>
+<div class="box box-insider"><span class="box-icon">🔍</span><div><strong>เคล็ดลับภายใน: ถ้าสมัครใจถูก Bump — ต่อรองได้</strong><ul><li>สายการบินมักเริ่มต้นเสนอ voucher ก้อนเล็ก ๆ อย่ารีบรับทันที</li><li>ถามว่ามีเที่ยวบินทดแทนที่เร็วที่สุดเมื่อไหร่ และจะมีที่พักให้ไหมถ้าต้องรอข้ามคืน</li><li>ถามว่าสามารถรับเงินสดแทน voucher ได้ไหม — หลายสายการบินอนุญาต</li><li>ถามว่าจะอัปเกรดให้ในเที่ยวบินถัดไปได้ไหม — บางครั้งได้</li><li>รับทุกอย่างเป็นลายลักษณ์อักษร ไม่รับแค่คำพูด</li></ul></div></div>
 
-  <p>ปัญหาเกิดขึ้นเมื่อจำนวนผู้โดยสารที่มาเช็คอินมากกว่าที่คาดการณ์ไว้ สายการบินต้องหาวิธีลดจำนวนผู้โดยสารลง ซึ่งโดยทั่วไปทำในสองขั้นตอน</p>
+      <a href="/th/faq/09-montreal-eu261.html" class="internal-link">
+        <span class="il-icon"><i class="fas fa-gavel"></i></span>
+        <span class="il-text"><strong>อ่านต่อ: Montreal & EU261</strong><span>สิทธิผู้โดยสารเมื่อถูก bump หรือเที่ยวบินล่าช้า</span></span>
+        <span class="il-arrow"><i class="fas fa-arrow-right"></i></span>
+      </a>
 
-  <p>ขั้นแรกคือ <strong>ขอผู้สมัครใจ</strong> — สายการบินจะประกาศขอผู้โดยสารที่ยินดีเลื่อนเที่ยวบินเพื่อแลกรับค่าชดเชย เช่น voucher เที่ยวบิน เงินสด หรืออัปเกรดในเที่ยวบินถัดไป ขั้นที่สองคือ <strong>การ bump โดยไม่สมัครใจ</strong> ถ้าไม่มีผู้สมัครใจเพียงพอ สายการบินจะเลือกผู้โดยสารบางคนและบอกว่าไม่มีที่นั่ง</p>
+      <h2>คำถามที่พบบ่อย: Charter Flights & Overbooking</h2>
+      <h3>Charter flight ได้รับการคุ้มครองจาก EU261 ไหม?</h3>
+      <p>ขึ้นอยู่กับโครงสร้างของเที่ยวบิน ถ้า charter flight ออกจากสนามบินใน EU หรือดำเนินการโดยสายการบิน EU บินเข้า EU โดยทั่วไปได้รับความคุ้มครอง แต่ถ้าเป็นส่วนหนึ่งของแพ็กเกจทัวร์ อาจมีกฎหมายคุ้มครองนักท่องเที่ยวที่ใช้แทน ควรอ่านเงื่อนไขสัญญาก่อนเดินทาง</p>
+      <h3>ถ้าถูก bump ได้เงินชดเชยเท่าไหร่?</h3>
+      <p>ภายใต้ EU261: €250 สำหรับเส้นทางต่ำกว่า 1,500 กม., €400 สำหรับ 1,500–3,500 กม. และ €600 สำหรับเกิน 3,500 กม. ทั้งนี้ขึ้นอยู่กับว่าเที่ยวบินนั้นอยู่ภายใต้กฎ EU261 หรือไม่</p>
+      <h3>สมัครใจถูก bump ดีกว่าถูกบังคับไหม?</h3>
+      <p>โดยทั่วไปดีกว่า เพราะคุณมีอำนาจต่อรอง ถ้าสมัครใจคุณสามารถเจรจาค่าชดเชยที่สูงกว่า เลือกเที่ยวบินถัดไปที่สะดวก และอาจขอสิทธิ์เพิ่มเติม แต่ถ้าถูกบังคับ คุณมีสิทธิ์ตามกฎหมายทันที</p>
 
-  <div class="danger-box">
-    <strong>⚠️ ใครเสี่ยงถูก bump มากที่สุด:</strong> ผู้โดยสารที่เช็คอินช้า, ผู้ที่ซื้อตั๋วราคาถูกสุด, ผู้ที่ไม่มีสถานะสมาชิก และผู้ที่เดินทางคนเดียว (เพราะแยกออกจากกลุ่มง่ายกว่า)
-  </div>
+<div class="pro-tips"><p class="pro-tips-title">เช็กลิสต์โปร: Charter & Overbooking</p><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>เช็คอินออนไลน์ทันทีที่ระบบเปิด</strong><span>ลดความเสี่ยงถูก bump อย่างมีนัยสำคัญ</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>มาถึงสนามบินก่อนเวลา</strong><span>โดยเฉพาะช่วงวันหยุดและเส้นทางยอดนิยม</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>ถ้าถูก bump ขอเอกสารยืนยันทันที</strong><span>ใช้เป็นหลักฐานยื่นชดเชย</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>อย่ารีบรับ voucher</strong><span>ถามว่าได้เงินสดแทนหรือไม่</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>Charter flight จากทัวร์</strong><span>อ่านเงื่อนไขยกเลิกและ overbooking ก่อนจ่ายเงิน</span></div></div><div class="tip-item"><span class="tip-check">✓</span><div class="tip-text"><strong>ถ้าต่อเครื่องสำคัญ</strong><span>เลือกเที่ยวบินต้นทางที่มีเวลา buffer เพียงพอ</span></div></div></div>
 
-  <div class="scenario">
-    <div class="s-label">🎬 Real-World Scenario</div>
-    <div class="s-title">ถูก bump จากเที่ยวบิน Frankfurt–Bangkok — และได้ €600 กลับบ้าน</div>
-    <p>คุณ F เช็คอินออนไลน์แล้ว แต่มาถึงประตูขึ้นเครื่องช้ากว่ากำหนด 15 นาที เจ้าหน้าที่บอกว่าที่นั่งถูก reassign ไปแล้วเพราะ overbooking</p>
-    <p>คุณ F รู้สิทธิ์ EU261 และไม่รับ voucher ทันที แต่ยืนยันขอรับการชดเชยเงินสดตามกฎหมาย เที่ยวบินนี้ระยะทางเกิน 3,500 กม. คุณ F จึงมีสิทธิ์ได้ €600 บวกกับค่าอาหารและที่พักระหว่างรอเที่ยวบินถัดไป</p>
-    <p><strong>บทเรียน:</strong> รู้สิทธิ์ก่อน ไม่รับ voucher โดยไม่ตรวจก่อน และขอเอกสารยืนยันจากสายการบินเสมอ</p>
-  </div>
-
-  <h3>วิธีป้องกันตัวเองจาก Overbooking</h3>
-
-  <div class="action-steps">
-    <h3>✅ ขั้นตอนลดความเสี่ยงถูก Bump</h3>
-    <ol>
-      <li>เช็คอินออนไลน์ทันทีที่ระบบเปิด (มักเปิด 24–48 ชั่วโมงก่อนบิน)</li>
-      <li>มาถึงสนามบินก่อนเวลาอย่างน้อย 2–3 ชั่วโมง</li>
-      <li>ซื้อตั๋วที่รวมการเลือกที่นั่งล่วงหน้า — คนที่มีที่นั่ง assigned มักถูก bump น้อยกว่า</li>
-      <li>สะสมสถานะสมาชิกกับสายการบิน — สมาชิกระดับสูงมักได้รับการคุ้มครองก่อน</li>
-      <li>ถ้าเที่ยวบินสำคัญมาก จองเที่ยวบินเช้า — เที่ยวบินช่วงดึกและบ่ายแก่มักมี overbooking สูงกว่า</li>
-    </ol>
-  </div>
-
-  <div class="insider">
-    <div class="i-label">🔍 Insider Secret</div>
-    <h3>ถ้าสมัครใจถูก Bump — ต่อรองให้ดีกว่านี้ได้</h3>
-    <ul>
-      <li>สายการบินมักเริ่มต้นเสนอ voucher ก้อนเล็ก ๆ อย่ารีบรับทันที</li>
-      <li>ถามว่ามีเที่ยวบินทดแทนที่เร็วที่สุดเมื่อไหร่ และจะมีที่พักให้ไหมถ้าต้องรอข้ามคืน</li>
-      <li>ถามว่าสามารถรับเงินสดแทน voucher ได้ไหม — หลายสายการบินอนุญาต</li>
-      <li>ถามว่าจะอัปเกรดให้ในเที่ยวบินถัดไปได้ไหม — บางครั้งได้</li>
-      <li>รับทุกอย่างเป็นลายลักษณ์อักษร ไม่รับแค่คำพูด</li>
-    </ul>
-  </div>
-
-  <a href="/th/faq/landing.html" class="cta-link">
-    <div class="cta-icon">📋</div>
-    <div class="cta-text">
-      <div class="cta-label">กลับสู่คู่มือหลัก</div>
-      <strong>ดูคำถามทั้ง 10 หัวข้อเกี่ยวกับการบิน →</strong>
-    </div>
-  </a>
-
-  <div class="faq-section">
-    <h2>คำถามที่พบบ่อย: Charter Flights & Overbooking</h2>
-    <div class="faq-item">
-      <div class="faq-q">Charter flight ได้รับการคุ้มครองจาก EU261 ไหม?</div>
-      <div class="faq-a">ขึ้นอยู่กับโครงสร้างของเที่ยวบิน ถ้า charter flight ออกจากสนามบินใน EU หรือดำเนินการโดยสายการบิน EU บินเข้า EU โดยทั่วไปได้รับความคุ้มครอง แต่ถ้าเป็นส่วนหนึ่งของแพ็กเกจทัวร์ อาจมีกฎหมายคุ้มครองนักท่องเที่ยวที่ใช้แทน ควรอ่านเงื่อนไขสัญญาก่อนเดินทาง</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">ถ้าถูก bump ได้เงินชดเชยเท่าไหร่?</div>
-      <div class="faq-a">ภายใต้ EU261: €250 สำหรับเส้นทางต่ำกว่า 1,500 กม., €400 สำหรับ 1,500–3,500 กม. และ €600 สำหรับเกิน 3,500 กม. ทั้งนี้ขึ้นอยู่กับว่าเที่ยวบินนั้นอยู่ภายใต้กฎ EU261 หรือไม่</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">สมัครใจถูก bump ดีกว่าถูกบังคับไหม?</div>
-      <div class="faq-a">โดยทั่วไปดีกว่า เพราะคุณมีอำนาจต่อรอง ถ้าสมัครใจคุณสามารถเจรจาค่าชดเชยที่สูงกว่า เลือกเที่ยวบินถัดไปที่สะดวก และอาจขอสิทธิ์เพิ่มเติม เช่น อาหาร ที่พัก หรืออัปเกรด แต่ถ้าถูกบังคับ คุณมีสิทธิ์ตามกฎหมายทันที</div>
-    </div>
-  </div>
-
-  <div class="pro-tips">
-    <h2>✅ Pro-Tips Checklist: Charter & Overbooking</h2>
-    <ul>
-      <li><span class="check">✓</span><span>เช็คอินออนไลน์ทันทีที่ระบบเปิด — ลดความเสี่ยงถูก bump อย่างมีนัยสำคัญ</span></li>
-      <li><span class="check">✓</span><span>มาถึงสนามบินก่อนเวลา โดยเฉพาะช่วงวันหยุดและเส้นทางยอดนิยม</span></li>
-      <li><span class="check">✓</span><span>ถ้าถูก bump ขอเอกสารยืนยันจากสายการบินทันที — ใช้เป็นหลักฐานยื่นชดเชย</span></li>
-      <li><span class="check">✓</span><span>อย่ารีบรับ voucher โดยไม่ถามว่าได้เงินสดแทนหรือไม่</span></li>
-      <li><span class="check">✓</span><span>Charter flight จากทัวร์ — อ่านเงื่อนไขยกเลิกและ overbooking ก่อนจ่ายเงิน</span></li>
-      <li><span class="check">✓</span><span>ถ้าต่อเครื่องสำคัญ เลือกเที่ยวบินต้นทางที่มีเวลา buffer เพียงพอ</span></li>
-    </ul>
-  </div>
-
-  <div class="schema-note">
-    <strong>📄 FAQPage JSON-LD Schema</strong>
-    <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "ถ้าถูก bump ได้เงินชดเชยเท่าไหร่?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ภายใต้ EU261: €250 สำหรับเส้นทางต่ำกว่า 1,500 กม., €400 สำหรับ 1,500–3,500 กม. และ €600 สำหรับเกิน 3,500 กม."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "สมัครใจถูก bump ดีกว่าถูกบังคับไหม?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "โดยทั่วไปดีกว่า เพราะมีอำนาจต่อรองค่าชดเชยที่สูงกว่า เลือกเที่ยวบินถัดไปที่สะดวก และอาจขอสิทธิ์เพิ่มเติมได้"
-      }
-    }
-  ]
-}</code></pre>
-  </div>
-
-
-<section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/01-passport-visa.html">01 · Passport & Visa Bible</a></li><li><a href="/th/faq/02-connection-time.html">02 · Time Traps & Connection Flights</a></li><li><a href="/th/faq/03-baggage-rules.html">03 · Baggage Rules</a></li><li><a href="/th/faq/04-flight-changes.html">04 · Flight Changes & Cancellations</a></li><li><a href="/th/faq/05-codeshare-stopover.html">05 · Booking Types</a></li><li><a href="/th/faq/06-frequent-flyer.html">06 · Frequent Flyer</a></li><li><strong>07 · Charter Flights & Overbooking</strong></li><li><a href="/th/faq/08-online-checkin.html">08 · Online Check-in</a></li><li><a href="/th/faq/09-montreal-eu261.html">09 · Montreal Convention & EU261</a></li><li><a href="/th/faq/10-saf-future.html">10 · Sustainable Aviation Fuel</a></li></ul><p style="margin-top:12px"><a href="/th/faq/landing.html">Back to FAQ Overview</a></p></section>
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
 
     </article>
