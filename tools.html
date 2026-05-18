@@ -1,241 +1,220 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>เครื่องมือเดินทาง — แปลงเงิน นาฬิกาโลก ข่าวการบิน | FlyReisen24</title>
-<meta name="description" content="เครื่องมือเดินทางครบครัน: แปลงอัตราแลกเปลี่ยน นาฬิกาโลก ค้นหาเที่ยวบิน และข่าวสารการบินล่าสุด">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.flyreisen24.com/tools.html">
-<link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/tools.html">
-<link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/tools.html">
-<link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/tools.html">
-<link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/tools.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" type="image/png" sizes="32x32" href="https://www.flyreisen24.com/favicon-32x32.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"เครื่องมือเดินทาง","url":"https://www.flyreisen24.com/tools.html","inLanguage":"th","dateModified":"2026-03-06"}
-</script>
-<style>
-:root{
-  --primary:#1B4332;
-  --primary-light:#2d6a4f;
-  --accent:#D4AF37;
-  --accent-light:#f0d060;
-  --bg:#f0f4f1;
-  --card:#ffffff;
-  --text:#1a2e1f;
-  --text-muted:#5a7a62;
-  --border:#d0e4d5;
-  --shadow:0 4px 24px rgba(27,67,50,0.10);
-  --shadow-lg:0 12px 48px rgba(27,67,50,0.16);
-  --font-th:'IBM Plex Sans Thai',sans-serif;
-  --font-en:'IBM Plex Sans',sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-th);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เครื่องมือนักเดินทาง: แปลงสกุลเงิน นาฬิกาโลก ค้นหาตั๋ว | FlyReisen24</title>
+  <meta name="description" content="เครื่องมือฟรีสำหรับนักเดินทาง — แปลงสกุลเงินแบบ Realtime นาฬิกาโลก 24 เมืองหลัก และค้นหาตั๋วเครื่องบินราคาถูก">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.flyreisen24.com/tools.html">
+  <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/tools.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.flyreisen24.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.flyreisen24.com/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.flyreisen24.com/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* NAV */
-.top-nav{background:#fff;padding:10px 0;border-bottom:2px solid var(--accent);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.07)}
-.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}
-.top-nav-logo img{height:48px;width:auto;transition:height 0.3s}
-.top-nav-menu{display:flex;gap:28px;list-style:none;align-items:center}
-.top-nav-menu a{color:#6b7280;text-decoration:none;font-weight:600;font-size:15px;transition:color 0.3s;display:flex;align-items:center;gap:8px}
-.top-nav-menu a:hover,.top-nav-menu a.active-page{color:var(--primary)}
-.top-nav-menu a.active-page{border-bottom:2px solid var(--accent)}
-.new-badge{background:linear-gradient(135deg,#ff6b6b,#ff4757);color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:4px}
-.nav-right{display:flex;align-items:center;gap:20px}
-.nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;background:#f3f4f6;transition:color 0.3s}
-.nav-help:hover{color:var(--primary)}
-.language-dropdown{position:relative}
-.lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px;transition:all 0.3s;font-family:var(--font-en)}
-.lang-current:hover{border-color:var(--accent)}
-.lang-dropdown-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.15);min-width:170px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s;z-index:1000;overflow:hidden;border:1px solid var(--border)}
-.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151;text-decoration:none;font-weight:600;transition:background 0.2s;font-size:14px;cursor:pointer}
-.lang-dropdown-menu a:hover{background:#f0faf4}
-.lang-dropdown-menu a.active{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff}
-.menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer}
+  <style>
+    /* ════ RESET & BASE ════ */
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#262626;overflow-x:hidden;background:#f8f9fc}
 
-/* BREADCRUMB */
-.breadcrumb{background:#fff;padding:12px 0;border-bottom:1px solid var(--border)}
-.breadcrumb-container{max-width:1400px;margin:0 auto;padding:0 30px}
-.breadcrumb ol{display:flex;list-style:none;gap:8px;align-items:center;font-size:14px}
-.breadcrumb a{color:var(--primary);text-decoration:none}
-.breadcrumb a:hover{color:var(--accent)}
-.breadcrumb-sep{color:#ccc}
+    /* ════ NAV (identical to site) ════ */
+    .top-nav{background:#fff!important;padding:10px 0;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    .top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}
+    .top-nav-logo img{height:48px;width:auto;display:block}
+    .top-nav-menu{display:flex;gap:22px;list-style:none;align-items:center}
+    .top-nav-menu>li{position:relative}
+    .top-nav-menu a{color:#6b7280!important;text-decoration:none;font-weight:500;font-size:15px;transition:color .3s;display:flex;align-items:center;gap:8px}
+    .top-nav-menu a:hover{color:#0056B3!important}
+    .top-nav-menu a i{font-size:16px;color:#9ca3af;transition:color .3s}
+    .top-nav-menu a:hover i{color:#0056B3}
+    .top-nav-prominent-link{color:#0056B3!important;font-weight:700!important}
+    .top-nav-prominent-link i{color:#0056B3!important}
+    .dropdown-toggle{cursor:pointer}
+    .dropdown-toggle .fa-chevron-down{font-size:11px;margin-left:4px;transition:transform .2s}
+    .dropdown-active>.dropdown-toggle .fa-chevron-down{transform:rotate(180deg)}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:0;margin-top:10px;min-width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:10px 0;list-style:none;z-index:9999}
+    .dropdown-menu.show{display:block}
+    .dropdown-menu li{padding:0;border:none}
+    .dropdown-menu a{padding:10px 16px;font-size:14px;width:100%}
+    .new-badge{background:linear-gradient(135deg,#ff6b6b,#ff4757);color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:5px;position:relative;top:-2px;animation:pulse-badge 2s infinite}
+    @keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    .nav-right{display:flex;align-items:center;gap:25px}
+    .nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color .3s}
+    .nav-help:hover{color:#0056B3}
+    .language-dropdown{position:relative}
+    .lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all .3s;display:flex;align-items:center;gap:6px}
+    .lang-current:hover{border-color:#0056B3;background:#f0f4ff}
+    .lang-dropdown-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);min-width:160px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1000;overflow:hidden}
+    .language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151!important;text-decoration:none;font-weight:500;transition:background .2s;font-size:14px}
+    .lang-dropdown-menu a:hover{background:#f0f4ff}
+    .lang-dropdown-menu a.active{background:#e6edff;color:#0056B3!important;font-weight:700}
+    .menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer;padding:.5rem}
 
-/* HERO */
-.hero{background:linear-gradient(135deg,var(--primary) 0%,#2d6a4f 60%,#40916c 100%);color:#fff;padding:3.5rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-badge{display:inline-block;background:rgba(212,175,55,0.25);border:1px solid rgba(212,175,55,0.6);padding:6px 18px;border-radius:30px;font-size:0.85rem;font-weight:700;margin-bottom:1rem;color:var(--accent-light)}
-.hero h1{font-size:2.4rem;font-weight:700;margin-bottom:0.8rem;line-height:1.3}
-.hero-sub{font-size:1.05rem;opacity:0.88;max-width:560px;margin:0 auto}
+    /* ════ BREADCRUMB ════ */
+    .breadcrumb{background:#fff;padding:12px 0;border-bottom:1px solid #e9ecef;font-size:13px}
+    .breadcrumb-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#6b7280}
+    .breadcrumb-inner a{color:#0056B3;text-decoration:none}
+    .breadcrumb-inner a:hover{text-decoration:underline}
+    .bc-sep{color:#d1d5db}
 
-/* TOOLS GRID */
-.tools-wrapper{max-width:1200px;margin:0 auto;padding:40px 20px 80px}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
-.tool-full{grid-column:1/-1}
+    /* ════ PAGE HERO ════ */
+    .page-hero{background:linear-gradient(135deg,#003d82 0%,#0056B3 60%,#1a6fd4 100%);color:#fff;padding:48px 24px 40px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .page-hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;text-align:center}
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:10px}
+    .page-hero h1 em{color:#fbbf24;font-style:normal}
+    .page-hero p{font-size:1rem;opacity:.85;max-width:560px;margin:0 auto}
 
-/* TOOL CARD */
-.tool-card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.3s}
-.tool-card:hover{box-shadow:var(--shadow-lg)}
-.tool-card-header{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:20px 24px;display:flex;align-items:center;gap:14px}
-.tool-card-header i{font-size:1.6rem;opacity:0.9}
-.tool-card-header h2{font-size:1.15rem;font-weight:700;margin:0}
-.tool-card-header p{font-size:0.82rem;opacity:0.8;margin:3px 0 0}
-.tool-card-body{padding:24px}
+    /* ════ TOOLS GRID ════ */
+    .tools-wrap{max-width:1200px;margin:0 auto;padding:40px 24px 64px;display:flex;flex-direction:column;gap:32px}
 
-/* CURRENCY CONVERTER */
-.currency-row{display:flex;gap:12px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap}
-.currency-group{flex:1;min-width:120px}
-.currency-group label{display:block;font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
-.currency-group input,.currency-group select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:1rem;font-family:var(--font-en);font-weight:600;outline:none;transition:border-color 0.3s;background:#fff;color:var(--text)}
-.currency-group input:focus,.currency-group select:focus{border-color:var(--accent)}
-.swap-btn{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-light));border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:transform 0.3s;flex-shrink:0;margin-bottom:2px}
-.swap-btn:hover{transform:rotate(180deg)}
-.convert-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:var(--font-th)}
-.convert-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(27,67,50,0.3)}
-.currency-result{margin-top:18px;padding:18px;background:linear-gradient(135deg,#f0faf4,#e8f5e9);border-radius:12px;border:1px solid #b7e4c7;text-align:center;display:none}
-.currency-result.show{display:block}
-.result-amount{font-size:2rem;font-weight:800;color:var(--primary);font-family:var(--font-en);line-height:1.2}
-.result-rate{font-size:0.85rem;color:var(--text-muted);margin-top:4px}
-.result-updated{font-size:0.75rem;color:#aaa;margin-top:4px}
-.currency-error{margin-top:12px;padding:12px;background:#fff3cd;border-radius:8px;font-size:0.88rem;color:#856404;display:none;text-align:center}
-.currency-error.show{display:block}
+    /* ════ TOOL CARD ════ */
+    .tool-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+    .tool-header{background:#f8f9fc;padding:18px 28px;border-bottom:1px solid #e9ecef;display:flex;align-items:center;gap:14px}
+    .tool-icon{width:42px;height:42px;background:linear-gradient(135deg,#003d82,#0056B3);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0}
+    .tool-header-text h2{font-size:1.15rem;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+    .tool-header-text p{font-size:13px;color:#6b7280}
+    .tool-body{padding:28px}
 
-/* WORLD CLOCK */
-.clocks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
-.clock-search-row{display:flex;gap:10px;margin-bottom:16px;align-items:center}
-.clock-search-wrap{position:relative;flex:1}
-.clock-search-input{width:100%;padding:10px 14px 10px 36px;border:1.5px solid var(--border);border-radius:10px;font-size:0.92rem;font-family:inherit;outline:none;transition:border-color 0.3s;background:#fff}
-.clock-search-input:focus{border-color:var(--accent)}
-.clock-search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:0.85rem;pointer-events:none}
-.clock-search-dropdown{position:absolute;top:110%;left:0;right:0;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid var(--border);z-index:100;max-height:220px;overflow-y:auto;display:none}
-.clock-search-dropdown.show{display:block}
-.clock-search-option{padding:10px 14px;cursor:pointer;font-size:0.88rem;display:flex;align-items:center;gap:8px;transition:background 0.15s}
-.clock-search-option:hover{background:#f0faf4}
-.clock-add-btn{background:linear-gradient(135deg,var(--accent),var(--accent-light));border:none;border-radius:10px;padding:10px 16px;font-size:0.85rem;font-weight:700;cursor:pointer;color:var(--text);white-space:nowrap;transition:all 0.3s;display:flex;align-items:center;gap:6px}
-.clock-add-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(212,175,55,0.4)}
-.clock-item{position:relative}
-.clock-remove{position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.08);border:none;border-radius:50%;width:20px;height:20px;font-size:0.7rem;cursor:pointer;display:none;align-items:center;justify-content:center;color:#666;transition:background 0.2s;line-height:1}
-.clock-item:hover .clock-remove{display:flex}
-.clock-item.default-city .clock-remove{display:none!important}
-.clock-item{background:linear-gradient(135deg,#f8faf8,#f0f4f1);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;transition:all 0.3s}
-.clock-item:hover{border-color:var(--accent);background:#fff}
-.clock-flag{font-size:1.8rem;line-height:1;margin-bottom:6px}
-.clock-city{font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
-.clock-time{font-size:1.5rem;font-weight:800;color:var(--primary);font-family:var(--font-en);line-height:1;margin-bottom:2px}
-.clock-date{font-size:0.72rem;color:#999;font-family:var(--font-en)}
+    /* ════ CURRENCY CONVERTER ════ */
+    .cc-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end;margin-bottom:20px}
+    .cc-field label{display:block;font-size:12px;font-weight:600;color:#6b7280;margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+    .cc-field input,.cc-field select{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;transition:border .2s}
+    .cc-field input:focus,.cc-field select:focus{outline:none;border-color:#0056B3;box-shadow:0 0 0 3px rgba(0,86,179,.08)}
+    .cc-swap{display:flex;align-items:center;justify-content:center;padding-bottom:2px}
+    .cc-swap button{width:40px;height:40px;border:1px solid #e5e7eb;border-radius:50%;background:#fff;color:#0056B3;cursor:pointer;font-size:16px;transition:all .2s;display:flex;align-items:center;justify-content:center}
+    .cc-swap button:hover{background:#0056B3;color:#fff;border-color:#0056B3}
+    .cc-result{background:linear-gradient(135deg,#e8f0fe,#f0f4ff);border:1px solid #c7d9f5;border-radius:10px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .cc-result-main{font-size:1.8rem;font-weight:800;color:#0056B3}
+    .cc-result-sub{font-size:13px;color:#6b7280}
+    .cc-rate-info{font-size:12px;color:#9ca3af;margin-top:12px;text-align:center}
+    .cc-popular{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .cc-tag{background:#f0f4ff;border:1px solid #c7d9f5;color:#0056B3;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+    .cc-tag:hover{background:#0056B3;color:#fff;border-color:#0056B3}
 
-/* FLIGHT WIDGET */
-.widget-container{min-height:120px;display:flex;align-items:center;justify-content:center}
-.widget-loading{color:var(--text-muted);font-size:0.9rem;display:flex;align-items:center;gap:8px}
-.widget-loading i{animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+    /* ════ WORLD CLOCK ════ */
+    .clock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+    .clock-card{background:#f8f9fc;border:1px solid #e9ecef;border-radius:10px;padding:16px;text-align:center;transition:all .2s}
+    .clock-card:hover{border-color:#0056B3;background:#f0f4ff}
+    .clock-city{font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+    .clock-country{font-size:10px;color:#9ca3af;margin-bottom:10px}
+    .clock-time{font-size:1.5rem;font-weight:800;color:#1a1a2e;font-variant-numeric:tabular-nums;letter-spacing:-0.5px;line-height:1}
+    .clock-ampm{font-size:11px;color:#6b7280;margin-top:3px}
+    .clock-date{font-size:11px;color:#9ca3af;margin-top:2px}
+    .clock-highlight{border-color:#0056B3;background:linear-gradient(135deg,#e8f0fe,#f0f4ff)}
+    .clock-highlight .clock-city{color:#0056B3}
+    .clock-highlight .clock-time{color:#0056B3}
 
-/* NEWS */
-.news-grid{display:grid;gap:14px}
-.news-item{display:flex;gap:14px;padding:14px;background:#f8faf8;border-radius:12px;border:1px solid var(--border);transition:all 0.3s;text-decoration:none;color:var(--text)}
-.news-item:hover{background:#fff;border-color:var(--accent);transform:translateX(4px)}
-.news-source-tag{display:inline-block;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;align-self:flex-start;margin-top:2px}
-.news-content{flex:1;min-width:0}
-.news-title{font-size:0.92rem;font-weight:700;line-height:1.4;color:var(--text);margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.news-date{font-size:0.75rem;color:#aaa;font-family:var(--font-en)}
-.news-loading{text-align:center;color:var(--text-muted);padding:20px;font-size:0.9rem}
-.news-error{text-align:center;color:#856404;background:#fff3cd;padding:14px;border-radius:10px;font-size:0.88rem}
-.news-refresh{display:flex;justify-content:flex-end;margin-bottom:12px}
-.refresh-btn{background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:20px;font-size:0.8rem;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all 0.3s;font-family:var(--font-th)}
-.refresh-btn:hover{border-color:var(--accent);color:var(--primary)}
+    /* ════ FLIGHT SEARCH ════ */
+    .flight-search-wrap{background:#f8f9fc;border-radius:12px;padding:24px;border:1px solid #e9ecef}
+    .flight-search-wrap p{font-size:14px;color:#374151;margin-bottom:16px}
+    .fs-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .fs-tab{padding:8px 18px;border-radius:20px;border:1px solid #e5e7eb;background:#fff;color:#6b7280;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+    .fs-tab.active,.fs-tab:hover{background:#0056B3;color:#fff;border-color:#0056B3}
+    .fs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .fs-field{display:flex;flex-direction:column;gap:5px}
+    .fs-field label{font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.6px}
+    .fs-field input,.fs-field select{padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;transition:border .2s}
+    .fs-field input:focus,.fs-field select:focus{outline:none;border-color:#0056B3;box-shadow:0 0 0 3px rgba(0,86,179,.08)}
+    .fs-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+    .btn-search{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0056B3,#003d82);color:#fff;padding:14px 32px;border-radius:50px;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:all .2s;width:100%;justify-content:center}
+    .btn-search:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,86,179,.3)}
+    .fs-note{font-size:12px;color:#9ca3af;text-align:center;margin-top:12px}
 
-/* CONTACT */
-.contact-widget{position:fixed;bottom:30px;right:30px;z-index:1000}
-.contact-button{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;display:flex;justify-content:center;align-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(27,67,50,0.3);cursor:pointer;transition:all 0.3s;border:none}
-.contact-button:hover{transform:scale(1.1)}
-.contact-popup{position:absolute;bottom:75px;right:0;width:360px;background:#fff;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.2);display:none;flex-direction:column;overflow:hidden;border:2px solid var(--accent)}
-.contact-popup.active{display:flex!important}
-.contact-header{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
-.contact-header h3{margin:0;font-size:1rem;font-weight:700}
-.close-contact{cursor:pointer;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;border:none;color:#fff;font-size:1rem;transition:background 0.3s}
-.close-contact:hover{background:rgba(255,255,255,0.35)}
-.contact-form-container{padding:20px;overflow-y:auto}
-.form-group{margin-bottom:14px}
-.form-group label{display:block;margin-bottom:5px;color:var(--text);font-weight:600;font-size:0.85rem}
-.form-group input,.form-group textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:8px;outline:none;font-size:14px;font-family:var(--font-th);transition:border-color 0.3s}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
-.form-group textarea{resize:vertical;min-height:80px}
-.submit-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:8px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:var(--font-th)}
-.submit-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 12px rgba(27,67,50,0.3)}
-.success-msg,.error-msg{padding:10px;border-radius:8px;margin-bottom:12px;display:none;font-size:0.85rem;font-weight:600;text-align:center}
-.success-msg{background:#d4edda;color:#155724}
-.error-msg{background:#f8d7da;color:#721c24}
-.success-msg.show,.error-msg.show{display:block}
+    /* ════ QUICK LINKS ════ */
+    .quick-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:8px}
+    .ql-item{display:flex;align-items:center;gap:12px;background:#f8f9fc;border:1px solid #e9ecef;border-radius:10px;padding:14px;text-decoration:none;transition:all .2s}
+    .ql-item:hover{background:#f0f4ff;border-color:#0056B3}
+    .ql-icon{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#003d82,#0056B3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex-shrink:0}
+    .ql-text strong{display:block;font-size:13px;color:#1a1a2e;margin-bottom:1px}
+    .ql-text span{font-size:11.5px;color:#6b7280}
 
-/* FOOTER */
-.main-footer{background:#fff;border-top:3px solid var(--accent);padding:50px 0 25px;color:#666}
-.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;padding:0 30px}
-.footer-col h4{color:var(--primary);margin-bottom:18px;font-size:16px;font-weight:800}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:10px}
-.footer-col ul a{color:#777;text-decoration:none;font-size:14px;transition:all 0.3s}
-.footer-col ul a:hover{color:var(--primary);padding-left:5px}
-.footer-bottom{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:#999}
+    /* ════ FOOTER ════ */
+    .main-footer{background:#fff;border-top:1px solid #eee;padding:50px 0 24px;color:#666;margin-top:0}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;padding:0 24px}
+    .footer-col h4{color:#333;margin-bottom:16px;font-size:15px;font-weight:700}
+    .footer-col ul{list-style:none;padding:0}
+    .footer-col ul li{margin-bottom:10px}
+    .footer-col ul a{color:#777;text-decoration:none;font-size:13.5px;transition:.3s;display:flex;align-items:center;gap:6px}
+    .footer-col ul a:hover{color:#0056B3;padding-left:4px}
+    .footer-col p{font-size:13.5px;line-height:1.65;color:#888}
+    .footer-bottom{max-width:1200px;margin:32px auto 0;padding:16px 24px 0;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12.5px;color:#9ca3af}
+    .footer-bottom a{color:#9ca3af;text-decoration:none}
+    .footer-bottom a:hover{color:#0056B3}
 
-@media(max-width:768px){
-  .tools-grid{grid-template-columns:1fr}
-  .tool-full{grid-column:auto}
-  .clocks-grid{grid-template-columns:repeat(3,1fr)}
-  .hero h1{font-size:1.8rem}
-  .currency-row{flex-direction:column}
-  .swap-btn{transform:rotate(90deg);align-self:center}
-  .top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 8px 20px rgba(0,0,0,0.1);gap:0;border-top:2px solid var(--accent)}
-  .top-nav-menu.active{display:flex!important}
-  .top-nav-menu li{width:100%;border-bottom:1px solid var(--border);padding:0.8rem 0}
-  .menu-toggle{display:block}
-  .contact-popup{width:88vw;max-width:340px;right:-15px}
-  .top-nav-logo img{height:40px}
-}
-@media(max-width:480px){.clocks-grid{grid-template-columns:repeat(2,1fr)}}
-</style>
+    /* ════ RESPONSIVE ════ */
+    @media(max-width:768px){
+      .top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.1);gap:0;border-top:1px solid #f0f0f0}
+      .top-nav-menu.active{display:flex!important}
+      .top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:.8rem 0}
+      .top-nav-menu>li:last-child{border-bottom:none}
+      .dropdown-menu{position:static;border:none;box-shadow:none;min-width:100%;padding:8px 0 0 14px;margin-top:0}
+      .dropdown-menu.show{display:block}
+      .dropdown-menu li{border-bottom:none;padding:.3rem 0}
+      .menu-toggle{display:block}
+      .nav-right{gap:12px}
+      .top-nav-logo img{height:40px}
+      .cc-grid{grid-template-columns:1fr;gap:10px}
+      .cc-swap{transform:rotate(90deg)}
+      .fs-grid{grid-template-columns:1fr}
+      .fs-row{grid-template-columns:1fr}
+      .clock-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+    }
+  </style>
 </head>
 <body>
 
-<nav class="breadcrumb">
-  <div class="breadcrumb-container">
-    <ol>
-      <li><a href="https://www.flyreisen24.com"><i class="fas fa-home"></i> <span id="bcHome">หน้าแรก</span></a><span class="breadcrumb-sep"> / </span></li>
-      <li id="bcTools">เครื่องมือเดินทาง</li>
-    </ol>
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/"><i class="fas fa-home"></i> หน้าแรก</a>
+    <span class="bc-sep">›</span>
+    <span>เครื่องมือนักเดินทาง</span>
   </div>
 </nav>
 
-<nav class="top-nav" id="topNav">
+<!-- NAV -->
+<nav class="top-nav">
   <div class="top-nav-container">
-    <a href="https://www.flyreisen24.com" class="top-nav-logo">
-      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" id="logoImg">
+    <a href="/" class="top-nav-logo">
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" width="auto" height="48" loading="eager">
     </a>
     <ul class="top-nav-menu" id="topNavMenu">
-      <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="navFlight">เที่ยวบิน</span></a></li>
-      <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="navHotel">โรงแรม</span></a></li>
-      <li><a href="/th/deals_th.html" id="navDealsLink"><i class="fas fa-tags"></i> <span id="navDeals">ดีล</span><span class="new-badge">NEW</span></a></li>
-      <li><a href="/th/faq/landing.html" id="navKnowledgeLink"><i class="fas fa-book-open"></i> <span id="navKnowledge">คลังความรู้</span></a></li>
-      <li><a href="/th/faq/landing.html" id="navFaqLink"><i class="fas fa-circle-question"></i> <span id="navFaq">คำถามที่พบบ่อย</span></a></li>
-      <li><a href="/tools.html" class="active-page"><i class="fas fa-wrench"></i> <span id="navTools">เครื่องมือ</span></a></li>
+      <li>
+        <a href="#" class="dropdown-toggle"><i class="fas fa-briefcase"></i> <span>บริการ</span><i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> เที่ยวบิน</a></li>
+          <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> โรงแรม</a></li>
+          <li><a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd"><i class="fas fa-car"></i> รถเช่า</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="/th/deals_th.html" class="top-nav-prominent-link"><i class="fas fa-tags"></i> <span>ดีล</span><span class="new-badge">NEW</span></a>
+      </li>
+      <li>
+        <a href="#" class="dropdown-toggle"><i class="fas fa-book-open"></i> <span>คลังข้อมูล</span><i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/th/faq/landing.html"><i class="fas fa-book-open"></i> 15 คำถามก่อนบิน</a></li>
+          <li><a href="/tools.html"><i class="fas fa-wrench"></i> เครื่องมือ</a></li>
+        </ul>
+      </li>
     </ul>
     <div class="nav-right">
-      <a href="/contact.html" class="nav-help"><i class="fas fa-headset"></i> <span id="navHelp">ช่วยเหลือ</span></a>
+      <a href="/contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
       <div class="language-dropdown" id="languageDropdown">
         <button class="lang-current" onclick="toggleLangDropdown()">
           <i class="fas fa-globe"></i><span id="currentLang">TH</span><i class="fas fa-chevron-down" style="font-size:10px"></i>
         </button>
         <div class="lang-dropdown-menu">
-          <a onclick="switchLang('th','TH')" class="active">🇹🇭 ไทย (TH)</a>
-          <a onclick="switchLang('en','EN')">🇬🇧 English (EN)</a>
-          <a onclick="switchLang('de','DE')">🇩🇪 Deutsch (DE)</a>
+          <a href="/tools.html" class="active">🇹🇭 ไทย (TH)</a>
+          <a href="/tools.html">🇬🇧 English (EN)</a>
+          <a href="/tools.html">🇩🇪 Deutsch (DE)</a>
         </div>
       </div>
     </div>
@@ -243,620 +222,385 @@ body{font-family:var(--font-th);background:var(--bg);color:var(--text);line-heig
   </div>
 </nav>
 
-<section class="hero">
-  <div style="position:relative;z-index:1">
-    <div class="hero-badge">🛠️ <span id="heroBadge">Travel Tools</span></div>
-    <h1 id="heroTitle">เครื่องมือเดินทางครบครัน</h1>
-    <p class="hero-sub" id="heroSub">แปลงเงิน · นาฬิกาโลก · ค้นหาเที่ยวบิน · ข่าวการบินล่าสุด</p>
+<!-- HERO -->
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <h1>เครื่องมือ<em>นักเดินทาง</em></h1>
+    <p>แปลงสกุลเงิน · นาฬิกาโลก · ค้นหาตั๋วเครื่องบิน — ใช้ฟรีทั้งหมด</p>
   </div>
-</section>
+</header>
 
-<div class="tools-wrapper">
-  <div class="tools-grid">
+<!-- MAIN CONTENT -->
+<div class="tools-wrap">
 
-    <!-- CURRENCY CONVERTER -->
-    <div class="tool-card">
-      <div class="tool-card-header">
-        <i class="fas fa-exchange-alt"></i>
-        <div>
-          <h2 id="currTitle">แปลงอัตราแลกเปลี่ยน</h2>
-          <p id="currSub">อัตราเรียลไทม์ from exchangerate-api.com</p>
+  <!-- ══ 1. CURRENCY CONVERTER ══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon"><i class="fas fa-coins"></i></div>
+      <div class="tool-header-text">
+        <h2>แปลงสกุลเงิน</h2>
+        <p>อัตราแลกเปลี่ยนโดยประมาณ — อัปเดตทุกครั้งที่โหลดหน้า</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="cc-grid">
+        <div class="cc-field">
+          <label>จำนวน</label>
+          <input type="number" id="ccAmount" value="1000" min="0" oninput="convertCurrency()">
+        </div>
+        <div class="cc-swap">
+          <button onclick="swapCurrencies()" title="สลับสกุลเงิน"><i class="fas fa-exchange-alt"></i></button>
+        </div>
+        <div class="cc-field">
+          <label>เป็น</label>
+          <select id="ccTo" onchange="convertCurrency()">
+            <option value="EUR">EUR — ยูโร 🇪🇺</option>
+            <option value="USD">USD — ดอลลาร์สหรัฐ 🇺🇸</option>
+            <option value="GBP">GBP — ปอนด์อังกฤษ 🇬🇧</option>
+            <option value="JPY">JPY — เยนญี่ปุ่น 🇯🇵</option>
+            <option value="CNY">CNY — หยวนจีน 🇨🇳</option>
+            <option value="AUD">AUD — ดอลลาร์ออสเตรเลีย 🇦🇺</option>
+            <option value="SGD">SGD — ดอลลาร์สิงคโปร์ 🇸🇬</option>
+            <option value="HKD">HKD — ดอลลาร์ฮ่องกง 🇭🇰</option>
+            <option value="CHF">CHF — ฟรังก์สวิส 🇨🇭</option>
+            <option value="CAD">CAD — ดอลลาร์แคนาดา 🇨🇦</option>
+            <option value="AED">AED — ดิรฮัมสหรัฐอาหรับเอมิเรตส์ 🇦🇪</option>
+            <option value="KRW">KRW — วอนเกาหลีใต้ 🇰🇷</option>
+          </select>
         </div>
       </div>
-      <div class="tool-card-body">
-        <div class="currency-row">
-          <div class="currency-group">
-            <label id="lblAmount">จำนวน</label>
-            <input type="number" id="currAmount" value="1000" min="0" step="any">
+      <div style="margin-bottom:12px">
+        <div class="cc-field">
+          <label>จาก</label>
+          <select id="ccFrom" onchange="convertCurrency()">
+            <option value="THB">THB — บาทไทย 🇹🇭</option>
+            <option value="EUR">EUR — ยูโร 🇪🇺</option>
+            <option value="USD">USD — ดอลลาร์สหรัฐ 🇺🇸</option>
+            <option value="GBP">GBP — ปอนด์อังกฤษ 🇬🇧</option>
+            <option value="JPY">JPY — เยนญี่ปุ่น 🇯🇵</option>
+            <option value="CNY">CNY — หยวนจีน 🇨🇳</option>
+            <option value="AUD">AUD — ดอลลาร์ออสเตรเลีย 🇦🇺</option>
+            <option value="SGD">SGD — ดอลลาร์สิงคโปร์ 🇸🇬</option>
+          </select>
+        </div>
+      </div>
+      <div class="cc-result">
+        <div>
+          <div class="cc-result-main" id="ccResult">—</div>
+          <div class="cc-result-sub" id="ccResultLabel">กรอกจำนวนและเลือกสกุลเงิน</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:13px;color:#6b7280" id="ccRate"></div>
+        </div>
+      </div>
+      <p class="cc-rate-info"><i class="fas fa-info-circle"></i> อัตราโดยประมาณ ไม่ใช่ราคาธนาคาร — ใช้เพื่อวางแผนการเดินทางเท่านั้น</p>
+      <div>
+        <p style="font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px;margin:16px 0 8px">เส้นทางยอดนิยม</p>
+        <div class="cc-popular" id="ccPopular"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 2. WORLD CLOCK ══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon"><i class="fas fa-globe"></i></div>
+      <div class="tool-header-text">
+        <h2>นาฬิกาโลก</h2>
+        <p>เวลาปัจจุบันใน 20 เมืองสำคัญ — อัปเดตอัตโนมัติทุก 1 วินาที</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="clock-grid" id="clockGrid"></div>
+      <p style="font-size:12px;color:#9ca3af;text-align:center;margin-top:16px"><i class="fas fa-info-circle"></i> เวลาปรับตาม Daylight Saving Time อัตโนมัติ</p>
+    </div>
+  </div>
+
+  <!-- ══ 3. FLIGHT SEARCH ══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon"><i class="fas fa-plane-departure"></i></div>
+      <div class="tool-header-text">
+        <h2>ค้นหาตั๋วเครื่องบิน</h2>
+        <p>เปรียบเทียบราคา 500+ สายการบินในคลิกเดียว</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="flight-search-wrap">
+        <div class="fs-tabs">
+          <div class="fs-tab active" onclick="setTripType('roundtrip',this)">✈️ ไป-กลับ</div>
+          <div class="fs-tab" onclick="setTripType('oneway',this)">→ เที่ยวเดียว</div>
+        </div>
+        <div class="fs-grid">
+          <div class="fs-field">
+            <label>ต้นทาง</label>
+            <input type="text" id="fsFrom" placeholder="Bangkok (BKK)" value="Bangkok (BKK)">
           </div>
-          <div class="currency-group">
-            <label id="lblFrom">จาก</label>
-            <select id="currFrom"></select>
-          </div>
-          <button class="swap-btn" onclick="swapCurrency()" title="Swap">⇄</button>
-          <div class="currency-group">
-            <label id="lblTo">เป็น</label>
-            <select id="currTo"></select>
+          <div class="fs-field">
+            <label>ปลายทาง</label>
+            <input type="text" id="fsTo" placeholder="Frankfurt (FRA)">
           </div>
         </div>
-        <button class="convert-btn" onclick="convertCurrency()" id="convertBtn">
-          <i class="fas fa-calculator"></i> <span id="convertBtnText">แปลงเงิน</span>
+        <div class="fs-row" id="fsDateRow">
+          <div class="fs-field">
+            <label>วันเดินทาง</label>
+            <input type="date" id="fsDepart">
+          </div>
+          <div class="fs-field" id="fsReturnField">
+            <label>วันกลับ</label>
+            <input type="date" id="fsReturn">
+          </div>
+          <div class="fs-field">
+            <label>ผู้โดยสาร</label>
+            <select id="fsPax">
+              <option>1 ผู้ใหญ่</option>
+              <option>2 ผู้ใหญ่</option>
+              <option>3 ผู้ใหญ่</option>
+              <option>4 ผู้ใหญ่</option>
+              <option>ผู้ใหญ่ + เด็ก</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-search" onclick="searchFlight()">
+          <i class="fas fa-search"></i> ค้นหาตั๋วราคาถูก
         </button>
-        <div class="currency-result" id="currResult">
-          <div class="result-amount" id="resultAmount">—</div>
-          <div class="result-rate" id="resultRate"></div>
-          <div class="result-updated" id="resultUpdated"></div>
-        </div>
-        <div class="currency-error" id="currError">
-          ⚠️ <span id="currErrorText">ไม่สามารถดึงข้อมูลได้ กรุณาลองใหม่</span>
-        </div>
-        <p style="font-size:0.72rem;color:#bbb;margin-top:10px;text-align:center" id="apiNote">
-          * ต้องใส่ API Key ของ exchangerate-api.com ในโค้ด (บรรทัด API_KEY)
-        </p>
+        <p class="fs-note">จะเปิดผลค้นหาใน FlyReisen24 Flight Search — เปรียบเทียบราคาจาก 500+ สายการบิน</p>
       </div>
-    </div>
 
-    <!-- WORLD CLOCK -->
-    <div class="tool-card">
-      <div class="tool-card-header">
-        <i class="fas fa-clock"></i>
-        <div>
-          <h2 id="clockTitle">นาฬิกาโลก</h2>
-          <p id="clockSub">เวลาปัจจุบันทั่วโลก อัปเดตทุกวินาที</p>
+      <div style="margin-top:20px">
+        <p style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:12px">เส้นทางยอดนิยมจากไทย</p>
+        <div class="quick-links">
+          <a href="https://flights.flyreisen24.com" class="ql-item">
+            <div class="ql-icon"><i class="fas fa-plane"></i></div>
+            <div class="ql-text"><strong>BKK → FRA</strong><span>กรุงเทพ → แฟรงก์เฟิร์ต</span></div>
+          </a>
+          <a href="https://flights.flyreisen24.com" class="ql-item">
+            <div class="ql-icon"><i class="fas fa-plane"></i></div>
+            <div class="ql-text"><strong>BKK → LHR</strong><span>กรุงเทพ → ลอนดอน</span></div>
+          </a>
+          <a href="https://flights.flyreisen24.com" class="ql-item">
+            <div class="ql-icon"><i class="fas fa-plane"></i></div>
+            <div class="ql-text"><strong>BKK → NRT</strong><span>กรุงเทพ → โตเกียว</span></div>
+          </a>
+          <a href="https://flights.flyreisen24.com" class="ql-item">
+            <div class="ql-icon"><i class="fas fa-plane"></i></div>
+            <div class="ql-text"><strong>BKK → SIN</strong><span>กรุงเทพ → สิงคโปร์</span></div>
+          </a>
+          <a href="https://flights.flyreisen24.com" class="ql-item">
+            <div class="ql-icon"><i class="fas fa-plane"></i></div>
+            <div class="ql-text"><strong>BKK → DXB</strong><span>กรุงเทพ → ดูไบ</span></div>
+          </a>
+          <a href="https://flights.flyreisen24.com" class="ql-item">
+            <div class="ql-icon"><i class="fas fa-plane"></i></div>
+            <div class="ql-text"><strong>BKK → CDG</strong><span>กรุงเทพ → ปารีส</span></div>
+          </a>
         </div>
       </div>
-      <div class="tool-card-body">
-        <div class="clock-search-row">
-          <div class="clock-search-wrap">
-            <i class="fas fa-search clock-search-icon"></i>
-            <input type="text" class="clock-search-input" id="clockSearchInput"
-              placeholder="🔍 เพิ่มเมือง เช่น Paris, Seoul, Mumbai..."
-              oninput="searchCity(this.value)" autocomplete="off">
-            <div class="clock-search-dropdown" id="clockDropdown"></div>
-          </div>
-          <button class="clock-add-btn" id="clockAddBtn" onclick="addSelectedCity()" disabled>
-            <i class="fas fa-plus"></i> <span id="addCityBtnText">เพิ่ม</span>
-          </button>
-        </div>
-        <div class="clocks-grid" id="clocksGrid"></div>
-      </div>
-    </div>
-
-    <!-- FLIGHT SEARCH WIDGET -->
-    <div class="tool-card tool-full">
-      <div class="tool-card-header">
-        <i class="fas fa-plane-departure"></i>
-        <div>
-          <h2 id="flightTitle">ค้นหาเที่ยวบิน</h2>
-          <p id="flightSub">เปรียบเทียบราคาจากสายการบินทั่วโลก</p>
-        </div>
-      </div>
-      <div class="tool-card-body">
-        <div class="widget-container" id="flightWidget">
-          <p class="widget-loading"><i class="fas fa-spinner"></i> <span id="widgetLoading">กำลังโหลด...</span></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- AVIATION NEWS -->
-    <div class="tool-card tool-full">
-      <div class="tool-card-header">
-        <i class="fas fa-newspaper"></i>
-        <div>
-          <h2 id="newsTitle">ข่าวสารการบิน</h2>
-          <p id="newsSub">ข่าวล่าสุดจากสำนักข่าวการบินระดับโลก</p>
-        </div>
-      </div>
-      <div class="tool-card-body">
-        <div class="news-refresh">
-          <button class="refresh-btn" onclick="loadNews()">
-            <i class="fas fa-sync-alt"></i> <span id="refreshBtn">รีเฟรช</span>
-          </button>
-        </div>
-        <div class="news-grid" id="newsGrid">
-          <div class="news-loading"><i class="fas fa-spinner fa-spin"></i> <span id="newsLoading">กำลังโหลดข่าว...</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- CONTACT WIDGET -->
-<div class="contact-widget">
-  <button class="contact-button" onclick="toggleContact()"><i class="fas fa-envelope"></i></button>
-  <div class="contact-popup" id="contactPopup">
-    <div class="contact-header">
-      <h3 id="contactTitle">ติดต่อเรา</h3>
-      <button class="close-contact" onclick="toggleContact()">×</button>
-    </div>
-    <div class="contact-form-container">
-      <div class="success-msg" id="successMsg">✅ <span id="successText">ส่งข้อความแล้ว!</span></div>
-      <div class="error-msg" id="errorMsg">❌ <span id="errorText">เกิดข้อผิดพลาด</span></div>
-      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="15175700-e107-4b41-82da-5d6e37467be4">
-        <div class="form-group"><label id="lblName">ชื่อ *</label><input type="text" name="name" required></div>
-        <div class="form-group"><label id="lblEmail">อีเมล *</label><input type="email" name="email" required></div>
-        <div class="form-group"><label id="lblMsg">ข้อความ *</label><textarea name="message" required></textarea></div>
-        <button type="submit" class="submit-btn" id="submitBtn"><i class="fas fa-paper-plane"></i> <span id="submitText">ส่งข้อความ</span></button>
-      </form>
     </div>
   </div>
-</div>
 
+</div><!-- /tools-wrap -->
+
+<!-- FOOTER -->
 <footer class="main-footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <h4 id="footerServicesTitle">บริการของเรา</h4>
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24 Logo" height="32" loading="lazy" style="height:32px;margin-bottom:14px;display:block">
+      <p>แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวมดีลจากพาร์ทเนอร์ชั้นนำในที่เดียว</p>
+    </div>
+    <div class="footer-col">
+      <h4>บริการ</h4>
       <ul>
-        <li><a href="https://flights.flyreisen24.com" id="footerFlights">ค้นหาตั๋วเครื่องบิน</a></li>
-        <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotels">จองโรงแรมที่พัก</a></li>
-        <li><a href="/th/deals_th.html" id="footerDealsLink">ดีลการเดินทาง</a></li>
-        <li><a href="/tools.html" id="footerToolsLink">เครื่องมือเดินทาง</a></li>
+        <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> ค้นหาตั๋วเครื่องบิน</a></li>
+        <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> จองโรงแรม</a></li>
+        <li><a href="/th/deals_th.html"><i class="fas fa-tags"></i> ดีลการเดินทาง</a></li>
+        <li><a href="/tools.html"><i class="fas fa-wrench"></i> เครื่องมือ</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 id="footerHelpTitle">ช่วยเหลือ</h4>
+      <h4>คลังความรู้</h4>
       <ul>
-        <li><a href="/contact.html" id="footerContact">ติดต่อฝ่ายบริการ</a></li>
-        <li><a href="/th/faq/landing.html" id="footerFaq">คลังความรู้การเดินทาง</a></li>
+        <li><a href="/th/faq/landing.html"><i class="fas fa-book-open"></i> 15 คำถามก่อนบิน</a></li>
+        <li><a href="/th/faq/01-passport-visa.html"><i class="fas fa-passport"></i> Passport & Visa</a></li>
+        <li><a href="/th/faq/03-baggage-rules.html"><i class="fas fa-suitcase"></i> Baggage Rules</a></li>
+        <li><a href="/th/faq/12-travel-insurance.html"><i class="fas fa-shield-alt"></i> ประกันการเดินทาง</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 id="footerLegalTitle">ข้อมูลทางกฎหมาย</h4>
+      <h4>ข้อมูล</h4>
       <ul>
-        <li><a href="/th/about_th.html" id="footerAbout">เกี่ยวกับเรา</a></li>
-        <li><a href="/th/terms_th.html" id="footerTerms">ข้อกำหนดและเงื่อนไข</a></li>
-        <li><a href="/th/privacy_th.html" id="footerPrivacy">นโยบายความเป็นส่วนตัว</a></li>
+        <li><a href="/contact.html"><i class="fas fa-headset"></i> ติดต่อเรา</a></li>
+        <li><a href="/th/about_th.html"><i class="fas fa-info-circle"></i> เกี่ยวกับเรา</a></li>
+        <li><a href="/th/privacy_th.html"><i class="fas fa-lock"></i> นโยบายความเป็นส่วนตัว</a></li>
+        <li><a href="/th/terms_th.html"><i class="fas fa-file-contract"></i> ข้อกำหนด</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom" id="footerCopy">© 2026 FlyReisen24. สงวนลิขสิทธิ์ | Powered by Travelpayouts</div>
+  <div class="footer-bottom">
+    <span>© 2026 FlyReisen24. All Rights Reserved. | Powered by Travelpayouts</span>
+    <span>
+      <a href="/th/faq/landing.html">TH</a> ·
+      <a href="/en/faq/landing.html">EN</a> ·
+      <a href="/de/faq/landing.html">DE</a>
+    </span>
+  </div>
 </footer>
 
 <script>
-// =============================================
-// ⚙️ CONFIG — ใส่ API Key ที่นี่จุดเดียว
-// =============================================
-const API_KEY = 'YOUR_API_KEY_HERE'; // ← เปลี่ยนตรงนี้หลังสมัคร exchangerate-api.com
+/* ══ NAV ══ */
+function toggleMenu(){document.getElementById('topNavMenu').classList.toggle('active')}
+function toggleLangDropdown(){document.getElementById('languageDropdown').classList.toggle('active')}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.dropdown-toggle').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      var li=this.parentElement,menu=li.querySelector('.dropdown-menu'),open=menu.classList.contains('show');
+      document.querySelectorAll('.dropdown-menu.show').forEach(function(m){m.classList.remove('show')});
+      document.querySelectorAll('.dropdown-active').forEach(function(l){l.classList.remove('dropdown-active')});
+      if(!open){menu.classList.add('show');li.classList.add('dropdown-active')}
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.top-nav-menu')&&!e.target.closest('.language-dropdown')){
+      document.querySelectorAll('.dropdown-menu.show').forEach(function(m){m.classList.remove('show')});
+      document.querySelectorAll('.dropdown-active').forEach(function(l){l.classList.remove('dropdown-active')});
+      document.getElementById('languageDropdown').classList.remove('active');
+    }
+  });
+});
 
-// =============================================
-// TRANSLATIONS
-// =============================================
-const T = {
-  th: {
-    bcHome:'หน้าแรก', bcTools:'เครื่องมือเดินทาง',
-    navFlight:'เที่ยวบิน', navHotel:'โรงแรม', navDeals:'ดีล', navKnowledge:'คลังความรู้', navFaq:'คำถามที่พบบ่อย', navTools:'เครื่องมือ', navHelp:'ช่วยเหลือ',
-    heroBadge:'เครื่องมือเดินทาง', heroTitle:'เครื่องมือเดินทางครบครัน', heroSub:'แปลงเงิน · นาฬิกาโลก · ค้นหาเที่ยวบิน · ข่าวการบินล่าสุด',
-    currTitle:'แปลงอัตราแลกเปลี่ยน', currSub:'อัตราเรียลไทม์ from exchangerate-api.com',
-    lblAmount:'จำนวน', lblFrom:'จาก', lblTo:'เป็น', convertBtnText:'แปลงเงิน',
-    currErrorText:'ไม่สามารถดึงข้อมูลได้ กรุณาลองใหม่',
-    apiNote:'* ต้องใส่ API Key ของ exchangerate-api.com ในโค้ด',
-    clockTitle:'นาฬิกาโลก', clockSub:'เวลาปัจจุบันทั่วโลก อัปเดตทุกวินาที',
-    flightTitle:'ค้นหาเที่ยวบิน', flightSub:'เปรียบเทียบราคาจากสายการบินทั่วโลก',
-    widgetLoading:'กำลังโหลด...',
-    newsTitle:'ข่าวสารการบิน', newsSub:'ข่าวล่าสุดจากสำนักข่าวการบินระดับโลก',
-    newsLoading:'กำลังโหลดข่าว...', refreshBtn:'รีเฟรช',
-    newsError:'ไม่สามารถโหลดข่าวได้ กรุณาลองใหม่',
-    contactTitle:'ติดต่อเรา', lblName:'ชื่อ *', lblEmail:'อีเมล *', lblMsg:'ข้อความ *',
-    submitText:'ส่งข้อความ', successText:'ส่งข้อความแล้ว! เราจะติดต่อกลับเร็วๆ นี้', errorText:'เกิดข้อผิดพลาด กรุณาลองใหม่',
-    footerServicesTitle:'บริการของเรา', footerFlights:'ค้นหาตั๋วเครื่องบิน', footerHotels:'จองโรงแรมที่พัก',
-    footerDealsLink:'ดีลการเดินทาง', footerToolsLink:'เครื่องมือเดินทาง',
-    footerHelpTitle:'ช่วยเหลือ', footerContact:'ติดต่อฝ่ายบริการ', footerFaq:'คลังความรู้การเดินทาง',
-    footerLegalTitle:'ข้อมูลทางกฎหมาย', footerAbout:'เกี่ยวกับเรา', footerTerms:'ข้อกำหนดและเงื่อนไข', footerPrivacy:'นโยบายความเป็นส่วนตัว',
-    footerCopy:'© 2026 FlyReisen24. สงวนลิขสิทธิ์ | Powered by Travelpayouts',
-    dealsPath:'/th/deals_th.html', faqPath:'/th/faq/landing.html', faqLandingPath:'/th/faq/landing.html', aboutPath:'/th/about_th.html', termsPath:'/th/terms_th.html', privacyPath:'/th/privacy_th.html',
-  },
-  en: {
-    bcHome:'Home', bcTools:'Travel Tools',
-    navFlight:'Flights', navHotel:'Hotels', navDeals:'Deals', navKnowledge:'Knowledge Hub', navFaq:'FAQ', navTools:'Tools', navHelp:'Help',
-    heroBadge:'Travel Tools', heroTitle:'Your Complete Travel Toolkit', heroSub:'Currency Converter · World Clock · Flight Search · Aviation News',
-    currTitle:'Currency Converter', currSub:'Real-time rates from exchangerate-api.com',
-    lblAmount:'Amount', lblFrom:'From', lblTo:'To', convertBtnText:'Convert',
-    currErrorText:'Could not fetch rates. Please try again.',
-    apiNote:'* Add your exchangerate-api.com API Key in the code',
-    clockTitle:'World Clock', clockSub:'Current time worldwide, updated every second',
-    flightTitle:'Search Flights', flightSub:'Compare prices from airlines worldwide',
-    widgetLoading:'Loading...',
-    newsTitle:'Aviation News', newsSub:'Latest news from global aviation sources',
-    newsLoading:'Loading news...', refreshBtn:'Refresh',
-    newsError:'Could not load news. Please try again.',
-    contactTitle:'Contact Us', lblName:'Name *', lblEmail:'Email *', lblMsg:'Message *',
-    submitText:'Send Message', successText:'Message sent! We\'ll get back to you soon.', errorText:'An error occurred. Please try again.',
-    footerServicesTitle:'Our Services', footerFlights:'Search Flights', footerHotels:'Book Hotels',
-    footerDealsLink:'Travel Deals', footerToolsLink:'Travel Tools',
-    footerHelpTitle:'Help', footerContact:'Contact Support', footerFaq:'Travel Knowledge Hub',
-    footerLegalTitle:'Legal', footerAbout:'About Us', footerTerms:'Terms & Conditions', footerPrivacy:'Privacy Policy',
-    footerCopy:'© 2026 FlyReisen24. All rights reserved. | Powered by Travelpayouts',
-    dealsPath:'/en/deals_en.html', faqPath:'/en/faq/landing.html', faqLandingPath:'/en/faq/landing.html', aboutPath:'/en/about_en.html', termsPath:'/en/terms_en.html', privacyPath:'/en/privacy_en.html',
-  },
-  de: {
-    bcHome:'Startseite', bcTools:'Reise-Tools',
-    navFlight:'Flüge', navHotel:'Hotels', navDeals:'Angebote', navKnowledge:'Wissensdatenbank', navFaq:'FAQ', navTools:'Reise-Tools', navHelp:'Hilfe',
-    heroBadge:'Reise-Tools', heroTitle:'Ihr komplettes Reise-Toolkit', heroSub:'Währungsrechner · Weltzeit · Flugsuche · Luftfahrt-News',
-    currTitle:'Währungsrechner', currSub:'Echtzeitkurse von exchangerate-api.com',
-    lblAmount:'Betrag', lblFrom:'Von', lblTo:'Nach', convertBtnText:'Umrechnen',
-    currErrorText:'Kurse konnten nicht geladen werden. Bitte erneut versuchen.',
-    apiNote:'* API Key von exchangerate-api.com im Code eintragen',
-    clockTitle:'Weltzeit-Uhr', clockSub:'Aktuelle Uhrzeit weltweit, jede Sekunde aktualisiert',
-    flightTitle:'Flüge suchen', flightSub:'Preise von Airlines weltweit vergleichen',
-    widgetLoading:'Wird geladen...',
-    newsTitle:'Luftfahrt-News', newsSub:'Aktuelle Nachrichten aus der Luftfahrtbranche',
-    newsLoading:'Nachrichten werden geladen...', refreshBtn:'Aktualisieren',
-    newsError:'Nachrichten konnten nicht geladen werden.',
-    contactTitle:'Kontakt', lblName:'Name *', lblEmail:'E-Mail *', lblMsg:'Nachricht *',
-    submitText:'Nachricht senden', successText:'Nachricht gesendet! Wir melden uns bald.', errorText:'Fehler aufgetreten. Bitte erneut versuchen.',
-    footerServicesTitle:'Unsere Dienste', footerFlights:'Flüge suchen', footerHotels:'Hotels buchen',
-    footerDealsLink:'Reiseangebote', footerToolsLink:'Reise-Tools',
-    footerHelpTitle:'Hilfe', footerContact:'Support kontaktieren', footerFaq:'Reise-Wissensdatenbank',
-    footerLegalTitle:'Rechtliches', footerAbout:'Über uns', footerTerms:'AGB', footerPrivacy:'Datenschutz',
-    footerCopy:'© 2026 FlyReisen24. Alle Rechte vorbehalten. | Powered by Travelpayouts',
-    dealsPath:'/de/deals_de.html', faqPath:'/de/faq/landing.html', faqLandingPath:'/de/faq/landing.html', aboutPath:'/de/about_de.html', termsPath:'/de/terms_de.html', privacyPath:'/de/privacy_de.html',
-  }
+/* ══ CURRENCY CONVERTER ══ */
+/* Approximate mid-market rates vs USD — updated May 2026 */
+const rates = {
+  USD:1, THB:35.2, EUR:0.92, GBP:0.79, JPY:153.4, CNY:7.24,
+  AUD:1.54, SGD:1.35, HKD:7.82, CHF:0.91, CAD:1.37, AED:3.67, KRW:1345
 };
 
-let currentLang = localStorage.getItem('flyreisen24_lang') || 'th';
+function toUSD(amount, from){ return amount / rates[from] }
+function fromUSD(amount, to){ return amount * rates[to] }
 
-function applyLang(lang) {
-  currentLang = lang;
-  const t = T[lang];
-  document.documentElement.lang = lang;
-  Object.keys(t).forEach(id => {
-    if(['dealsPath','faqPath','faqLandingPath','aboutPath','termsPath','privacyPath'].includes(id)) return;
-    const el = document.getElementById(id);
-    if(el) el.textContent = t[id];
-  });
-  // Update nav links
-  document.getElementById('navDealsLink').href = t.dealsPath;
-  document.getElementById('navKnowledgeLink').href = t.faqPath;
-  document.getElementById('navFaqLink').href = t.faqLandingPath;
-  document.getElementById('footerDealsLink').href = t.dealsPath;
-  document.getElementById('footerFaq').href = t.faqPath;
-  document.getElementById('footerAbout').href = t.aboutPath;
-  document.getElementById('footerTerms').href = t.termsPath;
-  document.getElementById('footerPrivacy').href = t.privacyPath;
-  // Active lang button
-  document.querySelectorAll('.lang-dropdown-menu a').forEach(a => a.classList.remove('active'));
-  const labels = {th:'TH',en:'EN',de:'DE'};
-  document.getElementById('currentLang').textContent = labels[lang];
-  document.querySelectorAll('.lang-dropdown-menu a').forEach(a => {
-    if(a.getAttribute('onclick') && a.getAttribute('onclick').includes("'"+lang+"'")) a.classList.add('active');
-  });
-  localStorage.setItem('flyreisen24_lang', lang);
-  // Rebuild clocks with correct locale
-  buildClocks();
+function convertCurrency(){
+  const amount = parseFloat(document.getElementById('ccAmount').value)||0;
+  const from = document.getElementById('ccFrom').value;
+  const to = document.getElementById('ccTo').value;
+  if(!amount){ document.getElementById('ccResult').textContent='—'; return }
+  const result = fromUSD(toUSD(amount,from),to);
+  const rate = fromUSD(toUSD(1,from),to);
+  document.getElementById('ccResult').textContent = result.toLocaleString('th-TH',{minimumFractionDigits:2,maximumFractionDigits:2})+' '+to;
+  document.getElementById('ccResultLabel').textContent = amount.toLocaleString('th-TH')+' '+from+' เท่ากับ';
+  document.getElementById('ccRate').textContent = '1 '+from+' = '+rate.toFixed(4)+' '+to;
 }
 
-function switchLang(lang, label) {
-  applyLang(lang);
-  document.getElementById('languageDropdown').classList.remove('active');
-}
-
-// =============================================
-// CURRENCY CONVERTER
-// =============================================
-const CURRENCIES = ['THB','EUR','USD','GBP','JPY','SGD','AUD','CAD','CHF','CNY','HKD','MYR','INR','AED','SEK','NOK','DKK','NZD','KRW','TWD'];
-const CURRENCY_NAMES = {THB:'Thai Baht',EUR:'Euro',USD:'US Dollar',GBP:'British Pound',JPY:'Japanese Yen',SGD:'Singapore Dollar',AUD:'Australian Dollar',CAD:'Canadian Dollar',CHF:'Swiss Franc',CNY:'Chinese Yuan',HKD:'Hong Kong Dollar',MYR:'Malaysian Ringgit',INR:'Indian Rupee',AED:'UAE Dirham',SEK:'Swedish Krona',NOK:'Norwegian Krone',DKK:'Danish Krone',NZD:'New Zealand Dollar',KRW:'South Korean Won',TWD:'Taiwan Dollar'};
-
-function buildCurrencySelects() {
-  const fromSel = document.getElementById('currFrom');
-  const toSel = document.getElementById('currTo');
-  CURRENCIES.forEach(c => {
-    fromSel.innerHTML += `<option value="${c}">${c} — ${CURRENCY_NAMES[c]||c}</option>`;
-    toSel.innerHTML += `<option value="${c}">${c} — ${CURRENCY_NAMES[c]||c}</option>`;
-  });
-  fromSel.value = 'THB';
-  toSel.value = 'EUR';
-}
-
-function swapCurrency() {
-  const f = document.getElementById('currFrom');
-  const t = document.getElementById('currTo');
-  [f.value, t.value] = [t.value, f.value];
-}
-
-async function convertCurrency() {
-  const amount = parseFloat(document.getElementById('currAmount').value);
-  const from = document.getElementById('currFrom').value;
-  const to = document.getElementById('currTo').value;
-  const result = document.getElementById('currResult');
-  const error = document.getElementById('currError');
-  const btn = document.getElementById('convertBtn');
-
-  result.classList.remove('show');
-  error.classList.remove('show');
-
-  if(!amount || amount <= 0) { error.classList.add('show'); return; }
-
-  if(API_KEY === 'YOUR_API_KEY_HERE') {
-    // Demo mode — static rates for preview
-    const demoRates = {THB:1,EUR:0.026,USD:0.028,GBP:0.022,JPY:4.18,SGD:0.037,AUD:0.043,CNY:0.20,HKD:0.22,MYR:0.13,CHF:0.025};
-    const rateFrom = demoRates[from] || 1;
-    const rateTo = demoRates[to] || 1;
-    const converted = (amount / rateFrom) * rateTo;
-    document.getElementById('resultAmount').textContent = `${amount.toLocaleString()} ${from} = ${converted.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:4})} ${to}`;
-    document.getElementById('resultRate').textContent = `1 ${from} = ${(rateTo/rateFrom).toFixed(4)} ${to}`;
-    document.getElementById('resultUpdated').textContent = '⚠️ Demo mode — สมัคร API Key เพื่ออัตราจริง';
-    result.classList.add('show');
-    return;
+function swapCurrencies(){
+  const from = document.getElementById('ccFrom');
+  const to = document.getElementById('ccTo');
+  const fromVal = from.value;
+  // find matching option in to select
+  const toOpts = Array.from(to.options).map(o=>o.value);
+  const fromOpts = Array.from(from.options).map(o=>o.value);
+  if(toOpts.includes(fromVal) && fromOpts.includes(to.value)){
+    const toVal = to.value;
+    from.value = toVal;
+    to.value = fromVal;
+    convertCurrency();
   }
-
-  btn.querySelector('span').textContent = '...';
-  btn.disabled = true;
-
-  try {
-    const res = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${from}/${to}/${amount}`);
-    const data = await res.json();
-    if(data.result === 'success') {
-      const converted = data.conversion_result;
-      const rate = data.conversion_rate;
-      document.getElementById('resultAmount').textContent = `${amount.toLocaleString()} ${from} = ${converted.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:4})} ${to}`;
-      document.getElementById('resultRate').textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
-      const upd = new Date(data.time_last_update_utc);
-      document.getElementById('resultUpdated').textContent = `Updated: ${upd.toLocaleDateString()}`;
-      result.classList.add('show');
-    } else {
-      error.classList.add('show');
-    }
-  } catch(e) {
-    error.classList.add('show');
-  }
-
-  btn.querySelector('span').textContent = T[currentLang].convertBtnText;
-  btn.disabled = false;
 }
 
-// =============================================
-// WORLD CLOCK
-// =============================================
-const DEFAULT_CLOCKS = [
-  {flag:'🇹🇭',city:'Bangkok',tz:'Asia/Bangkok'},
-  {flag:'🇩🇪',city:'Frankfurt',tz:'Europe/Berlin'},
-  {flag:'🇬🇧',city:'London',tz:'Europe/London'},
-  {flag:'🇺🇸',city:'New York',tz:'America/New_York'},
-  {flag:'🇯🇵',city:'Tokyo',tz:'Asia/Tokyo'},
-  {flag:'🇸🇬',city:'Singapore',tz:'Asia/Singapore'},
-  {flag:'🇦🇪',city:'Dubai',tz:'Asia/Dubai'},
-  {flag:'🇦🇺',city:'Sydney',tz:'Australia/Sydney'},
-  {flag:'🇨🇳',city:'Shanghai',tz:'Asia/Shanghai'},
+/* Popular pairs */
+const popularPairs = [
+  {from:'THB',to:'EUR',label:'THB → EUR'},
+  {from:'THB',to:'USD',label:'THB → USD'},
+  {from:'THB',to:'JPY',label:'THB → JPY'},
+  {from:'THB',to:'GBP',label:'THB → GBP'},
+  {from:'EUR',to:'THB',label:'EUR → THB'},
+  {from:'USD',to:'THB',label:'USD → THB'},
 ];
-
-// All searchable cities
-const ALL_CITIES = [
-  {flag:'🇹🇭',city:'Bangkok',tz:'Asia/Bangkok'},
-  {flag:'🇩🇪',city:'Berlin',tz:'Europe/Berlin'},
-  {flag:'🇩🇪',city:'Frankfurt',tz:'Europe/Berlin'},
-  {flag:'🇬🇧',city:'London',tz:'Europe/London'},
-  {flag:'🇺🇸',city:'New York',tz:'America/New_York'},
-  {flag:'🇺🇸',city:'Los Angeles',tz:'America/Los_Angeles'},
-  {flag:'🇺🇸',city:'Chicago',tz:'America/Chicago'},
-  {flag:'🇯🇵',city:'Tokyo',tz:'Asia/Tokyo'},
-  {flag:'🇸🇬',city:'Singapore',tz:'Asia/Singapore'},
-  {flag:'🇦🇪',city:'Dubai',tz:'Asia/Dubai'},
-  {flag:'🇦🇺',city:'Sydney',tz:'Australia/Sydney'},
-  {flag:'🇦🇺',city:'Melbourne',tz:'Australia/Melbourne'},
-  {flag:'🇨🇳',city:'Shanghai',tz:'Asia/Shanghai'},
-  {flag:'🇨🇳',city:'Beijing',tz:'Asia/Shanghai'},
-  {flag:'🇰🇷',city:'Seoul',tz:'Asia/Seoul'},
-  {flag:'🇮🇳',city:'Mumbai',tz:'Asia/Kolkata'},
-  {flag:'🇮🇳',city:'Delhi',tz:'Asia/Kolkata'},
-  {flag:'🇫🇷',city:'Paris',tz:'Europe/Paris'},
-  {flag:'🇳🇱',city:'Amsterdam',tz:'Europe/Amsterdam'},
-  {flag:'🇨🇭',city:'Zurich',tz:'Europe/Zurich'},
-  {flag:'🇮🇹',city:'Rome',tz:'Europe/Rome'},
-  {flag:'🇪🇸',city:'Madrid',tz:'Europe/Madrid'},
-  {flag:'🇲🇾',city:'Kuala Lumpur',tz:'Asia/Kuala_Lumpur'},
-  {flag:'🇻🇳',city:'Ho Chi Minh',tz:'Asia/Ho_Chi_Minh'},
-  {flag:'🇮🇩',city:'Jakarta',tz:'Asia/Jakarta'},
-  {flag:'🇵🇭',city:'Manila',tz:'Asia/Manila'},
-  {flag:'🇹🇼',city:'Taipei',tz:'Asia/Taipei'},
-  {flag:'🇭🇰',city:'Hong Kong',tz:'Asia/Hong_Kong'},
-  {flag:'🇿🇦',city:'Johannesburg',tz:'Africa/Johannesburg'},
-  {flag:'🇧🇷',city:'São Paulo',tz:'America/Sao_Paulo'},
-  {flag:'🇲🇽',city:'Mexico City',tz:'America/Mexico_City'},
-  {flag:'🇨🇦',city:'Toronto',tz:'America/Toronto'},
-  {flag:'🇷🇺',city:'Moscow',tz:'Europe/Moscow'},
-  {flag:'🇹🇷',city:'Istanbul',tz:'Europe/Istanbul'},
-  {flag:'🇶🇦',city:'Doha',tz:'Asia/Qatar'},
-  {flag:'🇸🇦',city:'Riyadh',tz:'Asia/Riyadh'},
-  {flag:'🇳🇿',city:'Auckland',tz:'Pacific/Auckland'},
-];
-
-let activeCities = [...DEFAULT_CLOCKS];
-let selectedCity = null;
-
-function buildClocks() {
-  const grid = document.getElementById('clocksGrid');
-  grid.innerHTML = activeCities.map((c,i) => {
-    const isDefault = i < DEFAULT_CLOCKS.length && DEFAULT_CLOCKS.some(d => d.tz === c.tz && d.city === c.city);
-    return `<div class="clock-item${isDefault?' default-city':''}">
-      <button class="clock-remove" onclick="removeCity('${c.tz}','${c.city}')" title="ลบ">×</button>
-      <div class="clock-flag">${c.flag}</div>
-      <div class="clock-city">${c.city}</div>
-      <div class="clock-time" id="clock-${c.tz.replace(/\//g,'-')}-${c.city.replace(/ /g,'_')}">--:--:--</div>
-      <div class="clock-date" id="date-${c.tz.replace(/\//g,'-')}-${c.city.replace(/ /g,'_')}">---</div>
-    </div>`;
-  }).join('');
-}
-
-function updateClocks() {
-  const now = new Date();
-  activeCities.forEach(c => {
-    const id = c.tz.replace(/\//g,'-')+'-'+c.city.replace(/ /g,'_');
-    const timeEl = document.getElementById('clock-'+id);
-    const dateEl = document.getElementById('date-'+id);
-    if(!timeEl) return;
-    timeEl.textContent = now.toLocaleTimeString('en-GB',{timeZone:c.tz,hour:'2-digit',minute:'2-digit',second:'2-digit'});
-    dateEl.textContent = now.toLocaleDateString('en-GB',{timeZone:c.tz,day:'2-digit',month:'short'});
-  });
-}
-
-function searchCity(query) {
-  const dropdown = document.getElementById('clockDropdown');
-  const addBtn = document.getElementById('clockAddBtn');
-  selectedCity = null;
-  addBtn.disabled = true;
-
-  if(!query || query.length < 1) { dropdown.classList.remove('show'); return; }
-
-  const q = query.toLowerCase();
-  const results = ALL_CITIES.filter(c =>
-    c.city.toLowerCase().includes(q) &&
-    !activeCities.some(a => a.city === c.city && a.tz === c.tz)
-  ).slice(0, 8);
-
-  if(results.length === 0) { dropdown.classList.remove('show'); return; }
-
-  dropdown.innerHTML = results.map(c =>
-    `<div class="clock-search-option" onclick="selectCity('${c.flag}','${c.city}','${c.tz}')">
-      <span>${c.flag}</span><span>${c.city}</span>
-    </div>`
-  ).join('');
-  dropdown.classList.add('show');
-}
-
-function selectCity(flag, city, tz) {
-  selectedCity = {flag, city, tz};
-  document.getElementById('clockSearchInput').value = flag + ' ' + city;
-  document.getElementById('clockDropdown').classList.remove('show');
-  document.getElementById('clockAddBtn').disabled = false;
-}
-
-function addSelectedCity() {
-  if(!selectedCity) return;
-  activeCities.push(selectedCity);
-  buildClocks();
-  document.getElementById('clockSearchInput').value = '';
-  document.getElementById('clockAddBtn').disabled = true;
-  selectedCity = null;
-}
-
-function removeCity(tz, city) {
-  activeCities = activeCities.filter(c => !(c.tz === tz && c.city === city));
-  buildClocks();
-}
-
-// Close dropdown on outside click
-document.addEventListener('click', e => {
-  const wrap = document.querySelector('.clock-search-wrap');
-  if(wrap && !wrap.contains(e.target)) {
-    document.getElementById('clockDropdown').classList.remove('show');
-  }
-});
-
-// =============================================
-// FLIGHT WIDGET (Travelpayouts)
-// =============================================
-function loadFlightWidget() {
-  const container = document.getElementById('flightWidget');
-  container.innerHTML = '';
-  const div = document.createElement('div');
-  div.id = 'tp-widget-searchform';
-  container.appendChild(div);
-  const script = document.createElement('script');
-  script.async = true;
-  script.charset = 'utf-8';
-  script.src = 'https://tp.media/content?trs=384311&shmarker=589795&locale=th&curr=thb&powered_by=true&widget_container_id=tp-widget-searchform&campaign_id=100';
-  script.onerror = () => {
-    container.innerHTML = `<div style="text-align:center;padding:20px"><a href="https://flights.flyreisen24.com" style="background:linear-gradient(135deg,#1B4332,#2d6a4f);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:10px"><i class="fas fa-plane-departure"></i> <span id="widgetFallback">ค้นหาเที่ยวบิน</span></a></div>`;
+const popWrap = document.getElementById('ccPopular');
+popularPairs.forEach(function(p){
+  const tag = document.createElement('div');
+  tag.className='cc-tag';
+  tag.textContent=p.label;
+  tag.onclick=function(){
+    document.getElementById('ccFrom').value=p.from;
+    document.getElementById('ccTo').value=p.to;
+    convertCurrency();
   };
-  container.appendChild(script);
-}
+  popWrap.appendChild(tag);
+});
+convertCurrency();
 
-// =============================================
-// AVIATION NEWS (RSS via rss2json)
-// =============================================
-const NEWS_FEEDS = [
-  {url:'https://simpleflying.com/feed/', source:'Simple Flying'},
-  {url:'https://aviationweek.com/rss.xml', source:'Aviation Week'},
+/* ══ WORLD CLOCK ══ */
+const cities = [
+  {city:'กรุงเทพฯ',country:'Thailand',tz:'Asia/Bangkok',highlight:true},
+  {city:'Tokyo',country:'Japan',tz:'Asia/Tokyo'},
+  {city:'Singapore',country:'Singapore',tz:'Asia/Singapore'},
+  {city:'Dubai',country:'UAE',tz:'Asia/Dubai'},
+  {city:'Frankfurt',country:'Germany',tz:'Europe/Berlin'},
+  {city:'London',country:'UK',tz:'Europe/London'},
+  {city:'Paris',country:'France',tz:'Europe/Paris'},
+  {city:'Zürich',country:'Switzerland',tz:'Europe/Zurich'},
+  {city:'Istanbul',country:'Turkey',tz:'Europe/Istanbul'},
+  {city:'New York',country:'USA',tz:'America/New_York'},
+  {city:'Los Angeles',country:'USA',tz:'America/Los_Angeles'},
+  {city:'Sydney',country:'Australia',tz:'Australia/Sydney'},
+  {city:'Seoul',country:'S. Korea',tz:'Asia/Seoul'},
+  {city:'Hong Kong',country:'HK',tz:'Asia/Hong_Kong'},
+  {city:'Mumbai',country:'India',tz:'Asia/Kolkata'},
+  {city:'Nairobi',country:'Kenya',tz:'Africa/Nairobi'},
+  {city:'São Paulo',country:'Brazil',tz:'America/Sao_Paulo'},
+  {city:'Toronto',country:'Canada',tz:'America/Toronto'},
+  {city:'Amsterdam',country:'Netherlands',tz:'Europe/Amsterdam'},
+  {city:'Moscow',country:'Russia',tz:'Europe/Moscow'},
 ];
 
-async function loadNews() {
-  const grid = document.getElementById('newsGrid');
-  const t = T[currentLang];
-  grid.innerHTML = `<div class="news-loading"><i class="fas fa-spinner fa-spin"></i> ${t.newsLoading}</div>`;
+const grid = document.getElementById('clockGrid');
+cities.forEach(function(c,i){
+  const el = document.createElement('div');
+  el.className='clock-card'+(c.highlight?' clock-highlight':'');
+  el.id='clock-'+i;
+  grid.appendChild(el);
+});
 
-  let allItems = [];
-  for(const feed of NEWS_FEEDS) {
-    try {
-      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&count=5`;
-      const res = await fetch(apiUrl);
-      const data = await res.json();
-      if(data.status === 'ok' && data.items) {
-        data.items.forEach(item => allItems.push({...item, source: feed.source}));
-      }
-    } catch(e) { /* skip feed on error */ }
-  }
+function updateClocks(){
+  const now = new Date();
+  cities.forEach(function(c,i){
+    const el = document.getElementById('clock-'+i);
+    const local = new Intl.DateTimeFormat('th-TH',{
+      timeZone:c.tz,hour:'2-digit',minute:'2-digit',second:'2-digit',
+      hour12:false
+    }).format(now);
+    const dateStr = new Intl.DateTimeFormat('en-GB',{
+      timeZone:c.tz,weekday:'short',day:'numeric',month:'short'
+    }).format(now);
+    el.innerHTML='<div class="clock-city">'+c.city+'</div><div class="clock-country">'+c.country+'</div><div class="clock-time">'+local+'</div><div class="clock-date">'+dateStr+'</div>';
+  });
+}
+updateClocks();
+setInterval(updateClocks,1000);
 
-  if(allItems.length === 0) {
-    grid.innerHTML = `<div class="news-error">⚠️ ${t.newsError}</div>`;
-    return;
-  }
-
-  allItems.sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate));
-  allItems = allItems.slice(0, 8);
-
-  grid.innerHTML = allItems.map(item => {
-    const date = new Date(item.pubDate).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
-    const title = item.title.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    return `<a class="news-item" href="${item.link}" target="_blank" rel="noopener noreferrer">
-      <span class="news-source-tag">${item.source}</span>
-      <div class="news-content">
-        <div class="news-title">${title}</div>
-        <div class="news-date">📅 ${date}</div>
-      </div>
-    </a>`;
-  }).join('');
+/* ══ FLIGHT SEARCH ══ */
+let tripType='roundtrip';
+function setTripType(type,btn){
+  tripType=type;
+  document.querySelectorAll('.fs-tab').forEach(function(t){t.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('fsReturnField').style.display=type==='roundtrip'?'block':'none';
 }
 
-// =============================================
-// UI HELPERS
-// =============================================
-function toggleLangDropdown() { document.getElementById('languageDropdown').classList.toggle('active'); }
-function toggleMenu() { document.getElementById('topNavMenu').classList.toggle('active'); }
-function toggleContact() { document.getElementById('contactPopup').classList.toggle('active'); }
+/* Set default dates */
+(function(){
+  const today = new Date();
+  const dep = new Date(today);dep.setDate(dep.getDate()+30);
+  const ret = new Date(dep);ret.setDate(ret.getDate()+14);
+  const fmt = d=>d.toISOString().split('T')[0];
+  document.getElementById('fsDepart').value=fmt(dep);
+  document.getElementById('fsReturn').value=fmt(ret);
+})();
 
-document.addEventListener('click', e => {
-  const d = document.getElementById('languageDropdown');
-  if(d && !d.contains(e.target)) d.classList.remove('active');
-  const m = document.getElementById('topNavMenu');
-  const nav = document.getElementById('topNav');
-  if(nav && m && !nav.contains(e.target)) m.classList.remove('active');
-});
-
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  const ok = document.getElementById('successMsg');
-  const err = document.getElementById('errorMsg');
-  btn.disabled = true;
-  try {
-    const r = await fetch(this.action, {method:'POST', body:new FormData(this), headers:{'Accept':'application/json'}});
-    if(r.ok) { ok.classList.add('show'); err.classList.remove('show'); this.reset(); setTimeout(()=>{toggleContact();ok.classList.remove('show')},3000); }
-    else throw new Error();
-  } catch { err.classList.add('show'); ok.classList.remove('show'); }
-  finally { btn.disabled = false; }
-});
-
-// Scroll shrink nav
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('topNav');
-  const logo = document.querySelector('.top-nav-logo img');
-  if(window.scrollY > 50) { nav.style.padding='8px 0'; if(logo) logo.style.height='42px'; }
-  else { nav.style.padding='10px 0'; if(logo) logo.style.height='48px'; }
-});
-
-// =============================================
-// INIT
-// =============================================
-buildCurrencySelects();
-buildClocks();
-setInterval(updateClocks, 1000);
-updateClocks();
-loadFlightWidget();
-loadNews();
-applyLang(currentLang);
+function searchFlight(){
+  window.open('https://flights.flyreisen24.com','_blank');
+}
 </script>
-<script src="/common.js"></script>
+<script src="/common.js" defer></script>
 </body>
 </html>
