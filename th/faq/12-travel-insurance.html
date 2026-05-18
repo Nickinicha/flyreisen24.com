@@ -255,7 +255,7 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
-/* ?? ARTICLE CONTENT STYLES ?? */
+/* ARTICLE CONTENT STYLES */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
 .box p,.box ul{margin:0;font-size:14px}
@@ -310,6 +310,14 @@
 .il-text strong{display:block;font-size:14px;color:#0056B3;margin-bottom:2px}
 .il-text span{font-size:12.5px;color:#6b7280}
 .il-arrow{color:#0056B3;font-size:14px;flex-shrink:0}
+.key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+.kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+.kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+.kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+@media(max-width:768px){.kt-items{grid-template-columns:1fr}}
 
 
   </style>
@@ -434,6 +442,15 @@
     <article class="article-body">
 
 <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
+<div class="key-takeaway">
+  <div class="kt-label"><i class="fas fa-bolt"></i> สรุปสั้น — อ่านใน 30 วินาที</div>
+  <div class="kt-items">
+    <div class="kt-item"><span class="kt-icon">🏥</span><div class="kt-text"><strong>เพดานค่ารักษา: อย่างน้อย 3 ล้านบาทสำหรับ USA/ญี่ปุ่น</strong><span>ค่ารักษาแพงมากในสองประเทศนี้ — วงเงินต่ำกว่านั้นอันตราย</span></div></div>
+    <div class="kt-item"><span class="kt-icon">❌</span><div class="kt-text"><strong>โรคประจำตัว: มักถูกยกเว้นเสมอ</strong><span>ถ้าอาการกำเริบระหว่างเดินทาง ประกันมาตรฐานปฏิเสธเกือบทุกกรณี</span></div></div>
+    <div class="kt-item"><span class="kt-icon">💳</span><div class="kt-text"><strong>ประกันบัตรเครดิต: สำรอง ไม่ใช่หลัก</strong><span>วงเงินต่ำกว่า ข้อยกเว้นมากกว่า มักไม่มี Trip Cancellation — อย่าพึ่งพาเป็นหลัก</span></div></div>
+    <div class="kt-item"><span class="kt-icon">📋</span><div class="kt-text"><strong>เอกสารคือทุกอย่างในการเคลม</strong><span>เก็บใบเสร็จทุกใบ ทำ PIR ที่สนามบิน แจ้งความถ้าของหาย — ไม่มีเอกสาร เคลมไม่ได้</span></div></div>
+  </div>
+</div>
       <h2 id="ti-what">ประกันการเดินทาง: จ่ายแล้วได้อะไรจริงๆ</h2>
       <p>ทุกปีมีผู้โดยสารหลายพันคนยื่นเรียกประกันแล้วถูกปฏิเสธ ส่วนใหญ่ไม่ใช่เพราะกรมธรรม์ไม่ดี แต่เพราะไม่อ่านเงื่อนไข "ที่ไม่คุ้มครอง" ก่อนซื้อ</p>
 
@@ -477,18 +494,31 @@
         <li><strong>Adventure Sports Clause</strong> — ถ้าวางแผนดำน้ำหรือปีนเขา</li>
       </ol>
 
+      <div class="scenario">
+  <div class="scenario-label">สถานการณ์จริง — การเคลมที่ป้องกันได้</div>
+  <h4>เคลมค่ารักษาในสหรัฐฯ ถูกปฏิเสธ — โรคประจำตัวไม่ได้แจ้ง บิล 47,000 USD</h4>
+  <p>นักเดินทางที่มีความดันโลหิตสูงควบคุมดีเกิดอาการหัวใจระหว่างอยู่ในนิวยอร์ก ค่ารักษาโรงพยาบาลสหรัฐฯ รวม 47,000 USD ยื่นเรียกประกันการเดินทางมาตรฐานโดยคาดว่าจะได้รับเต็มจำนวน</p>
+  <div class="outcome outcome-bad">
+    <i class="fas fa-times-circle" style="margin-top:2px;flex-shrink:0"></i>
+    <span>เคลมถูกปฏิเสธ กรมธรรม์ยกเว้นโรคหัวใจและหลอดเลือดที่มีอยู่ก่อน บริษัทประกันระบุว่าอาการเชื่อมโยงกับโรคที่ไม่ได้แจ้ง นักเดินทางต้องจ่ายเอง 47,000 USD ประกันพิเศษที่แจ้งโรคประจำตัวจะมีค่าเพิ่มเพียงประมาณ 2,500 บาท — ต่างกันคนละเรื่อง</span>
+  </div>
+</div>
+
       <h2 id="cc-free">บัตรเครดิตให้ประกันเดินทางฟรี — คุ้มพอไหม?</h2>
       <p>บัตรเครดิตระดับ Platinum ขึ้นไปมักให้ประกันเดินทางอัตโนมัติ <strong>เมื่อจ่ายค่าตั๋วด้วยบัตรนั้น</strong></p>
       <p><strong>ข้อจำกัดที่พบบ่อย:</strong> วงเงินค่ารักษาต่ำ (มักแค่ 1–2 ล้านบาท), ไม่ครอบคลุม Trip Cancellation, ต้องจ่ายตั๋วทั้งหมดด้วยบัตรใบเดียว</p>
       <p>→ เหมาะเป็น backup ไม่เหมาะเป็น primary insurance</p>
       <p>→ <strong>อ่านต่อ:</strong> <a href="/th/faq/09-montreal-eu261.html">สิทธิผู้โดยสาร EU261</a></p>
-<div class="nav-prevnext" style="margin-top:28px;padding-top:16px;border-top:1px solid #e9ecef;background:transparent">
-      <div class="nav-prevnext-inner" style="max-width:none;padding:0">
-        <a href="/th/faq/11-airport-security.html"><i class="fas fa-arrow-left"></i> 11 — Security</a>
-        <a href="/th/faq/landing.html" class="back-toc"><i class="fas fa-th-large"></i> สารบัญ</a>
-        <a href="/th/faq/13-airport-lounge.html">13 — Lounge <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
+<div class="pro-tips">
+  <div class="pro-tips-title">🛡️ Checklist ประกันการเดินทาง: ก่อนซื้อและก่อนบิน</div>
+  <div class="pro-tips-sub">สิ่งที่ต้องตรวจก่อนซื้อ และสิ่งที่ต้องเตรียมก่อนออกเดินทาง</div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>เช็กเพดานค่ารักษาสำหรับจุดหมายของคุณ</strong><span>USA และญี่ปุ่น: อย่างน้อย 3 ล้านบาท ยุโรป: 1 ล้านบาทมักพอ ประกันราคาถูกมักไม่พอสำหรับประเทศค่าใช้จ่ายสูง</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>แจ้งโรคประจำตัวก่อนซื้อทุกครั้ง</strong><span>การไม่แจ้งคือสาเหตุหลักอันดับ 1 ของการปฏิเสธเคลม ค่าเพิ่มเล็กน้อยถูกกว่าจ่ายเองต่างประเทศมาก</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ตรวจ Adventure Sports ถ้าวางแผนทำกิจกรรม</strong><span>ดำน้ำ สกี ขี่มอเตอร์ไซค์ — เช็ก Exclusion List ก่อนซื้อทุกครั้ง</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>เก็บใบเสร็จและหลักฐานการจองทุกอย่าง</strong><span>ทุกการเคลมต้องมีหลักฐานการซื้อ หลักฐานเหตุการณ์ และหลักฐานความเสียหาย เริ่มเก็บตั้งแต่วันแรก</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>แจ้งความทันทีถ้าของถูกขโมย</strong><span>บริษัทประกันเกือบทุกแห่งบังคับ การแจ้งความช้า 3 วันมักทำให้เคลมไม่ผ่าน</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ประกันบัตรเครดิต: เสริม ไม่ใช่แทน</strong><span>ดีสำหรับ Delay และกระเป๋า แต่ไม่เพียงพอสำหรับฉุกเฉินทางการแพทย์ในประเทศค่าใช้จ่ายสูง</span></div></div>
+</div>
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
 
     </article>

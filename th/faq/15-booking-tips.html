@@ -255,7 +255,7 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
-/* ?? ARTICLE CONTENT STYLES ?? */
+/* ARTICLE CONTENT STYLES */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
 .box p,.box ul{margin:0;font-size:14px}
@@ -310,7 +310,14 @@
 .il-text strong{display:block;font-size:14px;color:#0056B3;margin-bottom:2px}
 .il-text span{font-size:12.5px;color:#6b7280}
 .il-arrow{color:#0056B3;font-size:14px;flex-shrink:0}
-
+.key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+.kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+.kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+.kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+@media(max-width:768px){.kt-items{grid-template-columns:1fr}}
 
   </style>
 </head>
@@ -434,6 +441,15 @@
     <article class="article-body">
 
 <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
+<div class="key-takeaway">
+  <div class="kt-label"><i class="fas fa-bolt"></i> สรุปสั้น — อ่านใน 30 วินาที</div>
+  <div class="kt-items">
+    <div class="kt-item"><span class="kt-icon">📅</span><div class="kt-text"><strong>จองล่วงหน้า 2–4 เดือน: ราคาดีที่สุด</strong><span>ใช้ได้กับทั้งเส้นทางเอเชียและยุโรป/อเมริกา — นี่คือช่วงที่ราคา Optimal จริงๆ</span></div></div>
+    <div class="kt-item"><span class="kt-icon">📆</span><div class="kt-text"><strong>บินวันอังคาร/พุธ: ถูกกว่า 15–25%</strong><span>วันศุกร์และอาทิตย์แพงที่สุด — เส้นทางเดียวกัน ราคาต่างกันได้มาก</span></div></div>
+    <div class="kt-item"><span class="kt-icon">🔍</span><div class="kt-text"><strong>Incognito Mode ไม่ช่วยให้ราคาถูกลง</strong><span>ราคาขึ้นระหว่างค้นหาซ้ำเกิดจากที่นั่ง Fare Class ถูกจอง ไม่ใช่ Cookie Tracking</span></div></div>
+    <div class="kt-item"><span class="kt-icon">✈️</span><div class="kt-text"><strong>เปรียบเทียบอย่างน้อย 3 แพลตฟอร์มเสมอ</strong><span>ไม่มีแพลตฟอร์มไหนถูกที่สุดตลอด — ราคาดีที่สุดเปลี่ยนตามเส้นทางและวันที่</span></div></div>
+  </div>
+</div>
       <h2 id="cheap-intro">จองตั๋วราคาถูก: สิ่งที่ได้ผลจริงในปี 2026</h2>
       <p>มีคำแนะนำเรื่องจองตั๋วถูกมากมายบนอินเทอร์เน็ต แต่หลายอย่างเป็นมิธที่ล้าสมัยหรือไม่เคยเป็นจริง บทความนี้รวมแค่สิ่งที่ได้ผลจริงจากข้อมูลปี 2025–2026</p>
 
@@ -465,6 +481,19 @@
       <p><strong>Myth 3:</strong> "ตั๋วถูกที่สุดอยู่ที่เว็บสายการบินโดยตรง" — ไม่เสมอไป OTA บางครั้งได้ราคาพิเศษ</p>
       <p><strong>Myth 4:</strong> "Flash Sale เสมอราคาดีที่สุด" — ดีเมื่อยืดหยุ่นวันได้</p>
       <p><strong>จริง:</strong> Error Fare ยังมีอยู่ — ติดตามจากเพจเฉพาะทางหรือ Fare Alert</p>
+<div class="scenario">
+  <div class="scenario-label">ความเชื่อ vs ความจริง</div>
+  <h4>Incognito Mode และ Myth เรื่องเวลาจอง — สิ่งที่นักเดินทางบ่อยหยุดทำแล้ว</h4>
+  <p>นักเดินทางบ่อยคนหนึ่งเคยเชื่อว่าการค้นหาหลายครั้งทำให้ราคาขึ้น จึงสลับระหว่าง Browser ปกติและ Incognito ตลอด แต่พบว่าราคาขึ้นลงตามเวลาของวัน ไม่ใช่จำนวนครั้งที่ค้นหา</p>
+  <div class="outcome outcome-bad">
+    <i class="fas fa-times-circle" style="margin-top:2px;flex-shrink:0"></i>
+    <span>เสียเวลาสลับ Browser โดยไม่จำเป็น และรอจนราคาขึ้นเพราะที่นั่ง Fare Class ถูกจองหมดในระหว่างที่รอ "เวลาดี" ที่ถูกต้อง</span>
+  </div>
+  <div class="outcome outcome-good" style="margin-top:8px">
+    <i class="fas fa-check-circle" style="margin-top:2px;flex-shrink:0"></i>
+    <span>สิ่งที่ได้ผลจริง: ตั้ง Price Alert ใน Google Flights ทันทีที่เจอเส้นทางที่ต้องการ รอให้ Alert แจ้งเตือนแทนการค้นหาซ้ำ และจองทันทีเมื่อราคาอยู่ในช่วงที่รับได้</span>
+  </div>
+</div>
 
       <h2 id="tools">เครื่องมือที่ใช้งานได้จริง</h2>
       <p><strong>หาราคา:</strong> Google Flights (Explore, Price Calendar), Skyscanner (Cheapest Month), Trip.com (เส้นทางเอเชียมักได้ราคาพิเศษ Last Minute)</p>
@@ -487,13 +516,16 @@
       </ul>
       <p>→ <strong>เริ่มค้นหาตั๋ว:</strong> <a href="https://flights.flyreisen24.com">FlyReisen24 Flight Search</a></p>
       <p>→ <strong>อ่านต่อ:</strong> <a href="/th/faq/01-passport-visa.html">Passport &amp; Visa Bible</a></p>
-<div class="nav-prevnext" style="margin-top:28px;padding-top:16px;border-top:1px solid #e9ecef;background:transparent">
-      <div class="nav-prevnext-inner" style="max-width:none;padding:0">
-        <a href="/th/faq/14-special-needs.html"><i class="fas fa-arrow-left"></i> 14 — พิเศษ</a>
-        <a href="/th/faq/landing.html" class="back-toc"><i class="fas fa-th-large"></i> สารบัญ</a>
-        <span></span>
-      </div>
-    </div>
+<div class="pro-tips">
+  <div class="pro-tips-title">✅ Checklist ก่อนกดจองทุกครั้ง</div>
+  <div class="pro-tips-sub">ตรวจสิ่งเหล่านี้ก่อนคลิก "ยืนยันการจอง"</div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>เปรียบเทียบอย่างน้อย 3 แพลตฟอร์ม</strong><span>Google Flights, Skyscanner และเว็บสายการบินโดยตรง — ราคาที่ถูกที่สุดเปลี่ยนตามเส้นทางและวันที่</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ดู Total Price รวม Tax และ Fee ทั้งหมด</strong><span>ราคาฐาน Low-cost อาจดูถูก แต่ค่า Seat Selection + กระเป๋า + ค่าธรรมเนียมอาจเพิ่มอีก 40–60%</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>เช็กน้ำหนักกระเป๋าที่รวมในตั๋ว</strong><span>บางตั๋วรวมโหลด บางตั๋วไม่รวม การเพิ่มกระเป๋าหลังจองมักแพงกว่าซื้อพร้อมตั๋ว 2 เท่า</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>อ่านเงื่อนไขการเปลี่ยนและยกเลิก</strong><span>ตั๋ว Flexible แพงกว่าแต่คุ้มสำหรับทริปที่ยังไม่แน่นอนหรืออีกกว่า 2 เดือนข้างหน้า</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ตรวจ Visa ทุกประเทศในเส้นทาง รวมถึง Transit Visa</strong><span>บางสัญชาติต้องมี Transit Visa แม้ไม่ได้ออกนอกสนามบิน — ตรวจผ่าน IATA Travel Centre หรือ Timatic</span></div></div>
+  <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ตรวจชื่อตรงกับพาสปอร์ตทุกตัวอักษร</strong><span>การแก้ชื่อหลังจองที่สายการบิน Low-cost มักมีค่าใช้จ่ายเท่ากับซื้อตั๋วใหม่</span></div></div>
+</div>
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
 
     </article>

@@ -255,7 +255,7 @@
     .btn-cta{display:inline-flex;align-items:center;gap:8px;background:#0056B3;color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:14px;margin-top:16px;transition:all .2s}
     .btn-cta:hover{background:#003d82;transform:translateY(-2px)}
 
-/* ?? ARTICLE CONTENT STYLES ?? */
+/* ARTICLE CONTENT STYLES */
 .box{border-radius:10px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
 .box-icon{font-size:20px;flex-shrink:0;margin-top:2px}
 .box p,.box ul{margin:0;font-size:14px}
@@ -310,6 +310,33 @@
 .il-text strong{display:block;font-size:14px;color:#0056B3;margin-bottom:2px}
 .il-text span{font-size:12.5px;color:#6b7280}
 .il-arrow{color:#0056B3;font-size:14px;flex-shrink:0}
+
+/* KEY TAKEAWAY */
+.key-takeaway{background:linear-gradient(135deg,#003d82,#0056B3);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+.kt-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.kt-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kt-item{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+.kt-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.kt-text strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+.kt-text span{font-size:12px;color:rgba(255,255,255,.75)}
+
+/* SAF TIMELINE */
+.saf-timeline{margin:20px 0}
+.saf-tl-item{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start}
+.saf-tl-dot{width:48px;height:48px;min-width:48px;background:#0056B3;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;text-align:center;line-height:1.2;padding:4px}
+.saf-tl-year{font-size:11px;color:#6b7280;margin-bottom:2px;font-weight:600}
+.saf-tl-title{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.saf-tl-desc{font-size:13px;color:#6b7280;line-height:1.5}
+
+/* COMPARISON GRID */
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.comp-card{background:#f8f9fc;border:1px solid #e5e7eb;border-radius:10px;padding:18px}
+.comp-card h3{font-size:14px;font-weight:700;color:#0056B3;margin-bottom:10px}
+.comp-card ul{margin:0 0 0 16px;padding:0;font-size:13.5px;color:#374151}
+.comp-card ul li{margin-bottom:6px}
+@media(max-width:600px){
+  .kt-items,.comparison-grid{grid-template-columns:1fr}
+}
 
 
   </style>
@@ -434,294 +461,147 @@
     <article class="article-body">
 
       <!-- ════ เนื้อหาเริ่มที่นี่ ════ -->
-      <!-- Why This Matters -->
-  <div class="why-box">
-    <div class="label">⚡ Why This Matters</div>
-    <p>การบินปล่อยก๊าซเรือนกระจกประมาณ 2–3% ของการปล่อยทั้งโลก ฟังดูเล็กน้อย แต่ถ้านับผลกระทบจากการก่อตัวของ contrail และ non-CO₂ effects รวมด้วย ตัวเลขจริงอาจสูงถึง 3–4 เท่า SAF จึงไม่ใช่เรื่องของ "อนาคตไกล" แต่คืองานที่อุตสาหกรรมการบินกำลังแข่งกับนาฬิกา</p>
-  </div>
-
-  <!-- Section 1: Why Aviation is Hard -->
-  <h2>ทำไมการบินจึงลด carbon ได้ยากกว่าทุกอุตสาหกรรม</h2>
-
-  <p>เมื่อพูดถึงการลดคาร์บอน รถยนต์ไฟฟ้า โซลาร์เซลล์ และอาคารประหยัดพลังงาน มีทางออกที่ชัดเจน แต่การบินเป็นข้อยกเว้นที่ท้าทายกว่ามาก</p>
-
-  <div class="stat-row">
-    <div class="stat-card">
-      <div class="stat-number">2–3%</div>
-      <div class="stat-label">สัดส่วนการปล่อย CO₂ จากการบินในระดับโลก</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">3–4×</div>
-      <div class="stat-label">ผลกระทบรวมเมื่อนับ non-CO₂ effects</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">80%</div>
-      <div class="stat-label">การปล่อย CO₂ มาจาก long-haul flights</div>
-    </div>
-  </div>
-
-  <p>ปัญหาหลักคือ <strong>ความหนาแน่นพลังงาน</strong> เครื่องบินโดยสารขนาดใหญ่ต้องการพลังงานมากมายในช่วงเวลาสั้น ๆ ที่ไม่มีแบตเตอรี่ใดในโลกปัจจุบันสามารถจัดหาได้ในน้ำหนักที่เครื่องบินรับได้ แบตเตอรี่ที่จะขับเคลื่อนเครื่องบิน A380 ข้ามมหาสมุทรแปซิฟิกจะหนักกว่าตัวเครื่องบินหลายเท่า</p>
-
-  <p>นั่นหมายความว่าในช่วง 20–30 ปีข้างหน้า เครื่องบินโดยสารระยะไกลยังจำเป็นต้องใช้เชื้อเพลิงเหลวแบบหนึ่ง — และ SAF คือทางออกที่ดีที่สุดที่มีอยู่ในปัจจุบัน</p>
-
-  <!-- Section 2: What is SAF -->
-  <h2>SAF คืออะไร — ไม่ใช่แค่น้ำมันชีวภาพธรรมดา</h2>
-
-  <p>Sustainable Aviation Fuel หรือ SAF คือเชื้อเพลิงสำหรับเครื่องบินที่ผลิตจากแหล่งที่ไม่ใช่ปิโตรเลียมฟอสซิล ซึ่งแตกต่างจาก "biofuel" ทั่วไปที่หลายคนนึกถึง เพราะ SAF ถูกออกแบบโดยเฉพาะให้สามารถผสมกับน้ำมัน Jet-A ปกติและใช้กับเครื่องบินที่มีอยู่ในปัจจุบันได้โดยไม่ต้องดัดแปลงเครื่องยนต์</p>
-
-  <div class="fuel-compare">
-    <div class="fuel-col jet">
-      <div class="fuel-col-label">CONVENTIONAL</div>
-      <div class="fuel-col-name">Jet-A Fuel</div>
-      <ul>
-        <li><span>⛽</span><span>กลั่นจากน้ำมันดิบฟอสซิล</span></li>
-        <li><span>💨</span><span>ปล่อย CO₂ ที่กักเก็บไว้ใต้ดินนาน 100 ล้านปี</span></li>
-        <li><span>💰</span><span>ราคาถูกกว่า SAF มาก (ปัจจุบัน)</span></li>
-        <li><span>🏭</span><span>ห่วงโซ่อุปทานโลกที่เสถียรและสเกลใหญ่</span></li>
-        <li><span>🌡️</span><span>วงจร carbon ไม่ปิด — CO₂ ใหม่สุทธิ</span></li>
-      </ul>
-    </div>
-    <div class="fuel-col saf">
-      <div class="fuel-col-label">SUSTAINABLE</div>
-      <div class="fuel-col-name">SAF</div>
-      <ul>
-        <li><span>🌿</span><span>ผลิตจากของเสีย พืชพลังงาน หรือ CO₂ ดักจับ</span></li>
-        <li><span>♻️</span><span>ลด lifecycle CO₂ ได้ 50–85% เทียบ Jet-A</span></li>
-        <li><span>💸</span><span>แพงกว่า Jet-A ปัจจุบัน 2–5 เท่า</span></li>
-        <li><span>🔬</span><span>อุปทานยังน้อย (~0.1% ของตลาดปัจจุบัน)</span></li>
-        <li><span>🔄</span><span>วงจร carbon ปิด — CO₂ ที่ปล่อยคือ CO₂ ที่ดูดซับไป</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <h3>SAF ทำจากอะไรได้บ้าง</h3>
-
-  <p>แหล่งวัตถุดิบ SAF มีหลากหลายกว่าที่คิด ซึ่งเป็นข้อได้เปรียบสำคัญเพราะไม่ผูกติดกับวัตถุดิบเดียว</p>
-
-  <div class="process-steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <div class="step-title">ของเสียทางการเกษตรและป่าไม้</div>
-        <p class="step-desc">เศษฟาง ขี้เลื่อย ฟางข้าว วัสดุเหลือใช้จากการเก็บเกี่ยว — ไม่แข่งขันกับการผลิตอาหาร</p>
+      <div class="key-takeaway">
+        <div class="kt-label"><i class="fas fa-bolt"></i> สรุปสำคัญ — อ่านใน 30 วินาที</div>
+        <div class="kt-items">
+          <div class="kt-item"><span class="kt-icon">🌿</span><div class="kt-text"><strong>SAF ลด lifecycle CO₂ ได้ 50–85%</strong><span>ใช้ได้กับเครื่องบินที่มีอยู่โดยไม่ต้องดัดแปลง</span></div></div>
+          <div class="kt-item"><span class="kt-icon">🇪🇺</span><div class="kt-text"><strong>EU กำหนด SAF 2% ปี 2025, 6% ปี 2030</strong><span>ใช้กับทุกเที่ยวบินออกจากสนามบิน EU</span></div></div>
+          <div class="kt-item"><span class="kt-icon">💰</span><div class="kt-text"><strong>ผลกระทบราคาตั๋วระยะสั้น: น้อยมาก</strong><span>ระยะกลาง ปี 2030–2040: +5–15% long-haul</span></div></div>
+          <div class="kt-item"><span class="kt-icon">⚡</span><div class="kt-text"><strong>เครื่องบินไฟฟ้า: เส้นทางสั้น ต่ำกว่า 500 กม.</strong><span>ปี 2030–2035 — long-haul ยังต้องพึ่ง SAF</span></div></div>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <div class="step-title">ขยะเทศบาลและของเสียอุตสาหกรรม</div>
-        <p class="step-desc">ขยะที่ไม่สามารถรีไซเคิลได้ น้ำมันพืชใช้แล้ว ไขมันจากอุตสาหกรรมอาหาร</p>
+
+      <h2 id="why-hard">ทำไมการบินจึงลดคาร์บอนได้ยากกว่าทุกอุตสาหกรรม</h2>
+      <p>เมื่อพูดถึงการลดคาร์บอน รถยนต์ไฟฟ้า โซลาร์เซลล์ และอาคารประหยัดพลังงานมีทางออกที่ชัดเจน แต่การบินเป็นข้อยกเว้นที่ท้าทายกว่ามาก — ปัญหาหลักคือ <strong>ความหนาแน่นพลังงาน (energy density)</strong> เครื่องบินโดยสารขนาดใหญ่ต้องการพลังงานมหาศาลในช่วงเวลาสั้น ๆ ที่แบตเตอรี่ปัจจุบันยังจัดหาได้ไม่พอในน้ำหนักที่เครื่องรับได้ แบตเตอรี่ที่จะขับเคลื่อน A380 ข้ามมหาสมุทรแปซิฟิกจะหนักกว่าตัวเครื่องหลายเท่า</p>
+      <p>การบินปล่อยก๊าซเรือนกระจกประมาณ 2–3% ของการปล่อยทั้งโลก แต่ถ้านับผลกระทบ contrail และ non-CO₂ effects ตัวเลขจริงอาจสูงถึง 3–4 เท่า และการปล่อย CO₂ ประมาณ 80% มาจากเที่ยวบินระยะไกล (long-haul)</p>
+      <div class="box box-warn">
+        <span class="box-icon">⚠️</span>
+        <div>
+          <strong>ความจริงที่ต้องรู้</strong>
+          <p>เครื่องบินระยะไกลยังต้องใช้เชื้อเพลิงเหลวในอีก 20–30 ปี — SAF คือทางออกที่ดีที่สุดที่มีอยู่ในปัจจุบัน</p>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <div class="step-title">Power-to-Liquid (e-SAF)</div>
-        <p class="step-desc">ดักจับ CO₂ จากอากาศ + ไฟฟ้าหมุนเวียน → สังเคราะห์เป็นเชื้อเพลิง — วงจร carbon เกือบเป็นศูนย์</p>
+
+      <h2 id="what-is-saf">SAF คืออะไร — เปรียบ Jet-A vs SAF</h2>
+      <p>Sustainable Aviation Fuel (SAF) คือเชื้อเพลิงสำหรับเครื่องบินที่ผลิตจากแหล่งที่ไม่ใช่ปิโตรเลียมฟอสซิล ออกแบบให้ผสมกับ Jet-A ได้และใช้กับเครื่องบินที่มีอยู่โดยไม่ต้องดัดแปลงเครื่องยนต์</p>
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <h3>⛽ Jet-A (เชื้อเพลิงปกติ)</h3>
+          <ul>
+            <li>กลั่นจากน้ำมันดิบฟอสซิล</li>
+            <li>ปล่อย CO₂ ที่กักเก็บใต้ดินนาน 100 ล้านปี</li>
+            <li>ราคาถูกกว่า SAF มาก (ปัจจุบัน)</li>
+            <li>ห่วงโซ่อุปทานโลกเสถียร สเกลใหญ่</li>
+            <li>วงจร carbon ไม่ปิด — CO₂ ใหม่สุทธิ</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <h3>🌿 SAF (เชื้อเพลิงยั่งยืน)</h3>
+          <ul>
+            <li>ผลิตจากของเสีย พืชพลังงาน หรือ CO₂ ดักจับ</li>
+            <li>ลด lifecycle CO₂ ได้ 50–85% เทียบ Jet-A</li>
+            <li>แพงกว่า Jet-A ปัจจุบัน 2–5 เท่า</li>
+            <li>อุปทานยังน้อย (~0.1% ของตลาดปัจจุบัน)</li>
+            <li>วงจร carbon ปิด — CO₂ ที่ปล่อยคือ CO₂ ที่ดูดซับไป</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <div class="step-title">สาหร่ายและพืชพลังงาน</div>
-        <p class="step-desc">สาหร่ายสามารถผลิตน้ำมันได้โดยใช้พื้นที่น้อยกว่าพืชทั่วไปมาก และเติบโตได้บนพื้นที่ที่ไม่เหมาะกับการเกษตร</p>
+
+      <h3>SAF ทำจากอะไรได้บ้าง</h3>
+      <p>แหล่งวัตถุดิบ SAF มีหลากหลาย — ไม่ผูกติดกับวัตถุดิบเดียว ซึ่งเป็นข้อได้เปรียบสำคัญของอุตสาหกรรม</p>
+      <ol class="steps">
+        <li><p><strong>ของเสียทางการเกษตรและป่าไม้</strong> — เศษฟาง ขี้เลื่อย ฟางข้าว วัสดุเหลือใช้จากการเก็บเกี่ยว ไม่แข่งขันกับการผลิตอาหาร</p></li>
+        <li><p><strong>ขยะเทศบาลและของเสียอุตสาหกรรม</strong> — ขยะที่รีไซเคิลไม่ได้ น้ำมันพืชใช้แล้ว ไขมันจากอุตสาหกรรมอาหาร</p></li>
+        <li><p><strong>e-SAF / Power-to-Liquid</strong> — ดักจับ CO₂ จากอากาศ + ไฟฟ้าหมุนเวียน → สังเคราะห์เป็นเชื้อเพลิง วงจร carbon เกือบเป็นศูนย์</p></li>
+        <li><p><strong>สาหร่ายและพืชพลังงาน</strong> — ผลิตน้ำมันได้โดยใช้พื้นที่น้อยกว่าพืชทั่วไป เติบโตบนพื้นที่ที่ไม่เหมาะกับการเกษตร</p></li>
+      </ol>
+
+      <h2 id="tech-roadmap">เส้นทางเทคโนโลยีสู่ปี 2050</h2>
+      <p>SAF เป็นส่วนหนึ่งของภาพรวมการเปลี่ยนแปลงที่ใหญ่กว่า อุตสาหกรรมการบินกำลังพัฒนาหลายเส้นทางคู่ขนาน</p>
+      <div class="saf-timeline">
+        <div class="saf-tl-item">
+          <div class="saf-tl-dot">25–30</div>
+          <div>
+            <div class="saf-tl-year">2025–2030</div>
+            <div class="saf-tl-title">EU SAF mandates เริ่มบังคับใช้</div>
+            <div class="saf-tl-desc">สายการบินที่บินเข้า-ออก EU ต้องใช้ SAF ในสัดส่วนที่กำหนด — เริ่ม 2% และเพิ่มขึ้นทุกปี ใช้กับทุกเที่ยวบินออกจากสนามบิน EU</div>
+          </div>
+        </div>
+        <div class="saf-tl-item">
+          <div class="saf-tl-dot">28–35</div>
+          <div>
+            <div class="saf-tl-year">2028–2035</div>
+            <div class="saf-tl-title">เครื่องบินไฟฟ้าระยะสั้นพร้อมเชิงพาณิชย์</div>
+            <div class="saf-tl-desc">เครื่องบินไฟฟ้า 9–19 ที่นั่ง สำหรับเส้นทางต่ำกว่า 500 กม. พร้อมใช้งานจริง เหมาะกับเส้นทางเกาะและภูมิภาค</div>
+          </div>
+        </div>
+        <div class="saf-tl-item">
+          <div class="saf-tl-dot">35–45</div>
+          <div>
+            <div class="saf-tl-year">2035–2045</div>
+            <div class="saf-tl-title">Hydrogen สำหรับระยะกลาง</div>
+            <div class="saf-tl-desc">Airbus กำหนดเป้าเครื่องบิน hydrogen ลำแรกในปี 2035 สำหรับเส้นทางระยะกลาง แต่ยังมีความท้าทายด้านโครงสร้างพื้นฐานสนามบิน</div>
+          </div>
+        </div>
+        <div class="saf-tl-item">
+          <div class="saf-tl-dot">2050</div>
+          <div>
+            <div class="saf-tl-year">2050</div>
+            <div class="saf-tl-title">Net-zero IATA — SAF รับผิดชอบ 65% ของการลด</div>
+            <div class="saf-tl-desc">อุตสาหกรรมการบินระหว่างประเทศตั้งเป้า net-zero carbon ภายในปี 2050 โดย SAF คาดจะรับผิดชอบ 65% ของการลดนี้</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Section 3: Effect on Passengers -->
-  <h2>ผลกระทบต่อผู้โดยสาร — ราคาตั๋วและตัวเลือกใหม่</h2>
+      <h2 id="passenger-impact">ผลกระทบต่อผู้โดยสาร</h2>
+      <p>SAF ไม่ใช่เรื่องที่ผู้โดยสารจะมองข้ามได้อีกต่อไป เพราะในระยะกลาง-ยาว มันจะส่งผลต่อประสบการณ์การเดินทางโดยตรง</p>
+      <div class="box box-tip">
+        <span class="box-icon">💡</span>
+        <div>
+          <strong>SAF Contribution Programs</strong>
+          <p>Lufthansa, British Airways และ Singapore Airlines เสนอให้ผู้โดยสารจ่ายเพิ่มอาสาสมัคร 5–30 ยูโรต่อเที่ยวบิน เพื่อให้สายการบินนำ SAF ในสัดส่วนที่กำหนดมาใช้กับเที่ยวบินนั้น</p>
+        </div>
+      </div>
+      <div class="box box-warn">
+        <span class="box-icon">⚠️</span>
+        <div>
+          <strong>Book &amp; Claim system</strong>
+          <p>ผู้โดยสารไม่ได้บินด้วย SAF จริงในถังเชื้อเพลิงของตัวเอง แต่จ่ายเงินให้สายการบินซื้อ SAF เพิ่มในระบบ — แนวทางที่ใช้ได้จริงเพราะ SAF จากทุกแหล่งผสมเข้าระบบเดียวกัน</p>
+        </div>
+      </div>
+      <p>ในระยะสั้น (2025–2030) ผลกระทบต่อราคาตั๋วค่อนข้างน้อย เพราะสัดส่วน SAF ยังต่ำ เป้าหมายอุตสาหกรรมคือ SAF 10% ของเชื้อเพลิงทั้งหมดภายในปี 2030</p>
+      <div class="scenario">
+        <div class="scenario-label">เหตุการณ์จริง</div>
+        <h4>เที่ยวบิน SAF 100% แรกของ Singapore Airlines — Singapore–London 2023</h4>
+        <p>เมื่อปลายปี 2023 Singapore Airlines ทำการบินเชิงพาณิชย์ด้วย SAF 100% ครั้งแรกในเส้นทาง Singapore–London เครื่องยนต์ทำงานปกติทุกอย่าง ผู้โดยสารไม่รู้สึกต่างในประสบการณ์ใด ๆ</p>
+        <div class="outcome outcome-good">
+          <i class="fas fa-check-circle" style="margin-top:2px;flex-shrink:0"></i>
+          <span>การปล่อย CO₂ ลดลงประมาณ 70–80% เทียบกับเที่ยวบินปกติ — SAF ไม่ได้เปลี่ยนประสบการณ์ผู้โดยสาร เปลี่ยนแค่สิ่งที่เกิดขึ้นในห่วงโซ่อุปทานก่อนน้ำมันเข้าถัง</span>
+        </div>
+      </div>
 
-  <p>SAF ไม่ใช่เรื่องที่ผู้โดยสารจะมองข้ามได้อีกต่อไป เพราะในระยะกลาง-ยาว มันจะส่งผลต่อประสบการณ์การเดินทางโดยตรง</p>
+      <h2 id="checklist">Checklist: SAF และการเดินทางอย่างยั่งยืน</h2>
+      <div class="pro-tips">
+        <div class="pro-tips-title">✅ Checklist: SAF และการเดินทางอย่างยั่งยืน</div>
+        <div class="pro-tips-sub">สิ่งที่ผู้โดยสารทำได้ตอนนี้</div>
+        <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ตรวจ SAF Contribution ตอนจองตั๋ว</strong><span>แยกให้ชัดว่าเป็นการซื้อ SAF จริง หรือแค่ carbon offset ทั่วไป</span></div></div>
+        <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>อ่าน Sustainability Report ของสายการบิน</strong><span>สายการบินที่ซื้อ SAF จริงจะระบุปริมาณเป็น metric ton</span></div></div>
+        <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>เที่ยวบินตรงมี carbon footprint ต่ำกว่าการต่อเครื่อง</strong><span>การขึ้น-ลงใช้เชื้อเพลิงสูงมาก — เลือก non-stop ถ้าเป็นไปได้</span></div></div>
+        <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>ชั้น Economy ปล่อย CO₂ ต่อคนต่ำกว่า Business มาก</strong><span>ที่นั่งน้อยกว่า = น้ำหนักรวมต่อผู้โดยสารสูงกว่าในชั้นพรีเมียม</span></div></div>
+        <div class="tip-item"><div class="tip-check"><i class="fas fa-check"></i></div><div class="tip-text"><strong>เส้นทางสั้นมาก — พิจารณารถไฟหรือรถโดยสาร</strong><span>เที่ยวบินระยะสั้นมี carbon ต่อกม. สูงกว่าระยะไกล</span></div></div>
+      </div>
 
-  <h3>SAF Contribution Programs</h3>
+      <a href="/th/faq/11-airport-security.html" class="internal-link">
+        <div class="il-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="il-text">
+          <strong>อ่านต่อ: Airport Security 2026</strong>
+          <span>กฎความปลอดภัยสนามบินล่าสุด — ของเหลว แล็ปท็อป วีซ่า ESTA</span>
+        </div>
+        <i class="fas fa-arrow-right il-arrow"></i>
+      </a>
 
-  <p>สายการบินหลายเจ้าเริ่มเสนอโปรแกรมที่ให้ผู้โดยสาร "ร่วมจ่าย" ค่า SAF เพิ่มเติมอาสาสมัคร Lufthansa, British Airways และ Singapore Airlines มีตัวเลือกนี้แล้ว โดยผู้โดยสารจ่ายเพิ่ม 5–30 ยูโรต่อเที่ยวบิน เพื่อให้สายการบินนำ SAF ในสัดส่วนที่กำหนดมาใช้กับเที่ยวบินนั้น</p>
-
-  <div class="alert">
-    <strong>💡 สิ่งที่ต้องรู้:</strong> "Book & Claim" คือระบบที่ใช้กันแพร่หลาย — ผู้โดยสารไม่ได้บินด้วย SAF จริง ๆ ในถังเชื้อเพลิงของตัวเอง แต่จ่ายเงินให้สายการบินซื้อ SAF เพิ่มเติมในระบบ ซึ่งเป็นแนวทางที่ใช้ได้จริงเพราะ SAF จากทุกแหล่งผสมเข้าระบบเดียวกัน
-  </div>
-
-  <h3>ผลต่อราคาตั๋วในระยะยาว</h3>
-
-  <p>ปัจจุบัน SAF แพงกว่า Jet-A ประมาณ 2–5 เท่า ถ้าสายการบินต้องใช้ SAF 100% ราคาตั๋วอาจเพิ่มขึ้น 30–50% ตามการประมาณการของ IATA แต่กรณีนี้ยังอีกไกลมาก เพราะ:</p>
-
-  <ul style="padding-left:22px; margin-bottom:26px; font-size:15.5px; line-height:2.2; color:var(--text);">
-    <li>เป้าหมายปัจจุบันของอุตสาหกรรมคือ SAF <strong>10% ของเชื้อเพลิงทั้งหมดภายในปี 2030</strong></li>
-    <li>EU กำหนด mandate SAF 2% ในปี 2025, 6% ในปี 2030 และ 70% ในปี 2050</li>
-    <li>การผลิตที่สเกลขึ้นทำให้ต้นทุนลดลง — e-SAF อาจเข้าใกล้ราคา Jet-A ในปี 2035–2040</li>
-  </ul>
-
-  <div class="scenario">
-    <div class="s-label">🎬 Real-World Scenario</div>
-    <div class="s-title">เที่ยวบิน SAF แรกของ Singapore Airlines — มันต่างแค่ไหน?</div>
-    <p>เมื่อปลายปี 2023 Singapore Airlines ทำการบินเชิงพาณิชย์ด้วย SAF 100% ครั้งแรกในเส้นทาง Singapore–London ผลที่ได้คือเครื่องยนต์ทำงานปกติทุกอย่าง ผู้โดยสารไม่รู้สึกต่างในประสบการณ์ใด ๆ และการปล่อย CO₂ ลดลงประมาณ 70–80% เทียบกับเที่ยวบินปกติ</p>
-    <p>นี่คือสิ่งสำคัญ: <strong>SAF ไม่ได้เปลี่ยนประสบการณ์ผู้โดยสารเลย</strong> — เปลี่ยนแค่สิ่งที่เกิดขึ้นในห่วงโซ่อุปทานก่อนน้ำมันจะเข้าถัง</p>
-  </div>
-
-  <!-- Section 4: Tech Timeline -->
-  <h2>เทคโนโลยีการบินอนาคต — นอกจาก SAF</h2>
-
-  <p>SAF เป็นส่วนหนึ่งของภาพรวมการเปลี่ยนแปลงที่ใหญ่กว่านั้น อุตสาหกรรมการบินกำลังพัฒนาคู่ขนานกันหลายเส้นทาง</p>
-
-  <div class="tech-timeline">
-    <div class="tt-item">
-      <div class="tt-dot"></div>
-      <div class="tt-year">2025–2030</div>
-      <div class="tt-title">SAF Mandates เริ่มบังคับใช้ใน EU และหลายประเทศ</div>
-      <div class="tt-desc">สายการบินที่บินเข้า-ออก EU ต้องใช้ SAF ในสัดส่วนที่กำหนด — เริ่ม 2% และเพิ่มขึ้นทุกปี</div>
-    </div>
-    <div class="tt-item">
-      <div class="tt-dot"></div>
-      <div class="tt-year">2028–2035</div>
-      <div class="tt-title">เครื่องบินไฟฟ้าระยะสั้นพร้อมใช้งานเชิงพาณิชย์</div>
-      <div class="tt-desc">เครื่องบินไฟฟ้า 9–19 ที่นั่งสำหรับเส้นทางต่ำกว่า 500 กม. พร้อมใช้งานในเชิงพาณิชย์จริง เหมาะกับเส้นทางเกาะและภูมิภาค</div>
-    </div>
-    <div class="tt-item">
-      <div class="tt-dot"></div>
-      <div class="tt-year">2035–2045</div>
-      <div class="tt-title">เครื่องบิน Hydrogen สำหรับระยะกลาง</div>
-      <div class="tt-desc">Airbus กำหนดเป้าเครื่องบิน hydrogen ลำแรกในปี 2035 สำหรับเส้นทางระยะกลาง แต่ยังมีความท้าทายด้านโครงสร้างพื้นฐานสนามบิน</div>
-    </div>
-    <div class="tt-item">
-      <div class="tt-dot"></div>
-      <div class="tt-year">2050</div>
-      <div class="tt-title">Net-zero aviation — เป้าหมาย IATA</div>
-      <div class="tt-desc">อุตสาหกรรมการบินระหว่างประเทศตั้งเป้า net-zero carbon ภายในปี 2050 โดย SAF คาดจะรับผิดชอบ 65% ของการลดนี้</div>
-    </div>
-  </div>
-
-  <!-- Insider -->
-  <div class="insider">
-    <div class="i-label">🔍 Insider Secret</div>
-    <h3>SAF กับภาพลักษณ์สายการบิน — Greenwashing หรือก้าวจริง</h3>
-    <p>ระวังความแตกต่างระหว่าง "carbon offset" กับ "SAF" เพราะสายการบินบางเจ้าโฆษณา "carbon neutral flights" โดยอาศัยการซื้อ carbon credit จากโครงการป่าไม้ ซึ่งหลายโครงการถูกวิจัยพบว่าประสิทธิผลต่ำกว่าที่อ้าง</p>
-    <ul>
-      <li><strong>SAF</strong> ลด CO₂ จริงในวงจรชีวิตของเชื้อเพลิง — มีการวัดผลได้ตามมาตรฐาน CORSIA</li>
-      <li><strong>Carbon offset</strong> ซื้อสิทธิ์การปล่อย carbon จากโครงการอื่น — คุณภาพแตกต่างกันมาก</li>
-      <li>สายการบินที่ซื้อ SAF จริงมักรายงานใน Sustainability Report ที่ verify ได้ — ตรวจจาก CDP Score หรือ SBTi</li>
-      <li>ถ้าสายการบินโฆษณา "eco-friendly" แต่ไม่เปิดเผยสัดส่วน SAF — นั่นควรตั้งคำถาม</li>
-    </ul>
-  </div>
-
-  <!-- CTA -->
-  <a href="/th/faq/landing.html" class="cta-link">
-    <div class="cta-icon">📋</div>
-    <div class="cta-text">
-      <div class="cta-label">กลับสู่คู่มือหลัก</div>
-      <strong>ดูคำถามทั้ง 10 หัวข้อเกี่ยวกับการบิน →</strong>
-    </div>
-  </a>
-
-  <!-- FAQ -->
-  <div class="faq-section">
-    <h2>คำถามที่พบบ่อย: SAF และอนาคตการบิน</h2>
-
-    <div class="faq-item">
-      <div class="faq-q">SAF ลด CO₂ ได้จริงแค่ไหน?</div>
-      <div class="faq-a">ขึ้นอยู่กับแหล่งผลิต SAF จากของเสียทางการเกษตรลด lifecycle CO₂ ได้ประมาณ 50–70% เทียบกับ Jet-A และ e-SAF (Power-to-Liquid) ลดได้สูงถึง 85–95% แต่ e-SAF ยังมีต้นทุนสูงมากและอยู่ในช่วงพัฒนา ตัวเลข "ลด 100%" ยังไม่มีในเชิงพาณิชย์จริง</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">ผู้โดยสารสามารถบินด้วย SAF ได้ตอนนี้เลยไหม?</div>
-      <div class="faq-a">ได้ในแง่ที่ว่าสายการบินหลายเจ้าผสม SAF เข้าไปในเชื้อเพลิงในสัดส่วนหนึ่งแล้ว แต่ยังไม่มีเที่ยวบินเชิงพาณิชย์ประจำที่ใช้ SAF 100% อย่างสม่ำเสมอ ผู้โดยสารสามารถเลือก "จ่ายเพิ่มเพื่อ SAF" ผ่านโปรแกรมของสายการบินได้หลายเจ้า</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">ราคาตั๋วจะแพงขึ้นเท่าไหร่เพราะ SAF?</div>
-      <div class="faq-a">ในระยะสั้น (2025–2030) ผลกระทบต่อราคาตั๋วค่อนข้างน้อย เพราะสัดส่วน SAF ยังต่ำ ในระยะกลาง (2030–2040) อาจเพิ่มขึ้น 5–15% สำหรับเที่ยวบินระยะไกล แต่ต้นทุน SAF กำลังลดลงตามการผลิตที่สเกลขึ้น</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">เครื่องบินไฟฟ้าจะมาแทน SAF ไหม?</div>
-      <div class="faq-a">สำหรับเส้นทางสั้นมาก (ต่ำกว่า 500 กม.) เครื่องบินไฟฟ้าอาจมาแทนได้ในปี 2030–2035 แต่เส้นทางระยะไกลอย่าง BKK–FRA หรือ BKK–SYD จะยังต้องพึ่ง SAF หรือ hydrogen ไปอีกหลายทศวรรษ เพราะข้อจำกัดด้านพลังงานแบตเตอรี่</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">ทำไม SAF ถึงไม่แพร่หลายกว่านี้ในปัจจุบัน?</div>
-      <div class="faq-a">ปัญหาหลักคือสามเรื่องพร้อมกัน: ต้นทุนสูงกว่า Jet-A มาก (2–5 เท่า), อุปทานที่ยังน้อยและโรงกลั่นที่ยังต้องลงทุน, และขาด mandate ที่เพียงพอในหลายภูมิภาคนอก EU EU เป็นผู้นำในการบังคับใช้ซึ่งจะกระตุ้นการลงทุนทั่วโลก</div>
-    </div>
-  </div>
-
-  <!-- Pro Tips -->
-  <div class="pro-tips">
-    <h2>✅ Pro-Tips: SAF และการเดินทางอย่างยั่งยืน</h2>
-    <ul>
-      <li>
-        <span class="check">✓</span>
-        <span>ถ้าสายการบินเสนอ "SAF Contribution" ตอนจองตั๋ว — ตรวจว่าเป็นการซื้อ SAF จริงหรือแค่ carbon offset ทั่วไป</span>
-      </li>
-      <li>
-        <span class="check">✓</span>
-        <span>เช็ค Sustainability Report ของสายการบินที่ใช้บริการ — สายการบินที่ซื้อ SAF จริงจะระบุปริมาณเป็น metric ton</span>
-      </li>
-      <li>
-        <span class="check">✓</span>
-        <span>เที่ยวบินระยะสั้นมี carbon footprint ต่อกิโลเมตรสูงกว่าระยะไกล — ถ้าเดินทางได้ด้วยรถไฟหรือรถโดยสาร คิดถึงทางเลือกนั้นด้วย</span>
-      </li>
-      <li>
-        <span class="check">✓</span>
-        <span>ชั้น Economy มี carbon footprint ต่อผู้โดยสารต่ำกว่าชั้น Business มาก (ที่นั่งน้อยกว่า = น้ำหนักรวมต่อคนสูงกว่า)</span>
-      </li>
-      <li>
-        <span class="check">✓</span>
-        <span>เที่ยวบินตรงมี carbon footprint ต่ำกว่าการต่อเครื่อง เพราะการขึ้น-ลงใช้เชื้อเพลิงสูงมาก</span>
-      </li>
-      <li>
-        <span class="check">✓</span>
-        <span>ติดตาม CORSIA (Carbon Offsetting and Reduction Scheme for International Aviation) — กรอบมาตรฐานสากลที่กำหนดทิศทางอุตสาหกรรมในอีก 20 ปีข้างหน้า</span>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Schema -->
-  <div class="schema-note">
-    <strong>📄 FAQPage JSON-LD Schema — วางใน &lt;head&gt; หรือก่อน &lt;/body&gt;</strong>
-    <pre><code>{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "SAF ลด CO₂ ได้จริงแค่ไหน?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SAF จากของเสียทางการเกษตรลด lifecycle CO₂ ได้ 50–70% เทียบกับ Jet-A ทั่วไป e-SAF ลดได้สูงถึง 85–95% แต่ยังมีต้นทุนสูงและอยู่ในช่วงพัฒนา"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ราคาตั๋วจะแพงขึ้นเท่าไหร่เพราะ SAF?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ในระยะสั้น (2025–2030) ผลกระทบน้อยเพราะสัดส่วน SAF ยังต่ำ ในระยะกลาง อาจเพิ่มขึ้น 5–15% สำหรับเที่ยวบินระยะไกล"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "เครื่องบินไฟฟ้าจะมาแทน SAF ไหม?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "เส้นทางสั้นมาก (ต่ำกว่า 500 กม.) อาจถูกแทนด้วยเครื่องบินไฟฟ้าในปี 2030–2035 แต่เส้นทางระยะไกลยังต้องพึ่ง SAF หรือ hydrogen ไปอีกหลายทศวรรษ"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ทำไม SAF ถึงยังไม่แพร่หลายในปัจจุบัน?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ปัญหาหลักสามเรื่อง: ต้นทุนสูงกว่า Jet-A 2–5 เท่า อุปทานยังน้อย และขาด mandate ที่เพียงพอในหลายภูมิภาคนอก EU"
-      }
-    }
-  ]
-}</code></pre>
-  </div>
-
-
-<section class="topic-nav" style="margin:32px 0;padding:20px;border:1px solid #d8e4f0;border-radius:12px;background:#fff"><h3 style="margin-top:0">หัวข้อ Deep Insight อื่น ๆ</h3><ul style="margin:0;padding-left:20px"><li><a href="/th/faq/01-passport-visa.html">01 · Passport & Visa Bible</a></li><li><a href="/th/faq/02-connection-time.html">02 · Time Traps & Connection Flights</a></li><li><a href="/th/faq/03-baggage-rules.html">03 · Baggage Rules</a></li><li><a href="/th/faq/04-flight-changes.html">04 · Flight Changes & Cancellations</a></li><li><a href="/th/faq/05-codeshare-stopover.html">05 · Booking Types</a></li><li><a href="/th/faq/06-frequent-flyer.html">06 · Frequent Flyer</a></li><li><a href="/th/faq/07-charter-overbooking.html">07 · Charter Flights & Overbooking</a></li><li><a href="/th/faq/08-online-checkin.html">08 · Online Check-in</a></li><li><a href="/th/faq/09-montreal-eu261.html">09 · Montreal Convention & EU261</a></li><li><strong>10 · Sustainable Aviation Fuel</strong></li></ul><p style="margin-top:12px"><a href="/th/faq/landing.html">Back to FAQ Overview</a></p></section>
       <!-- ════ เนื้อหาจบที่นี่ ════ -->
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
-      <!-- ════ เนื้อหาจบที่นี่ ════ -->
+
 
     </article>
   </main>
