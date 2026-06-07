@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Flight Finder | ค้นหาเที่ยวบินอัจฉริยะ | FlyReisen24</title>
+  <meta name="description" content="พิมพ์ทริปที่ต้องการเป็นภาษาธรรมชาติ — AI แปลงเป็นพารามิเตอร์ค้นหาเที่ยวบินอัตโนมัติ">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.flyreisen24.com/smart-search.html">
+  <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/smart-search.html">
+  <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/smart-search.html">
+  <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/smart-search.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.flyreisen24.com/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#262626;overflow-x:hidden;background:#f8f9fc}
+    .top-nav{background:#fff!important;padding:10px 0;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}.top-nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 30px}.top-nav-logo img{height:48px;width:auto;display:block}.top-nav-menu{display:flex;gap:22px;list-style:none;align-items:center}.top-nav-menu>li{position:relative}.top-nav-menu a{color:#6b7280!important;text-decoration:none;font-weight:500;font-size:15px;transition:color .3s;display:flex;align-items:center;gap:8px}.top-nav-menu a:hover{color:#0056B3!important}.top-nav-menu a i{font-size:16px;color:#9ca3af;transition:color .3s}.top-nav-menu a:hover i{color:#0056B3}.top-nav-prominent-link{color:#0056B3!important;font-weight:700!important}.top-nav-prominent-link i{color:#0056B3!important}.dropdown-toggle{cursor:pointer}.dropdown-toggle .fa-chevron-down{font-size:11px;margin-left:4px;transition:transform .2s}.dropdown-active>.dropdown-toggle .fa-chevron-down{transform:rotate(180deg)}.dropdown-menu{display:none;position:absolute;top:100%;left:0;margin-top:10px;min-width:230px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:10px 0;list-style:none;z-index:9999}.dropdown-menu.show{display:block}.dropdown-menu li{padding:0;border:none}.dropdown-menu a{padding:10px 16px;font-size:14px;width:100%}.new-badge{background:linear-gradient(135deg,#ff6b6b,#ff4757);color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:5px;position:relative;top:-2px}.nav-right{display:flex;align-items:center;gap:25px}.nav-help{color:#6b7280;text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color .3s}.nav-help:hover{color:#0056B3}.language-dropdown{position:relative}.lang-current{background:#f9fafb;color:#374151;border:1px solid #d1d5db;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all .3s;display:flex;align-items:center;gap:6px}.lang-current:hover{border-color:#0056B3;background:#f0f4ff}.lang-dropdown-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);min-width:160px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1000;overflow:hidden}.language-dropdown.active .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#374151!important;text-decoration:none;font-weight:500;transition:background .2s;font-size:14px}.lang-dropdown-menu a:hover{background:#f0f4ff}.lang-dropdown-menu a.active{background:#e6edff;color:#0056B3!important;font-weight:700}.menu-toggle{display:none;background:none;border:none;color:#6b7280;font-size:1.5rem;cursor:pointer;padding:.5rem}
+    .breadcrumb{background:#fff;padding:12px 0;border-bottom:1px solid #e9ecef;font-size:13px}.breadcrumb-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#6b7280}.breadcrumb-inner a{color:#0056B3;text-decoration:none}.breadcrumb-inner a:hover{text-decoration:underline}.bc-sep{color:#d1d5db}
+    .page-hero{background:linear-gradient(135deg,#003d82 0%,#0056B3 60%,#1a6fd4 100%);color:#fff;padding:48px 24px 40px;position:relative;overflow:hidden}.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}.page-hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;text-align:center}.page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:10px}.page-hero h1 em{color:#fbbf24;font-style:normal}.page-hero p{font-size:1rem;opacity:.85;max-width:600px;margin:0 auto 20px}
+    .lang-switcher{display:inline-flex;gap:0;border:1px solid rgba(255,255,255,.3);border-radius:30px;overflow:hidden;background:rgba(255,255,255,.1)}.lang-btn{padding:7px 20px;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);cursor:pointer;border:none;background:transparent;transition:all .2s}.lang-btn.active{background:#fff;color:#0056B3;border-radius:30px}.lang-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,.15)}
+    .page-wrap{max-width:1200px;margin:0 auto;padding:40px 24px 64px;display:flex;flex-direction:column;gap:32px}
+    .tool-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04)}.tool-header{background:#f8f9fc;padding:18px 28px;border-bottom:1px solid #e9ecef;display:flex;align-items:center;gap:14px}.tool-icon{width:42px;height:42px;background:linear-gradient(135deg,#003d82,#0056B3);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0}.tool-header-text h2{font-size:1.15rem;font-weight:700;color:#1a1a2e;margin-bottom:2px}.tool-header-text p{font-size:13px;color:#6b7280}.tool-body{padding:28px}
+    .nl-input-wrap{position:relative;margin-bottom:16px}.nl-textarea{width:100%;min-height:110px;padding:16px 18px;border:2px solid #d1d5db;border-radius:12px;font-size:15px;font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;resize:vertical;transition:border-color .2s,box-shadow .2s;line-height:1.6}.nl-textarea:focus{outline:none;border-color:#0056B3;box-shadow:0 0 0 4px rgba(0,86,179,.08)}.nl-examples{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.nl-example{background:#f0f4ff;border:1px solid #c7d9f5;color:#0056B3;padding:7px 14px;border-radius:20px;font-size:12.5px;cursor:pointer;transition:all .2s;line-height:1.4;text-align:left}.nl-example:hover{background:#0056B3;color:#fff;border-color:#0056B3}
+    .btn-parse{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0056B3,#003d82);color:#fff;padding:14px 32px;border-radius:50px;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:all .2s}.btn-parse:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,86,179,.3)}.btn-parse:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .parse-loading{display:none;align-items:center;gap:10px;color:#6b7280;font-size:14px;margin-top:14px}.parse-loading.show{display:flex}.parse-dots{display:flex;gap:5px}.parse-dots span{width:7px;height:7px;background:#0056B3;border-radius:50%;animation:ss-dot 1.2s ease-in-out infinite}.parse-dots span:nth-child(2){animation-delay:.2s}.parse-dots span:nth-child(3){animation-delay:.4s}@keyframes ss-dot{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+    .parse-error{display:none;background:#fef2f2;border:1px solid #fecaca;color:#c0392b;padding:12px 16px;border-radius:10px;font-size:13.5px;margin-top:14px}.parse-error.show{display:block}
+    .result-card{display:none;background:linear-gradient(135deg,#e8f0fe,#f0f4ff);border:2px solid #c7d9f5;border-radius:14px;padding:24px;margin-top:24px}.result-card.show{display:block}
+    .result-route{font-size:1.5rem;font-weight:800;color:#0056B3;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.result-meta{font-size:14px;color:#4b5563;margin-bottom:6px;display:flex;flex-wrap:wrap;gap:16px}.result-meta span{display:flex;align-items:center;gap:6px}.result-budget{font-size:13px;color:#6b7280;margin-bottom:18px}.btn-search-flight{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1a1a2e;padding:16px 36px;border-radius:50px;font-weight:800;font-size:16px;border:none;cursor:pointer;transition:all .2s;width:100%;justify-content:center;margin-top:4px}.btn-search-flight:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(251,191,36,.4)}
+    .routes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}.route-card{background:#f8f9fc;border:1px solid #e9ecef;border-radius:12px;padding:18px;cursor:pointer;transition:all .2s;text-align:left}.route-card:hover{background:#f0f4ff;border-color:#0056B3;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,86,179,.1)}.route-codes{font-size:1.1rem;font-weight:800;color:#0056B3;margin-bottom:4px}.route-cities{font-size:12.5px;color:#6b7280;margin-bottom:10px}.route-price{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:4px}.route-time{font-size:12px;color:#9ca3af;display:flex;align-items:center;gap:5px}
+    .main-footer{background:#fff;border-top:1px solid #eee;padding:50px 0 24px;color:#666}.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;padding:0 24px}.footer-col h4{color:#333;margin-bottom:16px;font-size:15px;font-weight:700}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}.footer-col ul a{color:#777;text-decoration:none;font-size:13.5px;transition:.3s;display:flex;align-items:center;gap:6px}.footer-col ul a:hover{color:#0056B3;padding-left:4px}.footer-col p{font-size:13.5px;line-height:1.65;color:#888}.footer-bottom{max-width:1200px;margin:32px auto 0;padding:16px 24px 0;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12.5px;color:#9ca3af}.footer-bottom a{color:#9ca3af;text-decoration:none}.footer-bottom a:hover{color:#0056B3}
+    @media(max-width:768px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.1);gap:0;border-top:1px solid #f0f0f0}.top-nav-menu.active{display:flex!important}.top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:.8rem 0}.dropdown-menu{position:static;border:none;box-shadow:none;min-width:100%;padding:8px 0 0 14px;margin-top:0}.dropdown-menu.show{display:block}.menu-toggle{display:block}.nav-right{gap:12px}.top-nav-logo img{height:40px}.result-route{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+
+<nav class="breadcrumb"><div class="breadcrumb-inner"><a href="/"><i class="fas fa-home"></i> <span id="bc_home">หน้าแรก</span></a><span class="bc-sep">›</span><span id="bc_page">Smart Flight Finder</span></div></nav>
+
+<nav class="top-nav">
+  <div class="top-nav-container">
+    <a href="/" class="top-nav-logo"><img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24" width="auto" height="48" loading="eager"></a>
+    <ul class="top-nav-menu" id="topNavMenu">
+      <li>
+        <a href="#" class="dropdown-toggle"><i class="fas fa-briefcase"></i> <span id="nav_svc">บริการ</span><i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="nav_flt">เที่ยวบิน</span></a></li>
+          <li><a href="/smart-search.html"><i class="fas fa-magic"></i> Smart Search</a></li>
+          <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="nav_htl">โรงแรม</span></a></li>
+          <li><a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd"><i class="fas fa-car"></i> <span id="nav_car">รถเช่า</span></a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="navDealsLink" class="top-nav-prominent-link"><i class="fas fa-tags"></i> <span id="nav_deals">ดีล</span><span class="new-badge" id="nav_new">NEW</span></a>
+      </li>
+      <li>
+        <a href="#" class="dropdown-toggle"><i class="fas fa-book-open"></i> <span id="nav_know">คลังข้อมูล</span><i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" id="navFaqLink"><i class="fas fa-book-open"></i> <span id="nav_faq">15 คำถามก่อนบิน</span></a></li>
+          <li><a href="/tools.html"><i class="fas fa-wrench"></i> <span id="nav_tools">เครื่องมือ</span></a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <a href="/contact.html" class="nav-help"><i class="fas fa-headset"></i> Help</a>
+      <div class="language-dropdown" id="languageDropdown">
+        <button class="lang-current" onclick="toggleLangDropdown()"><i class="fas fa-globe"></i><span id="currentLangLabel">TH</span><i class="fas fa-chevron-down" style="font-size:10px"></i></button>
+        <div class="lang-dropdown-menu">
+          <a href="#" onclick="setLang('th');return false" id="ddTH" class="active">🇹🇭 ไทย (TH)</a>
+          <a href="#" onclick="setLang('en');return false" id="ddEN">🇬🇧 English (EN)</a>
+          <a href="#" onclick="setLang('de');return false" id="ddDE">🇩🇪 Deutsch (DE)</a>
+        </div>
+      </div>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <h1 id="heroTitle">Smart <em>Flight Finder</em></h1>
+    <p id="heroSub">พิมพ์ทริปที่ต้องการเป็นภาษาธรรมชาติ — AI แปลงเป็นค้นหาเที่ยวบินให้อัตโนมัติ</p>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btnTH" onclick="setLang('th')">🇹🇭 TH</button>
+      <button class="lang-btn" id="btnEN" onclick="setLang('en')">🇬🇧 EN</button>
+      <button class="lang-btn" id="btnDE" onclick="setLang('de')">🇩🇪 DE</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon"><i class="fas fa-magic"></i></div>
+      <div class="tool-header-text">
+        <h2 id="ssTitle">ค้นหาเที่ยวบินด้วยภาษาธรรมชาติ</h2>
+        <p id="ssSub">บอกทริปที่ต้องการ — AI จะแปลงเป็นต้นทาง ปลายทาง วันที่ และงบประมาณ</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="nl-examples" id="nlExamples"></div>
+      <div class="nl-input-wrap">
+        <textarea class="nl-textarea" id="nlInput" placeholder="เช่น อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน"></textarea>
+      </div>
+      <button class="btn-parse" id="btnParse" onclick="parseTrip()"><i class="fas fa-wand-magic-sparkles"></i> <span id="btnParseLbl">วิเคราะห์ทริป</span></button>
+      <div class="parse-loading" id="parseLoading"><div class="parse-dots"><span></span><span></span><span></span></div><span id="loadingLbl">กำลังวิเคราะห์...</span></div>
+      <div class="parse-error" id="parseError"></div>
+      <div class="result-card" id="resultCard">
+        <div class="result-route" id="resultRoute"></div>
+        <div class="result-meta" id="resultMeta"></div>
+        <div class="result-budget" id="resultBudget"></div>
+        <button class="btn-search-flight" id="btnSearchFlight" onclick="openFlightSearch()"><i class="fas fa-plane-departure"></i> <span id="searchBtnLbl">ค้นหาตั๋วราคานี้</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon"><i class="fas fa-fire"></i></div>
+      <div class="tool-header-text">
+        <h2 id="popTitle">เส้นทางยอดนิยมจาก BKK</h2>
+        <p id="popSub">คลิกเพื่อค้นหาเที่ยวบินทันที — ราคาและเวลาบินโดยประมาณ</p>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="routes-grid" id="routesGrid"></div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="main-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <img src="https://www.flyreisen24.com/fly_reisen24_logo_white.png" alt="FlyReisen24 Logo" height="32" loading="lazy" style="height:32px;margin-bottom:14px;display:block">
+      <p id="ftDesc">แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวมดีลจากพาร์ทเนอร์ชั้นนำในที่เดียว</p>
+    </div>
+    <div class="footer-col">
+      <h4 id="ftSvcH">บริการ</h4>
+      <ul>
+        <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="ftFlt">ค้นหาตั๋วเครื่องบิน</span></a></li>
+        <li><a href="/smart-search.html"><i class="fas fa-magic"></i> Smart Search</a></li>
+        <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="ftHtl">จองโรงแรม</span></a></li>
+        <li><a href="#" id="ftDealsLink"><i class="fas fa-tags"></i> <span id="ftDeals">ดีลการเดินทาง</span></a></li>
+        <li><a href="/tools.html"><i class="fas fa-wrench"></i> <span id="ftTools">เครื่องมือ</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 id="ftKnowH">คลังความรู้</h4>
+      <ul>
+        <li><a href="#" id="ftFaqLink"><i class="fas fa-book-open"></i> <span id="ftFaq">15 คำถามก่อนบิน</span></a></li>
+        <li><a href="#" id="ftPassLink"><i class="fas fa-passport"></i> Passport &amp; Visa</a></li>
+        <li><a href="#" id="ftBagLink"><i class="fas fa-suitcase"></i> <span id="ftBag">Baggage Rules</span></a></li>
+        <li><a href="#" id="ftRightsLink"><i class="fas fa-gavel"></i> <span id="ftRights">สิทธิผู้โดยสาร</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 id="ftInfoH">ข้อมูล</h4>
+      <ul>
+        <li><a href="/contact.html"><i class="fas fa-headset"></i> <span id="ftContact">ติดต่อเรา</span></a></li>
+        <li><a href="#" id="ftAboutLink"><i class="fas fa-info-circle"></i> <span id="ftAbout">เกี่ยวกับเรา</span></a></li>
+        <li><a href="#" id="ftPrivLink"><i class="fas fa-lock"></i> <span id="ftPriv">นโยบายความเป็นส่วนตัว</span></a></li>
+        <li><a href="#" id="ftTermsLink"><i class="fas fa-file-contract"></i> <span id="ftTerms">ข้อกำหนด</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 FlyReisen24. All Rights Reserved. | Powered by Travelpayouts</span>
+    <span><a href="#" onclick="setLang('th');return false">TH</a> · <a href="#" onclick="setLang('en');return false">EN</a> · <a href="#" onclick="setLang('de');return false">DE</a></span>
+  </div>
+</footer>
+
+<script>
+var SYSTEM_PROMPT = 'Extract flight search parameters from the user\'s natural language request. Reply ONLY with JSON: {origin, destination, depart_date, return_date, passengers, budget_display} Use IATA codes. Dates in YYYY-MM-DD format. If information is missing, use reasonable defaults.';
+
+var parsedParams = null;
+var isParsing = false;
+
+var POPULAR_ROUTES = [
+  {origin:'BKK',dest:'FRA',cities:{th:'กรุงเทพ → แฟรงก์เฟิร์ต',en:'Bangkok → Frankfurt',de:'Bangkok → Frankfurt'},price:{th:'฿18,000 – 35,000',en:'€450 – €850',de:'€450 – €850'},time:'~11h'},
+  {origin:'BKK',dest:'LHR',cities:{th:'กรุงเทพ → ลอนดอน',en:'Bangkok → London',de:'Bangkok → London'},price:{th:'฿20,000 – 38,000',en:'£400 – £750',de:'€480 – €900'},time:'~12h'},
+  {origin:'BKK',dest:'NRT',cities:{th:'กรุงเทพ → โตเกียว',en:'Bangkok → Tokyo',de:'Bangkok → Tokio'},price:{th:'฿8,000 – 18,000',en:'¥35,000 – ¥80,000',de:'€220 – €500'},time:'~6h'},
+  {origin:'BKK',dest:'SIN',cities:{th:'กรุงเทพ → สิงคโปร์',en:'Bangkok → Singapore',de:'Bangkok → Singapur'},price:{th:'฿3,500 – 8,000',en:'S$150 – S$350',de:'€100 – €230'},time:'~2.5h'},
+  {origin:'BKK',dest:'DXB',cities:{th:'กรุงเทพ → ดูไบ',en:'Bangkok → Dubai',de:'Bangkok → Dubai'},price:{th:'฿12,000 – 25,000',en:'AED 1,200 – 2,500',de:'€300 – €620'},time:'~6.5h'}
+];
+
+var T = {
+  th: {
+    bc_home:'หน้าแรก', bc_page:'Smart Flight Finder',
+    nav_svc:'บริการ', nav_flt:'เที่ยวบิน', nav_htl:'โรงแรม', nav_car:'รถเช่า',
+    nav_deals:'ดีล', nav_new:'NEW', nav_know:'คลังข้อมูล', nav_faq:'15 คำถามก่อนบิน', nav_tools:'เครื่องมือ',
+    heroTitle:'Smart <em>Flight Finder</em>',
+    heroSub:'พิมพ์ทริปที่ต้องการเป็นภาษาธรรมชาติ — AI แปลงเป็นค้นหาเที่ยวบินให้อัตโนมัติ',
+    ssTitle:'ค้นหาเที่ยวบินด้วยภาษาธรรมชาติ',
+    ssSub:'บอกทริปที่ต้องการ — AI จะแปลงเป็นต้นทาง ปลายทาง วันที่ และงบประมาณ',
+    nlPlaceholder:'เช่น อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน',
+    examples:['อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน','BKK ไปโตเกียว มีนาคม 5 วัน 2 คน','บินกรุงเทพ-แฟรงก์เฟิร์ต เดือนหน้า ไป-กลับ'],
+    btnParseLbl:'วิเคราะห์ทริป', loadingLbl:'กำลังวิเคราะห์...',
+    searchBtnLbl:'ค้นหาตั๋วราคานี้',
+    popTitle:'เส้นทางยอดนิยมจาก BKK', popSub:'คลิกเพื่อค้นหาเที่ยวบินทันที — ราคาและเวลาบินโดยประมาณ',
+    adult:'ผู้ใหญ่', adults:'ผู้ใหญ่', budget:'งบประมาณ',
+    ftDesc:'แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวมดีลจากพาร์ทเนอร์ชั้นนำในที่เดียว',
+    ftSvcH:'บริการ', ftFlt:'ค้นหาตั๋วเครื่องบิน', ftHtl:'จองโรงแรม', ftDeals:'ดีลการเดินทาง', ftTools:'เครื่องมือ',
+    ftKnowH:'คลังความรู้', ftFaq:'15 คำถามก่อนบิน', ftBag:'Baggage Rules', ftRights:'สิทธิผู้โดยสาร',
+    ftInfoH:'ข้อมูล', ftContact:'ติดต่อเรา', ftAbout:'เกี่ยวกับเรา', ftPriv:'นโยบายความเป็นส่วนตัว', ftTerms:'ข้อกำหนด',
+    errEmpty:'กรุณาพิมพ์ทริปที่ต้องการ', errApi:'ไม่สามารถวิเคราะห์ได้ ลองใหม่อีกครั้ง',
+    errKey:'กรุณาตั้งค่า API key ใน config.js',
+    links:{faq:'/th/faq/landing.html',deals:'/th/deals_th.html',passport:'/th/faq/01-passport-visa.html',baggage:'/th/faq/03-baggage-rules.html',rights:'/th/faq/09-montreal-eu261.html',about:'/th/about_th.html',priv:'/th/privacy_th.html',terms:'/th/terms_th.html'}
+  },
+  en: {
+    bc_home:'Home', bc_page:'Smart Flight Finder',
+    nav_svc:'Services', nav_flt:'Flights', nav_htl:'Hotels', nav_car:'Car Rental',
+    nav_deals:'Deals', nav_new:'NEW', nav_know:'Knowledge', nav_faq:'15 Questions Before You Fly', nav_tools:'Tools',
+    heroTitle:'Smart <em>Flight Finder</em>',
+    heroSub:'Type your trip in natural language — AI converts it into a flight search automatically',
+    ssTitle:'Natural Language Flight Search',
+    ssSub:'Describe your trip — AI extracts origin, destination, dates and budget',
+    nlPlaceholder:'e.g. I want to fly from Bangkok to Germany in July, budget €500',
+    examples:['I want to fly from Bangkok to Germany in July, budget €500','BKK to Tokyo in March, 5 days, 2 adults','Bangkok to London next month, round trip'],
+    btnParseLbl:'Analyse Trip', loadingLbl:'Analysing...',
+    searchBtnLbl:'Search These Flights',
+    popTitle:'Popular Routes from BKK', popSub:'Click to search instantly — estimated prices and flight times',
+    adult:'Adult', adults:'Adults', budget:'Budget',
+    ftDesc:'Your travel platform for the best deals — top partners worldwide in one place.',
+    ftSvcH:'Services', ftFlt:'Search Flights', ftHtl:'Book Hotels', ftDeals:'Travel Deals', ftTools:'Tools',
+    ftKnowH:'Knowledge Hub', ftFaq:'15 Questions Before You Fly', ftBag:'Baggage Rules', ftRights:'Passenger Rights',
+    ftInfoH:'Info', ftContact:'Contact Us', ftAbout:'About Us', ftPriv:'Privacy Policy', ftTerms:'Terms of Use',
+    errEmpty:'Please describe your trip', errApi:'Could not analyse. Please try again.',
+    errKey:'Please set API key in config.js',
+    links:{faq:'/en/faq/landing.html',deals:'/en/deals_en.html',passport:'/en/faq/01-passport-visa.html',baggage:'/en/faq/03-baggage-rules.html',rights:'/en/faq/09-montreal-eu261.html',about:'/en/about_en.html',priv:'/en/privacy_en.html',terms:'/en/terms_en.html'}
+  },
+  de: {
+    bc_home:'Startseite', bc_page:'Smart Flight Finder',
+    nav_svc:'Services', nav_flt:'Flüge', nav_htl:'Hotels', nav_car:'Mietwagen',
+    nav_deals:'Deals', nav_new:'NEU', nav_know:'Wissen', nav_faq:'15 Fragen vor dem Flug', nav_tools:'Tools',
+    heroTitle:'Smart <em>Flight Finder</em>',
+    heroSub:'Beschreiben Sie Ihre Reise in natürlicher Sprache — KI wandelt sie automatisch in eine Flugsuche um',
+    ssTitle:'Flugsuche in natürlicher Sprache',
+    ssSub:'Beschreiben Sie Ihre Reise — KI extrahiert Abflug, Ziel, Daten und Budget',
+    nlPlaceholder:'z.B. Günstig von BKK nach FRA im August',
+    examples:['Günstig von BKK nach FRA im August','BKK nach Tokio im März, 5 Tage, 2 Erwachsene','Bangkok nach London nächsten Monat, Hin und Zurück'],
+    btnParseLbl:'Reise analysieren', loadingLbl:'Analysiere...',
+    searchBtnLbl:'Diese Flüge suchen',
+    popTitle:'Beliebte Strecken ab BKK', popSub:'Klicken für sofortige Suche — geschätzte Preise und Flugzeiten',
+    adult:'Erwachsener', adults:'Erwachsene', budget:'Budget',
+    ftDesc:'Ihre Reiseplattform für die besten Deals — führende Partner weltweit an einem Ort.',
+    ftSvcH:'Services', ftFlt:'Flüge suchen', ftHtl:'Hotels buchen', ftDeals:'Reise-Deals', ftTools:'Tools',
+    ftKnowH:'Wissenszentrum', ftFaq:'15 Fragen vor dem Flug', ftBag:'Gepäckregeln', ftRights:'Passagierrechte',
+    ftInfoH:'Info', ftContact:'Kontakt', ftAbout:'Über uns', ftPriv:'Datenschutz', ftTerms:'Nutzungsbedingungen',
+    errEmpty:'Bitte beschreiben Sie Ihre Reise', errApi:'Analyse fehlgeschlagen. Bitte erneut versuchen.',
+    errKey:'Bitte API-Schlüssel in config.js setzen',
+    links:{faq:'/de/faq/landing.html',deals:'/de/deals_de.html',passport:'/de/faq/01-passport-visa.html',baggage:'/de/faq/03-baggage-rules.html',rights:'/de/faq/09-montreal-eu261.html',about:'/de/about_de.html',priv:'/de/privacy_de.html',terms:'/de/terms_de.html'}
+  }
+};
+
+var lang = 'th';
+
+function setLang(l) {
+  lang = l;
+  var t = T[l];
+  var ids = ['bc_home','bc_page','nav_svc','nav_flt','nav_htl','nav_car','nav_deals','nav_new','nav_know','nav_faq','nav_tools',
+    'heroSub','ssTitle','ssSub','btnParseLbl','loadingLbl','searchBtnLbl','popTitle','popSub',
+    'ftDesc','ftSvcH','ftFlt','ftHtl','ftDeals','ftTools','ftKnowH','ftFaq','ftBag','ftRights',
+    'ftInfoH','ftContact','ftAbout','ftPriv','ftTerms'];
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && t[id] !== undefined) el.textContent = t[id];
+  });
+  document.getElementById('heroTitle').innerHTML = t.heroTitle;
+  document.getElementById('nlInput').placeholder = t.nlPlaceholder;
+  document.getElementById('currentLangLabel').textContent = l.toUpperCase();
+  ['th','en','de'].forEach(function(x) {
+    document.getElementById('btn' + x.toUpperCase()).classList.toggle('active', x === l);
+    document.getElementById('dd' + x.toUpperCase()).classList.toggle('active', x === l);
+  });
+  document.documentElement.lang = l;
+  var L = t.links;
+  document.getElementById('navFaqLink').href = L.faq;
+  document.getElementById('navDealsLink').href = L.deals;
+  document.getElementById('ftFaqLink').href = L.faq;
+  document.getElementById('ftDealsLink').href = L.deals;
+  document.getElementById('ftPassLink').href = L.passport;
+  document.getElementById('ftBagLink').href = L.baggage;
+  document.getElementById('ftRightsLink').href = L.rights;
+  document.getElementById('ftAboutLink').href = L.about;
+  document.getElementById('ftPrivLink').href = L.priv;
+  document.getElementById('ftTermsLink').href = L.terms;
+  renderExamples();
+  renderRoutes();
+  if (parsedParams) showResult(parsedParams);
+  document.getElementById('languageDropdown').classList.remove('active');
+}
+
+function renderExamples() {
+  var wrap = document.getElementById('nlExamples');
+  wrap.innerHTML = '';
+  T[lang].examples.forEach(function(ex) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nl-example';
+    btn.textContent = ex;
+    btn.onclick = function() { document.getElementById('nlInput').value = ex; };
+    wrap.appendChild(btn);
+  });
+}
+
+function renderRoutes() {
+  var grid = document.getElementById('routesGrid');
+  grid.innerHTML = '';
+  POPULAR_ROUTES.forEach(function(r) {
+    var card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'route-card';
+    card.innerHTML = '<div class="route-codes">' + r.origin + ' → ' + r.dest + '</div>' +
+      '<div class="route-cities">' + r.cities[lang] + '</div>' +
+      '<div class="route-price">' + r.price[lang] + '</div>' +
+      '<div class="route-time"><i class="fas fa-clock"></i> ' + r.time + '</div>';
+    card.onclick = function() { quickSearch(r.origin, r.dest); };
+    grid.appendChild(card);
+  });
+}
+
+function defaultDates() {
+  var dep = new Date();
+  dep.setDate(dep.getDate() + 30);
+  var ret = new Date(dep);
+  ret.setDate(ret.getDate() + 10);
+  return {
+    depart_date: dep.toISOString().split('T')[0],
+    return_date: ret.toISOString().split('T')[0]
+  };
+}
+
+function buildFlightUrl(params) {
+  var qs = new URLSearchParams();
+  if (params.origin) qs.set('origin', params.origin);
+  if (params.destination) qs.set('destination', params.destination);
+  if (params.depart_date) qs.set('depart_date', params.depart_date);
+  if (params.return_date) qs.set('return_date', params.return_date);
+  if (params.passengers) qs.set('adults', params.passengers);
+  return 'https://flights.flyreisen24.com/?' + qs.toString();
+}
+
+function formatDate(iso, locale) {
+  if (!iso) return '—';
+  var d = new Date(iso + 'T12:00:00');
+  return d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+function parseJsonFromText(text) {
+  var cleaned = text.trim();
+  var match = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (match) cleaned = match[1].trim();
+  var start = cleaned.indexOf('{');
+  var end = cleaned.lastIndexOf('}');
+  if (start === -1 || end === -1) throw new Error('No JSON');
+  return JSON.parse(cleaned.slice(start, end + 1));
+}
+
+function showResult(params) {
+  var t = T[lang];
+  var locale = lang === 'th' ? 'th-TH' : lang === 'de' ? 'de-DE' : 'en-GB';
+  var pax = parseInt(params.passengers, 10) || 1;
+  var paxLabel = pax + ' ' + (pax === 1 ? t.adult : t.adults);
+
+  document.getElementById('resultRoute').innerHTML =
+    '<i class="fas fa-plane"></i> ' + (params.origin || 'BKK') + ' → ' + (params.destination || '???');
+  document.getElementById('resultMeta').innerHTML =
+    '<span><i class="fas fa-calendar"></i> ' + formatDate(params.depart_date, locale) +
+    ' → ' + formatDate(params.return_date, locale) + '</span>' +
+    '<span><i class="fas fa-user"></i> ' + paxLabel + '</span>';
+  document.getElementById('resultBudget').textContent =
+    params.budget_display ? (t.budget + ': ' + params.budget_display) : '';
+  document.getElementById('resultCard').classList.add('show');
+}
+
+async function parseTrip() {
+  var input = document.getElementById('nlInput').value.trim();
+  var t = T[lang];
+  var errEl = document.getElementById('parseError');
+  var loadEl = document.getElementById('parseLoading');
+  var btn = document.getElementById('btnParse');
+
+  errEl.classList.remove('show');
+  document.getElementById('resultCard').classList.remove('show');
+
+  if (!input) {
+    errEl.textContent = t.errEmpty;
+    errEl.classList.add('show');
+    return;
+  }
+
+  var apiKey = window.FLYREISEN_API_KEY;
+  if (!apiKey || apiKey === 'YOUR_API_KEY_HERE') {
+    errEl.textContent = t.errKey;
+    errEl.classList.add('show');
+    return;
+  }
+
+  if (isParsing) return;
+  isParsing = true;
+  btn.disabled = true;
+  loadEl.classList.add('show');
+
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 200,
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: input }]
+      })
+    });
+
+    if (!response.ok) throw new Error('API ' + response.status);
+
+    var data = await response.json();
+    var text = '';
+    if (data.content && data.content.length) {
+      text = data.content.filter(function(b) { return b.type === 'text'; }).map(function(b) { return b.text; }).join('');
+    }
+
+    parsedParams = parseJsonFromText(text);
+    var defaults = defaultDates();
+    if (!parsedParams.origin) parsedParams.origin = 'BKK';
+    if (!parsedParams.depart_date) parsedParams.depart_date = defaults.depart_date;
+    if (!parsedParams.return_date) parsedParams.return_date = defaults.return_date;
+    if (!parsedParams.passengers) parsedParams.passengers = 1;
+
+    showResult(parsedParams);
+  } catch (e) {
+    errEl.textContent = t.errApi;
+    errEl.classList.add('show');
+  }
+
+  isParsing = false;
+  btn.disabled = false;
+  loadEl.classList.remove('show');
+}
+
+function openFlightSearch() {
+  if (!parsedParams) return;
+  window.open(buildFlightUrl(parsedParams), '_blank');
+}
+
+function quickSearch(origin, dest) {
+  var d = defaultDates();
+  parsedParams = {
+    origin: origin,
+    destination: dest,
+    depart_date: d.depart_date,
+    return_date: d.return_date,
+    passengers: 1,
+    budget_display: ''
+  };
+  showResult(parsedParams);
+  document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleMenu() { document.getElementById('topNavMenu').classList.toggle('active'); }
+function toggleLangDropdown() { document.getElementById('languageDropdown').classList.toggle('active'); }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.dropdown-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var li = this.parentElement, menu = li.querySelector('.dropdown-menu'), open = menu.classList.contains('show');
+      document.querySelectorAll('.dropdown-menu.show').forEach(function(m) { m.classList.remove('show'); });
+      document.querySelectorAll('.dropdown-active').forEach(function(l) { l.classList.remove('dropdown-active'); });
+      if (!open) { menu.classList.add('show'); li.classList.add('dropdown-active'); }
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.top-nav-menu') && !e.target.closest('.language-dropdown')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(function(m) { m.classList.remove('show'); });
+      document.querySelectorAll('.dropdown-active').forEach(function(l) { l.classList.remove('dropdown-active'); });
+      document.getElementById('languageDropdown').classList.remove('active');
+    }
+  });
+  var ref = document.referrer;
+  if (ref.includes('/en/')) setLang('en');
+  else if (ref.includes('/de/')) setLang('de');
+  else setLang('th');
+});
+</script>
+<script src="/common.js" defer></script>
+<script src="/config.js"></script>
+<script src="/chat-widget.js"></script>
+</body>
+</html>

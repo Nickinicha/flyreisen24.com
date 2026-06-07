@@ -45,6 +45,7 @@
         <a href="#" class="dropdown-toggle"><i class="fas fa-briefcase"></i> <span id="nav_svc">บริการ</span><i class="fas fa-chevron-down"></i></a>
         <ul class="dropdown-menu">
           <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="nav_flt">เที่ยวบิน</span></a></li>
+          <li><a href="/smart-search.html"><i class="fas fa-magic"></i> Smart Search</a></li>
           <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="nav_htl">โรงแรม</span></a></li>
           <li><a href="/booking.html?url=https%3A%2F%2Fklook.tpo.mx%2FoOSUgcwd"><i class="fas fa-car"></i> <span id="nav_car">รถเช่า</span></a></li>
         </ul>
@@ -177,6 +178,18 @@
     </div>
   </div>
 
+  <!-- SMART FLIGHT FINDER -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon"><i class="fas fa-magic"></i></div>
+      <div class="tool-header-text"><h2 id="ssTitle">Smart Flight Finder</h2><p id="ssSub">พิมพ์ทริปเป็นภาษาธรรมชาติ — AI แปลงเป็นค้นหาเที่ยวบินอัตโนมัติ</p></div>
+    </div>
+    <div class="tool-body">
+      <p style="font-size:14px;color:#6b7280;margin-bottom:16px;line-height:1.7" id="ssDesc">บอกทริปที่ต้องการ เช่น "อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน" — AI จะแปลงเป็นต้นทาง ปลายทาง วันที่ และเปิดค้นหาเที่ยวบินให้ทันที</p>
+      <a href="/smart-search.html" class="btn-search" style="text-decoration:none;display:inline-flex;width:auto"><i class="fas fa-wand-magic-sparkles"></i> <span id="ssBtn">ลอง Smart Search</span></a>
+    </div>
+  </div>
+
 </div>
 
 <footer class="main-footer">
@@ -235,6 +248,8 @@ const T={
     fsDepLbl:'วันเดินทาง',fsRetLbl:'วันกลับ',fsPaxLbl:'ผู้โดยสาร',
     pax1:'1 ผู้ใหญ่',pax2:'2 ผู้ใหญ่',pax3:'3 ผู้ใหญ่',pax4:'4 ผู้ใหญ่',
     fsBtn:'ค้นหาตั๋วราคาถูก',fsNote:'จะเปิดผลค้นหาใน FlyReisen24 Flight Search — เปรียบเทียบราคาจาก 500+ สายการบิน',fsPopLbl:'เส้นทางยอดนิยมจากไทย',
+    ssTitle:'Smart Flight Finder',ssSub:'พิมพ์ทริปเป็นภาษาธรรมชาติ — AI แปลงเป็นค้นหาเที่ยวบินอัตโนมัติ',
+    ssDesc:'บอกทริปที่ต้องการ เช่น "อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน" — AI จะแปลงเป็นต้นทาง ปลายทาง วันที่ และเปิดค้นหาเที่ยวบินให้ทันที',ssBtn:'ลอง Smart Search',
     ftDesc:'แพลตฟอร์มค้นหาการเดินทางที่คุ้มค่าที่สุด รวมดีลจากพาร์ทเนอร์ชั้นนำในที่เดียว',
     ftSvcH:'บริการ',ftFlt:'ค้นหาตั๋วเครื่องบิน',ftHtl:'จองโรงแรม',ftDeals:'ดีลการเดินทาง',ftTools:'เครื่องมือ',
     ftKnowH:'คลังความรู้',ftFaq:'15 คำถามก่อนบิน',ftBag:'Baggage Rules',ftRights:'สิทธิผู้โดยสาร',
@@ -255,6 +270,8 @@ const T={
     fsDepLbl:'Departure',fsRetLbl:'Return',fsPaxLbl:'Passengers',
     pax1:'1 Adult',pax2:'2 Adults',pax3:'3 Adults',pax4:'4 Adults',
     fsBtn:'Search Cheap Flights',fsNote:'Opens FlyReisen24 Flight Search — compare prices from 500+ airlines',fsPopLbl:'Popular routes from Thailand',
+    ssTitle:'Smart Flight Finder',ssSub:'Type your trip in natural language — AI converts it into a flight search',
+    ssDesc:'Describe your trip, e.g. "I want to fly from Bangkok to Germany in July, budget €500" — AI extracts origin, destination, dates and opens flight search.',ssBtn:'Try Smart Search',
     ftDesc:'Your travel platform for the best deals — top partners worldwide in one place.',
     ftSvcH:'Services',ftFlt:'Search Flights',ftHtl:'Book Hotels',ftDeals:'Travel Deals',ftTools:'Tools',
     ftKnowH:'Knowledge Hub',ftFaq:'15 Questions Before You Fly',ftBag:'Baggage Rules',ftRights:'Passenger Rights',
@@ -275,6 +292,8 @@ const T={
     fsDepLbl:'Abflug',fsRetLbl:'Rückflug',fsPaxLbl:'Passagiere',
     pax1:'1 Erwachsener',pax2:'2 Erwachsene',pax3:'3 Erwachsene',pax4:'4 Erwachsene',
     fsBtn:'Günstige Flüge suchen',fsNote:'Öffnet die FlyReisen24 Flugsuche — Preise von 500+ Airlines vergleichen',fsPopLbl:'Beliebte Strecken ab Thailand',
+    ssTitle:'Smart Flight Finder',ssSub:'Reise in natürlicher Sprache — KI wandelt sie in eine Flugsuche um',
+    ssDesc:'Beschreiben Sie Ihre Reise, z.B. "Günstig von BKK nach FRA im August" — KI extrahiert Abflug, Ziel, Daten und öffnet die Flugsuche.',ssBtn:'Smart Search testen',
     ftDesc:'Ihre Reiseplattform für die besten Deals — führende Partner weltweit an einem Ort.',
     ftSvcH:'Services',ftFlt:'Flüge suchen',ftHtl:'Hotels buchen',ftDeals:'Reise-Deals',ftTools:'Tools',
     ftKnowH:'Wissenszentrum',ftFaq:'15 Fragen vor dem Flug',ftBag:'Gepäckregeln',ftRights:'Passagierrechte',
@@ -293,6 +312,7 @@ function setLang(l){
     'heroSub','ccTitle','ccSub','ccAmtLbl','ccFromLbl','ccToLbl','ccDisclaimer','ccPopLbl',
     'wcTitle','wcSub','wcDst','fsTitle','fsSub','fsRT','fsOW','fsFromLbl','fsToLbl',
     'fsDepLbl','fsRetLbl','fsPaxLbl','pax1','pax2','pax3','pax4','fsBtn','fsNote','fsPopLbl',
+    'ssTitle','ssSub','ssDesc','ssBtn',
     'ftDesc','ftSvcH','ftFlt','ftHtl','ftDeals','ftTools','ftKnowH','ftFaq','ftBag','ftRights',
     'ftInfoH','ftContact','ftAbout','ftPriv','ftTerms'];
   ids.forEach(function(id){var el=document.getElementById(id);if(el&&t[id]!==undefined)el.textContent=t[id];});
@@ -423,5 +443,7 @@ function searchFlight(){window.open('https://flights.flyreisen24.com','_blank')}
 })();
 </script>
 <script src="/common.js" defer></script>
+<script src="/config.js"></script>
+<script src="/chat-widget.js"></script>
 </body>
 </html>

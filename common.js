@@ -27,6 +27,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="/smart-search.html">
+                                <i class="fas fa-magic"></i>
+                                Smart Search
+                            </a>
+                        </li>
+                        <li>
                             <a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn">
                                 <i class="fas fa-hotel"></i>
                                 <span id="navHotel">โรงแรม</span>
