@@ -47,9 +47,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/th/deals_th.html" id="navDealsLink" class="top-nav-prominent-link">
-                        <i class="fas fa-tags"></i>
-                        <span id="navDeals">ดีล</span>
+                    <a href="/smart-search.html" id="navDealsLink" class="top-nav-prominent-link">
+                        <i class="fas fa-magic"></i>
+                        <span id="navDeals">AI Search</span>
                         <span class="new-badge">NEW</span>
                     </a>
                 </li>
@@ -394,7 +394,7 @@
         if (navKnowledgeLink) navKnowledgeLink.href = PAGE_MAPPINGS['faq'][lang];
 
         const navDealsLink = document.getElementById('navDealsLink');
-        if (navDealsLink) navDealsLink.href = PAGE_MAPPINGS['deals'][lang];
+        if (navDealsLink) navDealsLink.href = '/smart-search.html';
 
         const navToolsLink = document.getElementById('navToolsLink');
         if (navToolsLink) navToolsLink.href = PAGE_MAPPINGS['tools'][lang];
