@@ -1,7 +1,7 @@
 /**
  * FlyReisen24.com — Floating AI Chat Widget (Meshmesh)
- * Self-contained: injects HTML + CSS, calls Anthropic Claude API.
- * Requires: config.js (window.FLYREISEN_API_KEY), Font Awesome (already on site).
+ * Self-contained: injects HTML + CSS, calls Claude via Cloudflare Worker proxy.
+ * Requires: Font Awesome (already on site).
  */
 (function () {
   'use strict';
@@ -54,6 +54,8 @@
     'เข้า Lounge ฟรีได้อย่างไร?',
     'CT Scanner คืออะไร?'
   ];
+
+  var PROXY_URL = 'https://flyreisen24-proxy.YOUR-SUBDOMAIN.workers.dev';
 
   var messages = [];
   var isOpen = false;
@@ -265,12 +267,6 @@
     var trimmed = (text || '').trim();
     if (!trimmed || isLoading) return;
 
-    var apiKey = window.FLYREISEN_API_KEY;
-    if (!apiKey || apiKey === 'YOUR_API_KEY_HERE') {
-      showError('API key not configured. Please set window.FLYREISEN_API_KEY in config.js');
-      return;
-    }
-
     var input = document.getElementById('fcwInput');
     var sendBtn = document.getElementById('fcwSend');
     if (input) input.value = '';
@@ -287,13 +283,10 @@
     var systemWithLang = SYSTEM_PROMPT + '\n\nCurrent page language hint: ' + langHint + ' (' + lang + '). Prefer FAQ links matching this language when possible.';
 
     try {
-      var response = await fetch('https://api.anthropic.com/v1/messages', {
+      var response = await fetch(PROXY_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
