@@ -7,7 +7,7 @@
 
   var DEFAULT_PROXY = '';
   var ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
-  var DEFAULT_MODEL = 'claude-sonnet-4-20250514';
+  var DEFAULT_MODEL = 'claude-sonnet-4-6';
 
   function getProxyUrl() {
     var url = global.FLYREISEN_PROXY_URL || DEFAULT_PROXY;
@@ -64,9 +64,10 @@
     }
 
     if (!response.ok) {
-      if (response.status === 401) throw new Error('AUTH_INVALID');
       var errBody = '';
       try { errBody = await response.text(); } catch (e) { /* ignore */ }
+      if (response.status === 401) throw new Error('AUTH_INVALID');
+      if (response.status === 404 && errBody.indexOf('model:') !== -1) throw new Error('MODEL_NOT_FOUND');
       throw new Error('API_' + response.status + (errBody ? ': ' + errBody.slice(0, 100) : ''));
     }
 

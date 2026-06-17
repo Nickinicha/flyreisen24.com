@@ -322,6 +322,19 @@
         renderMessages();
         return;
       }
+      if (err && err.message === 'MODEL_NOT_FOUND') {
+        var modelMsg = detectPageLang() === 'en'
+          ? 'AI model not found — pull latest ai-client.js from the repo.'
+          : detectPageLang() === 'de'
+            ? 'KI-Modell nicht gefunden — ai-client.js aktualisieren.'
+            : 'ไม่พบ AI model — อัปเดต ai-client.js เป็นเวอร์ชันล่าสุด';
+        showError(modelMsg);
+        messages.push({ role: 'assistant', content: '🐱 ' + modelMsg });
+        isLoading = false;
+        if (sendBtn) sendBtn.disabled = false;
+        renderMessages();
+        return;
+      }
       var errMsg = err && err.message ? err.message : 'Network error';
       messages.push({
         role: 'assistant',
