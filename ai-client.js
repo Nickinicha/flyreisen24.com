@@ -5,7 +5,7 @@
 (function (global) {
   'use strict';
 
-  var DEFAULT_PROXY = 'https://flyreisen24-proxy.YOUR-SUBDOMAIN.workers.dev';
+  var DEFAULT_PROXY = '';
   var ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
   var DEFAULT_MODEL = 'claude-sonnet-4-20250514';
 
