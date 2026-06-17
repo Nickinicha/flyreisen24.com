@@ -1,0 +1,12 @@
+{
+  "name": "flyreisen24-proxy",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "secret": "wrangler secret put ANTHROPIC_API_KEY",
+    "whoami": "wrangler whoami"
+  },
+  "devDependencies": {
+    "wrangler": "^4.101.0"
+  }
+}
