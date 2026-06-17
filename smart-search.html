@@ -276,6 +276,7 @@ var T = {
     ftInfoH:'ข้อมูล', ftContact:'ติดต่อเรา', ftAbout:'เกี่ยวกับเรา', ftPriv:'นโยบายความเป็นส่วนตัว', ftTerms:'ข้อกำหนด',
     errEmpty:'กรุณาพิมพ์ทริปที่ต้องการ', errApi:'ไม่สามารถวิเคราะห์ได้ ลองใหม่อีกครั้ง',
     errChatEmpty:'กรุณาพิมพ์คำถาม', errChatApi:'ไม่สามารถตอบได้ ลองใหม่อีกครั้ง',
+    errNotConfigured:'ยังเชื่อมต่อ AI ไม่ได้ — ตั้งค่า config.js (เครื่อง local) หรือ Cloudflare Worker (production)',
     links:{faq:'/th/faq/landing.html',deals:'/deals.html',passport:'/th/faq/01-passport-visa.html',baggage:'/th/faq/03-baggage-rules.html',rights:'/th/faq/09-montreal-eu261.html',about:'/th/about_th.html',priv:'/th/privacy_th.html',terms:'/th/terms_th.html'}
   },
   en: {
@@ -303,6 +304,7 @@ var T = {
     ftInfoH:'Info', ftContact:'Contact Us', ftAbout:'About Us', ftPriv:'Privacy Policy', ftTerms:'Terms of Use',
     errEmpty:'Please describe your trip', errApi:'Could not analyse. Please try again.',
     errChatEmpty:'Please type a question', errChatApi:'Could not get an answer. Please try again.',
+    errNotConfigured:'AI not connected — set config.js (local) or Cloudflare Worker (production)',
     links:{faq:'/en/faq/landing.html',deals:'/deals.html',passport:'/en/faq/01-passport-visa.html',baggage:'/en/faq/03-baggage-rules.html',rights:'/en/faq/09-montreal-eu261.html',about:'/en/about_en.html',priv:'/en/privacy_en.html',terms:'/en/terms_en.html'}
   },
   de: {
@@ -330,6 +332,7 @@ var T = {
     ftInfoH:'Info', ftContact:'Kontakt', ftAbout:'Über uns', ftPriv:'Datenschutz', ftTerms:'Nutzungsbedingungen',
     errEmpty:'Bitte beschreiben Sie Ihre Reise', errApi:'Analyse fehlgeschlagen. Bitte erneut versuchen.',
     errChatEmpty:'Bitte eine Frage eingeben', errChatApi:'Antwort fehlgeschlagen. Bitte erneut versuchen.',
+    errNotConfigured:'KI nicht verbunden — config.js (lokal) oder Cloudflare Worker (Produktion) einrichten',
     links:{faq:'/de/faq/landing.html',deals:'/deals.html',passport:'/de/faq/01-passport-visa.html',baggage:'/de/faq/03-baggage-rules.html',rights:'/de/faq/09-montreal-eu261.html',about:'/de/about_de.html',priv:'/de/privacy_de.html',terms:'/de/terms_de.html'}
   }
 };
@@ -479,16 +482,38 @@ function renderChatMessages() {
 }
 
 async function callClaude(system, messages, maxTokens) {
-  var response = await fetch(PROXY_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: maxTokens,
-      system: system,
-      messages: messages
-    })
+  var proxy = window.FLYREISEN_PROXY_URL || PROXY_URL;
+  var useProxy = proxy && proxy.indexOf('YOUR-SUBDOMAIN') === -1;
+  var body = JSON.stringify({
+    model: MODEL,
+    max_tokens: maxTokens,
+    system: system,
+    messages: messages
   });
+
+  var response;
+  if (useProxy) {
+    response = await fetch(proxy, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: body
+    });
+  } else {
+    var apiKey = window.FLYREISEN_API_KEY;
+    if (!apiKey || apiKey === 'YOUR_API_KEY_HERE') {
+      throw new Error('NOT_CONFIGURED');
+    }
+    response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: body
+    });
+  }
   if (!response.ok) {
     var errBody = '';
     try { errBody = await response.text(); } catch (e) { /* ignore */ }
@@ -528,7 +553,11 @@ async function sendChatMessage(preset) {
     if (!reply) reply = lang === 'th' ? 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้' : lang === 'de' ? 'Entschuldigung, keine Antwort möglich.' : 'Sorry, no answer available right now.';
     chatMessages.push({ role: 'assistant', content: reply });
   } catch (e) {
-    errEl.textContent = t.errChatApi;
+    if (e && e.message === 'NOT_CONFIGURED') {
+      errEl.textContent = t.errNotConfigured;
+    } else {
+      errEl.textContent = t.errChatApi;
+    }
     errEl.classList.add('show');
     chatMessages.push({
       role: 'assistant',
@@ -627,7 +656,11 @@ async function parseTrip() {
     if (!parsedParams.passengers) parsedParams.passengers = 1;
     showResult(parsedParams);
   } catch (e) {
-    errEl.textContent = t.errApi;
+    if (e && e.message === 'NOT_CONFIGURED') {
+      errEl.textContent = t.errNotConfigured;
+    } else {
+      errEl.textContent = t.errApi;
+    }
     errEl.classList.add('show');
   }
 
@@ -691,6 +724,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="/common.js" defer></script>
+<script src="/config.js"></script>
 <script src="/chat-widget.js"></script>
 </body>
 </html>

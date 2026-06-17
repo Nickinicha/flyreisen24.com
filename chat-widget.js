@@ -56,6 +56,45 @@
   ];
 
   var PROXY_URL = 'https://flyreisen24-proxy.YOUR-SUBDOMAIN.workers.dev';
+  var ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
+  var MODEL = 'claude-sonnet-4-20250514';
+
+  function getProxyUrl() {
+    var url = window.FLYREISEN_PROXY_URL || PROXY_URL;
+    if (!url || url.indexOf('YOUR-SUBDOMAIN') !== -1) return null;
+    return url;
+  }
+
+  function getApiKey() {
+    var key = window.FLYREISEN_API_KEY;
+    if (!key || key === 'YOUR_API_KEY_HERE') return null;
+    return key;
+  }
+
+  async function callClaude(body) {
+    var proxy = getProxyUrl();
+    if (proxy) {
+      return fetch(proxy, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+    }
+    var apiKey = getApiKey();
+    if (!apiKey) {
+      throw new Error('NOT_CONFIGURED');
+    }
+    return fetch(ANTHROPIC_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify(body)
+    });
+  }
 
   var messages = [];
   var isOpen = false;
@@ -283,18 +322,12 @@
     var systemWithLang = SYSTEM_PROMPT + '\n\nCurrent page language hint: ' + langHint + ' (' + lang + '). Prefer FAQ links matching this language when possible.';
 
     try {
-      var response = await fetch(PROXY_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 400,
-          system: systemWithLang,
-          messages: messages.map(function (m) {
-            return { role: m.role, content: m.content };
-          })
+      var response = await callClaude({
+        model: MODEL,
+        max_tokens: 400,
+        system: systemWithLang,
+        messages: messages.map(function (m) {
+          return { role: m.role, content: m.content };
         })
       });
 
@@ -318,6 +351,14 @@
       if (!reply) reply = 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้ ลองถามใหม่อีกครั้งนะคะ';
       messages.push({ role: 'assistant', content: reply });
     } catch (err) {
+      if (err && err.message === 'NOT_CONFIGURED') {
+        showError('ยังเชื่อมต่อ AI ไม่ได้ — ตั้งค่า config.js (เครื่อง local) หรือ Cloudflare Worker (production)');
+        isLoading = false;
+        if (sendBtn) sendBtn.disabled = false;
+        messages.pop();
+        renderMessages();
+        return;
+      }
       var errMsg = err && err.message ? err.message : 'Network error';
       messages.push({
         role: 'assistant',
