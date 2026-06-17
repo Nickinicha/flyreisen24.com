@@ -226,6 +226,8 @@
     }
 
     function ensureGlobalNavbarMarkup() {
+        if (window.location.pathname.includes('smart-search')) return;
+
         let nav = document.querySelector('nav.top-nav');
         if (!nav) {
             nav = document.createElement('nav');
@@ -704,6 +706,8 @@
     function initialize() {
         if (window.__flyreisen24CommonInit) return;
         window.__flyreisen24CommonInit = true;
+
+        if (window.location.pathname.includes('smart-search')) return;
 
         ensureGlobalNavbarMarkup();
         ensureGlobalNavStyles();

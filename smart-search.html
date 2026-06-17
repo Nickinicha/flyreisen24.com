@@ -374,10 +374,13 @@ function setLang(l) {
   document.getElementById('heroTitle').innerHTML = t.heroTitle;
   document.getElementById('nlInput').placeholder = t.nlPlaceholder;
   document.getElementById('chatInput').placeholder = t.chatPlaceholder;
-  document.getElementById('currentLangLabel').textContent = l.toUpperCase();
+  var langLabel = document.getElementById('currentLangLabel') || document.getElementById('currentLang');
+  if (langLabel) langLabel.textContent = l.toUpperCase();
   ['th','en','de'].forEach(function(x) {
-    document.getElementById('btn' + x.toUpperCase()).classList.toggle('active', x === l);
-    document.getElementById('dd' + x.toUpperCase()).classList.toggle('active', x === l);
+    var btn = document.getElementById('btn' + x.toUpperCase());
+    if (btn) btn.classList.toggle('active', x === l);
+    var dd = document.getElementById('dd' + x.toUpperCase());
+    if (dd) dd.classList.toggle('active', x === l);
   });
   document.documentElement.lang = l;
   var L = t.links;
@@ -394,7 +397,8 @@ function setLang(l) {
   renderChatChips();
   renderRoutes();
   if (parsedParams) showResult(parsedParams);
-  document.getElementById('languageDropdown').classList.remove('active');
+  var langDropdown = document.getElementById('languageDropdown');
+  if (langDropdown) langDropdown.classList.remove('active');
 }
 
 function renderChatChips() {
@@ -695,7 +699,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-<script src="/common.js" defer></script>
 <script src="/chat-widget.js"></script>
 </body>
 </html>
