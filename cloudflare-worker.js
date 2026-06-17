@@ -1,42 +1,54 @@
+const ALLOWED_ORIGINS = [
+  'https://www.flyreisen24.com',
+  'https://flyreisen24.com'
+];
+
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
+  event.respondWith(handleRequest(event.request));
+});
 
-async function handleRequest(request) {
-  const origin = request.headers.get('Origin')
-  if (origin !== 'https://www.flyreisen24.com') {
-    return new Response('Forbidden', { status: 403 })
-  }
-
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': 'https://www.flyreisen24.com',
+function corsHeaders(origin) {
+  var allowed = ALLOWED_ORIGINS.indexOf(origin) !== -1 ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowed,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
-  }
+  };
+}
+
+async function handleRequest(request) {
+  var origin = request.headers.get('Origin') || '';
+  var cors = corsHeaders(origin);
 
   if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers: corsHeaders })
+    return new Response(null, { status: 204, headers: cors });
   }
 
-  // Forward to Anthropic
-  const body = await request.json()
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
+  if (request.method !== 'POST') {
+    return new Response('Method not allowed', { status: 405, headers: cors });
+  }
+
+  if (!ANTHROPIC_API_KEY) {
+    return new Response(JSON.stringify({ error: { message: 'Worker secret ANTHROPIC_API_KEY not set' } }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', ...cors }
+    });
+  }
+
+  var body = await request.text();
+  var response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
       'x-api-key': ANTHROPIC_API_KEY,
       'anthropic-version': '2023-06-01',
       'content-type': 'application/json'
     },
-    body: JSON.stringify(body)
-  })
+    body: body
+  });
 
-  const data = await response.json()
-
-  return new Response(JSON.stringify(data), {
+  var data = await response.text();
+  return new Response(data, {
     status: response.status,
-    headers: {
-      'Content-Type': 'application/json',
-      ...corsHeaders
-    }
-  })
+    headers: { 'Content-Type': 'application/json', ...cors }
+  });
 }

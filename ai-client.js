@@ -1,6 +1,6 @@
 /**
  * FlyReisen24 — shared Claude API client
- * Proxy (production) or config.js API key (local dev fallback)
+ * Proxy (production) or dev-config.js API key (local dev fallback)
  */
 (function (global) {
   'use strict';
@@ -23,12 +23,12 @@
 
   function authErrorMessage(lang) {
     if (lang === 'en') {
-      return 'API key invalid or expired. Create a new key at console.anthropic.com and update config.js (local) or the Cloudflare Worker secret (production).';
+      return 'API key invalid or expired. Create a new key at console.anthropic.com and update dev-config.js (local) or the Cloudflare Worker secret (production).';
     }
     if (lang === 'de') {
-      return 'API-Schlüssel ungültig oder abgelaufen. Neuen Schlüssel unter console.anthropic.com erstellen und config.js bzw. Cloudflare Worker aktualisieren.';
+      return 'API-Schlüssel ungültig oder abgelaufen. Neuen Schlüssel unter console.anthropic.com erstellen und dev-config.js bzw. Cloudflare Worker aktualisieren.';
     }
-    return 'API key ไม่ถูกต้องหรือหมดอายุ — สร้าง key ใหม่ที่ console.anthropic.com แล้วอัปเดต config.js (เครื่อง local) หรือ Cloudflare Worker (production)';
+    return 'API key ไม่ถูกต้องหรือหมดอายุ — สร้าง key ใหม่ที่ console.anthropic.com แล้วอัปเดต dev-config.js (เครื่อง local) หรือ Cloudflare Worker (production)';
   }
 
   async function callClaude(opts) {

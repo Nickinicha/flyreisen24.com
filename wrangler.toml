@@ -1,0 +1,6 @@
+name = "flyreisen24-proxy"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Set secret via: npx wrangler secret put ANTHROPIC_API_KEY

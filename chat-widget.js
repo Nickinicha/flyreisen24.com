@@ -55,8 +55,6 @@
     'CT Scanner คืออะไร?'
   ];
 
-  var PROXY_URL = 'https://flyreisen24-proxy.YOUR-SUBDOMAIN.workers.dev';
-
   var messages = [];
   var isOpen = false;
   var isLoading = false;
@@ -306,7 +304,7 @@
       messages.push({ role: 'assistant', content: reply });
     } catch (err) {
       if (err && err.message === 'NOT_CONFIGURED') {
-        showError('ยังเชื่อมต่อ AI ไม่ได้ — โหลด ai-client.js + config.js หรือตั้ง Cloudflare Worker');
+        showError('ยังเชื่อมต่อ AI ไม่ได้ — ตั้ง Cloudflare Worker (production) หรือ dev-config.js (local)');
         isLoading = false;
         if (sendBtn) sendBtn.disabled = false;
         messages.pop();

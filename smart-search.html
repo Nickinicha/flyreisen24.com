@@ -190,7 +190,8 @@
   </div>
 </footer>
 
-<script src="/config.js"></script>
+<script src="/public-config.js"></script>
+<script src="/dev-config.js" onerror="void 0"></script>
 <script src="/ai-client.js"></script>
 <script>
 
@@ -276,7 +277,7 @@ var T = {
     ftInfoH:'ข้อมูล', ftContact:'ติดต่อเรา', ftAbout:'เกี่ยวกับเรา', ftPriv:'นโยบายความเป็นส่วนตัว', ftTerms:'ข้อกำหนด',
     errEmpty:'กรุณาพิมพ์ทริปที่ต้องการ', errApi:'ไม่สามารถวิเคราะห์ได้ ลองใหม่อีกครั้ง',
     errChatEmpty:'กรุณาพิมพ์คำถาม', errChatApi:'ไม่สามารถตอบได้ ลองใหม่อีกครั้ง',
-    errNotConfigured:'ยังเชื่อมต่อ AI ไม่ได้ — ตั้งค่า config.js (เครื่อง local) หรือ Cloudflare Worker (production)',
+    errNotConfigured:'ยังเชื่อมต่อ AI ไม่ได้ — ตั้ง Cloudflare Worker (production) หรือ dev-config.js (local)',
     errAuthInvalid:'API key ไม่ถูกต้องหรือหมดอายุ — สร้าง key ใหม่ที่ console.anthropic.com',
     links:{faq:'/th/faq/landing.html',deals:'/deals.html',passport:'/th/faq/01-passport-visa.html',baggage:'/th/faq/03-baggage-rules.html',rights:'/th/faq/09-montreal-eu261.html',about:'/th/about_th.html',priv:'/th/privacy_th.html',terms:'/th/terms_th.html'}
   },
@@ -305,7 +306,7 @@ var T = {
     ftInfoH:'Info', ftContact:'Contact Us', ftAbout:'About Us', ftPriv:'Privacy Policy', ftTerms:'Terms of Use',
     errEmpty:'Please describe your trip', errApi:'Could not analyse. Please try again.',
     errChatEmpty:'Please type a question', errChatApi:'Could not get an answer. Please try again.',
-    errNotConfigured:'AI not connected — set config.js (local) or Cloudflare Worker (production)',
+    errNotConfigured:'AI not connected — set Cloudflare Worker (production) or dev-config.js (local)',
     errAuthInvalid:'API key invalid or expired — create a new key at console.anthropic.com',
     links:{faq:'/en/faq/landing.html',deals:'/deals.html',passport:'/en/faq/01-passport-visa.html',baggage:'/en/faq/03-baggage-rules.html',rights:'/en/faq/09-montreal-eu261.html',about:'/en/about_en.html',priv:'/en/privacy_en.html',terms:'/en/terms_en.html'}
   },
@@ -334,7 +335,7 @@ var T = {
     ftInfoH:'Info', ftContact:'Kontakt', ftAbout:'Über uns', ftPriv:'Datenschutz', ftTerms:'Nutzungsbedingungen',
     errEmpty:'Bitte beschreiben Sie Ihre Reise', errApi:'Analyse fehlgeschlagen. Bitte erneut versuchen.',
     errChatEmpty:'Bitte eine Frage eingeben', errChatApi:'Antwort fehlgeschlagen. Bitte erneut versuchen.',
-    errNotConfigured:'KI nicht verbunden — config.js (lokal) oder Cloudflare Worker (Produktion) einrichten',
+    errNotConfigured:'KI nicht verbunden — Cloudflare Worker (Produktion) oder dev-config.js (lokal) einrichten',
     errAuthInvalid:'API-Schlüssel ungültig — neuen Schlüssel unter console.anthropic.com erstellen',
     links:{faq:'/de/faq/landing.html',deals:'/deals.html',passport:'/de/faq/01-passport-visa.html',baggage:'/de/faq/03-baggage-rules.html',rights:'/de/faq/09-montreal-eu261.html',about:'/de/about_de.html',priv:'/de/privacy_de.html',terms:'/de/terms_de.html'}
   }
