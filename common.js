@@ -101,8 +101,8 @@
     const PAGE_MAPPINGS = {
         'index': {
             'th': '/',
-            'en': '/en/faq/landing.html',
-            'de': '/de/faq/landing.html'
+            'en': '/',
+            'de': '/'
         },
         'faq': {
             'th': '/th/faq/landing.html',
@@ -151,8 +151,8 @@
 
         if (path === '/' || path === '/index.html') {
             if (langCode === 'th') return '/';
-            if (langCode === 'en') return '/en/faq/landing.html';
-            return '/de/faq/landing.html';
+            if (langCode === 'en') return '/';
+            if (langCode === 'de') return '/';
         }
 
         const faqArticle = path.match(/^\/(?:th|en|de)\/faq\/(\d{2}-[^/]+\.html)$/);
@@ -469,6 +469,29 @@
     // LANGUAGE SWITCHER
     // ==========================================
     function switchLanguage(langCode, label) {
+        const isHomepage = window.location.pathname === '/'
+            || window.location.pathname === '/index.html';
+
+        if (isHomepage) {
+            // Change language in place, don't navigate
+            document.documentElement.lang = langCode;
+            const currentLangEl = document.getElementById('currentLang');
+            if (currentLangEl) currentLangEl.textContent = label;
+            document.querySelectorAll('.lang-dropdown-menu a').forEach(a => {
+                a.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
+                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes("'" + langCode + "'")) {
+                    link.classList.add('active');
+                }
+            });
+            localStorage.setItem('flyreisen24_lang', langCode);
+            updateContent(langCode);
+            toggleLangDropdown();
+            return; // Stop here, don't navigate
+        }
+
+        // For other pages, continue with normal navigation below...
         const currentLangEl = document.getElementById('currentLang');
         if (currentLangEl) currentLangEl.textContent = label;
 
