@@ -5,7 +5,7 @@
 (function (global) {
   'use strict';
 
-  var DEFAULT_PROXY = '';
+  var DEFAULT_PROXY = 'https://divine-shadow-7759.nichaoceancenter.workers.dev';
   var ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
   var DEFAULT_MODEL = 'claude-sonnet-4-6';
 

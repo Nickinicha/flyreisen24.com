@@ -202,9 +202,9 @@
 </footer>
 <script>function toggleMenu(){document.getElementById('topNavMenu').classList.toggle('active')}function toggleLangDropdown(){document.getElementById('languageDropdown').classList.toggle('active')}document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.dropdown-toggle').forEach(function(btn){btn.addEventListener('click',function(e){e.preventDefault();var li=this.parentElement,menu=li.querySelector('.dropdown-menu'),open=menu.classList.contains('show');document.querySelectorAll('.dropdown-menu.show').forEach(function(m){m.classList.remove('show')});document.querySelectorAll('.dropdown-active').forEach(function(l){l.classList.remove('dropdown-active')});if(!open){menu.classList.add('show');li.classList.add('dropdown-active')}})});document.addEventListener('click',function(e){if(!e.target.closest('.top-nav-menu')&&!e.target.closest('.language-dropdown')){document.querySelectorAll('.dropdown-menu.show').forEach(function(m){m.classList.remove('show')});document.querySelectorAll('.dropdown-active').forEach(function(l){l.classList.remove('dropdown-active')});document.getElementById('languageDropdown').classList.remove('active')}})});</script>
 <script src="/common.js" defer></script>
-<script src="/public-config.js"></script>
+<script src="/public-config.js?v=2"></script>
 <script src="/dev-config.js" onerror="void 0"></script>
-<script src="/ai-client.js"></script>
+<script src="/ai-client.js?v=2"></script>
 <script src="/chat-widget.js"></script>
 </body>
 </html>
