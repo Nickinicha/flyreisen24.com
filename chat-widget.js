@@ -56,45 +56,6 @@
   ];
 
   var PROXY_URL = 'https://flyreisen24-proxy.YOUR-SUBDOMAIN.workers.dev';
-  var ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
-  var MODEL = 'claude-sonnet-4-20250514';
-
-  function getProxyUrl() {
-    var url = window.FLYREISEN_PROXY_URL || PROXY_URL;
-    if (!url || url.indexOf('YOUR-SUBDOMAIN') !== -1) return null;
-    return url;
-  }
-
-  function getApiKey() {
-    var key = window.FLYREISEN_API_KEY;
-    if (!key || key === 'YOUR_API_KEY_HERE') return null;
-    return key;
-  }
-
-  async function callClaude(body) {
-    var proxy = getProxyUrl();
-    if (proxy) {
-      return fetch(proxy, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      });
-    }
-    var apiKey = getApiKey();
-    if (!apiKey) {
-      throw new Error('NOT_CONFIGURED');
-    }
-    return fetch(ANTHROPIC_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify(body)
-    });
-  }
 
   var messages = [];
   var isOpen = false;
@@ -322,8 +283,10 @@
     var systemWithLang = SYSTEM_PROMPT + '\n\nCurrent page language hint: ' + langHint + ' (' + lang + '). Prefer FAQ links matching this language when possible.';
 
     try {
-      var response = await callClaude({
-        model: MODEL,
+      if (!window.FlyReisenAI) throw new Error('NOT_CONFIGURED');
+
+      var data = await window.FlyReisenAI.callClaude({
+        model: window.FlyReisenAI.MODEL,
         max_tokens: 400,
         system: systemWithLang,
         messages: messages.map(function (m) {
@@ -331,15 +294,6 @@
         })
       });
 
-      if (!response.ok) {
-        var errBody = '';
-        try {
-          errBody = await response.text();
-        } catch (e) { /* ignore */ }
-        throw new Error('API error ' + response.status + (errBody ? ': ' + errBody.slice(0, 120) : ''));
-      }
-
-      var data = await response.json();
       var reply = '';
       if (data.content && data.content.length) {
         reply = data.content
@@ -352,10 +306,19 @@
       messages.push({ role: 'assistant', content: reply });
     } catch (err) {
       if (err && err.message === 'NOT_CONFIGURED') {
-        showError('ยังเชื่อมต่อ AI ไม่ได้ — ตั้งค่า config.js (เครื่อง local) หรือ Cloudflare Worker (production)');
+        showError('ยังเชื่อมต่อ AI ไม่ได้ — โหลด ai-client.js + config.js หรือตั้ง Cloudflare Worker');
         isLoading = false;
         if (sendBtn) sendBtn.disabled = false;
         messages.pop();
+        renderMessages();
+        return;
+      }
+      if (err && err.message === 'AUTH_INVALID') {
+        var authMsg = window.FlyReisenAI.authErrorMessage(detectPageLang());
+        showError(authMsg);
+        messages.push({ role: 'assistant', content: '🐱 ' + authMsg });
+        isLoading = false;
+        if (sendBtn) sendBtn.disabled = false;
         renderMessages();
         return;
       }

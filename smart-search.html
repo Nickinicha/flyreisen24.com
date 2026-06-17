@@ -190,9 +190,9 @@
   </div>
 </footer>
 
+<script src="/config.js"></script>
+<script src="/ai-client.js"></script>
 <script>
-var PROXY_URL = 'https://flyreisen24-proxy.YOUR-SUBDOMAIN.workers.dev';
-var MODEL = 'claude-sonnet-4-20250514';
 
 var CHAT_SYSTEM_PROMPT =
   'You are a helpful travel assistant for FlyReisen24.com,\n' +
@@ -277,6 +277,7 @@ var T = {
     errEmpty:'กรุณาพิมพ์ทริปที่ต้องการ', errApi:'ไม่สามารถวิเคราะห์ได้ ลองใหม่อีกครั้ง',
     errChatEmpty:'กรุณาพิมพ์คำถาม', errChatApi:'ไม่สามารถตอบได้ ลองใหม่อีกครั้ง',
     errNotConfigured:'ยังเชื่อมต่อ AI ไม่ได้ — ตั้งค่า config.js (เครื่อง local) หรือ Cloudflare Worker (production)',
+    errAuthInvalid:'API key ไม่ถูกต้องหรือหมดอายุ — สร้าง key ใหม่ที่ console.anthropic.com',
     links:{faq:'/th/faq/landing.html',deals:'/deals.html',passport:'/th/faq/01-passport-visa.html',baggage:'/th/faq/03-baggage-rules.html',rights:'/th/faq/09-montreal-eu261.html',about:'/th/about_th.html',priv:'/th/privacy_th.html',terms:'/th/terms_th.html'}
   },
   en: {
@@ -305,6 +306,7 @@ var T = {
     errEmpty:'Please describe your trip', errApi:'Could not analyse. Please try again.',
     errChatEmpty:'Please type a question', errChatApi:'Could not get an answer. Please try again.',
     errNotConfigured:'AI not connected — set config.js (local) or Cloudflare Worker (production)',
+    errAuthInvalid:'API key invalid or expired — create a new key at console.anthropic.com',
     links:{faq:'/en/faq/landing.html',deals:'/deals.html',passport:'/en/faq/01-passport-visa.html',baggage:'/en/faq/03-baggage-rules.html',rights:'/en/faq/09-montreal-eu261.html',about:'/en/about_en.html',priv:'/en/privacy_en.html',terms:'/en/terms_en.html'}
   },
   de: {
@@ -333,6 +335,7 @@ var T = {
     errEmpty:'Bitte beschreiben Sie Ihre Reise', errApi:'Analyse fehlgeschlagen. Bitte erneut versuchen.',
     errChatEmpty:'Bitte eine Frage eingeben', errChatApi:'Antwort fehlgeschlagen. Bitte erneut versuchen.',
     errNotConfigured:'KI nicht verbunden — config.js (lokal) oder Cloudflare Worker (Produktion) einrichten',
+    errAuthInvalid:'API-Schlüssel ungültig — neuen Schlüssel unter console.anthropic.com erstellen',
     links:{faq:'/de/faq/landing.html',deals:'/deals.html',passport:'/de/faq/01-passport-visa.html',baggage:'/de/faq/03-baggage-rules.html',rights:'/de/faq/09-montreal-eu261.html',about:'/de/about_de.html',priv:'/de/privacy_de.html',terms:'/de/terms_de.html'}
   }
 };
@@ -481,50 +484,24 @@ function renderChatMessages() {
   container.scrollTop = container.scrollHeight;
 }
 
-async function callClaude(system, messages, maxTokens) {
-  var proxy = window.FLYREISEN_PROXY_URL || PROXY_URL;
-  var useProxy = proxy && proxy.indexOf('YOUR-SUBDOMAIN') === -1;
-  var body = JSON.stringify({
-    model: MODEL,
-    max_tokens: maxTokens,
+async function callClaudeApi(system, messages, maxTokens) {
+  if (!window.FlyReisenAI) throw new Error('NOT_CONFIGURED');
+  var data = await window.FlyReisenAI.callClaude({
     system: system,
-    messages: messages
+    messages: messages,
+    max_tokens: maxTokens
   });
-
-  var response;
-  if (useProxy) {
-    response = await fetch(proxy, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: body
-    });
-  } else {
-    var apiKey = window.FLYREISEN_API_KEY;
-    if (!apiKey || apiKey === 'YOUR_API_KEY_HERE') {
-      throw new Error('NOT_CONFIGURED');
-    }
-    response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: body
-    });
-  }
-  if (!response.ok) {
-    var errBody = '';
-    try { errBody = await response.text(); } catch (e) { /* ignore */ }
-    throw new Error('API ' + response.status + (errBody ? ': ' + errBody.slice(0, 80) : ''));
-  }
-  var data = await response.json();
   var text = '';
   if (data.content && data.content.length) {
     text = data.content.filter(function(b) { return b.type === 'text'; }).map(function(b) { return b.text; }).join('');
   }
   return text;
+}
+
+function apiErrorMessage(e, t) {
+  if (e && e.message === 'NOT_CONFIGURED') return t.errNotConfigured;
+  if (e && e.message === 'AUTH_INVALID') return t.errAuthInvalid;
+  return null;
 }
 
 async function sendChatMessage(preset) {
@@ -546,18 +523,15 @@ async function sendChatMessage(preset) {
   var systemWithLang = CHAT_SYSTEM_PROMPT + '\n\nCurrent page language hint: ' + langHint + ' (' + lang + '). Prefer FAQ links matching this language when possible.';
 
   try {
-    var reply = await callClaude(systemWithLang, chatMessages.map(function(m) {
+    var reply = await callClaudeApi(systemWithLang, chatMessages.map(function(m) {
       return { role: m.role, content: m.content };
     }), 400);
 
     if (!reply) reply = lang === 'th' ? 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้' : lang === 'de' ? 'Entschuldigung, keine Antwort möglich.' : 'Sorry, no answer available right now.';
     chatMessages.push({ role: 'assistant', content: reply });
   } catch (e) {
-    if (e && e.message === 'NOT_CONFIGURED') {
-      errEl.textContent = t.errNotConfigured;
-    } else {
-      errEl.textContent = t.errChatApi;
-    }
+    var apiErr = apiErrorMessage(e, t);
+    errEl.textContent = apiErr || t.errChatApi;
     errEl.classList.add('show');
     chatMessages.push({
       role: 'assistant',
@@ -647,7 +621,7 @@ async function parseTrip() {
   loadEl.classList.add('show');
 
   try {
-    var text = await callClaude(PLANNER_SYSTEM_PROMPT, [{ role: 'user', content: input }], 200);
+    var text = await callClaudeApi(PLANNER_SYSTEM_PROMPT, [{ role: 'user', content: input }], 200);
     parsedParams = parseJsonFromText(text);
     var defaults = defaultDates();
     if (!parsedParams.origin) parsedParams.origin = 'BKK';
@@ -656,11 +630,8 @@ async function parseTrip() {
     if (!parsedParams.passengers) parsedParams.passengers = 1;
     showResult(parsedParams);
   } catch (e) {
-    if (e && e.message === 'NOT_CONFIGURED') {
-      errEl.textContent = t.errNotConfigured;
-    } else {
-      errEl.textContent = t.errApi;
-    }
+    var apiErr = apiErrorMessage(e, t);
+    errEl.textContent = apiErr || t.errApi;
     errEl.classList.add('show');
   }
 
@@ -724,7 +695,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="/common.js" defer></script>
-<script src="/config.js"></script>
 <script src="/chat-widget.js"></script>
 </body>
 </html>
