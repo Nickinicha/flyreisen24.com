@@ -38,8 +38,8 @@
     
     <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/">
-    <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/">
-    <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/">
+    <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq/landing.html">
+    <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq/landing.html">
     <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/">
     
     <!-- Favicon -->
@@ -216,8 +216,8 @@
         .hero-stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.3); margin: 0 10px; }
 
         /* ===== SEARCH WIDGET ===== */
-        .search-widget-container { max-width: 1000px; margin: 20px auto; }
-        #tpwl-search { background: #FFFFFF; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); padding: 1.5rem; min-height: auto; }
+        .search-widget-container { max-width: 1000px; margin: 20px auto; width: 100%; overflow-x: hidden; box-sizing: border-box; }
+        #tpwl-search { background: #FFFFFF; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); padding: 1.5rem; min-height: auto; max-width: 100%; overflow-x: hidden; box-sizing: border-box; }
         .loading-widget { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; color: #666; }
         .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #0056B3; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 1rem; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -334,7 +334,8 @@
             .trust-badges { gap: 10px; }
             .trust-badge { font-size: 0.8rem; padding: 8px 14px; }
             .hero-subtitle { font-size: 1.1rem; }
-            #tpwl-search { padding: 1.5rem; }
+            .search-widget-container { padding: 0 1rem; }
+            #tpwl-search { padding: 1rem; }
             .booking-grid { grid-template-columns: 1fr; }
             .booking-section { padding: 40px 15px; }
             .section-title h2 { font-size: 2rem; }
@@ -342,6 +343,26 @@
             .footer-grid { grid-template-columns: 1fr; }
             .top-nav-logo img { height: 40px; }
             .contact-popup { width: 320px; right: -30px; }
+        }
+
+        /* Responsive widget fix */
+        iframe,
+        .tp-widget-wrapper,
+        .travelpayouts-widget,
+        [id*="widget"],
+        [class*="widget"] {
+          max-width: 100% !important;
+          width: 100% !important;
+          overflow-x: hidden !important;
+        }
+
+        .contact-widget {
+          width: auto !important;
+          max-width: none !important;
+        }
+
+        body {
+          overflow-x: hidden;
         }
     </style>
 </head>
@@ -436,9 +457,9 @@
                         <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
-                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
-                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
+                        <a href="/" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
+                        <a href="/en/faq/landing.html" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
+                        <a href="/de/faq/landing.html" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
                     </div>
                 </div>
             </div>

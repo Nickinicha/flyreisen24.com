@@ -87,9 +87,9 @@
                         <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="#" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
-                        <a href="#" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
-                        <a href="#" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
+                        <a href="/" class="active" onclick="switchLanguage('th', 'TH'); return false;">🇹🇭 ไทย (TH)</a>
+                        <a href="/en/faq/landing.html" onclick="switchLanguage('en', 'EN'); return false;">🇬🇧 English (EN)</a>
+                        <a href="/de/faq/landing.html" onclick="switchLanguage('de', 'DE'); return false;">🇩🇪 Deutsch (DE)</a>
                     </div>
                 </div>
             </div>
@@ -101,8 +101,8 @@
     const PAGE_MAPPINGS = {
         'index': {
             'th': '/',
-            'en': '/en/',
-            'de': '/de/'
+            'en': '/en/faq/landing.html',
+            'de': '/de/faq/landing.html'
         },
         'faq': {
             'th': '/th/faq/landing.html',
@@ -110,14 +110,14 @@
             'de': '/de/faq/landing.html'
         },
         'deals': {
-            'th': '/th/deals_th.html',
-            'en': '/en/deals_en.html',
-            'de': '/de/deals_de.html'
+            'th': '/deals.html',
+            'en': '/deals.html',
+            'de': '/deals.html'
         },
         'tools': {
-            'th': '/th/tools_th.html',
-            'en': '/en/tools_en.html',
-            'de': '/de/tools_de.html'
+            'th': '/tools.html',
+            'en': '/tools.html',
+            'de': '/tools.html'
         },
         'about': {
             'th': '/th/about_th.html',
@@ -142,12 +142,55 @@
     };
 
     // ==========================================
+    // LANGUAGE URL — map current page to equivalent in target lang
+    // ==========================================
+    function getLanguageUrl(langCode) {
+        const path = window.location.pathname.replace(/\/$/, '') || '/';
+        const search = window.location.search || '';
+        const hash = window.location.hash || '';
+
+        if (path === '/' || path === '/index.html') {
+            if (langCode === 'th') return '/';
+            if (langCode === 'en') return '/en/faq/landing.html';
+            return '/de/faq/landing.html';
+        }
+
+        const faqArticle = path.match(/^\/(?:th|en|de)\/faq\/(\d{2}-[^/]+\.html)$/);
+        if (faqArticle) {
+            return '/' + langCode + '/faq/' + faqArticle[1] + search + hash;
+        }
+
+        if (/^\/(?:th|en|de)\/faq\/landing\.html$/.test(path)) {
+            return '/' + langCode + '/faq/landing.html' + search + hash;
+        }
+
+        const pageType = getCurrentPageType();
+        if (PAGE_MAPPINGS[pageType] && PAGE_MAPPINGS[pageType][langCode]) {
+            return PAGE_MAPPINGS[pageType][langCode] + search + hash;
+        }
+
+        if (langCode === 'th') return '/';
+        if (langCode === 'en') return '/en/faq/landing.html';
+        return '/de/faq/landing.html';
+    }
+
+    function updateLanguageDropdownHrefs() {
+        document.querySelectorAll('.lang-dropdown-menu a').forEach(function (link) {
+            const onclick = link.getAttribute('onclick') || '';
+            const match = onclick.match(/switchLanguage\('(\w+)'/);
+            if (match) {
+                link.href = getLanguageUrl(match[1]);
+            }
+        });
+    }
+
+    // ==========================================
     // DETECT CURRENT PAGE
     // ==========================================
     function getCurrentPageType() {
         const path = window.location.pathname;
         
-        if (path === '/' || path === '/en/' || path === '/de/' || path.includes('index.html')) return 'index';
+        if (path === '/' || path === '/index.html') return 'index';
         if (path.includes('faq')) return 'faq';
         if (path.includes('deals')) return 'deals';
         if (path.includes('tools')) return 'tools';
@@ -442,12 +485,14 @@
         if (dropdown) dropdown.classList.remove('active');
 
         const currentPage = getCurrentPageType();
+        const targetUrl = getLanguageUrl(langCode);
 
-        if (PAGE_MAPPINGS[currentPage] && PAGE_MAPPINGS[currentPage][langCode]) {
+        if (targetUrl) {
+            window.location.href = targetUrl;
+        } else if (PAGE_MAPPINGS[currentPage] && PAGE_MAPPINGS[currentPage][langCode]) {
             window.location.href = PAGE_MAPPINGS[currentPage][langCode];
         } else {
-            const homepages = { 'th': '/', 'en': '/en/', 'de': '/de/' };
-            window.location.href = homepages[langCode] || '/';
+            window.location.href = langCode === 'th' ? '/' : (langCode === 'en' ? '/en/faq/landing.html' : '/de/faq/landing.html');
         }
     }
 
@@ -648,6 +693,7 @@
         if (currentLangEl) currentLangEl.textContent = langLabels[currentLang];
 
         updateContent(currentLang);
+        updateLanguageDropdownHrefs();
 
         document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
             link.classList.remove('active');
