@@ -489,6 +489,7 @@
             });
             localStorage.setItem('flyreisen24_lang', langCode);
             updateContent(langCode);
+            updateFeedbackLang(langCode);
             toggleLangDropdown();
             return; // Stop here, don't navigate
         }
@@ -720,6 +721,7 @@
         if (currentLangEl) currentLangEl.textContent = langLabels[currentLang];
 
         updateContent(currentLang);
+        updateFeedbackLang(currentLang);
         updateLanguageDropdownHrefs();
 
         document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
@@ -790,6 +792,288 @@
     }
 
     // ==========================================
+    // FEEDBACK WIDGET (Formspree)
+    // ==========================================
+    const FB_TRANSLATIONS = {
+        th: {
+            title: 'แจ้งปัญหา',
+            type_label: 'ประเภทปัญหา',
+            detail_label: 'รายละเอียด',
+            detail_placeholder: 'อธิบายปัญหาที่พบ...',
+            submit: 'ส่งรายงาน',
+            success: '✅ ขอบคุณค่ะ! รับทราบแล้วจะรีบแก้ไข',
+            select_default: '-- เลือก --',
+            options: [
+                { value: 'page_error', label: 'หน้าแสดงผลผิด' },
+                { value: 'broken_link', label: 'ลิงก์เสีย' },
+                { value: 'chatbot', label: 'แชทบอทไม่ตอบ' },
+                { value: 'language', label: 'ภาษาไม่เปลี่ยน' },
+                { value: 'other', label: 'อื่นๆ' }
+            ],
+            alert_error: 'เกิดข้อผิดพลาด กรุณาลองใหม่ค่ะ'
+        },
+        en: {
+            title: 'Report Issue',
+            type_label: 'Issue Type',
+            detail_label: 'Details',
+            detail_placeholder: 'Describe the problem you found...',
+            submit: 'Send Report',
+            success: '✅ Thank you! We will fix this soon.',
+            select_default: '-- Select --',
+            options: [
+                { value: 'page_error', label: 'Page display error' },
+                { value: 'broken_link', label: 'Broken link' },
+                { value: 'chatbot', label: 'Chatbot not responding' },
+                { value: 'language', label: 'Language not switching' },
+                { value: 'other', label: 'Other' }
+            ],
+            alert_error: 'An error occurred. Please try again.'
+        },
+        de: {
+            title: 'Problem melden',
+            type_label: 'Problemtyp',
+            detail_label: 'Details',
+            detail_placeholder: 'Beschreiben Sie das Problem...',
+            submit: 'Senden',
+            success: '✅ Danke! Wir kümmern uns darum.',
+            select_default: '-- Auswählen --',
+            options: [
+                { value: 'page_error', label: 'Seite falsch' },
+                { value: 'broken_link', label: 'Link defekt' },
+                { value: 'chatbot', label: 'Chatbot antwortet nicht' },
+                { value: 'language', label: 'Sprache wechselt nicht' },
+                { value: 'other', label: 'Sonstiges' }
+            ],
+            alert_error: 'Ein Fehler ist aufgetreten. Bitte erneut versuchen.'
+        }
+    };
+
+    function ensureFeedbackStyles() {
+        if (document.getElementById('flyreisen-feedback-styles')) return;
+        const fbStyle = document.createElement('style');
+        fbStyle.id = 'flyreisen-feedback-styles';
+        fbStyle.textContent = `
+#feedbackWidget {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+}
+#feedbackTab {
+  background: #0056B3;
+  color: white;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+  writing-mode: vertical-rl;
+  letter-spacing: 2px;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#feedbackPanel {
+  position: absolute;
+  right: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+#feedbackHeader {
+  background: #0056B3;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+#feedbackHeader button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+#feedbackForm {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fb-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+.fb-field select,
+.fb-field textarea {
+  padding: 8px 10px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  resize: none;
+}
+.fb-field select:focus,
+.fb-field textarea:focus {
+  outline: none;
+  border-color: #0056B3;
+}
+#fb-submit {
+  background: #0056B3;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+}
+#feedbackSuccess {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #16a34a;
+}`;
+        document.head.appendChild(fbStyle);
+    }
+
+    function updateFeedbackLang(langCode) {
+        const fbt = FB_TRANSLATIONS[langCode] || FB_TRANSLATIONS.th;
+        const fbTitle = document.getElementById('fb-title');
+        if (fbTitle) fbTitle.textContent = fbt.title;
+        const fbTypeLabel = document.getElementById('fb-type-label');
+        if (fbTypeLabel) fbTypeLabel.textContent = fbt.type_label;
+        const fbDetailLabel = document.getElementById('fb-detail-label');
+        if (fbDetailLabel) fbDetailLabel.textContent = fbt.detail_label;
+        const fbSubmit = document.getElementById('fb-submit');
+        if (fbSubmit) fbSubmit.textContent = fbt.submit;
+        const fbSuccess = document.querySelector('#feedbackSuccess p');
+        if (fbSuccess) fbSuccess.textContent = fbt.success;
+        const fbTextarea = document.querySelector('#feedbackForm textarea[name="message"]');
+        if (fbTextarea) fbTextarea.placeholder = fbt.detail_placeholder;
+        const fbSelect = document.querySelector('#feedbackForm select[name="problem_type"]');
+        if (fbSelect) {
+            const current = fbSelect.value;
+            fbSelect.innerHTML = '';
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = '';
+            defaultOpt.textContent = fbt.select_default;
+            fbSelect.appendChild(defaultOpt);
+            fbt.options.forEach(function(opt) {
+                const option = document.createElement('option');
+                option.value = opt.value;
+                option.textContent = opt.label;
+                fbSelect.appendChild(option);
+            });
+            if (current) fbSelect.value = current;
+        }
+        const langInput = document.querySelector('#feedbackForm input[name="user_lang"]');
+        if (langInput) langInput.value = langCode;
+    }
+
+    function initFeedbackWidget() {
+        if (document.getElementById('feedbackWidget')) return;
+        ensureFeedbackStyles();
+
+        const widget = document.createElement('div');
+        widget.id = 'feedbackWidget';
+        widget.innerHTML = `
+    <button id="feedbackTab" type="button" onclick="toggleFeedback()">
+      💬
+    </button>
+    <div id="feedbackPanel" style="display:none">
+      <div id="feedbackHeader">
+        <span id="fb-title">แจ้งปัญหา</span>
+        <button type="button" onclick="toggleFeedback()">✕</button>
+      </div>
+      <form id="feedbackForm"
+            action="https://formspree.io/f/xreggjzv"
+            method="POST">
+        <div class="fb-field">
+          <label id="fb-type-label">ประเภทปัญหา</label>
+          <select name="problem_type" required>
+            <option value="">-- เลือก --</option>
+            <option value="page_error">หน้าแสดงผลผิด</option>
+            <option value="broken_link">ลิงก์เสีย</option>
+            <option value="chatbot">แชทบอทไม่ตอบ</option>
+            <option value="language">ภาษาไม่เปลี่ยน</option>
+            <option value="other">อื่นๆ</option>
+          </select>
+        </div>
+        <div class="fb-field">
+          <label id="fb-detail-label">รายละเอียด</label>
+          <textarea name="message" rows="3"
+                    placeholder="อธิบายปัญหาที่พบ..."
+                    required></textarea>
+        </div>
+        <input type="hidden" name="page_url"
+               value="${window.location.href}">
+        <input type="hidden" name="user_lang"
+               value="${document.documentElement.lang || 'th'}">
+        <button type="submit" id="fb-submit">ส่งรายงาน</button>
+      </form>
+      <div id="feedbackSuccess" style="display:none">
+        <p>✅ ขอบคุณค่ะ! รับทราบแล้วจะรีบแก้ไข</p>
+      </div>
+    </div>`;
+        document.body.appendChild(widget);
+
+        const currentLang = localStorage.getItem('flyreisen24_lang') || document.documentElement.lang || 'th';
+        updateFeedbackLang(currentLang);
+
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const data = new FormData(form);
+            const langCode = localStorage.getItem('flyreisen24_lang') || document.documentElement.lang || 'th';
+            const fbt = FB_TRANSLATIONS[langCode] || FB_TRANSLATIONS.th;
+            try {
+                const response = await fetch('https://formspree.io/f/xreggjzv', {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!response.ok) throw new Error('submit failed');
+                form.style.display = 'none';
+                document.getElementById('feedbackSuccess').style.display = 'block';
+                setTimeout(function() {
+                    toggleFeedback();
+                    form.style.display = 'flex';
+                    form.reset();
+                    document.getElementById('feedbackSuccess').style.display = 'none';
+                    const urlInput = form.querySelector('input[name="page_url"]');
+                    if (urlInput) urlInput.value = window.location.href;
+                }, 2000);
+            } catch (err) {
+                alert(fbt.alert_error);
+            }
+        });
+    }
+
+    function toggleFeedback() {
+        const panel = document.getElementById('feedbackPanel');
+        if (!panel) return;
+        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // ==========================================
     // EXPOSE GLOBALS
     // ==========================================
     window.toggleLangDropdown = toggleLangDropdown;
@@ -800,6 +1084,13 @@
     window.toggleCategory = toggleCategory;
     window.toggleFaq = toggleFaq;
     window.toggleReadMore = toggleReadMore;
+    window.toggleFeedback = toggleFeedback;
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFeedbackWidget);
+    } else {
+        initFeedbackWidget();
+    }
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initialize);
