@@ -312,6 +312,15 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) { .top-nav-menu { gap: 20px; } }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero { padding: 2.5rem 1.25rem 4rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .hero-content { max-width: 100%; }
+            .search-widget-container { padding: 0 1rem; max-width: 100%; }
+            #tpwl-search { padding: 1.25rem; }
+            .booking-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             .breadcrumb-container { padding: 0 15px; }
             .top-nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: #FFFFFF; padding: 1rem 2rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1); gap: 0; border-top: 1px solid #f0f0f0; }
@@ -349,11 +358,18 @@
         iframe,
         .tp-widget-wrapper,
         .travelpayouts-widget,
+        #tpwl-search .TPWL-widget,
+        #tpwl-search [class*="TPWL"],
         [id*="widget"],
         [class*="widget"] {
           max-width: 100% !important;
           width: 100% !important;
           overflow-x: hidden !important;
+          box-sizing: border-box !important;
+        }
+
+        #tpwl-search iframe {
+          min-width: 0 !important;
         }
 
         .contact-widget {
