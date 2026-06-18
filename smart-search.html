@@ -214,9 +214,7 @@ var CHAT_SYSTEM_PROMPT =
   '- Airport Lounge access\n' +
   '- Special passengers & children\n' +
   '- Cheap flight booking tips\n\n' +
-  'Always answer in the same language the user writes in (Thai/English/German).\n' +
-  'Keep answers concise (3-5 sentences max).\n' +
-  'End every answer with: relevant FAQ link from flyreisen24.com\n\n' +
+  'Always answer in the same language the user writes in (Thai/English/German).\n\n' +
   'FAQ URLs:\n' +
   '01: /th/faq/01-passport-visa.html (TH) | /en/faq/01-passport-visa.html (EN) | /de/faq/01-passport-visa.html (DE)\n' +
   '02: /th/faq/02-connection-time.html | /en/faq/02-connection-time.html | /de/faq/02-connection-time.html\n' +
@@ -232,9 +230,23 @@ var CHAT_SYSTEM_PROMPT =
   '12: /th/faq/12-travel-insurance.html | /en/faq/12-travel-insurance.html | /de/faq/12-travel-insurance.html\n' +
   '13: /th/faq/13-airport-lounge.html | /en/faq/13-airport-lounge.html | /de/faq/13-airport-lounge.html\n' +
   '14: /th/faq/14-special-needs.html | /en/faq/14-special-needs.html | /de/faq/14-special-needs.html\n' +
-  '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html';
+  '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html\n\n' +
+  'IMPORTANT RULES:\n' +
+  '1. Always complete your answer fully — never cut off mid-sentence.\n' +
+  '2. Always end EVERY response with a relevant FAQ link like this:\n' +
+  '   📖 อ่านเพิ่มเติม: [topic name](/th/faq/XX-topic.html)\n' +
+  '   For EN responses: 📖 Read more: [topic name](/en/faq/XX-topic.html)\n' +
+  '   For DE responses: 📖 Mehr lesen: [topic name](/de/faq/XX-topic.html)\n' +
+  '3. Match link language to the language of the question.\n' +
+  '4. Keep answers concise but COMPLETE — 3-5 sentences max.';
 
-var PLANNER_SYSTEM_PROMPT = 'Extract flight search parameters from the user\'s natural language request. Reply ONLY with JSON: {origin, destination, depart_date, return_date, passengers, budget_display} Use IATA codes. Dates in YYYY-MM-DD format. If information is missing, use reasonable defaults.';
+var PLANNER_SYSTEM_PROMPT =
+  'Extract flight search parameters from the user\'s natural language request. ' +
+  'Reply ONLY with valid JSON (no markdown, no extra text). Required shape: ' +
+  '{"origin":"BKK","destination":"FRA","depart_date":"2026-02-01","return_date":"2026-02-11","passengers":1,"budget_display":"optional"} ' +
+  'Use 3-letter IATA airport codes only for origin and destination. ' +
+  'Dates must be YYYY-MM-DD. passengers is the number of adult travelers (integer). ' +
+  'budget_display is optional human-readable budget text for display only.';
 
 var SMART_SEARCH_TRANSLATIONS = {
   th: {
@@ -529,10 +541,17 @@ function escapeHtml(text) {
 function linkify(text) {
   var escaped = escapeHtml(text);
   escaped = escaped.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    function(match, label, url) {
+      var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + (url.indexOf('/') === 0 ? url : '/' + url);
+      return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+    }
+  );
+  escaped = escaped.replace(
     /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+\.html)/gi,
     function(url) {
-      var href = url.indexOf('http') === 0 ? url : 'https://flyreisen24.com' + url;
-      return '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+      var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + url;
+      return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + url + '</a>';
     }
   );
   return escaped.replace(/\n/g, '<br>');
@@ -607,7 +626,7 @@ async function sendChatMessage(preset) {
   try {
     var reply = await callClaudeApi(systemWithLang, chatMessages.map(function(m) {
       return { role: m.role, content: m.content };
-    }), 400);
+    }), 800);
 
     if (!reply) reply = lang === 'th' ? 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้' : lang === 'de' ? 'Entschuldigung, keine Antwort möglich.' : 'Sorry, no answer available right now.';
     chatMessages.push({ role: 'assistant', content: reply });
@@ -639,13 +658,16 @@ function defaultDates() {
 }
 
 function buildFlightUrl(params) {
-  var qs = new URLSearchParams();
-  if (params.origin) qs.set('origin', params.origin);
-  if (params.destination) qs.set('destination', params.destination);
-  if (params.depart_date) qs.set('depart_date', params.depart_date);
-  if (params.return_date) qs.set('return_date', params.return_date);
-  if (params.passengers) qs.set('adults', params.passengers);
-  return 'https://flights.flyreisen24.com/?' + qs.toString();
+  var base = 'https://flights.flyreisen24.com/';
+  var query = new URLSearchParams({
+    origin: params.origin || 'BKK',
+    destination: params.destination || '',
+    depart_date: params.depart_date || '',
+    return_date: params.return_date || '',
+    passengers: String(params.passengers || '1'),
+    trip_class: '0'
+  });
+  return base + '?' + query.toString();
 }
 
 function formatDate(iso, locale) {
@@ -710,6 +732,9 @@ async function parseTrip() {
     if (!parsedParams.depart_date) parsedParams.depart_date = defaults.depart_date;
     if (!parsedParams.return_date) parsedParams.return_date = defaults.return_date;
     if (!parsedParams.passengers) parsedParams.passengers = 1;
+    if (parsedParams.origin) parsedParams.origin = String(parsedParams.origin).toUpperCase().slice(0, 3);
+    if (parsedParams.destination) parsedParams.destination = String(parsedParams.destination).toUpperCase().slice(0, 3);
+    parsedParams.passengers = parseInt(parsedParams.passengers, 10) || 1;
     showResult(parsedParams);
   } catch (e) {
     var apiErr = apiErrorMessage(e, t);

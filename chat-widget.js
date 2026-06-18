@@ -28,9 +28,7 @@
     '- Airport Lounge access\n' +
     '- Special passengers & children\n' +
     '- Cheap flight booking tips\n\n' +
-    'Always answer in the same language the user writes in (Thai/English/German).\n' +
-    'Keep answers concise (3-5 sentences max).\n' +
-    'End every answer with: relevant FAQ link from flyreisen24.com\n\n' +
+    'Always answer in the same language the user writes in (Thai/English/German).\n\n' +
     'FAQ URLs:\n' +
     '01: /th/faq/01-passport-visa.html (TH) | /en/faq/01-passport-visa.html (EN) | /de/faq/01-passport-visa.html (DE)\n' +
     '02: /th/faq/02-connection-time.html | /en/faq/02-connection-time.html | /de/faq/02-connection-time.html\n' +
@@ -46,7 +44,15 @@
     '12: /th/faq/12-travel-insurance.html | /en/faq/12-travel-insurance.html | /de/faq/12-travel-insurance.html\n' +
     '13: /th/faq/13-airport-lounge.html | /en/faq/13-airport-lounge.html | /de/faq/13-airport-lounge.html\n' +
     '14: /th/faq/14-special-needs.html | /en/faq/14-special-needs.html | /de/faq/14-special-needs.html\n' +
-    '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html';
+    '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html\n\n' +
+    'IMPORTANT RULES:\n' +
+    '1. Always complete your answer fully — never cut off mid-sentence.\n' +
+    '2. Always end EVERY response with a relevant FAQ link like this:\n' +
+    '   📖 อ่านเพิ่มเติม: [topic name](/th/faq/XX-topic.html)\n' +
+    '   For EN responses: 📖 Read more: [topic name](/en/faq/XX-topic.html)\n' +
+    '   For DE responses: 📖 Mehr lesen: [topic name](/de/faq/XX-topic.html)\n' +
+    '3. Match link language to the language of the question.\n' +
+    '4. Keep answers concise but COMPLETE — 3-5 sentences max.';
 
   var SUGGESTED_QUESTIONS = [
     'บินต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
@@ -215,10 +221,17 @@
   function linkify(text) {
     var escaped = escapeHtml(text);
     escaped = escaped.replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      function(match, label, url) {
+        var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + (url.indexOf('/') === 0 ? url : '/' + url);
+        return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+      }
+    );
+    escaped = escaped.replace(
       /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+\.html)/gi,
-      function (url) {
-        var href = url.indexOf('http') === 0 ? url : 'https://flyreisen24.com' + url;
-        return '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+      function(url) {
+        var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + url;
+        return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + url + '</a>';
       }
     );
     return escaped.replace(/\n/g, '<br>');
@@ -286,7 +299,7 @@
 
       var data = await window.FlyReisenAI.callClaude({
         model: window.FlyReisenAI.MODEL,
-        max_tokens: 400,
+        max_tokens: 800,
         system: systemWithLang,
         messages: messages.map(function (m) {
           return { role: m.role, content: m.content };
