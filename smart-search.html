@@ -102,15 +102,15 @@
 <div class="page-wrap">
   <div class="ai-hub">
     <div class="ai-tabs" role="tablist">
-      <button class="ai-tab active" id="tabBtnChat" role="tab" aria-selected="true" onclick="switchTab('chat')"><span>🐱</span> <span id="tabChatLbl">Ask Meshmesh</span></button>
-      <button class="ai-tab" id="tabBtnPlanner" role="tab" aria-selected="false" onclick="switchTab('planner')"><span>✈️</span> <span id="tabPlannerLbl">Trip Planner</span></button>
+      <button class="ai-tab active" id="tabBtnChat" role="tab" aria-selected="true" onclick="switchTab('chat')"><span id="tab-chat-label">🐱 Ask Meshmesh</span></button>
+      <button class="ai-tab" id="tabBtnPlanner" role="tab" aria-selected="false" onclick="switchTab('planner')"><span id="tab-planner-label">✈️ Trip Planner</span></button>
     </div>
 
     <!-- TAB 1: Ask Meshmesh -->
     <div class="tab-panel active" id="panelChat" role="tabpanel">
       <div class="panel-intro">
-        <h2 id="chatTitle">ถามอะไรก็ได้เกี่ยวกับการบิน</h2>
-        <p id="chatSub">Meshmesh ตอบจากคลังความรู้ 15 หัวข้อ FAQ — วีซ่า ต่อเครื่อง สัมภาระ สิทธิ์ผู้โดยสาร และอื่นๆ</p>
+        <h2 id="chat-title">ถามอะไรก็ได้เกี่ยวกับการบิน</h2>
+        <p id="chat-sub">Meshmesh ตอบจาก FAQ 15 หัวข้อ</p>
       </div>
       <div class="chip-row" id="chatChips"></div>
       <div class="chat-error" id="chatError"></div>
@@ -118,7 +118,7 @@
         <div class="chat-welcome" id="chatWelcome"></div>
       </div>
       <div class="chat-input-row">
-        <input type="text" class="chat-input" id="chatInput" maxlength="500" autocomplete="off">
+        <input type="text" class="chat-input" id="chat-input" maxlength="500" autocomplete="off" placeholder="พิมพ์คำถามของคุณ...">
         <button type="button" class="chat-send" id="chatSend" onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
@@ -126,12 +126,12 @@
     <!-- TAB 2: AI Trip Planner -->
     <div class="tab-panel" id="panelPlanner" role="tabpanel">
       <div class="panel-intro">
-        <h2 id="plannerTitle">อยากไปไหน งบเท่าไร?</h2>
-        <p id="plannerSub">พิมพ์ทริปเป็นภาษาธรรมชาติ — AI แนะนำเส้นทาง วันที่ และงบประมาณ แล้วเปิดค้นหาเที่ยวบินให้</p>
+        <h2 id="planner-title">อยากไปไหน งบเท่าไร?</h2>
+        <p id="planner-sub">พิมพ์ทริปเป็นภาษาธรรมชาติ — AI แนะนำเส้นทาง วันที่ และงบประมาณ</p>
       </div>
       <div class="chip-row" id="plannerChips"></div>
-      <textarea class="nl-textarea" id="nlInput"></textarea>
-      <button class="btn-primary" id="btnParse" onclick="parseTrip()"><i class="fas fa-wand-magic-sparkles"></i> <span id="btnParseLbl">วิเคราะห์ทริป</span></button>
+      <textarea class="nl-textarea" id="planner-input" placeholder="เช่น: อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน"></textarea>
+      <button class="btn-primary" id="btnParse" onclick="parseTrip()"><i class="fas fa-wand-magic-sparkles"></i> <span id="planner-btn">✈ วิเคราะห์ทริป</span></button>
       <div class="parse-loading" id="parseLoading"><div class="parse-dots"><span></span><span></span><span></span></div><span id="loadingLbl">กำลังวิเคราะห์...</span></div>
       <div class="parse-error" id="parseError"></div>
       <div class="result-card" id="resultCard">
@@ -236,12 +236,59 @@ var CHAT_SYSTEM_PROMPT =
 
 var PLANNER_SYSTEM_PROMPT = 'Extract flight search parameters from the user\'s natural language request. Reply ONLY with JSON: {origin, destination, depart_date, return_date, passengers, budget_display} Use IATA codes. Dates in YYYY-MM-DD format. If information is missing, use reasonable defaults.';
 
-var CHAT_SUGGESTIONS = [
-  'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
-  'กระเป๋าหายต้องทำอะไร?',
-  'เข้า Lounge ฟรีได้ไหม?',
-  'CT Scanner คืออะไร?'
-];
+var SMART_SEARCH_TRANSLATIONS = {
+  th: {
+    tab_chat: '🐱 Ask Meshmesh',
+    tab_planner: '✈️ Trip Planner',
+    chat_title: 'ถามอะไรก็ได้เกี่ยวกับการบิน',
+    chat_sub: 'Meshmesh ตอบจาก FAQ 15 หัวข้อ',
+    chat_placeholder: 'พิมพ์คำถามของคุณ...',
+    planner_title: 'อยากไปไหน งบเท่าไร?',
+    planner_sub: 'พิมพ์ทริปเป็นภาษาธรรมชาติ — AI แนะนำเส้นทาง วันที่ และงบประมาณ',
+    planner_placeholder: 'เช่น: อยากบิน BKK ไปยุโรป งบ 25,000 บาท 10 วัน',
+    planner_btn: '✈ วิเคราะห์ทริป',
+    suggestions: [
+      'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
+      'กระเป๋าหายต้องทำอะไรก่อน?',
+      'เข้า Lounge ฟรีได้อย่างไร?',
+      'CT Scanner คืออะไร?'
+    ]
+  },
+  en: {
+    tab_chat: '🐱 Ask Meshmesh',
+    tab_planner: '✈️ Trip Planner',
+    chat_title: 'Ask anything about air travel',
+    chat_sub: 'Meshmesh answers from our 15-topic FAQ knowledge base',
+    chat_placeholder: 'Type your question...',
+    planner_title: 'Where do you want to go?',
+    planner_sub: 'Type your trip in natural language — AI suggests routes, dates and budget',
+    planner_placeholder: 'e.g. I want to fly BKK to Europe, budget €500, 10 days',
+    planner_btn: '✈ Analyse Trip',
+    suggestions: [
+      'Is 90 min connection in Dubai enough?',
+      'What to do if my baggage is lost?',
+      'How to access airport lounge for free?',
+      'What is a CT Scanner at security?'
+    ]
+  },
+  de: {
+    tab_chat: '🐱 Ask Meshmesh',
+    tab_planner: '✈️ Reiseplaner',
+    chat_title: 'Frag alles über Flugreisen',
+    chat_sub: 'Meshmesh beantwortet Fragen aus unserer 15-Themen-FAQ',
+    chat_placeholder: 'Deine Frage eingeben...',
+    planner_title: 'Wohin möchtest du reisen?',
+    planner_sub: 'Beschreib deine Reise — KI schlägt Routen, Daten und Budget vor',
+    planner_placeholder: 'z.B. Ich möchte von BKK nach Europa, Budget 500€, 10 Tage',
+    planner_btn: '✈ Reise analysieren',
+    suggestions: [
+      '90 Min Umstieg in Dubai — reicht das?',
+      'Was tun wenn Gepäck verloren geht?',
+      'Wie komme ich kostenlos in die Lounge?',
+      'Was ist ein CT-Scanner bei der Sicherheit?'
+    ]
+  }
+};
 
 var POPULAR_ROUTES = [
   {origin:'BKK',dest:'FRA',cities:{th:'กรุงเทพ → แฟรงก์เฟิร์ต',en:'Bangkok → Frankfurt',de:'Bangkok → Frankfurt'},price:{th:'฿18,000 – 35,000',en:'€450 – €850',de:'€450 – €850'},time:'~11h'},
@@ -356,15 +403,45 @@ function switchTab(tab) {
   document.getElementById('tabBtnPlanner').setAttribute('aria-selected', tab === 'planner');
   document.getElementById('panelChat').classList.toggle('active', tab === 'chat');
   document.getElementById('panelPlanner').classList.toggle('active', tab === 'planner');
-  if (tab === 'chat') document.getElementById('chatInput').focus();
+  if (tab === 'chat') document.getElementById('chat-input').focus();
+}
+
+function updateSmartSearchLang(l) {
+  var t = SMART_SEARCH_TRANSLATIONS[l];
+  if (!t) return;
+
+  var ids = {
+    'tab-chat-label': t.tab_chat,
+    'tab-planner-label': t.tab_planner,
+    'chat-title': t.chat_title,
+    'chat-sub': t.chat_sub,
+    'planner-title': t.planner_title,
+    'planner-sub': t.planner_sub,
+    'planner-btn': t.planner_btn
+  };
+
+  Object.keys(ids).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = ids[id];
+  });
+
+  var chatInput = document.getElementById('chat-input');
+  if (chatInput) chatInput.placeholder = t.chat_placeholder;
+
+  var plannerInput = document.getElementById('planner-input');
+  if (plannerInput) plannerInput.placeholder = t.planner_placeholder;
+
+  var suggBtns = document.querySelectorAll('.suggestion-btn');
+  t.suggestions.forEach(function(text, i) {
+    if (suggBtns[i]) suggBtns[i].textContent = text;
+  });
 }
 
 function setLang(l) {
   lang = l;
   var t = T[l];
   var ids = ['bc_home','bc_page','nav_svc','nav_flt','nav_htl','nav_car','nav_deals','nav_new','nav_know','nav_faq','nav_tools',
-    'heroSub','tabChatLbl','tabPlannerLbl','chatTitle','chatSub','chatWelcome','plannerTitle','plannerSub',
-    'btnParseLbl','loadingLbl','searchBtnLbl','popTitle','popSub',
+    'heroSub','chatWelcome','loadingLbl','searchBtnLbl','popTitle','popSub',
     'ftDesc','ftSvcH','ftFlt','ftHtl','ftDeals','ftTools','ftKnowH','ftFaq','ftBag','ftRights',
     'ftInfoH','ftContact','ftAbout','ftPriv','ftTerms'];
   ids.forEach(function(id) {
@@ -372,8 +449,7 @@ function setLang(l) {
     if (el && t[id] !== undefined) el.textContent = t[id];
   });
   document.getElementById('heroTitle').innerHTML = t.heroTitle;
-  document.getElementById('nlInput').placeholder = t.nlPlaceholder;
-  document.getElementById('chatInput').placeholder = t.chatPlaceholder;
+  updateSmartSearchLang(l);
   var langLabel = document.getElementById('currentLangLabel') || document.getElementById('currentLang');
   if (langLabel) langLabel.textContent = l.toUpperCase();
   ['th','en','de'].forEach(function(x) {
@@ -403,11 +479,12 @@ function setLang(l) {
 
 function renderChatChips() {
   var wrap = document.getElementById('chatChips');
+  var suggestions = (SMART_SEARCH_TRANSLATIONS[lang] || SMART_SEARCH_TRANSLATIONS.th).suggestions;
   wrap.innerHTML = '';
-  CHAT_SUGGESTIONS.forEach(function(q) {
+  suggestions.forEach(function(q) {
     var btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'chip';
+    btn.className = 'chip suggestion-btn';
     btn.textContent = q;
     btn.onclick = function() { sendChatMessage(q); };
     wrap.appendChild(btn);
@@ -422,7 +499,7 @@ function renderPlannerChips() {
     btn.type = 'button';
     btn.className = 'chip';
     btn.textContent = ex;
-    btn.onclick = function() { document.getElementById('nlInput').value = ex; };
+    btn.onclick = function() { document.getElementById('planner-input').value = ex; };
     wrap.appendChild(btn);
   });
 }
@@ -510,7 +587,7 @@ function apiErrorMessage(e, t) {
 }
 
 async function sendChatMessage(preset) {
-  var input = document.getElementById('chatInput');
+  var input = document.getElementById('chat-input');
   var text = (preset || input.value || '').trim();
   var t = T[lang];
   var errEl = document.getElementById('chatError');
@@ -605,7 +682,7 @@ function showResult(params) {
 }
 
 async function parseTrip() {
-  var input = document.getElementById('nlInput').value.trim();
+  var input = document.getElementById('planner-input').value.trim();
   var t = T[lang];
   var errEl = document.getElementById('parseError');
   var loadEl = document.getElementById('parseLoading');
@@ -685,7 +762,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('languageDropdown').classList.remove('active');
     }
   });
-  document.getElementById('chatInput').addEventListener('keydown', function(e) {
+  document.getElementById('chat-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
   });
 
