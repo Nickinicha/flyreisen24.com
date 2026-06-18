@@ -28,7 +28,11 @@
     '- Airport Lounge access\n' +
     '- Special passengers & children\n' +
     '- Cheap flight booking tips\n\n' +
-    'Always answer in the same language the user writes in (Thai/English/German).\n\n' +
+    'Detect the language from the user\'s message and respond in the SAME language.\n' +
+    '- If user writes Thai → respond in Thai\n' +
+    '- If user writes English → respond in English\n' +
+    '- If user writes German → respond in German\n' +
+    '- Default to Thai if unclear\n\n' +
     'FAQ URLs (use EXACT URLs with .html extension):\n' +
     'TH pages:\n' +
     '/th/faq/01-passport-visa.html\n' +

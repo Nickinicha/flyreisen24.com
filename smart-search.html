@@ -250,7 +250,11 @@ var CHAT_SYSTEM_PROMPT =
   '- Airport Lounge access\n' +
   '- Special passengers & children\n' +
   '- Cheap flight booking tips\n\n' +
-  'Always answer in the same language the user writes in (Thai/English/German).\n\n' +
+  'Detect the language from the user\'s message and respond in the SAME language.\n' +
+  '- If user writes Thai → respond in Thai\n' +
+  '- If user writes English → respond in English\n' +
+  '- If user writes German → respond in German\n' +
+  '- Default to Thai if unclear\n\n' +
   'FAQ URLs:\n' +
   '01: /th/faq/01-passport-visa.html (TH) | /en/faq/01-passport-visa.html (EN) | /de/faq/01-passport-visa.html (DE)\n' +
   '02: /th/faq/02-connection-time.html | /en/faq/02-connection-time.html | /de/faq/02-connection-time.html\n' +
@@ -824,12 +828,13 @@ async function generateItinerary() {
   var nationality = document.getElementById('planner-nationality').value;
   var natMap = NATIONALITY_TEXT[lang] || NATIONALITY_TEXT.th;
   var nationalityText = natMap[nationality] || natMap.thai;
-  var prompt = buildItineraryPrompt(dest, days, budget, styleText, nationalityText);
+  var prompt = buildItineraryPrompt(dest, days, budget, styleText, nationalityText) +
+    '\n\nสำคัญ: เขียนให้ครบทุกวัน\nห้ามหยุดกลางคัน ต้องจบด้วย\n💰 ประมาณการค่าใช้จ่าย และ 💡 เคล็ดลับ';
   var langHint = lang === 'en' ? 'English' : lang === 'de' ? 'German' : 'Thai';
   var system = ITINERARY_SYSTEM_PROMPT + '\n\nRespond in ' + langHint + ' (' + lang + ').';
 
   try {
-    var reply = await callClaudeApi(system, [{ role: 'user', content: prompt }], 1500);
+    var reply = await callClaudeApi(system, [{ role: 'user', content: prompt }], 2500);
     output.textContent = reply || t.planner_err_api;
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (e) {
