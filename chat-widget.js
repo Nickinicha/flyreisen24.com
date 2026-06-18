@@ -29,22 +29,59 @@
     '- Special passengers & children\n' +
     '- Cheap flight booking tips\n\n' +
     'Always answer in the same language the user writes in (Thai/English/German).\n\n' +
-    'FAQ URLs:\n' +
-    '01: /th/faq/01-passport-visa.html (TH) | /en/faq/01-passport-visa.html (EN) | /de/faq/01-passport-visa.html (DE)\n' +
-    '02: /th/faq/02-connection-time.html | /en/faq/02-connection-time.html | /de/faq/02-connection-time.html\n' +
-    '03: /th/faq/03-baggage-rules.html | /en/faq/03-baggage-rules.html | /de/faq/03-baggage-rules.html\n' +
-    '04: /th/faq/04-flight-changes.html | /en/faq/04-flight-changes.html | /de/faq/04-flight-changes.html\n' +
-    '05: /th/faq/05-codeshare-stopover.html | /en/faq/05-codeshare-stopover.html | /de/faq/05-codeshare-stopover.html\n' +
-    '06: /th/faq/06-frequent-flyer.html | /en/faq/06-frequent-flyer.html | /de/faq/06-frequent-flyer.html\n' +
-    '07: /th/faq/07-charter-overbooking.html | /en/faq/07-charter-overbooking.html | /de/faq/07-charter-overbooking.html\n' +
-    '08: /th/faq/08-online-checkin.html | /en/faq/08-online-checkin.html | /de/faq/08-online-checkin.html\n' +
-    '09: /th/faq/09-montreal-eu261.html | /en/faq/09-montreal-eu261.html | /de/faq/09-montreal-eu261.html\n' +
-    '10: /th/faq/10-saf-future.html | /en/faq/10-saf-future.html | /de/faq/10-saf-future.html\n' +
-    '11: /th/faq/11-airport-security.html | /en/faq/11-airport-security.html | /de/faq/11-airport-security.html\n' +
-    '12: /th/faq/12-travel-insurance.html | /en/faq/12-travel-insurance.html | /de/faq/12-travel-insurance.html\n' +
-    '13: /th/faq/13-airport-lounge.html | /en/faq/13-airport-lounge.html | /de/faq/13-airport-lounge.html\n' +
-    '14: /th/faq/14-special-needs.html | /en/faq/14-special-needs.html | /de/faq/14-special-needs.html\n' +
-    '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html\n\n' +
+    'FAQ URLs (use EXACT URLs with .html extension):\n' +
+    'TH pages:\n' +
+    '/th/faq/01-passport-visa.html\n' +
+    '/th/faq/02-connection-time.html\n' +
+    '/th/faq/03-baggage-rules.html\n' +
+    '/th/faq/04-flight-changes.html\n' +
+    '/th/faq/05-codeshare-stopover.html\n' +
+    '/th/faq/06-frequent-flyer.html\n' +
+    '/th/faq/07-charter-overbooking.html\n' +
+    '/th/faq/08-online-checkin.html\n' +
+    '/th/faq/09-montreal-eu261.html\n' +
+    '/th/faq/10-saf-future.html\n' +
+    '/th/faq/11-airport-security.html\n' +
+    '/th/faq/12-travel-insurance.html\n' +
+    '/th/faq/13-airport-lounge.html\n' +
+    '/th/faq/14-special-needs.html\n' +
+    '/th/faq/15-booking-tips.html\n' +
+    'EN pages (same pattern with /en/faq/):\n' +
+    '/en/faq/01-passport-visa.html\n' +
+    '/en/faq/02-connection-time.html\n' +
+    '/en/faq/03-baggage-rules.html\n' +
+    '/en/faq/04-flight-changes.html\n' +
+    '/en/faq/05-codeshare-stopover.html\n' +
+    '/en/faq/06-frequent-flyer.html\n' +
+    '/en/faq/07-charter-overbooking.html\n' +
+    '/en/faq/08-online-checkin.html\n' +
+    '/en/faq/09-montreal-eu261.html\n' +
+    '/en/faq/10-saf-future.html\n' +
+    '/en/faq/11-airport-security.html\n' +
+    '/en/faq/12-travel-insurance.html\n' +
+    '/en/faq/13-airport-lounge.html\n' +
+    '/en/faq/14-special-needs.html\n' +
+    '/en/faq/15-booking-tips.html\n' +
+    'DE pages (same pattern with /de/faq/):\n' +
+    '/de/faq/01-passport-visa.html\n' +
+    '/de/faq/02-connection-time.html\n' +
+    '/de/faq/03-baggage-rules.html\n' +
+    '/de/faq/04-flight-changes.html\n' +
+    '/de/faq/05-codeshare-stopover.html\n' +
+    '/de/faq/06-frequent-flyer.html\n' +
+    '/de/faq/07-charter-overbooking.html\n' +
+    '/de/faq/08-online-checkin.html\n' +
+    '/de/faq/09-montreal-eu261.html\n' +
+    '/de/faq/10-saf-future.html\n' +
+    '/de/faq/11-airport-security.html\n' +
+    '/de/faq/12-travel-insurance.html\n' +
+    '/de/faq/13-airport-lounge.html\n' +
+    '/de/faq/14-special-needs.html\n' +
+    '/de/faq/15-booking-tips.html\n\n' +
+    'CRITICAL: Always end FAQ links with .html\n' +
+    'Never omit the .html extension.\n' +
+    'Always use full path: /th/faq/XX-name.html\n' +
+    'Format link as: <a href="/th/faq/XX-name.html">อ่านเพิ่มเติม</a>\n\n' +
     'IMPORTANT RULES:\n' +
     '1. Always complete your answer fully — never cut off mid-sentence.\n' +
     '2. Always end EVERY response with a relevant FAQ link like this:\n' +
@@ -218,8 +255,16 @@
     return div.innerHTML;
   }
 
+  function fixFaqLinks(text) {
+    return text.replace(
+      /(\/(?:th|en|de)\/faq\/[\w-]+)(?!\.html)(?=[\s"'<),]|$)/g,
+      '$1.html'
+    );
+  }
+
   function linkify(text) {
-    var escaped = escapeHtml(text);
+    var fixed = fixFaqLinks(text);
+    var escaped = escapeHtml(fixed);
     escaped = escaped.replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
       function(match, label, url) {
@@ -228,7 +273,7 @@
       }
     );
     escaped = escaped.replace(
-      /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+\.html)/gi,
+      /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
       function(url) {
         var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + url;
         return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + url + '</a>';
@@ -315,6 +360,7 @@
       }
 
       if (!reply) reply = 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้ ลองถามใหม่อีกครั้งนะคะ';
+      reply = fixFaqLinks(reply);
       messages.push({ role: 'assistant', content: reply });
     } catch (err) {
       if (err && err.message === 'NOT_CONFIGURED') {
