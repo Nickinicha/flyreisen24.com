@@ -37,9 +37,10 @@
     @keyframes ss-dot{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
     .btn-flights:hover { background: #003d82; }
     .btn-hotels:hover { background: #e0ebff; }
-    .planner-form{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}.planner-field{display:flex;flex-direction:column;gap:6px}.planner-field label{font-size:13px;font-weight:700;color:#374151}.planner-field input,.planner-field select{padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;font-family:inherit;transition:border .2s;background:#fff}.planner-field input:focus,.planner-field select:focus{outline:none;border-color:#0056B3;box-shadow:0 0 0 3px rgba(0,86,179,.08)}.planner-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.style-tags{display:flex;flex-wrap:wrap;gap:8px}.style-tag{padding:7px 14px;border:1.5px solid #d1d5db;border-radius:20px;background:#fff;font-size:13px;cursor:pointer;transition:all .2s;font-family:inherit}.style-tag.selected{background:#0056B3;color:#fff;border-color:#0056B3}.style-tag:hover:not(.selected){border-color:#0056B3;color:#0056B3}#planner-btn{background:linear-gradient(135deg,#0056B3,#003d82);color:#fff;border:none;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;width:100%;transition:all .2s;font-family:inherit}#planner-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,86,179,.3)}#planner-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}#planner-result{margin-top:20px;border:1.5px solid #e0e8f8;border-radius:14px;overflow:hidden}#planner-output{padding:20px 24px;font-size:14px;line-height:1.8;color:#374151;background:#f8faff;white-space:pre-wrap}.planner-cta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:16px 20px;background:#fff;border-top:1px solid #e5e7eb}.btn-flights,.btn-hotels,.btn-chat{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;font-family:inherit}.btn-flights{background:#0056B3;color:#fff}.btn-hotels{background:#f0f4ff;color:#0056B3;border:1.5px solid #c7d9f5}.btn-chat{cursor:pointer;border:1.5px solid #0056B3;background:#fff;color:#0056B3}.btn-chat:hover{background:#0056B3;color:#fff}
+    #planner-freetext{padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;font-family:inherit;resize:vertical;min-height:80px;transition:border .2s;width:100%}#planner-freetext:focus{outline:none;border-color:#0056B3;box-shadow:0 0 0 3px rgba(0,86,179,.08)}.freetext-hint{font-size:11px;color:#9ca3af;margin-top:4px}
+    .planner-form{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}.planner-field{display:flex;flex-direction:column;gap:6px}.planner-field label{font-size:13px;font-weight:700;color:#374151}.planner-field input,.planner-field select{padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:14px;font-family:inherit;transition:border .2s;background:#fff}.planner-field input:focus,.planner-field select:focus{outline:none;border-color:#0056B3;box-shadow:0 0 0 3px rgba(0,86,179,.08)}.planner-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.style-tags{display:flex;flex-wrap:wrap;gap:8px}.style-tag{padding:7px 14px;border:1.5px solid #d1d5db;border-radius:20px;background:#fff;font-size:13px;cursor:pointer;transition:all .2s;font-family:inherit}.style-tag.selected{background:#0056B3;color:#fff;border-color:#0056B3}.style-tag:hover:not(.selected){border-color:#0056B3;color:#0056B3}#planner-btn{background:linear-gradient(135deg,#0056B3,#003d82);color:#fff;border:none;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;width:100%;transition:all .2s;font-family:inherit}#planner-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,86,179,.3)}#planner-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}#planner-result{margin-top:20px;border:1.5px solid #e0e8f8;border-radius:14px;overflow:hidden}#planner-output{padding:20px 24px;font-size:14px;line-height:1.8;color:#374151;background:#f8faff;white-space:pre-wrap}.planner-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:16px 20px;background:#fff;border-top:1px solid #e5e7eb}.btn-flights,.btn-hotels,.btn-chat,.btn-visa{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;font-family:inherit}.btn-flights{background:#0056B3;color:#fff}.btn-hotels{background:#f0f4ff;color:#0056B3;border:1.5px solid #c7d9f5}.btn-chat{cursor:pointer;border:1.5px solid #0056B3;background:#fff;color:#0056B3}.btn-visa{background:#f0fdf4;color:#16a34a;border:1.5px solid #16a34a}.btn-visa:hover{background:#16a34a;color:#fff}.btn-chat:hover{background:#0056B3;color:#fff}.budget-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.budget-btn{padding:12px 8px;border:1.5px solid #d1d5db;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;text-align:center;line-height:1.4;transition:all .2s;color:#374151}.budget-btn small{font-size:10px;font-weight:400;color:#9ca3af;display:block;margin-top:3px}.budget-btn.active{border-color:#0056B3;background:#f0f4ff;color:#0056B3}.budget-btn.active small{color:#0056B3}.budget-btn:hover:not(.active){border-color:#0056B3}
     .main-footer{background:#fff;border-top:1px solid #eee;padding:50px 0 24px;color:#666;margin-top:0}.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;padding:0 24px}.footer-col h4{color:#333;margin-bottom:16px;font-size:15px;font-weight:700}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}.footer-col ul a{color:#777;text-decoration:none;font-size:13.5px;transition:.3s;display:flex;align-items:center;gap:6px}.footer-col ul a:hover{color:#0056B3;padding-left:4px}.footer-col p{font-size:13.5px;line-height:1.65;color:#888}.footer-bottom{max-width:1200px;margin:32px auto 0;padding:16px 24px 0;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:12.5px;color:#9ca3af}.footer-bottom a{color:#9ca3af;text-decoration:none}.footer-bottom a:hover{color:#0056B3}
-    @media(max-width:768px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.1);gap:0;border-top:1px solid #f0f0f0}.top-nav-menu.active{display:flex!important}.top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:.8rem 0}.dropdown-menu{position:static;border:none;box-shadow:none;min-width:100%;padding:8px 0 0 14px;margin-top:0}.dropdown-menu.show{display:block}.menu-toggle{display:block}.nav-right{gap:12px}.top-nav-logo img{height:40px}.ai-tab{font-size:13px;padding:14px 10px}.tab-panel{padding:20px 16px}.chat-messages{min-height:260px;max-height:360px}.planner-row{grid-template-columns:1fr}.planner-cta{grid-template-columns:1fr}}
+    @media(max-width:768px){.top-nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:#fff;padding:1rem 2rem;box-shadow:0 5px 10px rgba(0,0,0,.1);gap:0;border-top:1px solid #f0f0f0}.top-nav-menu.active{display:flex!important}.top-nav-menu li{width:100%;border-bottom:1px solid #f3f4f6;padding:.8rem 0}.dropdown-menu{position:static;border:none;box-shadow:none;min-width:100%;padding:8px 0 0 14px;margin-top:0}.dropdown-menu.show{display:block}.menu-toggle{display:block}.nav-right{gap:12px}.top-nav-logo img{height:40px}.ai-tab{font-size:13px;padding:14px 10px}.tab-panel{padding:20px 16px}.chat-messages{min-height:260px;max-height:360px}.planner-row{grid-template-columns:1fr}.budget-options{grid-template-columns:1fr}.planner-cta{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -124,13 +125,20 @@
     <!-- TAB 2: Itinerary Planner -->
     <div class="tab-panel" id="panelPlanner" role="tabpanel">
       <div id="planner-tab-content">
-        <h2 id="planner-title" style="font-size:1.2rem;font-weight:800;color:#1a1a2e;margin-bottom:6px;">🗺️ วางแผนทริปกับ AI</h2>
-        <p id="planner-sub" style="font-size:14px;color:#6b7280;margin-bottom:20px;">บอกแค่ปลายทาง งบ และจำนวนวัน — AI วางแผนวันต่อวันให้เลย</p>
+        <h2 id="planner-title" style="font-size:1.2rem;font-weight:800;color:#1a1a2e;margin-bottom:6px;">🐱 Meshmesh จะพาคุณไปเที่ยว!</h2>
+        <p id="planner-sub" style="font-size:14px;color:#6b7280;margin-bottom:20px;">บอก Meshmesh ว่าอยากไปไหน เขาจะวางแผนให้เลย</p>
 
         <div class="planner-form">
+          <div class="planner-field" id="freetext-field">
+            <label id="freetext-label">💬 เล่าให้ AI ฟังเลย (ไม่บังคับ)</label>
+            <textarea id="planner-freetext" rows="3"
+              placeholder="เช่น: ไปกับแม่อายุ 65 ปี เดินไม่ได้นาน ชอบวัด ไม่กินเนื้อวัว หรือ อยากได้ทริปโรแมนติก ไม่ชอบที่วุ่นวาย..."></textarea>
+            <p class="freetext-hint" id="freetext-hint">💡 ยิ่งบอกรายละเอียด AI ยิ่งวางแผนได้ตรงใจ</p>
+          </div>
+
           <div class="planner-field">
             <label id="dest-label">🌍 ปลายทาง</label>
-            <input type="text" id="planner-dest" placeholder="เช่น ยุโรป, ญี่ปุ่น, ดูไบ, อิตาลี">
+            <input type="text" id="planner-dest" placeholder="🐱 วันนี้ Meshmesh อยากพาคุณไปไหน?">
           </div>
 
           <div class="planner-field">
@@ -143,15 +151,17 @@
             </select>
           </div>
 
-          <div class="planner-row">
-            <div class="planner-field half">
-              <label id="days-label">📅 จำนวนวัน</label>
-              <input type="number" id="planner-days" value="7" min="3" max="30">
+          <div class="planner-field">
+            <label id="days-label">📅 จำนวนวัน</label>
+            <input type="number" id="planner-days" value="7" min="3" max="30">
+          </div>
+
+          <div class="planner-field">
+            <label id="budget-label">💰 งบประมาณ</label>
+            <div class="budget-slider-wrap">
+              <div class="budget-options" id="budget-options"></div>
             </div>
-            <div class="planner-field half">
-              <label id="budget-label">💰 งบประมาณ</label>
-              <input type="text" id="planner-budget" placeholder="เช่น 50000 บาท หรือ €500">
-            </div>
+            <input type="hidden" id="planner-budget" value="ปานกลาง ~30,000-50,000 บาท">
           </div>
 
           <div class="planner-field">
@@ -178,6 +188,9 @@
             <button type="button" onclick="openMeshmesh()" class="btn-chat">
               🐱 <span class="cta-text-chat">ถามเพิ่มเติม</span>
             </button>
+            <a href="/contact.html" class="btn-visa">
+              🛂 <span class="cta-text-visa">ช่วยเรื่องวีซ่า</span>
+            </a>
           </div>
         </div>
       </div>
@@ -271,6 +284,25 @@ var CHAT_SYSTEM_PROMPT =
   '13: /th/faq/13-airport-lounge.html | /en/faq/13-airport-lounge.html | /de/faq/13-airport-lounge.html\n' +
   '14: /th/faq/14-special-needs.html | /en/faq/14-special-needs.html | /de/faq/14-special-needs.html\n' +
   '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html\n\n' +
+  'VISA INFORMATION POLICY:\n' +
+  'When answering visa questions, provide ONLY:\n' +
+  '1. Yes/No — visa required or not\n' +
+  '2. Visa type name (e.g. Schengen Type C)\n' +
+  '3. Maximum stay duration\n' +
+  '4. Approximate fee in EUR and THB\n' +
+  '5. Recommended application lead time\n\n' +
+  'Then add this CLOSING LINE every time (match response language):\n' +
+  'TH: "📋 สำหรับรายละเอียดเอกสารและขั้นตอนครบถ้วน\\nสามารถถาม Meshmesh เพิ่มเติมได้เลยค่ะ\\nหรืออ่านคู่มือฉบับเต็มที่\\nflyreisen24.com/th/faq/01-passport-visa.html"\n' +
+  'EN: equivalent phrasing with flyreisen24.com/en/faq/01-passport-visa.html\n' +
+  'DE: equivalent phrasing with flyreisen24.com/de/faq/01-passport-visa.html\n\n' +
+  'DO NOT provide:\n' +
+  '- Full document checklist\n' +
+  '- Step by step application process\n' +
+  '- VFS/Embassy contact details\n' +
+  '- Specific appointment booking tips\n' +
+  '- Bank statement amount requirements\n\n' +
+  'These details are reserved for personal consultation.\n' +
+  'Keep visa answers to maximum 6 lines.\n\n' +
   'IMPORTANT RULES:\n' +
   '1. Always complete your answer fully — never cut off mid-sentence.\n' +
   '2. Always end EVERY response with a relevant FAQ link like this:\n' +
@@ -377,6 +409,24 @@ var STYLE_OPTIONS = {
   ]
 };
 
+var BUDGET_OPTIONS = {
+  th: [
+    { level: 'budget', budget: 'ประหยัด ~15,000-20,000 บาท', icon: '🎒', title: 'ประหยัด', sub: '~15,000-20,000 บาท' },
+    { level: 'mid', budget: 'ปานกลาง ~30,000-50,000 บาท', icon: '🏨', title: 'ปานกลาง', sub: '~30,000-50,000 บาท' },
+    { level: 'comfort', budget: 'สบายๆ 70,000+ บาท', icon: '✈️', title: 'สบายๆ', sub: '70,000+ บาท' }
+  ],
+  en: [
+    { level: 'budget', budget: 'Budget ~€400-550', icon: '🎒', title: 'Budget', sub: '~€400-550' },
+    { level: 'mid', budget: 'Mid-range ~€800-1,300', icon: '🏨', title: 'Mid-range', sub: '~€800-1,300' },
+    { level: 'comfort', budget: 'Comfort €1,800+', icon: '✈️', title: 'Comfort', sub: '€1,800+' }
+  ],
+  de: [
+    { level: 'budget', budget: 'Budget ~€400-550', icon: '🎒', title: 'Budget', sub: '~€400-550' },
+    { level: 'mid', budget: 'Mittelklasse ~€800-1.300', icon: '🏨', title: 'Mittelklasse', sub: '~€800-1.300' },
+    { level: 'comfort', budget: 'Komfort €1.800+', icon: '✈️', title: 'Komfort', sub: '€1.800+' }
+  ]
+};
+
 var SMART_SEARCH_TRANSLATIONS = {
   th: {
     tab_chat: '🐱 Ask Meshmesh',
@@ -384,25 +434,31 @@ var SMART_SEARCH_TRANSLATIONS = {
     chat_title: 'ถามอะไรก็ได้เกี่ยวกับการบิน',
     chat_sub: 'Meshmesh ตอบจาก FAQ 15 หัวข้อ',
     chat_placeholder: 'พิมพ์คำถามของคุณ...',
-    planner_title: '🗺️ วางแผนทริปกับ AI',
-    planner_sub: 'บอกแค่ปลายทาง งบ และจำนวนวัน — AI วางแผนวันต่อวันให้เลย',
+    planner_title: '🐱 Meshmesh จะพาคุณไปเที่ยว!',
+    planner_sub: 'บอก Meshmesh ว่าอยากไปไหน เขาจะวางแผนให้เลย',
+    freetext_label: '💬 เล่าให้ AI ฟังเลย (ไม่บังคับ)',
+    freetext_placeholder: 'เช่น: ไปกับแม่อายุ 65 ปี เดินไม่ได้นาน ชอบวัด ไม่กินเนื้อวัว...',
+    freetext_hint: '💡 ยิ่งบอกรายละเอียด AI ยิ่งวางแผนได้ตรงใจ',
     dest_label: '🌍 ปลายทาง',
-    dest_placeholder: 'เช่น ยุโรป, ญี่ปุ่น, ดูไบ, อิตาลี',
+    dest_placeholder: '🐱 วันนี้อยากไปไหน? เช่น ญี่ปุ่น ยุโรป ดูไบ',
     nationality_label: '🛂 สัญชาติของคุณ',
     days_label: '📅 จำนวนวัน',
     budget_label: '💰 งบประมาณ',
-    budget_placeholder: 'เช่น 50000 บาท หรือ €500',
     style_label: '🎯 สไตล์การท่องเที่ยว',
     planner_btn: 'วางแผนทริป',
     planner_loading: 'กำลังวางแผน...',
     planner_loading_msg: '✈️ AI กำลังวางแผนทริปให้คุณ...',
     planner_err_dest: 'กรุณาระบุปลายทางก่อนค่ะ',
+    planner_limit_title: 'ใช้งานครบ 3 ครั้งแล้ววันนี้ค่ะ',
+    planner_limit_sub: 'กลับมaใหม่พรุ่งนี้ หรือติดต่อเราเพื่อรับแผนแบบ Premium',
+    limit_btn_flights: '✈️ ค้นหาตั๋วเครื่องบินได้เลยค่ะ',
     planner_err_api: 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้งค่ะ',
     style_default: 'ท่องเที่ยวทั่วไป',
     budget_default: 'ปานกลาง',
     btn_flights: 'ค้นหาตั๋วเครื่องบิน',
     btn_hotels: 'จองโรงแรม',
     btn_chat: 'ถามเพิ่มเติม',
+    cta_visa: 'ช่วยเรื่องวีซ่า',
     suggestions: [
       'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
       'กระเป๋าหายต้องทำอะไรก่อน?',
@@ -416,25 +472,31 @@ var SMART_SEARCH_TRANSLATIONS = {
     chat_title: 'Ask anything about air travel',
     chat_sub: 'Meshmesh answers from our 15-topic FAQ knowledge base',
     chat_placeholder: 'Type your question...',
-    planner_title: '🗺️ Plan Your Trip with AI',
-    planner_sub: 'Tell us destination, budget & days — AI creates your day-by-day itinerary',
+    planner_title: '🐱 Let Meshmesh Plan Your Trip!',
+    planner_sub: 'Tell Meshmesh where you want to go',
+    freetext_label: '💬 Tell AI more (optional)',
+    freetext_placeholder: 'e.g. travelling with elderly mum, can\'t walk far, vegetarian, prefer quiet places...',
+    freetext_hint: '💡 More details = better personalised plan',
     dest_label: '🌍 Destination',
-    dest_placeholder: 'e.g. Europe, Japan, Dubai, Italy',
+    dest_placeholder: '🐱 Where does Meshmesh take you today?',
     nationality_label: '🛂 Your Nationality',
     days_label: '📅 Number of Days',
     budget_label: '💰 Budget',
-    budget_placeholder: 'e.g. €500 or 50000 THB',
     style_label: '🎯 Travel Style',
     planner_btn: 'Plan My Trip',
     planner_loading: 'Planning...',
     planner_loading_msg: '✈️ AI is planning your trip...',
     planner_err_dest: 'Please enter a destination first.',
+    planner_limit_title: 'You\'ve used all 3 free plans today. Come back tomorrow!',
+    planner_limit_sub: 'Or contact us for a Premium personalised plan',
+    limit_btn_flights: '✈️ Search flights now',
     planner_err_api: 'An error occurred. Please try again.',
     style_default: 'general sightseeing',
     budget_default: 'moderate',
     btn_flights: 'Search Flights',
     btn_hotels: 'Book Hotels',
     btn_chat: 'Ask More',
+    cta_visa: 'Visa Assistance',
     suggestions: [
       'Is 90 min connection in Dubai enough?',
       'What to do if my baggage is lost?',
@@ -448,25 +510,31 @@ var SMART_SEARCH_TRANSLATIONS = {
     chat_title: 'Frag alles über Flugreisen',
     chat_sub: 'Meshmesh beantwortet Fragen aus unserer 15-Themen-FAQ',
     chat_placeholder: 'Deine Frage eingeben...',
-    planner_title: '🗺️ Reise mit KI planen',
-    planner_sub: 'Ziel, Budget & Tage angeben — KI erstellt deinen Tagesplan',
+    planner_title: '🐱 Meshmesh plant deine Reise!',
+    planner_sub: 'Sag Meshmesh wohin du möchtest',
+    freetext_label: '💬 KI mehr erzählen (optional)',
+    freetext_placeholder: 'z.B. reise mit 65-jähriger Mutter, vegetarisch, ruhige Orte bevorzugt...',
+    freetext_hint: '💡 Mehr Details = besserer Plan',
     dest_label: '🌍 Reiseziel',
-    dest_placeholder: 'z.B. Europa, Japan, Dubai, Italien',
+    dest_placeholder: '🐱 Wohin soll Meshmesh dich heute bringen?',
     nationality_label: '🛂 Ihre Staatsangehörigkeit',
     days_label: '📅 Anzahl der Tage',
     budget_label: '💰 Budget',
-    budget_placeholder: 'z.B. €500 oder 50000 THB',
     style_label: '🎯 Reisestil',
     planner_btn: 'Reise planen',
     planner_loading: 'Wird geplant...',
     planner_loading_msg: '✈️ KI plant deine Reise...',
     planner_err_dest: 'Bitte zuerst ein Reiseziel eingeben.',
+    planner_limit_title: '3 kostenlose Pläne heute aufgebraucht. Morgen wieder verfügbar!',
+    planner_limit_sub: 'Oder kontaktieren Sie uns für einen Premium-Reiseplan',
+    limit_btn_flights: '✈️ Jetzt Flüge suchen',
     planner_err_api: 'Ein Fehler ist aufgetreten. Bitte erneut versuchen.',
     style_default: 'Allgemeines Sightseeing',
     budget_default: 'mittel',
     btn_flights: 'Flüge suchen',
     btn_hotels: 'Hotels buchen',
     btn_chat: 'Mehr fragen',
+    cta_visa: 'Visa-Hilfe',
     suggestions: [
       '90 Min Umstieg in Dubai — reicht das?',
       'Was tun wenn Gepäck verloren geht?',
@@ -551,6 +619,35 @@ var chatMessages = [];
 var chatLoading = false;
 var isPlanning = false;
 
+// Rate limiting — Itinerary Planner
+var DEV_MODE = window.location.search.includes('dev=true');
+
+function initDevModeBadge() {
+  if (!DEV_MODE || document.getElementById('devModeBadge')) return;
+  var devBadge = document.createElement('div');
+  devBadge.id = 'devModeBadge';
+  devBadge.style.cssText =
+    'position:fixed;bottom:80px;left:16px;' +
+    'background:#f59e0b;color:#000;' +
+    'padding:4px 10px;border-radius:20px;' +
+    'font-size:11px;font-weight:700;z-index:9999';
+  devBadge.textContent = '🔧 DEV MODE';
+  document.body.appendChild(devBadge);
+}
+
+function buildItineraryLimitHtml(t, dailyLimit) {
+  return '<div style="text-align:center;padding:24px">' +
+    '<div style="font-size:32px;margin-bottom:12px">🐱</div>' +
+    '<p style="font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:8px">' +
+    escapeHtml(t.planner_limit_title) + '</p>' +
+    '<p style="font-size:13px;color:#6b7280;margin-bottom:16px">' +
+    escapeHtml(t.planner_limit_sub) + '</p>' +
+    '<a href="https://flights.flyreisen24.com" target="_blank" rel="noopener noreferrer" ' +
+    'style="display:inline-block;background:#0056B3;color:white;padding:10px 24px;' +
+    'border-radius:20px;text-decoration:none;font-weight:700;font-size:13px">' +
+    escapeHtml(t.limit_btn_flights) + '</a></div>';
+}
+
 function switchTab(tab) {
   activeTab = tab;
   document.getElementById('tabBtnChat').classList.toggle('active', tab === 'chat');
@@ -574,6 +671,8 @@ function updateSmartSearchLang(l) {
     'chat-sub': t.chat_sub,
     'planner-title': t.planner_title,
     'planner-sub': t.planner_sub,
+    'freetext-label': t.freetext_label,
+    'freetext-hint': t.freetext_hint,
     'dest-label': t.dest_label,
     'nationality-label': t.nationality_label,
     'days-label': t.days_label,
@@ -590,6 +689,7 @@ function updateSmartSearchLang(l) {
   document.querySelectorAll('.cta-text-flights').forEach(function(el) { el.textContent = t.btn_flights; });
   document.querySelectorAll('.cta-text-hotels').forEach(function(el) { el.textContent = t.btn_hotels; });
   document.querySelectorAll('.cta-text-chat').forEach(function(el) { el.textContent = t.btn_chat; });
+  document.querySelectorAll('.cta-text-visa').forEach(function(el) { el.textContent = t.cta_visa; });
 
   var chatInput = document.getElementById('chat-input');
   if (chatInput) chatInput.placeholder = t.chat_placeholder;
@@ -597,12 +697,44 @@ function updateSmartSearchLang(l) {
   var destInput = document.getElementById('planner-dest');
   if (destInput) destInput.placeholder = t.dest_placeholder;
 
-  var budgetInput = document.getElementById('planner-budget');
-  if (budgetInput) budgetInput.placeholder = t.budget_placeholder;
+  var freetextInput = document.getElementById('planner-freetext');
+  if (freetextInput) freetextInput.placeholder = t.freetext_placeholder;
 
   renderNationalitySelect();
+  renderBudgetButtons();
   renderStyleTags();
   renderChatChips();
+}
+
+function selectBudget(btn) {
+  document.querySelectorAll('.budget-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  document.getElementById('planner-budget').value = btn.dataset.budget;
+}
+
+function renderBudgetButtons() {
+  var wrap = document.getElementById('budget-options');
+  if (!wrap) return;
+  var selectedLevel = 'mid';
+  var activeBtn = wrap.querySelector('.budget-btn.active');
+  if (activeBtn) selectedLevel = activeBtn.dataset.level || 'mid';
+  var hidden = document.getElementById('planner-budget');
+  var options = BUDGET_OPTIONS[lang] || BUDGET_OPTIONS.th;
+  wrap.innerHTML = '';
+  options.forEach(function(opt) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'budget-btn' + (opt.level === selectedLevel ? ' active' : '');
+    btn.dataset.budget = opt.budget;
+    btn.dataset.level = opt.level;
+    btn.innerHTML = opt.icon + ' ' + opt.title + '<br><small>' + opt.sub + '</small>';
+    btn.onclick = function() { selectBudget(this); };
+    wrap.appendChild(btn);
+  });
+  var active = wrap.querySelector('.budget-btn.active') || wrap.querySelector('.budget-btn[data-level="mid"]');
+  if (active && hidden) hidden.value = active.dataset.budget;
 }
 
 function renderNationalitySelect() {
@@ -797,9 +929,23 @@ function openMeshmesh() {
 async function generateItinerary() {
   var t = SMART_SEARCH_TRANSLATIONS[lang] || SMART_SEARCH_TRANSLATIONS.th;
   var pageT = T[lang];
+  var result = document.getElementById('planner-result');
+  var output = document.getElementById('planner-output');
+  var DAILY_LIMIT = DEV_MODE ? 999 : 3;
+  var today = new Date().toDateString();
+  var usageKey = 'itinerary_usage_' + today;
+  var used = parseInt(localStorage.getItem(usageKey) || '0', 10);
+
+  if (!DEV_MODE && used >= DAILY_LIMIT) {
+    output.innerHTML = buildItineraryLimitHtml(t, DAILY_LIMIT);
+    result.style.display = 'block';
+    return;
+  }
+
   var dest = document.getElementById('planner-dest').value.trim();
   var days = document.getElementById('planner-days').value;
   var budget = document.getElementById('planner-budget').value.trim();
+  var freetext = document.getElementById('planner-freetext').value.trim();
   var selectedStyles = Array.prototype.slice.call(document.querySelectorAll('.style-tag.selected'))
     .map(function(b) { return b.dataset.style; });
   var errEl = document.getElementById('plannerError');
@@ -816,8 +962,6 @@ async function generateItinerary() {
 
   var btn = document.getElementById('planner-btn');
   var btnText = document.getElementById('planner-btn-text');
-  var result = document.getElementById('planner-result');
-  var output = document.getElementById('planner-output');
 
   btn.disabled = true;
   btnText.textContent = t.planner_loading;
@@ -828,14 +972,42 @@ async function generateItinerary() {
   var nationality = document.getElementById('planner-nationality').value;
   var natMap = NATIONALITY_TEXT[lang] || NATIONALITY_TEXT.th;
   var nationalityText = natMap[nationality] || natMap.thai;
+  var freetextBlock = '';
+  if (freetext) {
+    if (lang === 'en') {
+      freetextBlock = '\n\nAdditional details from traveller:\n"' + freetext + '"\n\nPlease incorporate these into the plan to match their needs.';
+    } else if (lang === 'de') {
+      freetextBlock = '\n\nZusätzliche Angaben vom Reisenden:\n"' + freetext + '"\n\nBitte diese Details in den Plan einbeziehen.';
+    } else {
+      freetextBlock = '\n\nรายละเอียดเพิ่มเติมจากผู้เดินทาง:\n"' + freetext + '"\n\nกรุณานำรายละเอียดนี้มาปรับแผนให้ตรงกับความต้องการด้วย';
+    }
+  }
   var prompt = buildItineraryPrompt(dest, days, budget, styleText, nationalityText) +
+    freetextBlock +
     '\n\nสำคัญ: เขียนให้ครบทุกวัน\nห้ามหยุดกลางคัน ต้องจบด้วย\n💰 ประมาณการค่าใช้จ่าย และ 💡 เคล็ดลับ';
   var langHint = lang === 'en' ? 'English' : lang === 'de' ? 'German' : 'Thai';
-  var system = ITINERARY_SYSTEM_PROMPT + '\n\nRespond in ' + langHint + ' (' + lang + ').';
+  var system = ITINERARY_SYSTEM_PROMPT +
+    '\n\nRespond in ' + langHint + ' (' + lang + ').\n\n' +
+    'If user provides special requirements in freetext (elderly, children, dietary, mobility, interests), incorporate ALL details into the plan.\n' +
+    'Acknowledge special requirements at the start:\n' +
+    '\'จากที่บอกมา ฉันได้ปรับแผนให้เหมาะกับ [requirements] แล้วค่ะ\' (adapt phrasing to response language).\n\n' +
+    'IMPORTANT: Be concise but complete.\n' +
+    'For each day write maximum 3 bullet points.\n' +
+    'Do not write long paragraphs.\n' +
+    'Format each day as:\n' +
+    'Day X: เมือง\n' +
+    '- เช้า: สถานที่ (1 line)\n' +
+    '- บ่าย: สถานที่ (1 line)\n' +
+    '- เย็น: ร้านอาหาร/กิจกรรม (1 line)\n' +
+    '🏨 ที่พัก: ชื่อย่าน ~ราคา\n\n' +
+    'Keep budget section to 6 lines max.\n' +
+    'Keep tips to 3 bullet points max.\n' +
+    'Total response must fit within 2000 tokens.';
 
   try {
     var reply = await callClaudeApi(system, [{ role: 'user', content: prompt }], 2500);
     output.textContent = reply || t.planner_err_api;
+    if (!DEV_MODE) localStorage.setItem(usageKey, String(used + 1));
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (e) {
     var apiErr = apiErrorMessage(e, pageT);
@@ -989,6 +1161,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (ref.includes('/en/')) setLang('en');
   else if (ref.includes('/de/')) setLang('de');
   else setLang('th');
+
+  initDevModeBadge();
 
   if (location.hash === '#planner' || location.search.indexOf('tab=planner') !== -1) {
     switchTab('planner');
