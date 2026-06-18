@@ -83,13 +83,13 @@
     'Always use full path: /th/faq/XX-name.html\n' +
     'Format link as: <a href="/th/faq/XX-name.html">อ่านเพิ่มเติม</a>\n\n' +
     'IMPORTANT RULES:\n' +
-    '1. Always complete your answer fully — never cut off mid-sentence.\n' +
-    '2. Always end EVERY response with a relevant FAQ link like this:\n' +
+    '1. Answer in maximum 3 sentences. Be concise and direct.\n' +
+    '2. Always complete your answer fully — never cut off mid-sentence.\n' +
+    '3. Always end EVERY response with a relevant FAQ link like this:\n' +
     '   📖 อ่านเพิ่มเติม: [topic name](/th/faq/XX-topic.html)\n' +
     '   For EN responses: 📖 Read more: [topic name](/en/faq/XX-topic.html)\n' +
     '   For DE responses: 📖 Mehr lesen: [topic name](/de/faq/XX-topic.html)\n' +
-    '3. Match link language to the language of the question.\n' +
-    '4. Keep answers concise but COMPLETE — 3-5 sentences max.';
+    '4. Match link language to the language of the question.';
 
   var SUGGESTED_QUESTIONS = [
     'บินต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
@@ -137,6 +137,8 @@
       '.fcw-bubble.user a{color:#cce0ff;}' +
       '.fcw-bubble.ai{align-self:flex-start;background:#f0f4ff;color:#1a2332;border-bottom-left-radius:4px;}' +
       '.fcw-bubble.ai::before{content:"🐱 ";}' +
+      '.fcw-stream-cursor{display:inline;color:#0056B3;animation:fcw-cursor-blink 1s step-end infinite;}' +
+      '@keyframes fcw-cursor-blink{0%,100%{opacity:1;}50%{opacity:0;}}' +
       '.fcw-suggestions{padding:0 12px 10px;display:flex;flex-direction:column;gap:6px;background:#fafbfd;}' +
       '.fcw-suggestions.hidden{display:none;}' +
       '.fcw-suggest-label{font-size:11px;color:#5a6a80;margin-bottom:2px;}' +
@@ -262,6 +264,18 @@
     );
   }
 
+  function formatPlainText(text) {
+    return escapeHtml(fixFaqLinks(text || '')).replace(/\n/g, '<br>');
+  }
+
+  function updateStreamingBubble(text, showCursor) {
+    var bubble = document.getElementById('fcwStreamingBubble');
+    var container = document.getElementById('fcwMessages');
+    if (!bubble || !container) return;
+    bubble.innerHTML = formatPlainText(text) + (showCursor ? '<span class="fcw-stream-cursor">▌</span>' : '');
+    container.scrollTop = container.scrollHeight;
+  }
+
   function linkify(text) {
     var fixed = fixFaqLinks(text);
     var escaped = escapeHtml(fixed);
@@ -287,18 +301,24 @@
     if (!container) return;
     container.innerHTML = '';
 
+    var hasStreaming = false;
+
     messages.forEach(function (msg) {
       var bubble = document.createElement('div');
       bubble.className = 'fcw-bubble ' + (msg.role === 'user' ? 'user' : 'ai');
       if (msg.role === 'user') {
         bubble.textContent = msg.content;
+      } else if (msg.streaming) {
+        hasStreaming = true;
+        bubble.id = 'fcwStreamingBubble';
+        bubble.innerHTML = formatPlainText(msg.content) + '<span class="fcw-stream-cursor">▌</span>';
       } else {
         bubble.innerHTML = linkify(msg.content);
       }
       container.appendChild(bubble);
     });
 
-    if (isLoading) {
+    if (isLoading && !hasStreaming) {
       var loading = document.createElement('div');
       loading.className = 'fcw-loading';
       loading.innerHTML = '<span></span><span></span><span></span>';
@@ -331,6 +351,7 @@
     hideSuggestions();
 
     messages.push({ role: 'user', content: trimmed });
+    messages.push({ role: 'assistant', content: '', streaming: true });
     isLoading = true;
     if (sendBtn) sendBtn.disabled = true;
     renderMessages();
@@ -338,31 +359,35 @@
     var lang = detectPageLang();
     var langHint = lang === 'en' ? 'English' : lang === 'de' ? 'German' : 'Thai';
     var systemWithLang = SYSTEM_PROMPT + '\n\nCurrent page language hint: ' + langHint + ' (' + lang + '). Prefer FAQ links matching this language when possible.';
+    var apiMessages = messages.filter(function (m) { return !m.streaming; }).map(function (m) {
+      return { role: m.role, content: m.content };
+    });
 
     try {
       if (!window.FlyReisenAI) throw new Error('NOT_CONFIGURED');
 
-      var data = await window.FlyReisenAI.callClaude({
+      var reply = await window.FlyReisenAI.callClaude({
         model: window.FlyReisenAI.MODEL,
-        max_tokens: 800,
+        max_tokens: 400,
+        stream: true,
         system: systemWithLang,
-        messages: messages.map(function (m) {
-          return { role: m.role, content: m.content };
-        })
+        messages: apiMessages,
+        onChunk: function (text) {
+          var streamingMsg = messages[messages.length - 1];
+          if (streamingMsg && streamingMsg.streaming) {
+            streamingMsg.content = text;
+            updateStreamingBubble(text, true);
+          }
+        }
       });
-
-      var reply = '';
-      if (data.content && data.content.length) {
-        reply = data.content
-          .filter(function (block) { return block.type === 'text'; })
-          .map(function (block) { return block.text; })
-          .join('\n');
-      }
 
       if (!reply) reply = 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้ ลองถามใหม่อีกครั้งนะคะ';
       reply = fixFaqLinks(reply);
-      messages.push({ role: 'assistant', content: reply });
+      messages[messages.length - 1] = { role: 'assistant', content: reply };
     } catch (err) {
+      if (messages.length && messages[messages.length - 1].streaming) {
+        messages.pop();
+      }
       if (err && err.message === 'NOT_CONFIGURED') {
         showError('ยังเชื่อมต่อ AI ไม่ได้ — ตั้ง Cloudflare Worker (production) หรือ dev-config.js (local)');
         isLoading = false;

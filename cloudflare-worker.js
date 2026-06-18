@@ -49,10 +49,10 @@ export default {
       body: body
     });
 
-    var data = await response.text();
-    return new Response(data, {
+    var contentType = response.headers.get('content-type') || 'application/json';
+    return new Response(response.body, {
       status: response.status,
-      headers: { 'Content-Type': 'application/json', ...cors }
+      headers: { 'Content-Type': contentType, ...cors }
     });
   }
 };
