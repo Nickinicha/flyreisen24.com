@@ -71,6 +71,7 @@
 
     var css =
       '#' + ROOT_ID + '{position:fixed;bottom:20px;right:20px;z-index:100000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}' +
+      'body:has(#' + ROOT_ID + ') .contact-widget{bottom:95px!important;z-index:100001!important;}' +
       '#' + ROOT_ID + ' *{box-sizing:border-box;}' +
       '.fcw-toggle{width:60px;height:60px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(0,86,179,.45);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}' +
       '.fcw-toggle:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(0,86,179,.55);}' +
