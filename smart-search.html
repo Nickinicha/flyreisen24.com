@@ -244,9 +244,11 @@ var PLANNER_SYSTEM_PROMPT =
   'Extract flight search parameters from the user\'s natural language request. ' +
   'Reply ONLY with valid JSON (no markdown, no extra text). Required shape: ' +
   '{"origin":"BKK","destination":"FRA","depart_date":"2026-02-01","return_date":"2026-02-11","passengers":1,"budget_display":"optional"} ' +
-  'Use 3-letter IATA airport codes only for origin and destination. ' +
-  'Dates must be YYYY-MM-DD. passengers is the number of adult travelers (integer). ' +
-  'budget_display is optional human-readable budget text for display only.';
+  'CRITICAL: origin and destination MUST be 3-letter IATA airport codes (e.g. FRA, LHR, BER, NRT). ' +
+  'NEVER use currency codes (EUR, USD, THB, GBP) or region names (Europe, Germany) as destination. ' +
+  'Map regions to airports: Europe/Germany/ยุโรป→FRA, Berlin→BER, London→LHR, Paris→CDG, Tokyo→NRT, Singapore→SIN. ' +
+  'Put budget/currency info ONLY in budget_display, never in destination. ' +
+  'Dates must be YYYY-MM-DD. passengers is the number of adult travelers (integer).';
 
 var SMART_SEARCH_TRANSLATIONS = {
   th: {
@@ -334,7 +336,8 @@ var T = {
     ftSvcH:'บริการ', ftFlt:'ค้นหาตั๋วเครื่องบิน', ftHtl:'จองโรงแรม', ftDeals:'ดีลการเดินทาง', ftTools:'เครื่องมือ',
     ftKnowH:'คลังความรู้', ftFaq:'15 คำถามก่อนบิน', ftBag:'กฎสัมภาระ', ftRights:'สิทธิผู้โดยสาร',
     ftInfoH:'ข้อมูล', ftContact:'ติดต่อเรา', ftAbout:'เกี่ยวกับเรา', ftPriv:'นโยบายความเป็นส่วนตัว', ftTerms:'ข้อกำหนด',
-    errEmpty:'กรุณาพิมพ์ทริปที่ต้องการ', errApi:'ไม่สามารถวิเคราะห์ได้ ลองใหม่อีกครั้ง',
+    errEmpty:'กรุณาพิมพ์ทริปที่ต้องการ', errInvalidDest:'ไม่พบสนามบินปลายทาง — ลองระบุเมืองชัดเจน เช่น FRA, LHR, BER',
+    errApi:'ไม่สามารถวิเคราะห์ได้ ลองใหม่อีกครั้ง',
     errChatEmpty:'กรุณาพิมพ์คำถาม', errChatApi:'ไม่สามารถตอบได้ ลองใหม่อีกครั้ง',
     errNotConfigured:'ยังเชื่อมต่อ AI ไม่ได้ — ตั้ง Cloudflare Worker (production) หรือ dev-config.js (local)',
     errAuthInvalid:'API key ไม่ถูกต้องหรือหมดอายุ — สร้าง key ใหม่ที่ console.anthropic.com',
@@ -363,7 +366,8 @@ var T = {
     ftSvcH:'Services', ftFlt:'Search Flights', ftHtl:'Book Hotels', ftDeals:'Travel Deals', ftTools:'Tools',
     ftKnowH:'Knowledge Hub', ftFaq:'15 Questions Before You Fly', ftBag:'Baggage Rules', ftRights:'Passenger Rights',
     ftInfoH:'Info', ftContact:'Contact Us', ftAbout:'About Us', ftPriv:'Privacy Policy', ftTerms:'Terms of Use',
-    errEmpty:'Please describe your trip', errApi:'Could not analyse. Please try again.',
+    errEmpty:'Please describe your trip', errInvalidDest:'Destination airport not found — try a specific city like FRA, LHR, BER',
+    errApi:'Could not analyse. Please try again.',
     errChatEmpty:'Please type a question', errChatApi:'Could not get an answer. Please try again.',
     errNotConfigured:'AI not connected — set Cloudflare Worker (production) or dev-config.js (local)',
     errAuthInvalid:'API key invalid or expired — create a new key at console.anthropic.com',
@@ -392,7 +396,8 @@ var T = {
     ftSvcH:'Services', ftFlt:'Flüge suchen', ftHtl:'Hotels buchen', ftDeals:'Reise-Deals', ftTools:'Tools',
     ftKnowH:'Wissenszentrum', ftFaq:'15 Fragen vor dem Flug', ftBag:'Gepäckregeln', ftRights:'Passagierrechte',
     ftInfoH:'Info', ftContact:'Kontakt', ftAbout:'Über uns', ftPriv:'Datenschutz', ftTerms:'Nutzungsbedingungen',
-    errEmpty:'Bitte beschreiben Sie Ihre Reise', errApi:'Analyse fehlgeschlagen. Bitte erneut versuchen.',
+    errEmpty:'Bitte beschreiben Sie Ihre Reise', errInvalidDest:'Zielflughafen nicht gefunden — bitte Stadt angeben, z.B. FRA, LHR, BER',
+    errApi:'Analyse fehlgeschlagen. Bitte erneut versuchen.',
     errChatEmpty:'Bitte eine Frage eingeben', errChatApi:'Antwort fehlgeschlagen. Bitte erneut versuchen.',
     errNotConfigured:'KI nicht verbunden — Cloudflare Worker (Produktion) oder dev-config.js (lokal) einrichten',
     errAuthInvalid:'API-Schlüssel ungültig — neuen Schlüssel unter console.anthropic.com erstellen',
@@ -657,14 +662,65 @@ function defaultDates() {
   };
 }
 
+var INVALID_IATA_CODES = {
+  EUR:1, USD:1, GBP:1, THB:1, JPY:1, CNY:1, AUD:1, CAD:1, CHF:1, SGD:1,
+  HKD:1, KRW:1, INR:1, MYR:1, IDR:1, PHP:1, VND:1, NZD:1, AED:1, SAR:1,
+  QAR:1, KWD:1, BHD:1, OMR:1, RUB:1, BRL:1, MXN:1, TRY:1, PLN:1, CZK:1,
+  HUF:1, SEK:1, NOK:1, DKK:1, ZAR:1, TWD:1, ILS:1, ARS:1, CLP:1, COP:1
+};
+
+var REGION_TO_IATA = {
+  europe:'FRA', eu:'FRA', germany:'FRA', deutschland:'FRA', german:'FRA',
+  'เยอรมัน':'FRA', 'เยอรมนี':'FRA', 'ยุโรป':'FRA', 'ยุโรปตะวันตก':'FRA',
+  berlin:'BER', 'เบอร์ลิน':'BER', london:'LHR', 'ลอนดอน':'LHR', uk:'LHR',
+  paris:'CDG', france:'CDG', 'ปารีส':'CDG', 'ฝรั่งเศส':'CDG',
+  tokyo:'NRT', japan:'NRT', 'โตเกียว':'NRT', 'ญี่ปุ่น':'NRT',
+  singapore:'SIN', 'สิงคโปร์':'SIN', dubai:'DXB', 'ดูไบ':'DXB',
+  'united states':'JFK', usa:'JFK', america:'JFK', 'new york':'JFK',
+  australia:'SYD', sydney:'SYD', korea:'ICN', seoul:'ICN',
+  china:'PEK', beijing:'PEK', shanghai:'PVG', taiwan:'TPE', taipei:'TPE',
+  italy:'FCO', rome:'FCO', spain:'MAD', madrid:'MAD', barcelona:'BCN',
+  netherlands:'AMS', amsterdam:'AMS', switzerland:'ZRH', zurich:'ZRH',
+  austria:'VIE', vienna:'VIE', malaysia:'KUL', 'กัวลาลัมเปอร์':'KUL',
+  vietnam:'SGN', indonesia:'CGK', bali:'DPS', india:'DEL', mumbai:'BOM'
+};
+
+function resolveIataCode(value) {
+  if (!value) return '';
+  var raw = String(value).trim();
+  var upper = raw.toUpperCase();
+  if (/^[A-Z]{3}$/.test(upper) && !INVALID_IATA_CODES[upper]) return upper;
+
+  var lower = raw.toLowerCase();
+  if (REGION_TO_IATA[lower]) return REGION_TO_IATA[lower];
+  if (REGION_TO_IATA[raw]) return REGION_TO_IATA[raw];
+
+  var keys = Object.keys(REGION_TO_IATA);
+  for (var i = 0; i < keys.length; i++) {
+    if (lower.indexOf(keys[i]) !== -1 || keys[i].indexOf(lower) !== -1) {
+      return REGION_TO_IATA[keys[i]];
+    }
+  }
+  return '';
+}
+
+function normalizeFlightParams(params) {
+  params.origin = resolveIataCode(params.origin) || 'BKK';
+  params.destination = resolveIataCode(params.destination);
+  params.passengers = parseInt(params.passengers, 10) || 1;
+  return params;
+}
+
 function buildFlightUrl(params) {
   var base = 'https://flights.flyreisen24.com/';
+  var normalized = normalizeFlightParams(Object.assign({}, params));
+  if (!normalized.destination) return null;
   var query = new URLSearchParams({
-    origin: params.origin || 'BKK',
-    destination: params.destination || '',
-    depart_date: params.depart_date || '',
-    return_date: params.return_date || '',
-    passengers: String(params.passengers || '1'),
+    origin: normalized.origin || 'BKK',
+    destination: normalized.destination,
+    depart_date: normalized.depart_date || '',
+    return_date: normalized.return_date || '',
+    passengers: String(normalized.passengers || '1'),
     trip_class: '0'
   });
   return base + '?' + query.toString();
@@ -728,13 +784,17 @@ async function parseTrip() {
     var text = await callClaudeApi(PLANNER_SYSTEM_PROMPT, [{ role: 'user', content: input }], 200);
     parsedParams = parseJsonFromText(text);
     var defaults = defaultDates();
-    if (!parsedParams.origin) parsedParams.origin = 'BKK';
     if (!parsedParams.depart_date) parsedParams.depart_date = defaults.depart_date;
     if (!parsedParams.return_date) parsedParams.return_date = defaults.return_date;
-    if (!parsedParams.passengers) parsedParams.passengers = 1;
-    if (parsedParams.origin) parsedParams.origin = String(parsedParams.origin).toUpperCase().slice(0, 3);
-    if (parsedParams.destination) parsedParams.destination = String(parsedParams.destination).toUpperCase().slice(0, 3);
-    parsedParams.passengers = parseInt(parsedParams.passengers, 10) || 1;
+    parsedParams = normalizeFlightParams(parsedParams);
+    if (!parsedParams.destination) {
+      errEl.textContent = t.errInvalidDest;
+      errEl.classList.add('show');
+      isParsing = false;
+      btn.disabled = false;
+      loadEl.classList.remove('show');
+      return;
+    }
     showResult(parsedParams);
   } catch (e) {
     var apiErr = apiErrorMessage(e, t);
@@ -749,20 +809,27 @@ async function parseTrip() {
 
 function openFlightSearch() {
   if (!parsedParams) return;
-  window.open(buildFlightUrl(parsedParams), '_blank');
+  var url = buildFlightUrl(parsedParams);
+  if (!url) {
+    var errEl = document.getElementById('parseError');
+    errEl.textContent = T[lang].errInvalidDest;
+    errEl.classList.add('show');
+    return;
+  }
+  window.open(url, '_blank');
 }
 
 function quickSearch(origin, dest) {
   switchTab('planner');
   var d = defaultDates();
-  parsedParams = {
+  parsedParams = normalizeFlightParams({
     origin: origin,
     destination: dest,
     depart_date: d.depart_date,
     return_date: d.return_date,
     passengers: 1,
     budget_display: ''
-  };
+  });
   showResult(parsedParams);
   document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
