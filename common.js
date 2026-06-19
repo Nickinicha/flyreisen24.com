@@ -922,6 +922,7 @@
         const style = document.createElement('style');
         style.id = 'flyreisen-contact-widget-styles';
         style.textContent = `
+body:has(#flyreisen-chat-widget) .contact-widget { display: none !important; }
 .contact-widget { bottom: 92px !important; right: 24px !important; z-index: 99999 !important; }
 .contact-button {
   width: 52px !important;
@@ -934,6 +935,36 @@
 .contact-header { background-color: #ea580c !important; }
 .submit-btn { background-color: #ea580c !important; }
 .submit-btn:hover:not(:disabled) { background-color: #c2410c !important; }`;
+        document.head.appendChild(style);
+    }
+
+    function ensureLayoutFixes() {
+        if (document.getElementById('flyreisen-layout-fixes')) return;
+        const style = document.createElement('style');
+        style.id = 'flyreisen-layout-fixes';
+        style.textContent = `
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, video, iframe,
+.tp-widget, [id*="widget"] {
+  max-width: 100% !important;
+}
+@media (max-width: 1024px) {
+  .container,
+  .main-container,
+  .page-wrap,
+  .content-wrap {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: hidden;
+  }
+}`;
         document.head.appendChild(style);
     }
 
@@ -1082,6 +1113,7 @@
 
     function initFeedbackWidget() {
         if (document.getElementById('feedbackWidget')) return;
+        ensureLayoutFixes();
         ensureContactWidgetStyles();
         ensureFeedbackStyles();
 

@@ -378,8 +378,33 @@
           max-width: none !important;
         }
 
-        body {
+        body:has(#flyreisen-chat-widget) .contact-widget {
+          display: none !important;
+        }
+
+        html, body {
           overflow-x: hidden;
+          max-width: 100%;
+        }
+
+        *, *::before, *::after {
+          box-sizing: border-box;
+        }
+
+        img, video, iframe {
+          max-width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+          .container,
+          .main-container,
+          .page-wrap,
+          .content-wrap {
+            max-width: 100%;
+            padding-left: 16px;
+            padding-right: 16px;
+            overflow-x: hidden;
+          }
         }
     </style>
 </head>

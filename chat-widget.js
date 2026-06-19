@@ -180,15 +180,15 @@
     if (document.getElementById(STYLE_ID)) return;
 
     var css =
-      '#' + ROOT_ID + '{position:fixed;bottom:24px;right:24px;z-index:100000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}' +
-      'body:has(#' + ROOT_ID + ') .contact-widget{bottom:92px!important;right:24px!important;z-index:99999!important;}' +
+      '#' + ROOT_ID + '{position:fixed;bottom:24px;right:24px;left:auto;z-index:9997;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;align-items:flex-end;max-width:calc(100vw - 32px);}' +
+      'body:has(#' + ROOT_ID + ') .contact-widget{display:none!important;}' +
       '#' + ROOT_ID + ' *{box-sizing:border-box;}' +
-      '.fcw-toggle-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;}' +
-      '.fcw-toggle-label{font-size:10px;font-weight:700;color:#0056B3;background:#fff;padding:2px 8px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.12);white-space:nowrap;pointer-events:none;}' +
-      '.fcw-toggle{width:56px;height:56px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(0,86,179,.45);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}' +
-      '.fcw-toggle:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(0,86,179,.55);}' +
-      '@keyframes fcw-pulse{0%,100%{box-shadow:0 4px 20px rgba(0,86,179,.45);}50%{box-shadow:0 4px 28px rgba(0,86,179,.7),0 0 0 8px rgba(0,86,179,.12);}}' +
-      '.fcw-panel{display:none;flex-direction:column;width:320px;height:480px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden;margin-bottom:14px;}' +
+      '.fcw-toggle-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;}' +
+      '.fcw-toggle-label{display:none;}' +
+      '#chatToggleBtn,.fcw-toggle{width:56px;height:56px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 16px rgba(0,86,179,.4);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}' +
+      '#chatToggleBtn:hover,.fcw-toggle:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(0,86,179,.55);}' +
+      '@keyframes fcw-pulse{0%,100%{box-shadow:0 4px 16px rgba(0,86,179,.4);}50%{box-shadow:0 4px 28px rgba(0,86,179,.7),0 0 0 8px rgba(0,86,179,.12);}}' +
+      '.fcw-panel{display:none;flex-direction:column;width:340px;height:480px;max-width:calc(100vw - 48px);background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden;margin-bottom:14px;}' +
       '.fcw-panel.open{display:flex;}' +
       '.fcw-header{background:#0056B3;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}' +
       '.fcw-header-text{display:flex;flex-direction:column;gap:2px;}' +
@@ -224,9 +224,12 @@
       '.fcw-send:hover{background:#003d82;}' +
       '.fcw-send:disabled{opacity:.5;cursor:not-allowed;}' +
       '.fcw-error{font-size:12px;color:#c0392b;padding:0 12px 8px;background:#fafbfd;}' +
-      '@media(max-width:480px){#' + ROOT_ID + '{bottom:12px;right:12px;left:12px;}' +
-      '.fcw-toggle{position:absolute;bottom:0;right:0;}' +
-      '.fcw-panel{width:100%;height:calc(100vh - 80px);max-height:520px;border-radius:14px;}' +
+      '@media(min-width:768px) and (max-width:1024px){#' + ROOT_ID + '{bottom:20px;right:16px;left:auto;}' +
+      '.fcw-panel{width:320px;height:440px;max-width:calc(100vw - 32px);}' +
+      '#chatToggleBtn,.fcw-toggle{width:52px;height:52px;font-size:22px;}}' +
+      '@media(max-width:767px){#' + ROOT_ID + '{bottom:80px;right:16px;left:16px;align-items:stretch;}' +
+      '.fcw-panel{width:100%;height:60vh;max-height:520px;border-radius:16px;}' +
+      '.fcw-toggle-wrap{align-self:flex-end;}' +
       '.fcw-bubble{max-width:92%;}}';
 
     var style = document.createElement('style');

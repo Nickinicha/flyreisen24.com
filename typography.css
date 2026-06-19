@@ -81,3 +81,30 @@ h4 { font-size: 1.1rem; }
     line-height: 1.8;
   }
 }
+
+/* Prevent horizontal scroll / content overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe,
+.tp-widget, [id*="widget"] {
+  max-width: 100% !important;
+}
+
+@media (max-width: 1024px) {
+  .container,
+  .main-container,
+  .page-wrap,
+  .content-wrap {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: hidden;
+  }
+}
