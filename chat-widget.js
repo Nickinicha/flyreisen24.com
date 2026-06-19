@@ -33,8 +33,9 @@
     '- If user writes English → respond in English\n' +
     '- If user writes German → respond in German\n' +
     '- Default to Thai if unclear\n\n' +
-    'FAQ URLs (use EXACT URLs with .html extension):\n' +
-    'TH pages:\n' +
+    'CRITICAL: When providing FAQ links,\n' +
+    'use ONLY these EXACT URLs — never guess or shorten:\n\n' +
+    'THAI (TH):\n' +
     '/th/faq/01-passport-visa.html\n' +
     '/th/faq/02-connection-time.html\n' +
     '/th/faq/03-baggage-rules.html\n' +
@@ -49,8 +50,8 @@
     '/th/faq/12-travel-insurance.html\n' +
     '/th/faq/13-airport-lounge.html\n' +
     '/th/faq/14-special-needs.html\n' +
-    '/th/faq/15-booking-tips.html\n' +
-    'EN pages (same pattern with /en/faq/):\n' +
+    '/th/faq/15-booking-tips.html\n\n' +
+    'ENGLISH (EN):\n' +
     '/en/faq/01-passport-visa.html\n' +
     '/en/faq/02-connection-time.html\n' +
     '/en/faq/03-baggage-rules.html\n' +
@@ -65,8 +66,8 @@
     '/en/faq/12-travel-insurance.html\n' +
     '/en/faq/13-airport-lounge.html\n' +
     '/en/faq/14-special-needs.html\n' +
-    '/en/faq/15-booking-tips.html\n' +
-    'DE pages (same pattern with /de/faq/):\n' +
+    '/en/faq/15-booking-tips.html\n\n' +
+    'GERMAN (DE):\n' +
     '/de/faq/01-passport-visa.html\n' +
     '/de/faq/02-connection-time.html\n' +
     '/de/faq/03-baggage-rules.html\n' +
@@ -82,10 +83,15 @@
     '/de/faq/13-airport-lounge.html\n' +
     '/de/faq/14-special-needs.html\n' +
     '/de/faq/15-booking-tips.html\n\n' +
-    'CRITICAL: Always end FAQ links with .html\n' +
-    'Never omit the .html extension.\n' +
-    'Always use full path: /th/faq/XX-name.html\n' +
-    'Format link as: <a href="/th/faq/XX-name.html">อ่านเพิ่มเติม</a>\n\n' +
+    'RULES for links:\n' +
+    '1. Always include .html at the end\n' +
+    '2. Always start with /th/ or /en/ or /de/\n' +
+    '3. Match language to user\'s question language\n' +
+    '4. If user writes Thai → use /th/faq/...\n' +
+    '5. If user writes English → use /en/faq/...\n' +
+    '6. If user writes German → use /de/faq/...\n' +
+    '7. NEVER create URLs not in this list\n' +
+    '8. For topics outside these 15 → link to /th/faq/landing.html (or /en/ or /de/) instead of guessing a URL\n\n' +
     'VISA INFORMATION POLICY:\n' +
     'When answering visa questions, provide ONLY:\n' +
     '1. Yes/No — visa required or not\n' +
@@ -280,15 +286,20 @@
     return div.innerHTML;
   }
 
-  function fixFaqLinks(text) {
-    return text.replace(
-      /(\/(?:th|en|de)\/faq\/[\w-]+)(?!\.html)(?=[\s"'<),]|$)/g,
-      '$1.html'
+  function fixLinks(text) {
+    text = text.replace(
+      /(\/(?:th|en|de)\/faq\/[\w-]+)(?!\.html)("|\)|\s|$)/g,
+      '$1.html$2'
     );
+    text = text.replace(
+      /https?:\/\/(?:www\.)?flyreisen24\.com(\/(?:th|en|de)\/faq\/[\w.-]+)/g,
+      '$1'
+    );
+    return text;
   }
 
   function formatPlainText(text) {
-    return escapeHtml(fixFaqLinks(text || '')).replace(/\n/g, '<br>');
+    return escapeHtml(fixLinks(text || '')).replace(/\n/g, '<br>');
   }
 
   function updateStreamingBubble(text, showCursor) {
@@ -300,7 +311,7 @@
   }
 
   function linkify(text) {
-    var fixed = fixFaqLinks(text);
+    var fixed = fixLinks(text);
     var escaped = escapeHtml(fixed);
     escaped = escaped.replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
@@ -405,7 +416,7 @@
       });
 
       if (!reply) reply = 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้ ลองถามใหม่อีกครั้งนะคะ';
-      reply = fixFaqLinks(reply);
+      reply = fixLinks(reply);
       messages[messages.length - 1] = { role: 'assistant', content: reply };
     } catch (err) {
       if (messages.length && messages[messages.length - 1].streaming) {

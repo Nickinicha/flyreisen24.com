@@ -268,22 +268,65 @@ var CHAT_SYSTEM_PROMPT =
   '- If user writes English → respond in English\n' +
   '- If user writes German → respond in German\n' +
   '- Default to Thai if unclear\n\n' +
-  'FAQ URLs:\n' +
-  '01: /th/faq/01-passport-visa.html (TH) | /en/faq/01-passport-visa.html (EN) | /de/faq/01-passport-visa.html (DE)\n' +
-  '02: /th/faq/02-connection-time.html | /en/faq/02-connection-time.html | /de/faq/02-connection-time.html\n' +
-  '03: /th/faq/03-baggage-rules.html | /en/faq/03-baggage-rules.html | /de/faq/03-baggage-rules.html\n' +
-  '04: /th/faq/04-flight-changes.html | /en/faq/04-flight-changes.html | /de/faq/04-flight-changes.html\n' +
-  '05: /th/faq/05-codeshare-stopover.html | /en/faq/05-codeshare-stopover.html | /de/faq/05-codeshare-stopover.html\n' +
-  '06: /th/faq/06-frequent-flyer.html | /en/faq/06-frequent-flyer.html | /de/faq/06-frequent-flyer.html\n' +
-  '07: /th/faq/07-charter-overbooking.html | /en/faq/07-charter-overbooking.html | /de/faq/07-charter-overbooking.html\n' +
-  '08: /th/faq/08-online-checkin.html | /en/faq/08-online-checkin.html | /de/faq/08-online-checkin.html\n' +
-  '09: /th/faq/09-montreal-eu261.html | /en/faq/09-montreal-eu261.html | /de/faq/09-montreal-eu261.html\n' +
-  '10: /th/faq/10-saf-future.html | /en/faq/10-saf-future.html | /de/faq/10-saf-future.html\n' +
-  '11: /th/faq/11-airport-security.html | /en/faq/11-airport-security.html | /de/faq/11-airport-security.html\n' +
-  '12: /th/faq/12-travel-insurance.html | /en/faq/12-travel-insurance.html | /de/faq/12-travel-insurance.html\n' +
-  '13: /th/faq/13-airport-lounge.html | /en/faq/13-airport-lounge.html | /de/faq/13-airport-lounge.html\n' +
-  '14: /th/faq/14-special-needs.html | /en/faq/14-special-needs.html | /de/faq/14-special-needs.html\n' +
-  '15: /th/faq/15-booking-tips.html | /en/faq/15-booking-tips.html | /de/faq/15-booking-tips.html\n\n' +
+  'CRITICAL: When providing FAQ links,\n' +
+  'use ONLY these EXACT URLs — never guess or shorten:\n\n' +
+  'THAI (TH):\n' +
+  '/th/faq/01-passport-visa.html\n' +
+  '/th/faq/02-connection-time.html\n' +
+  '/th/faq/03-baggage-rules.html\n' +
+  '/th/faq/04-flight-changes.html\n' +
+  '/th/faq/05-codeshare-stopover.html\n' +
+  '/th/faq/06-frequent-flyer.html\n' +
+  '/th/faq/07-charter-overbooking.html\n' +
+  '/th/faq/08-online-checkin.html\n' +
+  '/th/faq/09-montreal-eu261.html\n' +
+  '/th/faq/10-saf-future.html\n' +
+  '/th/faq/11-airport-security.html\n' +
+  '/th/faq/12-travel-insurance.html\n' +
+  '/th/faq/13-airport-lounge.html\n' +
+  '/th/faq/14-special-needs.html\n' +
+  '/th/faq/15-booking-tips.html\n\n' +
+  'ENGLISH (EN):\n' +
+  '/en/faq/01-passport-visa.html\n' +
+  '/en/faq/02-connection-time.html\n' +
+  '/en/faq/03-baggage-rules.html\n' +
+  '/en/faq/04-flight-changes.html\n' +
+  '/en/faq/05-codeshare-stopover.html\n' +
+  '/en/faq/06-frequent-flyer.html\n' +
+  '/en/faq/07-charter-overbooking.html\n' +
+  '/en/faq/08-online-checkin.html\n' +
+  '/en/faq/09-montreal-eu261.html\n' +
+  '/en/faq/10-saf-future.html\n' +
+  '/en/faq/11-airport-security.html\n' +
+  '/en/faq/12-travel-insurance.html\n' +
+  '/en/faq/13-airport-lounge.html\n' +
+  '/en/faq/14-special-needs.html\n' +
+  '/en/faq/15-booking-tips.html\n\n' +
+  'GERMAN (DE):\n' +
+  '/de/faq/01-passport-visa.html\n' +
+  '/de/faq/02-connection-time.html\n' +
+  '/de/faq/03-baggage-rules.html\n' +
+  '/de/faq/04-flight-changes.html\n' +
+  '/de/faq/05-codeshare-stopover.html\n' +
+  '/de/faq/06-frequent-flyer.html\n' +
+  '/de/faq/07-charter-overbooking.html\n' +
+  '/de/faq/08-online-checkin.html\n' +
+  '/de/faq/09-montreal-eu261.html\n' +
+  '/de/faq/10-saf-future.html\n' +
+  '/de/faq/11-airport-security.html\n' +
+  '/de/faq/12-travel-insurance.html\n' +
+  '/de/faq/13-airport-lounge.html\n' +
+  '/de/faq/14-special-needs.html\n' +
+  '/de/faq/15-booking-tips.html\n\n' +
+  'RULES for links:\n' +
+  '1. Always include .html at the end\n' +
+  '2. Always start with /th/ or /en/ or /de/\n' +
+  '3. Match language to user\'s question language\n' +
+  '4. If user writes Thai → use /th/faq/...\n' +
+  '5. If user writes English → use /en/faq/...\n' +
+  '6. If user writes German → use /de/faq/...\n' +
+  '7. NEVER create URLs not in this list\n' +
+  '8. For topics outside these 15 → link to /th/faq/landing.html (or /en/ or /de/) instead of guessing a URL\n\n' +
   'VISA INFORMATION POLICY:\n' +
   'When answering visa questions, provide ONLY:\n' +
   '1. Yes/No — visa required or not\n' +
@@ -1025,8 +1068,21 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+function fixLinks(text) {
+  text = text.replace(
+    /(\/(?:th|en|de)\/faq\/[\w-]+)(?!\.html)("|\)|\s|$)/g,
+    '$1.html$2'
+  );
+  text = text.replace(
+    /https?:\/\/(?:www\.)?flyreisen24\.com(\/(?:th|en|de)\/faq\/[\w.-]+)/g,
+    '$1'
+  );
+  return text;
+}
+
 function linkify(text) {
-  var escaped = escapeHtml(text);
+  var fixed = fixLinks(text);
+  var escaped = escapeHtml(fixed);
   escaped = escaped.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     function(match, label, url) {
@@ -1035,7 +1091,7 @@ function linkify(text) {
     }
   );
   escaped = escaped.replace(
-    /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+\.html)/gi,
+    /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
     function(url) {
       var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + url;
       return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + url + '</a>';
@@ -1116,6 +1172,7 @@ async function sendChatMessage(preset) {
     }), 800);
 
     if (!reply) reply = lang === 'th' ? 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้' : lang === 'de' ? 'Entschuldigung, keine Antwort möglich.' : 'Sorry, no answer available right now.';
+    reply = fixLinks(reply);
     chatMessages.push({ role: 'assistant', content: reply });
   } catch (e) {
     var apiErr = apiErrorMessage(e, t);
