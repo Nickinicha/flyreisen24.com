@@ -1,0 +1,83 @@
+/* ═══ GLOBAL TYPOGRAPHY FIX ═══ */
+
+/* Base font size */
+html {
+  font-size: 17px;
+}
+
+body {
+  font-size: 1rem;        /* = 17px */
+  line-height: 1.75;      /* breathing room */
+  color: #1a1a2e;         /* dark enough contrast */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paragraph text */
+p, li, td, th, label {
+  font-size: 1rem;        /* 17px */
+  line-height: 1.75;
+}
+
+/* FAQ content specifically */
+.faq-content p,
+.faq-body p,
+.article-body p {
+  font-size: 1.05rem;     /* 17-18px */
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Chat widget messages */
+.chat-bubble,
+.fcw-bubble,
+.message-text,
+#chatMessages p,
+#fcwMessages p {
+  font-size: 15px;        /* slightly smaller OK for chat */
+  line-height: 1.65;
+}
+
+/* Chatbot input */
+#chatInput,
+#chat-input,
+.fcw-input,
+#fcwInput,
+#planner-freetext,
+#planner-dest,
+.fs-field input,
+.fs-field select {
+  font-size: 16px;        /* iOS won't zoom if ≥16px */
+  line-height: 1.5;
+}
+
+/* Headings */
+h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+h4 { font-size: 1.1rem; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  html { font-size: 16px; }
+
+  p, li {
+    font-size: 1rem;      /* 16px */
+    line-height: 1.7;
+  }
+
+  /* Increase tap targets */
+  button, a, input, select {
+    min-height: 44px;     /* Apple HIG standard */
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  html { font-size: 17px; }
+
+  p, li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+}

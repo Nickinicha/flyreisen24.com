@@ -7,6 +7,7 @@
 
     const BASE_URL = 'https://www.flyreisen24.com/';
     const GLOBAL_NAV_STYLE_ID = 'flyreisen24-global-nav-styles';
+    const GLOBAL_TYPOGRAPHY_ID = 'flyreisen24-global-typography';
     const GLOBAL_NAV_MARKUP = `
         <div class="top-nav-container">
             <a href="/" class="top-nav-logo">
@@ -200,6 +201,16 @@
         if (path.includes('contact')) return 'contact';
         
         return 'index';
+    }
+
+    function ensureGlobalTypographyStyles() {
+        if (document.getElementById(GLOBAL_TYPOGRAPHY_ID)) return;
+        if (document.querySelector('link[href*="typography.css"]')) return;
+        const link = document.createElement('link');
+        link.id = GLOBAL_TYPOGRAPHY_ID;
+        link.rel = 'stylesheet';
+        link.href = '/typography.css?v=1';
+        document.head.appendChild(link);
     }
 
     function ensureGlobalNavStyles() {
@@ -1085,6 +1096,12 @@
     window.toggleFaq = toggleFaq;
     window.toggleReadMore = toggleReadMore;
     window.toggleFeedback = toggleFeedback;
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ensureGlobalTypographyStyles);
+    } else {
+        ensureGlobalTypographyStyles();
+    }
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initFeedbackWidget);
