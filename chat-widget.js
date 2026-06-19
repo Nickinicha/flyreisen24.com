@@ -120,12 +120,50 @@
     '   For DE responses: 📖 Mehr lesen: [topic name](/de/faq/XX-topic.html)\n' +
     '4. Match link language to the language of the question.';
 
-  var SUGGESTED_QUESTIONS = [
-    'บินต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
-    'กระเป๋าหายต้องทำอะไรก่อน?',
-    'เข้า Lounge ฟรีได้อย่างไร?',
-    'CT Scanner คืออะไร?'
-  ];
+  var SUGGESTED_QUESTIONS = {
+    th: [
+      'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
+      'กระเป๋าหายต้องทำอะไรก่อน?',
+      'เข้า Lounge ฟรีได้อย่างไร?',
+      'CT Scanner คืออะไร?'
+    ],
+    en: [
+      'Is 90 min connection in Dubai enough?',
+      'What to do if my baggage is lost?',
+      'How to access airport lounge free?',
+      'What is CT Scanner at security?'
+    ],
+    de: [
+      '90 Min Umstieg Dubai — reicht das?',
+      'Was tun wenn Gepäck verloren geht?',
+      'Wie komme ich kostenlos in die Lounge?',
+      'Was ist CT-Scanner bei der Sicherheit?'
+    ]
+  };
+
+  var CHAT_WIDGET_LANG = {
+    th: {
+      title: '🐱 Ask Meshmesh',
+      sub: 'ถามได้เลยค่ะ!',
+      suggestLabel: 'คำถามยอดนิยม',
+      placeholder: 'พิมพ์คำถามของคุณ...',
+      toggleLabel: 'Ask Meshmesh'
+    },
+    en: {
+      title: '🐱 Ask Meshmesh',
+      sub: 'Ask me anything!',
+      suggestLabel: 'Popular questions',
+      placeholder: 'Type your question...',
+      toggleLabel: 'Ask Meshmesh'
+    },
+    de: {
+      title: '🐱 Ask Meshmesh',
+      sub: 'Frag mich!',
+      suggestLabel: 'Beliebte Fragen',
+      placeholder: 'Frage eingeben...',
+      toggleLabel: 'Ask Meshmesh'
+    }
+  };
 
   var messages = [];
   var isOpen = false;
@@ -142,12 +180,13 @@
     if (document.getElementById(STYLE_ID)) return;
 
     var css =
-      '#' + ROOT_ID + '{position:fixed;bottom:20px;right:20px;z-index:100000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}' +
-      'body:has(#' + ROOT_ID + ') .contact-widget{bottom:95px!important;z-index:100001!important;}' +
+      '#' + ROOT_ID + '{position:fixed;bottom:24px;right:24px;z-index:100000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}' +
+      'body:has(#' + ROOT_ID + ') .contact-widget{bottom:92px!important;right:24px!important;z-index:99999!important;}' +
       '#' + ROOT_ID + ' *{box-sizing:border-box;}' +
-      '.fcw-toggle{width:60px;height:60px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(0,86,179,.45);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}' +
+      '.fcw-toggle-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;}' +
+      '.fcw-toggle-label{font-size:10px;font-weight:700;color:#0056B3;background:#fff;padding:2px 8px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.12);white-space:nowrap;pointer-events:none;}' +
+      '.fcw-toggle{width:56px;height:56px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(0,86,179,.45);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}' +
       '.fcw-toggle:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(0,86,179,.55);}' +
-      '.fcw-toggle .fa-plane{transform:rotate(-30deg);}' +
       '@keyframes fcw-pulse{0%,100%{box-shadow:0 4px 20px rgba(0,86,179,.45);}50%{box-shadow:0 4px 28px rgba(0,86,179,.7),0 0 0 8px rgba(0,86,179,.12);}}' +
       '.fcw-panel{display:none;flex-direction:column;width:320px;height:480px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden;margin-bottom:14px;}' +
       '.fcw-panel.open{display:flex;}' +
@@ -220,14 +259,19 @@
           '<button type="button" class="fcw-send" id="fcwSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>' +
         '</div>' +
       '</div>' +
-      '<button type="button" class="fcw-toggle" id="fcwToggle" aria-label="Open chat" aria-expanded="false">' +
-        '<i class="fas fa-plane"></i>' +
-      '</button>';
+      '<div class="fcw-toggle-wrap">' +
+        '<span class="fcw-toggle-label" id="fcwToggleLabel">Ask Meshmesh</span>' +
+        '<button type="button" class="fcw-toggle" id="fcwToggle" title="Ask Meshmesh" aria-label="Ask Meshmesh" aria-expanded="false">' +
+          '🐱' +
+        '</button>' +
+      '</div>';
 
     document.body.appendChild(root);
 
     var suggestionsEl = document.getElementById('fcwSuggestions');
-    SUGGESTED_QUESTIONS.forEach(function (q) {
+    var pageLang = detectPageLang();
+    var questions = SUGGESTED_QUESTIONS[pageLang] || SUGGESTED_QUESTIONS.th;
+    questions.forEach(function (q) {
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'fcw-suggest-btn';
@@ -259,7 +303,7 @@
     if (isOpen) {
       panel.classList.add('open');
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.innerHTML = '<i class="fas fa-chevron-down"></i>';
+      toggle.textContent = '✕';
       setTimeout(function () {
         var input = document.getElementById('fcwInput');
         if (input) input.focus();
@@ -276,7 +320,7 @@
     if (panel) panel.classList.remove('open');
     if (toggle) {
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.innerHTML = '<i class="fas fa-plane"></i>';
+      toggle.textContent = '🐱';
     }
   }
 
@@ -298,8 +342,41 @@
     return text;
   }
 
+  function sanitizeAndRender(text) {
+    if (!text) return '';
+    text = fixLinks(text);
+    var safe = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    safe = safe
+      .replace(/&lt;a href="(\/[^"]*)"&gt;/gi,
+        '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">')
+      .replace(/&lt;\/a&gt;/gi, '</a>')
+      .replace(/&lt;strong&gt;/gi, '<strong>')
+      .replace(/&lt;\/strong&gt;/gi, '</strong>')
+      .replace(/&lt;br\s*\/?&gt;/gi, '<br>')
+      .replace(/&lt;br&gt;/gi, '<br>')
+      .replace(/\[([^\]]+)\]\((\/[^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+    safe = safe.replace(
+      /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
+      function (match, offset, whole) {
+        var before = whole.substring(Math.max(0, offset - 20), offset);
+        if (/href=["']?$/.test(before) || /<a[^>]*$/.test(before)) return match;
+        var href = match.indexOf('http') === 0 ? match : 'https://www.flyreisen24.com' + match;
+        return '<a href="' + href + '" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">' + match + '</a>';
+      }
+    );
+    return safe;
+  }
+
   function formatPlainText(text) {
-    return escapeHtml(fixLinks(text || '')).replace(/\n/g, '<br>');
+    return sanitizeAndRender(text || '');
   }
 
   function updateStreamingBubble(text, showCursor) {
@@ -311,23 +388,7 @@
   }
 
   function linkify(text) {
-    var fixed = fixLinks(text);
-    var escaped = escapeHtml(fixed);
-    escaped = escaped.replace(
-      /\[([^\]]+)\]\(([^)]+)\)/g,
-      function(match, label, url) {
-        var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + (url.indexOf('/') === 0 ? url : '/' + url);
-        return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + label + '</a>';
-      }
-    );
-    escaped = escaped.replace(
-      /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
-      function(url) {
-        var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + url;
-        return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + url + '</a>';
-      }
-    );
-    return escaped.replace(/\n/g, '<br>');
+    return sanitizeAndRender(text);
   }
 
   function renderMessages() {
@@ -465,12 +526,41 @@
     if (input) input.focus();
   }
 
+  function updateChatWidgetLang(langCode) {
+    var lang = CHAT_WIDGET_LANG[langCode] || CHAT_WIDGET_LANG.th;
+    var titleEl = document.querySelector('.fcw-header-title');
+    var subEl = document.querySelector('.fcw-header-sub');
+    var labelEl = document.getElementById('fcwToggleLabel');
+    var inputEl = document.getElementById('fcwInput');
+    var suggestLabelEl = document.querySelector('.fcw-suggest-label');
+    var toggleEl = document.getElementById('fcwToggle');
+
+    if (titleEl) titleEl.textContent = lang.title;
+    if (subEl) subEl.textContent = lang.sub;
+    if (labelEl) labelEl.textContent = lang.toggleLabel;
+    if (inputEl) inputEl.placeholder = lang.placeholder;
+    if (suggestLabelEl) suggestLabelEl.textContent = lang.suggestLabel;
+    if (toggleEl) toggleEl.title = lang.toggleLabel;
+
+    var questions = SUGGESTED_QUESTIONS[langCode] || SUGGESTED_QUESTIONS.th;
+    var btns = document.querySelectorAll('.fcw-suggest-btn');
+    btns.forEach(function (btn, i) {
+      if (questions[i]) btn.textContent = questions[i];
+    });
+  }
+
   function init() {
     if (window.__flyreisenChatWidgetInit) return;
+    if (window.location.pathname.indexOf('smart-search') !== -1) return;
     window.__flyreisenChatWidgetInit = true;
     injectStyles();
     createWidget();
+    var storedLang = localStorage.getItem('flyreisen24_lang');
+    var pageLang = storedLang || detectPageLang();
+    updateChatWidgetLang(pageLang);
   }
+
+  window.updateChatWidgetLang = updateChatWidgetLang;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

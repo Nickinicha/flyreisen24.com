@@ -818,6 +818,8 @@ function setLang(l) {
     if (dd) dd.classList.toggle('active', x === l);
   });
   document.documentElement.lang = l;
+  localStorage.setItem('flyreisen24_lang', l);
+  if (typeof window.syncAllWidgets === 'function') window.syncAllWidgets(l);
   var L = t.links;
   document.getElementById('navFaqLink').href = L.faq;
   document.getElementById('ftFaqLink').href = L.faq;
@@ -1081,24 +1083,41 @@ function fixLinks(text) {
   return text;
 }
 
-function linkify(text) {
-  var fixed = fixLinks(text);
-  var escaped = escapeHtml(fixed);
-  escaped = escaped.replace(
-    /\[([^\]]+)\]\(([^)]+)\)/g,
-    function(match, label, url) {
-      var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + (url.indexOf('/') === 0 ? url : '/' + url);
-      return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + label + '</a>';
-    }
-  );
-  escaped = escaped.replace(
+function sanitizeAndRender(text) {
+  if (!text) return '';
+  text = fixLinks(text);
+  var safe = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  safe = safe
+    .replace(/&lt;a href="(\/[^"]*)"&gt;/gi,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">')
+    .replace(/&lt;\/a&gt;/gi, '</a>')
+    .replace(/&lt;strong&gt;/gi, '<strong>')
+    .replace(/&lt;\/strong&gt;/gi, '</strong>')
+    .replace(/&lt;br\s*\/?&gt;/gi, '<br>')
+    .replace(/&lt;br&gt;/gi, '<br>')
+    .replace(/\[([^\]]+)\]\((\/[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>');
+  safe = safe.replace(
     /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
-    function(url) {
-      var href = url.indexOf('http') === 0 ? url : 'https://www.flyreisen24.com' + url;
-      return '<a href="' + href + '" style="color:#0056B3;text-decoration:underline;" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+    function (match, offset, whole) {
+      var before = whole.substring(Math.max(0, offset - 20), offset);
+      if (/href=["']?$/.test(before) || /<a[^>]*$/.test(before)) return match;
+      var href = match.indexOf('http') === 0 ? match : 'https://www.flyreisen24.com' + match;
+      return '<a href="' + href + '" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">' + match + '</a>';
     }
   );
-  return escaped.replace(/\n/g, '<br>');
+  return safe;
+}
+
+function linkify(text) {
+  return sanitizeAndRender(text);
 }
 
 function renderChatMessages() {
@@ -1216,9 +1235,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   var ref = document.referrer;
-  if (ref.includes('/en/')) setLang('en');
-  else if (ref.includes('/de/')) setLang('de');
-  else setLang('th');
+  var storedLang = localStorage.getItem('flyreisen24_lang');
+  if (storedLang === 'en' || storedLang === 'de' || storedLang === 'th') {
+    setLang(storedLang);
+  } else if (ref.includes('/en/')) {
+    setLang('en');
+  } else if (ref.includes('/de/')) {
+    setLang('de');
+  } else {
+    setLang('th');
+  }
 
   initDevModeBadge();
 
@@ -1227,7 +1253,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-<script src="/chat-widget.js"></script>
 <script src="/common.js"></script>
 </body>
 </html>

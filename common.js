@@ -478,6 +478,64 @@
         console.log('✅ Links updated for: ' + lang);
     }
 
+    function getEffectiveLang() {
+        const stored = localStorage.getItem('flyreisen24_lang');
+        if (stored === 'en' || stored === 'de' || stored === 'th') return stored;
+        const path = window.location.pathname;
+        if (path.includes('/en/')) return 'en';
+        if (path.includes('/de/')) return 'de';
+        const docLang = (document.documentElement.lang || 'th').toLowerCase();
+        if (docLang === 'en' || docLang === 'de') return docLang;
+        return 'th';
+    }
+
+    function syncAllWidgets(langCode) {
+        const lang = langCode || getEffectiveLang();
+        updateFeedbackLang(lang);
+        if (typeof window.updateChatWidgetLang === 'function') {
+            window.updateChatWidgetLang(lang);
+        }
+        const onSmartSearch = window.location.pathname.indexOf('smart-search') !== -1;
+        if (onSmartSearch) return;
+
+        document.querySelectorAll('.fcw-suggest-btn').forEach(function(btn, i) {
+            var suggestLang = {
+                th: [
+                    'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
+                    'กระเป๋าหายต้องทำอะไรก่อน?',
+                    'เข้า Lounge ฟรีได้อย่างไร?',
+                    'CT Scanner คืออะไร?'
+                ],
+                en: [
+                    'Is 90 min connection in Dubai enough?',
+                    'What to do if my baggage is lost?',
+                    'How to access airport lounge free?',
+                    'What is CT Scanner at security?'
+                ],
+                de: [
+                    '90 Min Umstieg Dubai — reicht das?',
+                    'Was tun wenn Gepäck verloren geht?',
+                    'Wie komme ich kostenlos in die Lounge?',
+                    'Was ist CT-Scanner bei der Sicherheit?'
+                ]
+            };
+            var sq = suggestLang[lang];
+            if (sq && sq[i]) btn.textContent = sq[i];
+        });
+        var chatHeader = document.querySelector('.fcw-header-title');
+        var chatSubtitle = document.querySelector('.fcw-header-sub');
+        var chatLang = {
+            th: { title: '🐱 Ask Meshmesh', sub: 'ถามได้เลยค่ะ!' },
+            en: { title: '🐱 Ask Meshmesh', sub: 'Ask me anything!' },
+            de: { title: '🐱 Ask Meshmesh', sub: 'Frag mich!' }
+        };
+        var ct = chatLang[lang];
+        if (ct) {
+            if (chatHeader) chatHeader.textContent = ct.title;
+            if (chatSubtitle) chatSubtitle.textContent = ct.sub;
+        }
+    }
+
     // ==========================================
     // LANGUAGE SWITCHER
     // ==========================================
@@ -500,7 +558,7 @@
             });
             localStorage.setItem('flyreisen24_lang', langCode);
             updateContent(langCode);
-            updateFeedbackLang(langCode);
+            syncAllWidgets(langCode);
             toggleLangDropdown();
             return; // Stop here, don't navigate
         }
@@ -732,7 +790,7 @@
         if (currentLangEl) currentLangEl.textContent = langLabels[currentLang];
 
         updateContent(currentLang);
-        updateFeedbackLang(currentLang);
+        syncAllWidgets(currentLang);
         updateLanguageDropdownHrefs();
 
         document.querySelectorAll('.lang-dropdown-menu a').forEach(link => {
@@ -859,6 +917,26 @@
         }
     };
 
+    function ensureContactWidgetStyles() {
+        if (document.getElementById('flyreisen-contact-widget-styles')) return;
+        const style = document.createElement('style');
+        style.id = 'flyreisen-contact-widget-styles';
+        style.textContent = `
+.contact-widget { bottom: 92px !important; right: 24px !important; z-index: 99999 !important; }
+.contact-button {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 14px !important;
+  background-color: #ea580c !important;
+  box-shadow: 0 4px 16px rgba(234,88,12,0.35) !important;
+}
+.contact-button:hover { background-color: #c2410c !important; }
+.contact-header { background-color: #ea580c !important; }
+.submit-btn { background-color: #ea580c !important; }
+.submit-btn:hover:not(:disabled) { background-color: #c2410c !important; }`;
+        document.head.appendChild(style);
+    }
+
     function ensureFeedbackStyles() {
         if (document.getElementById('flyreisen-feedback-styles')) return;
         const fbStyle = document.createElement('style');
@@ -872,19 +950,22 @@
   z-index: 9998;
 }
 #feedbackTab {
-  background: #0056B3;
+  background: #16a34a;
   color: white;
   border: none;
-  padding: 12px 10px;
+  padding: 14px 10px;
   border-radius: 8px 0 0 8px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 13px;
+  font-weight: 700;
   writing-mode: vertical-rl;
-  letter-spacing: 2px;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  letter-spacing: 1px;
+  box-shadow: -2px 0 10px rgba(22,163,74,0.35);
   display: flex;
   align-items: center;
   gap: 6px;
+  min-height: 88px;
+  min-width: 36px;
 }
 #feedbackPanel {
   position: absolute;
@@ -899,7 +980,7 @@
   border: 1px solid #e5e7eb;
 }
 #feedbackHeader {
-  background: #0056B3;
+  background: #16a34a;
   color: white;
   padding: 12px 16px;
   display: flex;
@@ -946,7 +1027,7 @@
   border-color: #0056B3;
 }
 #fb-submit {
-  background: #0056B3;
+  background: #16a34a;
   color: white;
   border: none;
   padding: 10px;
@@ -1001,13 +1082,14 @@
 
     function initFeedbackWidget() {
         if (document.getElementById('feedbackWidget')) return;
+        ensureContactWidgetStyles();
         ensureFeedbackStyles();
 
         const widget = document.createElement('div');
         widget.id = 'feedbackWidget';
         widget.innerHTML = `
-    <button id="feedbackTab" type="button" onclick="toggleFeedback()">
-      💬
+    <button id="feedbackTab" type="button" onclick="toggleFeedback()" title="Feedback">
+      💬 Feedback
     </button>
     <div id="feedbackPanel" style="display:none">
       <div id="feedbackHeader">
@@ -1096,11 +1178,21 @@
     window.toggleFaq = toggleFaq;
     window.toggleReadMore = toggleReadMore;
     window.toggleFeedback = toggleFeedback;
+    window.syncAllWidgets = syncAllWidgets;
+    window.getEffectiveLang = getEffectiveLang;
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', ensureGlobalTypographyStyles);
     } else {
         ensureGlobalTypographyStyles();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            syncAllWidgets(getEffectiveLang());
+        });
+    } else {
+        syncAllWidgets(getEffectiveLang());
     }
 
     if (document.readyState === 'loading') {
