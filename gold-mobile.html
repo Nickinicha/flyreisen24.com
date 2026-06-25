@@ -677,12 +677,30 @@ function calcSignal(candles, ma20, ma50, rsi, bb, macdData) {
 
 // ── Fetch Twelve Data ───────────────────────────────
 async function fetchCandles(interval) {
-  const url = `${BASE}/time_series?symbol=XAU/USD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
-  const res = await fetch(url);
-  const json = await res.json();
-  if (json.status === "error") throw new Error(json.message);
-  const values = json.values || [];
-  return values.reverse().map(v => ({
+  // ลอง direct API ก่อน ถ้าไม่ได้ค่อยใช้ proxy
+  const directUrl = `${BASE}/time_series?symbol=XAU/USD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
+  const proxyUrl = `https://ai-client.flyreisen24.com/twelvedata?symbol=XAU%2FUSD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
+
+  let json = null;
+
+  // ลอง direct ก่อน
+  try {
+    const res = await fetch(directUrl, {signal: AbortSignal.timeout(8000)});
+    json = await res.json();
+    if (json.status === "error" || !json.values) json = null;
+  } catch(e) { json = null; }
+
+  // ถ้าไม่ได้ ลอง proxy
+  if (!json) {
+    try {
+      const res2 = await fetch(proxyUrl, {signal: AbortSignal.timeout(8000)});
+      json = await res2.json();
+    } catch(e) { throw new Error("ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่"); }
+  }
+
+  if (!json || !json.values) throw new Error("ไม่มีข้อมูล XAUUSD");
+
+  return json.values.reverse().map(v => ({
     t: new Date(v.datetime).getTime(),
     o: parseFloat(v.open),
     h: parseFloat(v.high),
@@ -973,9 +991,15 @@ async function loadData(){
     lastData=buildCharts(candles);
     document.getElementById("loader").classList.add("gone");
   } catch(e){
-    document.getElementById("loadTxt").textContent="ERROR: "+e.message;
+    const msg = e.message || "Unknown error";
+    document.getElementById("loadTxt").textContent="❌ "+msg;
     console.error(e);
-    setTimeout(()=>document.getElementById("loader").classList.add("gone"),2000);
+    // Show error on screen and hide loader after 3s
+    setTimeout(()=>{
+      document.getElementById("loader").classList.add("gone");
+      document.getElementById("sigLabel").textContent="⚠️ โหลดไม่ได้";
+      document.getElementById("sigDetail").textContent=msg;
+    }, 3000);
   }
 }
 
