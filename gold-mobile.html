@@ -159,7 +159,7 @@ canvas{border-radius:6px;background:var(--card)}
     <div class="logo-ico">🥇</div>
     <div>
       <div class="logo-txt">GOLD ANALYZER</div>
-      <div class="logo-sub">XAUUSD · SCALPING MODE · Live</div>
+      <div class="logo-sub">XAUUSD · Yahoo Finance · Live</div>
     </div>
   </div>
   <div class="price-block">
@@ -295,8 +295,8 @@ canvas{border-radius:6px;background:var(--card)}
 </div>
 
 <script>
-const API_KEY = "4dae9e8afc664ebd848de25250192cf5";
-const BASE = "https://api.twelvedata.com";
+// No API key needed - using Yahoo Finance (free, no CORS issues)
+const YAHOO_BASE = "https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF";
 let tf = "15min", showRSI = true, showMACD = true;
 let pChart = null, rChart = null, mChart = null;
 let lastData = null;
@@ -676,38 +676,48 @@ function calcSignal(candles, ma20, ma50, rsi, bb, macdData) {
 }
 
 // ── Fetch Twelve Data ───────────────────────────────
-async function fetchCandles(interval) {
-  // ลอง direct API ก่อน ถ้าไม่ได้ค่อยใช้ proxy
-  const directUrl = `${BASE}/time_series?symbol=XAU/USD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
-  const proxyUrl = `https://twelvedata-proxy.nichaoceancenter.workers.dev/?symbol=XAU%2FUSD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
+// TF map for Yahoo Finance
+const TF_YAHOO = {
+  "1min":  {interval:"1m",  range:"1d"},
+  "5min":  {interval:"5m",  range:"5d"},
+  "15min": {interval:"15m", range:"5d"},
+  "1h":    {interval:"60m", range:"30d"},
+  "4h":    {interval:"1h",  range:"60d"},
+  "1day":  {interval:"1d",  range:"1y"}
+};
 
-  let json = null;
+async function fetchCandles(tfKey) {
+  const {interval, range} = TF_YAHOO[tfKey] || TF_YAHOO["15min"];
+  
+  // Use allorigins.win as CORS proxy for Yahoo Finance
+  const yahooUrl = `${YAHOO_BASE}?interval=${interval}&range=${range}`;
+  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(yahooUrl)}`;
 
-  // ลอง direct ก่อน
+  let data = null;
   try {
-    const res = await fetch(directUrl, {signal: AbortSignal.timeout(8000)});
-    json = await res.json();
-    if (json.status === "error" || !json.values) json = null;
-  } catch(e) { json = null; }
-
-  // ถ้าไม่ได้ ลอง proxy
-  if (!json) {
-    try {
-      const res2 = await fetch(proxyUrl, {signal: AbortSignal.timeout(8000)});
-      json = await res2.json();
-    } catch(e) { throw new Error("ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่"); }
+    const res = await fetch(proxyUrl, {signal: AbortSignal.timeout(15000)});
+    const json = await res.json();
+    data = JSON.parse(json.contents);
+  } catch(e) {
+    throw new Error("โหลดข้อมูลไม่ได้ กรุณาเช็ค internet แล้วลองใหม่");
   }
 
-  if (!json || !json.values) throw new Error("ไม่มีข้อมูล XAUUSD");
+  const chart = data?.chart?.result?.[0];
+  if (!chart) throw new Error("ไม่มีข้อมูล XAUUSD จาก Yahoo Finance");
 
-  return json.values.reverse().map(v => ({
-    t: new Date(v.datetime).getTime(),
-    o: parseFloat(v.open),
-    h: parseFloat(v.high),
-    l: parseFloat(v.low),
-    c: parseFloat(v.close),
-    v: parseInt(v.volume || 0)
-  }));
+  const timestamps = chart.timestamp;
+  const ohlcv = chart.indicators.quote[0];
+
+  const candles = timestamps.map((t, i) => ({
+    t: t * 1000,
+    o: +((ohlcv.open[i]   || ohlcv.close[i]) .toFixed(2)),
+    h: +((ohlcv.high[i]   || ohlcv.close[i]) .toFixed(2)),
+    l: +((ohlcv.low[i]    || ohlcv.close[i]) .toFixed(2)),
+    c: +((ohlcv.close[i]  || 0)              .toFixed(2)),
+    v:  (ohlcv.volume[i]  || 0)
+  })).filter(c => c.c > 0);
+
+  return candles;
 }
 
 async function fetchPrice() {
