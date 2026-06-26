@@ -679,7 +679,7 @@ function calcSignal(candles, ma20, ma50, rsi, bb, macdData) {
 async function fetchCandles(interval) {
   // ลอง direct API ก่อน ถ้าไม่ได้ค่อยใช้ proxy
   const directUrl = `${BASE}/time_series?symbol=XAU/USD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
-  const proxyUrl = `https://twelvedata-proxy.nichaoceancenter.workers.dev/twelvedata?symbol=XAU%2FUSD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
+  const proxyUrl = `https://twelvedata-proxy.nichaoceancenter.workers.dev/?symbol=XAU%2FUSD&interval=${interval}&outputsize=150&apikey=${API_KEY}`;
 
   let json = null;
 
