@@ -159,7 +159,7 @@ canvas{border-radius:6px;background:var(--card)}
     <div class="logo-ico">🥇</div>
     <div>
       <div class="logo-txt">GOLD ANALYZER</div>
-      <div class="logo-sub">XAUUSD · Yahoo Finance · Live</div>
+      <div class="logo-sub">XAUUSD · Yahoo Finance · Direct</div>
     </div>
   </div>
   <div class="price-block">
@@ -688,36 +688,41 @@ const TF_YAHOO = {
 
 async function fetchCandles(tfKey) {
   const {interval, range} = TF_YAHOO[tfKey] || TF_YAHOO["15min"];
-  
-  // Use allorigins.win as CORS proxy for Yahoo Finance
-  const yahooUrl = `${YAHOO_BASE}?interval=${interval}&range=${range}`;
-  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(yahooUrl)}`;
+
+  // Direct Yahoo Finance call - works on mobile!
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?interval=${interval}&range=${range}`;
 
   let data = null;
   try {
-    const res = await fetch(proxyUrl, {signal: AbortSignal.timeout(15000)});
-    const json = await res.json();
-    data = JSON.parse(json.contents);
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(15000),
+      headers: { "Accept": "application/json" }
+    });
+    data = await res.json();
   } catch(e) {
-    throw new Error("โหลดข้อมูลไม่ได้ กรุณาเช็ค internet แล้วลองใหม่");
+    // Fallback to query2
+    try {
+      const res2 = await fetch(url.replace("query1","query2"), {signal: AbortSignal.timeout(15000)});
+      data = await res2.json();
+    } catch(e2) {
+      throw new Error("โหลดข้อมูลไม่ได้ กรุณาเช็ค internet");
+    }
   }
 
   const chart = data?.chart?.result?.[0];
-  if (!chart) throw new Error("ไม่มีข้อมูล XAUUSD จาก Yahoo Finance");
+  if (!chart) throw new Error("ไม่มีข้อมูล XAUUSD");
 
   const timestamps = chart.timestamp;
   const ohlcv = chart.indicators.quote[0];
 
-  const candles = timestamps.map((t, i) => ({
+  return timestamps.map((t, i) => ({
     t: t * 1000,
-    o: +((ohlcv.open[i]   || ohlcv.close[i]) .toFixed(2)),
-    h: +((ohlcv.high[i]   || ohlcv.close[i]) .toFixed(2)),
-    l: +((ohlcv.low[i]    || ohlcv.close[i]) .toFixed(2)),
-    c: +((ohlcv.close[i]  || 0)              .toFixed(2)),
-    v:  (ohlcv.volume[i]  || 0)
+    o: +(ohlcv.open[i]  || ohlcv.close[i] || 0).toFixed(2),
+    h: +(ohlcv.high[i]  || ohlcv.close[i] || 0).toFixed(2),
+    l: +(ohlcv.low[i]   || ohlcv.close[i] || 0).toFixed(2),
+    c: +(ohlcv.close[i] || 0).toFixed(2),
+    v:  (ohlcv.volume[i]|| 0)
   })).filter(c => c.c > 0);
-
-  return candles;
 }
 
 async function fetchPrice() {
