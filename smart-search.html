@@ -81,6 +81,23 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37,211,102,0.35);
     }
+    .btn-timatic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      background: #003d82;
+      color: white;
+      transition: all 0.2s;
+    }
+    .btn-timatic:hover {
+      background: #0056B3;
+    }
     .planner-cta {
       display: flex;
       flex-direction: column;
@@ -250,6 +267,14 @@
             <button type="button" onclick="downloadItinerary()" id="btn-download" class="btn-download" style="display:none">
               <span id="cta-download">📄 ดาวน์โหลดแผนทริป</span>
             </button>
+            <a href="https://www.timatic.aero/timaticweb2/application.html"
+               target="_blank"
+               rel="noopener"
+               class="btn-timatic"
+               id="btn-timatic"
+               style="display:none">
+              <span id="cta-timatic">🛂 ตรวจวีซ่า IATA Timatic</span>
+            </a>
             <div class="planner-cta-row">
             <a href="https://flights.flyreisen24.com" target="_blank" rel="noopener noreferrer" class="btn-flights">
               ✈️ <span class="cta-text-flights">ค้นหาตั๋วเครื่องบิน</span>
@@ -469,7 +494,10 @@ var ITINERARY_SYSTEM_PROMPT =
   '2. Show budget as a RANGE (min-max), not exact\n' +
   '3. Add disclaimer that prices are estimates\n' +
   '4. Mention flights.flyreisen24.com for flight booking\n' +
-  '5. Keep visa info accurate but remind to verify with embassy';
+  '5. Keep visa info accurate but remind to verify with embassy\n\n' +
+  'After the visa section, always add:\n' +
+  '🔍 ตรวจสอบวีซ่าอย่างเป็นทางการ:\n' +
+  'timatic.iata.org (มาตรฐานที่สายการบินใช้)';
 
 var NATIONALITY_TEXT = {
   th: { thai: 'ไทย', german: 'เยอรมัน', european: 'ยุโรป', other: 'นานาชาติ' },
@@ -577,6 +605,8 @@ var SMART_SEARCH_TRANSLATIONS = {
     cta_visa: 'ช่วยเรื่องวีซ่า',
     cta_download: '📄 ดาวน์โหลดแผนทริป',
     cta_whatsapp: '💬 ปรึกษา Nicki โดยตรง',
+    cta_timatic: '🛂 ตรวจวีซ่า IATA Timatic',
+    pdf_timatic: '🔍 ตรวจสอบวีซ่าอย่างเป็นทางการ:\n timatic.iata.org\n (ระบบมาตรฐานที่สายการบินทั่วโลกใช้)',
     suggestions: [
       'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
       'กระเป๋าหายต้องทำอะไรก่อน?',
@@ -617,6 +647,8 @@ var SMART_SEARCH_TRANSLATIONS = {
     cta_visa: 'Visa Assistance',
     cta_download: '📄 Download Itinerary',
     cta_whatsapp: '💬 Chat with Nicki directly',
+    cta_timatic: '🛂 Check Visa via IATA Timatic',
+    pdf_timatic: '🔍 Official visa verification:\n timatic.iata.org\n (Global airline standard system)',
     suggestions: [
       'Is 90 min connection in Dubai enough?',
       'What to do if my baggage is lost?',
@@ -657,6 +689,8 @@ var SMART_SEARCH_TRANSLATIONS = {
     cta_visa: 'Visa-Hilfe',
     cta_download: '📄 Reiseplan herunterladen',
     cta_whatsapp: '💬 Direkt mit Nicki chatten',
+    cta_timatic: '🛂 Visum prüfen via IATA Timatic',
+    pdf_timatic: '🔍 Offizielle Visumprüfung:\n timatic.iata.org\n (Weltweiter Airline-Standard)',
     suggestions: [
       '90 Min Umstieg in Dubai — reicht das?',
       'Was tun wenn Gepäck verloren geht?',
@@ -818,6 +852,9 @@ function updateSmartSearchLang(l) {
 
   var waBtn = document.getElementById('cta-whatsapp');
   if (waBtn && t.cta_whatsapp) waBtn.textContent = t.cta_whatsapp;
+
+  var timaticBtn = document.getElementById('cta-timatic');
+  if (timaticBtn && t.cta_timatic) timaticBtn.textContent = t.cta_timatic;
 
   var chatInput = document.getElementById('chat-input');
   if (chatInput) chatInput.placeholder = t.chat_placeholder;
@@ -1064,6 +1101,12 @@ function downloadItinerary() {
   var days = document.getElementById('planner-days').value || '7';
   var dateLocale = lang === 'en' ? 'en-US' : lang === 'de' ? 'de-DE' : 'th-TH';
   var date = new Date().toLocaleDateString(dateLocale);
+  var t = SMART_SEARCH_TRANSLATIONS[lang] || SMART_SEARCH_TRANSLATIONS.th;
+  var timaticBlock = (t.pdf_timatic || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\n/g, '<br>');
   var content = output.innerText
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -1103,6 +1146,9 @@ function downloadItinerary() {
     '<div class="doc-logo">FlyReisen24.com — Smart Travel Starts Here</div>' +
     '</div>' +
     '<div class="doc-content">' + content + '</div>' +
+    '<div style="margin-top:20px;padding:12px 16px;background:#f0f4ff;border-radius:8px;border:1px solid #c7d9f5;font-size:13px;color:#003d82;line-height:1.7">' +
+    timaticBlock +
+    '</div>' +
     '<div class="disclaimer">⚠️ ราคาและข้อมูลเป็นการประมาณการเบื้องต้น อาจเปลี่ยนแปลงตามฤดูกาลและราคาตลาด กรุณาตรวจสอบราคาจริงก่อนจอง</div>' +
     '<div class="doc-cta">' +
     '<p>🐱 Meshmesh แนะนำให้จองผ่านลิงก์เหล่านี้เพื่อราคาที่ดีที่สุด</p>' +
@@ -1203,8 +1249,10 @@ async function generateItinerary() {
   btnText.textContent = t.planner_loading;
   var dlBtn = document.getElementById('btn-download');
   var waBtn = document.getElementById('btn-whatsapp');
+  var timaticBtn = document.getElementById('btn-timatic');
   if (dlBtn) dlBtn.style.display = 'none';
   if (waBtn) waBtn.style.display = 'none';
+  if (timaticBtn) timaticBtn.style.display = 'none';
   result.style.display = 'block';
   output.textContent = t.planner_loading_msg;
 
@@ -1249,6 +1297,7 @@ async function generateItinerary() {
     output.textContent = reply || t.planner_err_api;
     if (reply && dlBtn) dlBtn.style.display = 'flex';
     if (reply && waBtn) waBtn.style.display = 'flex';
+    if (reply && timaticBtn) timaticBtn.style.display = 'flex';
     if (!DEV_MODE) {
       localStorage.setItem(usageKey, used + 1);
     }
