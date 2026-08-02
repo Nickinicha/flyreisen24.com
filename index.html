@@ -6,6 +6,14 @@
     
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="gF5L1Rf62CTdxNqWgdtEG8EAWpz-UJCDM7z9DWWq3kw"/>
+    <script>
+    (function(){
+      var p = location.pathname;
+      if (p === '/index.html' || p === '/index.html/') {
+        location.replace(location.origin + '/' + location.search + location.hash);
+      }
+    })();
+    </script>
     
     <!-- Primary Meta Tags -->
     <title>FlyReisen24 | จองตั๋วเครื่องบิน โรงแรม รถเช่า และคลังความรู้ท่องเที่ยว</title>
@@ -36,10 +44,10 @@
     <meta name="twitter:description" content="ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบิน โรงแรม และรถเช่าจากทั่วโลก">
     <meta name="twitter:image" content="https://www.flyreisen24.com/images/og-homepage.jpg">
     
-    <!-- Hreflang Tags -->
+    <!-- Hreflang Tags (single homepage — in-page language switch) -->
     <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/">
-    <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/en/faq/landing.html">
-    <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/de/faq/landing.html">
+    <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/">
+    <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/">
     <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/">
     
     <!-- Favicon -->

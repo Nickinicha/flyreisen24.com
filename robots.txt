@@ -9,7 +9,7 @@ User-agent: *
 Allow: /
 
 # Allow crawling of main pages
-Allow: /index.html
+Allow: /
 Allow: /faq*.html
 Allow: /about*.html
 Allow: /contact.html
@@ -165,7 +165,7 @@ Disallow: /
 # SITEMAP LOCATION
 # ========================================
 
-Sitemap: https://flyreisen24.com/sitemap.xml
+Sitemap: https://www.flyreisen24.com/sitemap.xml
 
 # ========================================
 # CRAWL RATE
