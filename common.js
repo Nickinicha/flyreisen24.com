@@ -111,9 +111,9 @@
             'de': '/de/faq/landing.html'
         },
         'deals': {
-            'th': '/deals.html',
-            'en': '/deals.html',
-            'de': '/deals.html'
+            'th': '/deals',
+            'en': '/deals',
+            'de': '/deals'
         },
         'tools': {
             'th': '/tools.html',

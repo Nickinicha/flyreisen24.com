@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">ดีลท่องเที่ยว — ตั๋วเครื่องบิน โรงแรม กิจกรรม และรถเช่า | FlyReisen24</title>
   <meta name="description" id="pageDesc" content="เปรียบเทียบดีลท่องเที่ยวที่ดีที่สุด ตั๋วเครื่องบิน โรงแรม กิจกรรม รถรับส่งสนามบิน และรถเช่า — จากผู้เชี่ยวชาญที่มีประสบการณ์จริงในสนามบิน">
-  <link rel="canonical" href="https://www.flyreisen24.com/deals.html">
-  <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/deals.html">
-  <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/deals.html">
-  <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/deals.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/deals.html">
+  <link rel="canonical" href="https://www.flyreisen24.com/deals">
+  <link rel="alternate" hreflang="th" href="https://www.flyreisen24.com/deals">
+  <link rel="alternate" hreflang="en" href="https://www.flyreisen24.com/deals">
+  <link rel="alternate" hreflang="de" href="https://www.flyreisen24.com/deals">
+  <link rel="alternate" hreflang="x-default" href="https://www.flyreisen24.com/deals">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.flyreisen24.com/deals.html">
+  <meta property="og:url" content="https://www.flyreisen24.com/deals">
   <meta property="og:image" content="https://www.flyreisen24.com/fly_reisen24_logo_white.png">
   <meta property="og:title" id="ogTitle" content="ดีลท่องเที่ยว | FlyReisen24">
   <meta property="og:description" id="ogDesc" content="ดีลท่องเที่ยวที่ดีที่สุด">
@@ -172,7 +172,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
     <ul class="top-nav-menu" id="topNavMenu">
       <li><a href="https://flights.flyreisen24.com"><i class="fas fa-plane-departure"></i> <span id="navFlight">เที่ยวบิน</span></a></li>
       <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn"><i class="fas fa-hotel"></i> <span id="navHotel">โรงแรม</span></a></li>
-      <li><a href="/deals.html" class="active-page"><i class="fas fa-tags"></i> <span id="navDeals">ดีล</span><span class="new-badge">NEW</span></a></li>
+      <li><a href="/deals" class="active-page"><i class="fas fa-tags"></i> <span id="navDeals">ดีล</span><span class="new-badge">NEW</span></a></li>
       <li><a href="/th/faq/landing.html" id="navKnowledgeLink"><i class="fas fa-book-open"></i> <span id="navKnowledge">คลังความรู้</span></a></li>
       <li><a href="/tools.html"><i class="fas fa-wrench"></i> <span id="navTools">เครื่องมือ</span></a></li>
     </ul>
@@ -631,7 +631,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
       <ul>
         <li><a href="https://flights.flyreisen24.com" id="footerFlight">เที่ยวบิน</a></li>
         <li><a href="/booking.html?url=https%3A%2F%2Ftrip.tpo.mx%2FbVJLx4bn" id="footerHotel">โรงแรม</a></li>
-        <li><a href="/deals.html" id="footerDeals">ดีล</a></li>
+        <li><a href="/deals" id="footerDeals">ดีล</a></li>
         <li><a href="/th/faq/landing.html" id="footerKnowledge">คลังความรู้</a></li>
         <li><a href="/tools.html" id="footerTools">เครื่องมือเดินทาง</a></li>
       </ul>

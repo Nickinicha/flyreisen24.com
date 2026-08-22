@@ -170,7 +170,7 @@ def replace_breadcrumb(html: str, locale: str, slug: str) -> str:
 
 def replace_top_nav(html: str, locale: str, slug: str) -> str:
     prefix = f"/{locale}/faq/"
-    deals = "/en/deals_en.html" if locale == "en" else "/de/deals_de.html"
+    deals = "/deals" if locale == "en" else "/deals"
     lang_label = "EN" if locale == "en" else "DE"
     en_active = ' class="active"' if locale == "en" else ""
     de_active = ' class="active"' if locale == "de" else ""
@@ -407,7 +407,7 @@ def replace_sidebar_block(html: str, locale: str, slug: str) -> str:
 
 def replace_footer(html: str, locale: str, slug: str) -> str:
     prefix = f"/{locale}/faq/"
-    deals = "/en/deals_en.html" if locale == "en" else "/de/deals_de.html"
+    deals = "/deals" if locale == "en" else "/deals"
     if locale == "en":
         block = f"""<footer class="main-footer">
   <div class="footer-grid">
