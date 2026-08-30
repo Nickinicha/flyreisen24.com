@@ -1,238 +1,287 @@
-/**
- * FlyReisen24.com — Floating AI Chat Widget (Meshmesh)
- * Self-contained: injects HTML + CSS, calls Claude via Cloudflare Worker proxy.
- * Requires: Font Awesome (already on site).
- */
+/** * FlyReisen24.com — Floating AI Chat Widget (Meshmesh) * Self-contained: injects HTML + CSS, calls Claude via Cloudflare Worker proxy. * Requires: Font Awesome (already on site). */
 (function () {
-  'use strict';
+  "use strict";
 
-  var STYLE_ID = 'flyreisen-chat-widget-styles';
-  var ROOT_ID = 'flyreisen-chat-widget';
+  var STYLE_ID = "flyreisen-chat-widget-styles";
+  var ROOT_ID = "flyreisen-chat-widget";
 
   var SYSTEM_PROMPT =
-    'You are a helpful travel assistant for FlyReisen24.com,\n' +
-    'a multilingual travel knowledge site (Thai/English/German).\n\n' +
-    'You specialize in:\n' +
-    '- Passport & Visa rules\n' +
-    '- Airport connection times (MCT)\n' +
-    '- Baggage rules 2026\n' +
-    '- Flight changes & cancellations\n' +
-    '- Codeshare & Open-Jaw flights\n' +
-    '- Frequent Flyer programs\n' +
-    '- Charter flights & Overbooking rights\n' +
-    '- Online Check-in tips\n' +
-    '- Montreal Convention & EU261 passenger rights\n' +
-    '- SAF & sustainable aviation\n' +
-    '- Airport Security 2026 (CT scanners)\n' +
-    '- Travel Insurance\n' +
-    '- Airport Lounge access\n' +
-    '- Special passengers & children\n' +
-    '- Cheap flight booking tips\n\n' +
-    'Detect the language from the user\'s message and respond in the SAME language.\n' +
-    '- If user writes Thai → respond in Thai\n' +
-    '- If user writes English → respond in English\n' +
-    '- If user writes German → respond in German\n' +
-    '- Default to Thai if unclear\n\n' +
-    'CRITICAL: When providing FAQ links,\n' +
-    'use ONLY these EXACT URLs — never guess or shorten:\n\n' +
-    'THAI (TH):\n' +
-    '/th/faq/01-passport-visa.html\n' +
-    '/th/faq/02-connection-time.html\n' +
-    '/th/faq/03-baggage-rules.html\n' +
-    '/th/faq/04-flight-changes.html\n' +
-    '/th/faq/05-codeshare-stopover.html\n' +
-    '/th/faq/06-frequent-flyer.html\n' +
-    '/th/faq/07-charter-overbooking.html\n' +
-    '/th/faq/08-online-checkin.html\n' +
-    '/th/faq/09-montreal-eu261.html\n' +
-    '/th/faq/10-saf-future.html\n' +
-    '/th/faq/11-airport-security.html\n' +
-    '/th/faq/12-travel-insurance.html\n' +
-    '/th/faq/13-airport-lounge.html\n' +
-    '/th/faq/14-special-needs.html\n' +
-    '/th/faq/15-booking-tips.html\n\n' +
-    'ENGLISH (EN):\n' +
-    '/en/faq/01-passport-visa.html\n' +
-    '/en/faq/02-connection-time.html\n' +
-    '/en/faq/03-baggage-rules.html\n' +
-    '/en/faq/04-flight-changes.html\n' +
-    '/en/faq/05-codeshare-stopover.html\n' +
-    '/en/faq/06-frequent-flyer.html\n' +
-    '/en/faq/07-charter-overbooking.html\n' +
-    '/en/faq/08-online-checkin.html\n' +
-    '/en/faq/09-montreal-eu261.html\n' +
-    '/en/faq/10-saf-future.html\n' +
-    '/en/faq/11-airport-security.html\n' +
-    '/en/faq/12-travel-insurance.html\n' +
-    '/en/faq/13-airport-lounge.html\n' +
-    '/en/faq/14-special-needs.html\n' +
-    '/en/faq/15-booking-tips.html\n\n' +
-    'GERMAN (DE):\n' +
-    '/de/faq/01-passport-visa.html\n' +
-    '/de/faq/02-connection-time.html\n' +
-    '/de/faq/03-baggage-rules.html\n' +
-    '/de/faq/04-flight-changes.html\n' +
-    '/de/faq/05-codeshare-stopover.html\n' +
-    '/de/faq/06-frequent-flyer.html\n' +
-    '/de/faq/07-charter-overbooking.html\n' +
-    '/de/faq/08-online-checkin.html\n' +
-    '/de/faq/09-montreal-eu261.html\n' +
-    '/de/faq/10-saf-future.html\n' +
-    '/de/faq/11-airport-security.html\n' +
-    '/de/faq/12-travel-insurance.html\n' +
-    '/de/faq/13-airport-lounge.html\n' +
-    '/de/faq/14-special-needs.html\n' +
-    '/de/faq/15-booking-tips.html\n\n' +
-    'RULES for links:\n' +
-    '1. Always include .html at the end\n' +
-    '2. Always start with /th/ or /en/ or /de/\n' +
-    '3. Match language to user\'s question language\n' +
-    '4. If user writes Thai → use /th/faq/...\n' +
-    '5. If user writes English → use /en/faq/...\n' +
-    '6. If user writes German → use /de/faq/...\n' +
-    '7. NEVER create URLs not in this list\n' +
-    '8. For topics outside these 15 → link to /th/faq/landing.html (or /en/ or /de/) instead of guessing a URL\n\n' +
-    'VISA INFORMATION POLICY:\n' +
-    'When answering visa questions, provide ONLY:\n' +
-    '1. Yes/No — visa required or not\n' +
-    '2. Visa type name (e.g. Schengen Type C)\n' +
-    '3. Maximum stay duration\n' +
-    '4. Approximate fee in EUR and THB\n' +
-    '5. Recommended application lead time\n\n' +
-    'Then add this CLOSING LINE every time (match response language):\n' +
+    "You are a helpful travel assistant for FlyReisen24.com,\n" +
+    "a multilingual travel knowledge site (Thai/English/German).\n\n" +
+    "You specialize in:\n" +
+    "- Passport & Visa rules\n" +
+    "- Airport connection times (MCT)\n" +
+    "- Baggage rules 2026\n" +
+    "- Flight changes & cancellations\n" +
+    "- Codeshare & Open-Jaw flights\n" +
+    "- Frequent Flyer programs\n" +
+    "- Charter flights & Overbooking rights\n" +
+    "- Online Check-in tips\n" +
+    "- Montreal Convention & EU261 passenger rights\n" +
+    "- SAF & sustainable aviation\n" +
+    "- Airport Security 2026 (CT scanners)\n" +
+    "- Travel Insurance\n" +
+    "- Airport Lounge access\n" +
+    "- Special passengers & children\n" +
+    "- Cheap flight booking tips\n\n" +
+    "Detect the language from the user's message and respond in the SAME language.\n" +
+    "- If user writes Thai → respond in Thai\n" +
+    "- If user writes English → respond in English\n" +
+    "- If user writes German → respond in German\n" +
+    "- Default to Thai if unclear\n\n" +
+    "CRITICAL: When providing FAQ links,\n" +
+    "use ONLY these EXACT URLs — never guess or shorten:\n\n" +
+    "THAI (TH):\n" +
+    "/th/faq/01-passport-visa.html\n" +
+    "/th/faq/02-connection-time.html\n" +
+    "/th/faq/03-baggage-rules.html\n" +
+    "/th/faq/04-flight-changes.html\n" +
+    "/th/faq/05-codeshare-stopover.html\n" +
+    "/th/faq/06-frequent-flyer.html\n" +
+    "/th/faq/07-charter-overbooking.html\n" +
+    "/th/faq/08-online-checkin.html\n" +
+    "/th/faq/09-montreal-eu261.html\n" +
+    "/th/faq/10-saf-future.html\n" +
+    "/th/faq/11-airport-security.html\n" +
+    "/th/faq/12-travel-insurance.html\n" +
+    "/th/faq/13-airport-lounge.html\n" +
+    "/th/faq/14-special-needs.html\n" +
+    "/th/faq/15-booking-tips.html\n\n" +
+    "ENGLISH (EN):\n" +
+    "/en/faq/01-passport-visa.html\n" +
+    "/en/faq/02-connection-time.html\n" +
+    "/en/faq/03-baggage-rules.html\n" +
+    "/en/faq/04-flight-changes.html\n" +
+    "/en/faq/05-codeshare-stopover.html\n" +
+    "/en/faq/06-frequent-flyer.html\n" +
+    "/en/faq/07-charter-overbooking.html\n" +
+    "/en/faq/08-online-checkin.html\n" +
+    "/en/faq/09-montreal-eu261.html\n" +
+    "/en/faq/10-saf-future.html\n" +
+    "/en/faq/11-airport-security.html\n" +
+    "/en/faq/12-travel-insurance.html\n" +
+    "/en/faq/13-airport-lounge.html\n" +
+    "/en/faq/14-special-needs.html\n" +
+    "/en/faq/15-booking-tips.html\n\n" +
+    "GERMAN (DE):\n" +
+    "/de/faq/01-passport-visa.html\n" +
+    "/de/faq/02-connection-time.html\n" +
+    "/de/faq/03-baggage-rules.html\n" +
+    "/de/faq/04-flight-changes.html\n" +
+    "/de/faq/05-codeshare-stopover.html\n" +
+    "/de/faq/06-frequent-flyer.html\n" +
+    "/de/faq/07-charter-overbooking.html\n" +
+    "/de/faq/08-online-checkin.html\n" +
+    "/de/faq/09-montreal-eu261.html\n" +
+    "/de/faq/10-saf-future.html\n" +
+    "/de/faq/11-airport-security.html\n" +
+    "/de/faq/12-travel-insurance.html\n" +
+    "/de/faq/13-airport-lounge.html\n" +
+    "/de/faq/14-special-needs.html\n" +
+    "/de/faq/15-booking-tips.html\n\n" +
+    "RULES for links:\n" +
+    "1. Always include .html at the end\n" +
+    "2. Always start with /th/ or /en/ or /de/\n" +
+    "3. Match language to user's question language\n" +
+    "4. If user writes Thai → use /th/faq/...\n" +
+    "5. If user writes English → use /en/faq/...\n" +
+    "6. If user writes German → use /de/faq/...\n" +
+    "7. NEVER create URLs not in this list\n" +
+    "8. For topics outside these 15 → link to /th/faq/landing.html (or /en/ or /de/) instead of guessing a URL\n\n" +
+    "VISA INFORMATION POLICY:\n" +
+    "When answering visa questions, provide ONLY:\n" +
+    "1. Yes/No — visa required or not\n" +
+    "2. Visa type name (e.g. Schengen Type C)\n" +
+    "3. Maximum stay duration\n" +
+    "4. Approximate fee in EUR and THB\n" +
+    "5. Recommended application lead time\n\n" +
+    "Then add this CLOSING LINE every time (match response language):\n" +
     'TH: "📋 สำหรับรายละเอียดเอกสารและขั้นตอนครบถ้วน\\nสามารถถาม Meshmesh เพิ่มเติมได้เลยค่ะ\\nหรืออ่านคู่มือฉบับเต็มที่\\nflyreisen24.com/th/faq/01-passport-visa.html"\n' +
-    'EN: equivalent phrasing with flyreisen24.com/en/faq/01-passport-visa.html\n' +
-    'DE: equivalent phrasing with flyreisen24.com/de/faq/01-passport-visa.html\n\n' +
-    'DO NOT provide:\n' +
-    '- Full document checklist\n' +
-    '- Step by step application process\n' +
-    '- VFS/Embassy contact details\n' +
-    '- Specific appointment booking tips\n' +
-    '- Bank statement amount requirements\n\n' +
-    'These details are reserved for personal consultation.\n' +
-    'Keep visa answers to maximum 6 lines.\n\n' +
-    'IMPORTANT RULES:\n' +
-    '1. Answer in maximum 3 sentences. Be concise and direct.\n' +
-    '2. Always complete your answer fully — never cut off mid-sentence.\n' +
-    '3. Always end EVERY response with a relevant FAQ link like this:\n' +
-    '   📖 อ่านเพิ่มเติม: [topic name](/th/faq/XX-topic.html)\n' +
-    '   For EN responses: 📖 Read more: [topic name](/en/faq/XX-topic.html)\n' +
-    '   For DE responses: 📖 Mehr lesen: [topic name](/de/faq/XX-topic.html)\n' +
-    '4. Match link language to the language of the question.';
+    "EN: equivalent phrasing with flyreisen24.com/en/faq/01-passport-visa.html\n" +
+    "DE: equivalent phrasing with flyreisen24.com/de/faq/01-passport-visa.html\n\n" +
+    "DO NOT provide:\n" +
+    "- Full document checklist\n" +
+    "- Step by step application process\n" +
+    "- VFS/Embassy contact details\n" +
+    "- Specific appointment booking tips\n" +
+    "- Bank statement amount requirements\n\n" +
+    "These details are reserved for personal consultation.\n" +
+    "Keep visa answers to maximum 6 lines.\n\n" +
+    "IMPORTANT RULES:\n" +
+    "1. Answer in maximum 3 sentences. Be concise and direct.\n" +
+    "2. Always complete your answer fully — never cut off mid-sentence.\n" +
+    "3. Always end EVERY response with a relevant FAQ link like this:\n" +
+    " 📖 อ่านเพิ่มเติม: [topic name](/th/faq/XX-topic.html)\n" +
+    " For EN responses: 📖 Read more: [topic name](/en/faq/XX-topic.html)\n" +
+    " For DE responses: 📖 Mehr lesen: [topic name](/de/faq/XX-topic.html)\n" +
+    "4. Match link language to the language of the question.";
 
   var SUGGESTED_QUESTIONS = {
     th: [
-      'ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?',
-      'กระเป๋าหายต้องทำอะไรก่อน?',
-      'เข้า Lounge ฟรีได้อย่างไร?',
-      'CT Scanner คืออะไร?'
+      "ต่อเครื่องที่ดูไบ 90 นาที ทันไหม?",
+      "กระเป๋าหายต้องทำอะไรก่อน?",
+      "เข้า Lounge ฟรีได้อย่างไร?",
+      "CT Scanner คืออะไร?",
     ],
     en: [
-      'Is 90 min connection in Dubai enough?',
-      'What to do if my baggage is lost?',
-      'How to access airport lounge free?',
-      'What is CT Scanner at security?'
+      "Is 90 min connection in Dubai enough?",
+      "What to do if my baggage is lost?",
+      "How to access airport lounge free?",
+      "What is CT Scanner at security?",
     ],
     de: [
-      '90 Min Umstieg Dubai — reicht das?',
-      'Was tun wenn Gepäck verloren geht?',
-      'Wie komme ich kostenlos in die Lounge?',
-      'Was ist CT-Scanner bei der Sicherheit?'
-    ]
+      "90 Min Umstieg Dubai — reicht das?",
+      "Was tun wenn Gepäck verloren geht?",
+      "Wie komme ich kostenlos in die Lounge?",
+      "Was ist CT-Scanner bei der Sicherheit?",
+    ],
   };
 
   var CHAT_WIDGET_LANG = {
     th: {
-      title: '🐱 Ask Meshmesh',
-      sub: 'ถามได้เลยค่ะ!',
-      suggestLabel: 'คำถามยอดนิยม',
-      placeholder: 'พิมพ์คำถามของคุณ...',
-      toggleLabel: 'Ask Meshmesh'
+      title: "🐱 Ask Meshmesh",
+      sub: "ถามได้เลยค่ะ!",
+      suggestLabel: "คำถามยอดนิยม",
+      placeholder: "พิมพ์คำถามของคุณ...",
+      toggleLabel: "Ask Meshmesh",
     },
     en: {
-      title: '🐱 Ask Meshmesh',
-      sub: 'Ask me anything!',
-      suggestLabel: 'Popular questions',
-      placeholder: 'Type your question...',
-      toggleLabel: 'Ask Meshmesh'
+      title: "🐱 Ask Meshmesh",
+      sub: "Ask me anything!",
+      suggestLabel: "Popular questions",
+      placeholder: "Type your question...",
+      toggleLabel: "Ask Meshmesh",
     },
     de: {
-      title: '🐱 Ask Meshmesh',
-      sub: 'Frag mich!',
-      suggestLabel: 'Beliebte Fragen',
-      placeholder: 'Frage eingeben...',
-      toggleLabel: 'Ask Meshmesh'
-    }
+      title: "🐱 Ask Meshmesh",
+      sub: "Frag mich!",
+      suggestLabel: "Beliebte Fragen",
+      placeholder: "Frage eingeben...",
+      toggleLabel: "Ask Meshmesh",
+    },
   };
 
   var messages = [];
   var isOpen = false;
   var isLoading = false;
+  var CHAT_STORAGE_KEY = "flyreisen24_chat_messages";
 
   function detectPageLang() {
+    // Prefer user language choice from localStorage (set by language switcher)
+    try {
+      var stored = localStorage.getItem("flyreisen24_lang");
+      if (stored === "en" || stored === "de" || stored === "th") return stored;
+    } catch (e) {
+      /* ignore */
+    }
     var path = window.location.pathname;
-    if (path.indexOf('/en/') === 0 || path.indexOf('/en') === 0) return 'en';
-    if (path.indexOf('/de/') === 0 || path.indexOf('/de') === 0) return 'de';
-    return 'th';
+    if (path.indexOf("/en/") !== -1) return "en";
+    if (path.indexOf("/de/") !== -1) return "de";
+    if (path.indexOf("/th/") !== -1) return "th";
+    var docLang = (document.documentElement.lang || "").toLowerCase();
+    if (docLang === "en" || docLang === "de") return docLang;
+    return "th";
+  }
+
+  function saveMessages() {
+    try {
+      var toSave = messages
+        .filter(function (m) {
+          return !m.streaming;
+        })
+        .slice(-20);
+      sessionStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(toSave));
+    } catch (e) {
+      /* ignore quota / private mode */
+    }
+  }
+
+  function loadMessages() {
+    try {
+      var raw = sessionStorage.getItem(CHAT_STORAGE_KEY);
+      if (!raw) return;
+      var parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length) {
+        messages = parsed.filter(function (m) {
+          return (
+            m &&
+            (m.role === "user" || m.role === "assistant") &&
+            typeof m.content === "string"
+          );
+        });
+      }
+    } catch (e) {
+      messages = [];
+    }
   }
 
   function injectStyles() {
     if (document.getElementById(STYLE_ID)) return;
 
     var css =
-      '#' + ROOT_ID + '{position:fixed;bottom:24px;right:24px;left:auto;z-index:9997;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;align-items:flex-end;max-width:calc(100vw - 32px);}' +
-      'body:has(#' + ROOT_ID + ') .contact-widget{display:none!important;}' +
-      '#' + ROOT_ID + ' *{box-sizing:border-box;}' +
-      '.fcw-toggle-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;}' +
-      '.fcw-toggle-label{display:none;}' +
-      '#chatToggleBtn,.fcw-toggle{width:56px;height:56px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 16px rgba(0,86,179,.4);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}' +
-      '#chatToggleBtn:hover,.fcw-toggle:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(0,86,179,.55);}' +
-      '@keyframes fcw-pulse{0%,100%{box-shadow:0 4px 16px rgba(0,86,179,.4);}50%{box-shadow:0 4px 28px rgba(0,86,179,.7),0 0 0 8px rgba(0,86,179,.12);}}' +
-      '.fcw-panel{display:none;flex-direction:column;width:340px;height:480px;max-width:calc(100vw - 48px);background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden;margin-bottom:14px;}' +
-      '.fcw-panel.open{display:flex;}' +
-      '.fcw-header{background:#0056B3;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}' +
-      '.fcw-header-text{display:flex;flex-direction:column;gap:2px;}' +
-      '.fcw-header-title{font-size:15px;font-weight:700;line-height:1.3;}' +
-      '.fcw-header-sub{font-size:12px;opacity:.9;}' +
-      '.fcw-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s;}' +
-      '.fcw-close:hover{background:rgba(255,255,255,.35);}' +
-      '.fcw-messages{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;background:#fafbfd;}' +
-      '.fcw-messages::-webkit-scrollbar{width:5px;}' +
-      '.fcw-messages::-webkit-scrollbar-thumb{background:#c5d4e8;border-radius:4px;}' +
-      '.fcw-bubble{max-width:88%;padding:10px 12px;border-radius:14px;font-size:13.5px;line-height:1.55;word-wrap:break-word;}' +
-      '.fcw-bubble a{color:#0056B3;text-decoration:underline;}' +
-      '.fcw-bubble.user{align-self:flex-end;background:#0056B3;color:#fff;border-bottom-right-radius:4px;}' +
-      '.fcw-bubble.user a{color:#cce0ff;}' +
-      '.fcw-bubble.ai{align-self:flex-start;background:#f0f4ff;color:#1a2332;border-bottom-left-radius:4px;}' +
+      "#" +
+      ROOT_ID +
+      '{position:fixed;bottom:24px;right:24px;left:auto;z-index:9997;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;align-items:flex-end;max-width:calc(100vw - 32px);}' +
+      "body:has(#" +
+      ROOT_ID +
+      ") .contact-widget{display:none!important;}" +
+      "#" +
+      ROOT_ID +
+      " *{box-sizing:border-box;}" +
+      ".fcw-toggle-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;}" +
+      ".fcw-toggle-label{display:none;}" +
+      "#chatToggleBtn,.fcw-toggle{width:56px;height:56px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 16px rgba(0,86,179,.4);transition:transform .2s ease,box-shadow .2s ease;animation:fcw-pulse 2s ease-in-out infinite;}" +
+      "#chatToggleBtn:hover,.fcw-toggle:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(0,86,179,.55);}" +
+      "@keyframes fcw-pulse{0%,100%{box-shadow:0 4px 16px rgba(0,86,179,.4);}50%{box-shadow:0 4px 28px rgba(0,86,179,.7),0 0 0 8px rgba(0,86,179,.12);}}" +
+      ".fcw-panel{display:none;flex-direction:column;width:340px;height:480px;max-width:calc(100vw - 48px);background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden;margin-bottom:14px;}" +
+      ".fcw-panel.open{display:flex;}" +
+      ".fcw-header{background:#0056B3;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}" +
+      ".fcw-header-text{display:flex;flex-direction:column;gap:2px;}" +
+      ".fcw-header-title{font-size:15px;font-weight:700;line-height:1.3;}" +
+      ".fcw-header-sub{font-size:12px;opacity:.9;}" +
+      ".fcw-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s;}" +
+      ".fcw-close:hover{background:rgba(255,255,255,.35);}" +
+      ".fcw-messages{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;background:#fafbfd;}" +
+      ".fcw-messages::-webkit-scrollbar{width:5px;}" +
+      ".fcw-messages::-webkit-scrollbar-thumb{background:#c5d4e8;border-radius:4px;}" +
+      ".fcw-bubble{max-width:88%;padding:10px 12px;border-radius:14px;font-size:13.5px;line-height:1.55;word-wrap:break-word;}" +
+      ".fcw-bubble a{color:#0056B3;text-decoration:underline;}" +
+      ".fcw-bubble.user{align-self:flex-end;background:#0056B3;color:#fff;border-bottom-right-radius:4px;}" +
+      ".fcw-bubble.user a{color:#cce0ff;}" +
+      ".fcw-bubble.ai{align-self:flex-start;background:#f0f4ff;color:#1a2332;border-bottom-left-radius:4px;}" +
       '.fcw-bubble.ai::before{content:"🐱 ";}' +
-      '.fcw-stream-cursor{display:inline;color:#0056B3;animation:fcw-cursor-blink 1s step-end infinite;}' +
-      '@keyframes fcw-cursor-blink{0%,100%{opacity:1;}50%{opacity:0;}}' +
-      '.fcw-suggestions{padding:0 12px 10px;display:flex;flex-direction:column;gap:6px;background:#fafbfd;}' +
-      '.fcw-suggestions.hidden{display:none;}' +
-      '.fcw-suggest-label{font-size:11px;color:#5a6a80;margin-bottom:2px;}' +
-      '.fcw-suggest-btn{background:#fff;border:1px solid #d0dff0;color:#0056B3;border-radius:20px;padding:7px 12px;font-size:12px;cursor:pointer;text-align:left;transition:background .15s,border-color .15s;line-height:1.4;}' +
-      '.fcw-suggest-btn:hover{background:#f0f4ff;border-color:#0056B3;}' +
-      '.fcw-loading{align-self:flex-start;background:#f0f4ff;padding:12px 16px;border-radius:14px;border-bottom-left-radius:4px;display:flex;gap:5px;align-items:center;}' +
-      '.fcw-loading span{width:7px;height:7px;background:#0056B3;border-radius:50%;animation:fcw-dot 1.2s ease-in-out infinite;}' +
-      '.fcw-loading span:nth-child(2){animation-delay:.2s;}' +
-      '.fcw-loading span:nth-child(3){animation-delay:.4s;}' +
-      '@keyframes fcw-dot{0%,80%,100%{opacity:.3;transform:scale(.8);}40%{opacity:1;transform:scale(1);}}' +
-      '.fcw-input-area{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #e8edf5;background:#fff;flex-shrink:0;}' +
-      '.fcw-input{flex:1;border:1px solid #d0dff0;border-radius:22px;padding:9px 14px;font-size:13.5px;outline:none;transition:border-color .2s;}' +
-      '.fcw-input:focus{border-color:#0056B3;}' +
-      '.fcw-send{width:38px;height:38px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background .2s,opacity .2s;}' +
-      '.fcw-send:hover{background:#003d82;}' +
-      '.fcw-send:disabled{opacity:.5;cursor:not-allowed;}' +
-      '.fcw-error{font-size:12px;color:#c0392b;padding:0 12px 8px;background:#fafbfd;}' +
-      '@media(min-width:768px) and (max-width:1024px){#' + ROOT_ID + '{bottom:20px;right:16px;left:auto;}' +
-      '.fcw-panel{width:320px;height:440px;max-width:calc(100vw - 32px);}' +
-      '#chatToggleBtn,.fcw-toggle{width:52px;height:52px;font-size:22px;}}' +
-      '@media(max-width:767px){#' + ROOT_ID + '{bottom:80px;right:16px;left:16px;align-items:stretch;}' +
-      '.fcw-panel{width:100%;height:60vh;max-height:520px;border-radius:16px;}' +
-      '.fcw-toggle-wrap{align-self:flex-end;}' +
-      '.fcw-bubble{max-width:92%;}}';
+      ".fcw-stream-cursor{display:inline;color:#0056B3;animation:fcw-cursor-blink 1s step-end infinite;}" +
+      "@keyframes fcw-cursor-blink{0%,100%{opacity:1;}50%{opacity:0;}}" +
+      ".fcw-suggestions{padding:0 12px 10px;display:flex;flex-direction:column;gap:6px;background:#fafbfd;}" +
+      ".fcw-suggestions.hidden{display:none;}" +
+      ".fcw-suggest-label{font-size:11px;color:#5a6a80;margin-bottom:2px;}" +
+      ".fcw-suggest-btn{background:#fff;border:1px solid #d0dff0;color:#0056B3;border-radius:20px;padding:7px 12px;font-size:12px;cursor:pointer;text-align:left;transition:background .15s,border-color .15s;line-height:1.4;}" +
+      ".fcw-suggest-btn:hover{background:#f0f4ff;border-color:#0056B3;}" +
+      ".fcw-loading{align-self:flex-start;background:#f0f4ff;padding:12px 16px;border-radius:14px;border-bottom-left-radius:4px;display:flex;gap:5px;align-items:center;}" +
+      ".fcw-loading span{width:7px;height:7px;background:#0056B3;border-radius:50%;animation:fcw-dot 1.2s ease-in-out infinite;}" +
+      ".fcw-loading span:nth-child(2){animation-delay:.2s;}" +
+      ".fcw-loading span:nth-child(3){animation-delay:.4s;}" +
+      "@keyframes fcw-dot{0%,80%,100%{opacity:.3;transform:scale(.8);}40%{opacity:1;transform:scale(1);}}" +
+      ".fcw-input-area{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #e8edf5;background:#fff;flex-shrink:0;}" +
+      ".fcw-input{flex:1;border:1px solid #d0dff0;border-radius:22px;padding:9px 14px;font-size:13.5px;outline:none;transition:border-color .2s;}" +
+      ".fcw-input:focus{border-color:#0056B3;}" +
+      ".fcw-send{width:38px;height:38px;border-radius:50%;background:#0056B3;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background .2s,opacity .2s;}" +
+      ".fcw-send:hover{background:#003d82;}" +
+      ".fcw-send:disabled{opacity:.5;cursor:not-allowed;}" +
+      ".fcw-error{font-size:12px;color:#c0392b;padding:0 12px 8px;background:#fafbfd;}" +
+      "@media(min-width:768px) and (max-width:1024px){#" +
+      ROOT_ID +
+      "{bottom:20px;right:16px;left:auto;}" +
+      ".fcw-panel{width:320px;height:440px;max-width:calc(100vw - 32px);}" +
+      "#chatToggleBtn,.fcw-toggle{width:52px;height:52px;font-size:22px;}}" +
+      "@media(max-width:767px){#" +
+      ROOT_ID +
+      "{bottom:80px;right:16px;left:16px;align-items:stretch;}" +
+      ".fcw-panel{width:100%;height:60vh;max-height:520px;border-radius:16px;}" +
+      ".fcw-toggle-wrap{align-self:flex-end;}" +
+      ".fcw-bubble{max-width:92%;}}";
 
-    var style = document.createElement('style');
+    var style = document.createElement("style");
     style.id = STYLE_ID;
     style.textContent = css;
     document.head.appendChild(style);
@@ -241,74 +290,76 @@
   function createWidget() {
     if (document.getElementById(ROOT_ID)) return;
 
-    var root = document.createElement('div');
+    var root = document.createElement("div");
     root.id = ROOT_ID;
     root.innerHTML =
       '<div class="fcw-panel" id="fcwPanel" role="dialog" aria-label="Ask Meshmesh chat">' +
-        '<div class="fcw-header">' +
-          '<div class="fcw-header-text">' +
-            '<div class="fcw-header-title">🐱 Ask Meshmesh</div>' +
-            '<div class="fcw-header-sub">ถามได้เลยค่ะ!</div>' +
-          '</div>' +
-          '<button type="button" class="fcw-close" id="fcwClose" aria-label="Close chat"><i class="fas fa-times"></i></button>' +
-        '</div>' +
-        '<div class="fcw-messages" id="fcwMessages"></div>' +
-        '<div class="fcw-suggestions" id="fcwSuggestions">' +
-          '<div class="fcw-suggest-label">คำถามยอดนิยม</div>' +
-        '</div>' +
-        '<div class="fcw-error" id="fcwError" style="display:none;"></div>' +
-        '<div class="fcw-input-area">' +
-          '<input type="text" class="fcw-input" id="fcwInput" placeholder="พิมพ์คำถามของคุณ..." autocomplete="off" maxlength="500">' +
-          '<button type="button" class="fcw-send" id="fcwSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>' +
-        '</div>' +
-      '</div>' +
+      '<div class="fcw-header">' +
+      '<div class="fcw-header-text">' +
+      '<div class="fcw-header-title">🐱 Ask Meshmesh</div>' +
+      '<div class="fcw-header-sub">ถามได้เลยค่ะ!</div>' +
+      "</div>" +
+      '<button type="button" class="fcw-close" id="fcwClose" aria-label="Close chat"><i class="fas fa-times"></i></button>' +
+      "</div>" +
+      '<div class="fcw-messages" id="fcwMessages"></div>' +
+      '<div class="fcw-suggestions" id="fcwSuggestions">' +
+      '<div class="fcw-suggest-label">คำถามยอดนิยม</div>' +
+      "</div>" +
+      '<div class="fcw-error" id="fcwError" style="display:none;"></div>' +
+      '<div class="fcw-input-area">' +
+      '<input type="text" class="fcw-input" id="fcwInput" placeholder="พิมพ์คำถามของคุณ..." autocomplete="off" maxlength="500">' +
+      '<button type="button" class="fcw-send" id="fcwSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>' +
+      "</div>" +
+      "</div>" +
       '<div class="fcw-toggle-wrap">' +
-        '<span class="fcw-toggle-label" id="fcwToggleLabel">Ask Meshmesh</span>' +
-        '<button type="button" class="fcw-toggle" id="fcwToggle" title="Ask Meshmesh" aria-label="Ask Meshmesh" aria-expanded="false">' +
-          '🐱' +
-        '</button>' +
-      '</div>';
+      '<span class="fcw-toggle-label" id="fcwToggleLabel">Ask Meshmesh</span>' +
+      '<button type="button" class="fcw-toggle" id="fcwToggle" title="Ask Meshmesh" aria-label="Ask Meshmesh" aria-expanded="false">' +
+      "🐱" +
+      "</button>" +
+      "</div>";
 
     document.body.appendChild(root);
 
-    var suggestionsEl = document.getElementById('fcwSuggestions');
+    var suggestionsEl = document.getElementById("fcwSuggestions");
     var pageLang = detectPageLang();
     var questions = SUGGESTED_QUESTIONS[pageLang] || SUGGESTED_QUESTIONS.th;
     questions.forEach(function (q) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'fcw-suggest-btn';
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "fcw-suggest-btn";
       btn.textContent = q;
-      btn.addEventListener('click', function () {
+      btn.addEventListener("click", function () {
         sendMessage(q);
       });
       suggestionsEl.appendChild(btn);
     });
 
-    document.getElementById('fcwToggle').addEventListener('click', toggleChat);
-    document.getElementById('fcwClose').addEventListener('click', closeChat);
-    document.getElementById('fcwSend').addEventListener('click', function () {
-      var input = document.getElementById('fcwInput');
+    document.getElementById("fcwToggle").addEventListener("click", toggleChat);
+    document.getElementById("fcwClose").addEventListener("click", closeChat);
+    document.getElementById("fcwSend").addEventListener("click", function () {
+      var input = document.getElementById("fcwInput");
       sendMessage(input.value);
     });
-    document.getElementById('fcwInput').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage(e.target.value);
-      }
-    });
+    document
+      .getElementById("fcwInput")
+      .addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage(e.target.value);
+        }
+      });
   }
 
   function toggleChat() {
     isOpen = !isOpen;
-    var panel = document.getElementById('fcwPanel');
-    var toggle = document.getElementById('fcwToggle');
+    var panel = document.getElementById("fcwPanel");
+    var toggle = document.getElementById("fcwToggle");
     if (isOpen) {
-      panel.classList.add('open');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.textContent = '✕';
+      panel.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.textContent = "✕";
       setTimeout(function () {
-        var input = document.getElementById('fcwInput');
+        var input = document.getElementById("fcwInput");
         if (input) input.focus();
       }, 200);
     } else {
@@ -318,17 +369,17 @@
 
   function closeChat() {
     isOpen = false;
-    var panel = document.getElementById('fcwPanel');
-    var toggle = document.getElementById('fcwToggle');
-    if (panel) panel.classList.remove('open');
+    var panel = document.getElementById("fcwPanel");
+    var toggle = document.getElementById("fcwToggle");
+    if (panel) panel.classList.remove("open");
     if (toggle) {
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = '🐱';
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "🐱";
     }
   }
 
   function escapeHtml(text) {
-    var div = document.createElement('div');
+    var div = document.createElement("div");
     div.textContent = text;
     return div.innerHTML;
   }
@@ -336,57 +387,72 @@
   function fixLinks(text) {
     text = text.replace(
       /(\/(?:th|en|de)\/faq\/[\w-]+)(?!\.html)("|\)|\s|$)/g,
-      '$1.html$2'
+      "$1.html$2"
     );
     text = text.replace(
       /https?:\/\/(?:www\.)?flyreisen24\.com(\/(?:th|en|de)\/faq\/[\w.-]+)/g,
-      '$1'
+      "$1"
     );
     return text;
   }
 
   function sanitizeAndRender(text) {
-    if (!text) return '';
+    if (!text) return "";
     text = fixLinks(text);
     var safe = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
     safe = safe
-      .replace(/&lt;a href="(\/[^"]*)"&gt;/gi,
-        '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">')
-      .replace(/&lt;\/a&gt;/gi, '</a>')
-      .replace(/&lt;strong&gt;/gi, '<strong>')
-      .replace(/&lt;\/strong&gt;/gi, '</strong>')
-      .replace(/&lt;br\s*\/?&gt;/gi, '<br>')
-      .replace(/&lt;br&gt;/gi, '<br>')
-      .replace(/\[([^\]]+)\]\((\/[^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>')
-      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>')
-      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-      .replace(/\n/g, '<br>');
+      .replace(
+        /&lt;a href="(\/[^"]*)"&gt;/gi,
+        '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">'
+      )
+      .replace(/&lt;\/a&gt;/gi, "</a>")
+      .replace(/&lt;strong&gt;/gi, "<strong>")
+      .replace(/&lt;\/strong&gt;/gi, "</strong>")
+      .replace(/&lt;br\s*\/?&gt;/gi, "<br>")
+      .replace(/&lt;br&gt;/gi, "<br>")
+      .replace(
+        /\[([^\]]+)\]\((\/[^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>'
+      )
+      .replace(
+        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">$1</a>'
+      )
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n/g, "<br>");
     safe = safe.replace(
       /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
       function (match, offset, whole) {
         var before = whole.substring(Math.max(0, offset - 20), offset);
         if (/href=["']?$/.test(before) || /<a[^>]*$/.test(before)) return match;
-        var href = match.indexOf('http') === 0 ? match : 'https://www.flyreisen24.com' + match;
-        return '<a href="' + href + '" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">' + match + '</a>';
+        var href =
+          match.indexOf("http") === 0
+            ? match
+            : "https://www.flyreisen24.com" + match;
+        return (
+          '<a href="' + href + '" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">' +
+          match +
+          "</a>"
+        );
       }
     );
     return safe;
   }
 
   function formatPlainText(text) {
-    return sanitizeAndRender(text || '');
+    return sanitizeAndRender(text || "");
   }
 
   function updateStreamingBubble(text, showCursor) {
-    var bubble = document.getElementById('fcwStreamingBubble');
-    var container = document.getElementById('fcwMessages');
+    var bubble = document.getElementById("fcwStreamingBubble");
+    var container = document.getElementById("fcwMessages");
     if (!bubble || !container) return;
-    bubble.innerHTML = formatPlainText(text) + (showCursor ? '<span class="fcw-stream-cursor">▌</span>' : '');
+    bubble.innerHTML =
+      formatPlainText(text) +
+      (showCursor ? '<span class="fcw-stream-cursor">▌</span>' : "");
     container.scrollTop = container.scrollHeight;
   }
 
@@ -395,21 +461,23 @@
   }
 
   function renderMessages() {
-    var container = document.getElementById('fcwMessages');
+    var container = document.getElementById("fcwMessages");
     if (!container) return;
-    container.innerHTML = '';
+    container.innerHTML = "";
 
     var hasStreaming = false;
 
     messages.forEach(function (msg) {
-      var bubble = document.createElement('div');
-      bubble.className = 'fcw-bubble ' + (msg.role === 'user' ? 'user' : 'ai');
-      if (msg.role === 'user') {
+      var bubble = document.createElement("div");
+      bubble.className = "fcw-bubble " + (msg.role === "user" ? "user" : "ai");
+      if (msg.role === "user") {
         bubble.textContent = msg.content;
       } else if (msg.streaming) {
         hasStreaming = true;
-        bubble.id = 'fcwStreamingBubble';
-        bubble.innerHTML = formatPlainText(msg.content) + '<span class="fcw-stream-cursor">▌</span>';
+        bubble.id = "fcwStreamingBubble";
+        bubble.innerHTML =
+          formatPlainText(msg.content) +
+          '<span class="fcw-stream-cursor">▌</span>';
       } else {
         bubble.innerHTML = linkify(msg.content);
       }
@@ -417,56 +485,83 @@
     });
 
     if (isLoading && !hasStreaming) {
-      var loading = document.createElement('div');
-      loading.className = 'fcw-loading';
-      loading.innerHTML = '<span></span><span></span><span></span>';
+      var loading = document.createElement("div");
+      loading.className = "fcw-loading";
+      loading.innerHTML = "<span></span><span></span><span></span>";
       container.appendChild(loading);
     }
 
     container.scrollTop = container.scrollHeight;
+    // Persist only completed turns so answers survive panel close / soft reload
+    if (!hasStreaming) saveMessages();
   }
 
   function showError(msg) {
-    var el = document.getElementById('fcwError');
+    var el = document.getElementById("fcwError");
     if (!el) return;
     el.textContent = msg;
-    el.style.display = msg ? 'block' : 'none';
+    el.style.display = msg ? "block" : "none";
   }
 
   function hideSuggestions() {
-    var el = document.getElementById('fcwSuggestions');
-    if (el) el.classList.add('hidden');
+    var el = document.getElementById("fcwSuggestions");
+    if (el) el.classList.add("hidden");
   }
 
   async function sendMessage(text) {
-    var trimmed = (text || '').trim();
+    var trimmed = (text || "").trim();
     if (!trimmed || isLoading) return;
 
-    var input = document.getElementById('fcwInput');
-    var sendBtn = document.getElementById('fcwSend');
-    if (input) input.value = '';
-    showError('');
+    var input = document.getElementById("fcwInput");
+    var sendBtn = document.getElementById("fcwSend");
+    if (input) input.value = "";
+    showError("");
     hideSuggestions();
 
-    messages.push({ role: 'user', content: trimmed });
-    messages.push({ role: 'assistant', content: '', streaming: true });
+    messages.push({ role: "user", content: trimmed });
+    messages.push({ role: "assistant", content: "", streaming: true });
     isLoading = true;
     if (sendBtn) sendBtn.disabled = true;
     renderMessages();
 
     var lang = detectPageLang();
-    var langHint = lang === 'en' ? 'English' : lang === 'de' ? 'German' : 'Thai';
-    var systemWithLang = SYSTEM_PROMPT + '\n\nCurrent page language hint: ' + langHint + ' (' + lang + '). Prefer FAQ links matching this language when possible.';
-    var apiMessages = messages.filter(function (m) { return !m.streaming; }).map(function (m) {
-      return { role: m.role, content: m.content };
-    });
+    var langHint =
+      lang === "en" ? "English" : lang === "de" ? "German" : "Thai";
+    // Force reply language from site language choice (not only from user text)
+    var systemWithLang =
+      SYSTEM_PROMPT +
+      "\n\nCurrent site language: " +
+      langHint +
+      " (" +
+      lang +
+      ")." +
+      "\nIMPORTANT: Respond ONLY in " +
+      langHint +
+      " unless the user clearly wrote in a different language." +
+      "\nPrefer FAQ links under /" +
+      lang +
+      "/faq/ when possible.";
+    var apiMessages = messages
+      .filter(function (m) {
+        return !m.streaming;
+      })
+      .map(function (m) {
+        return { role: m.role, content: m.content };
+      });
+
+    var emptyFallback =
+      lang === "en"
+        ? "Sorry, I could not generate a reply right now. Please try again."
+        : lang === "de"
+        ? "Entschuldigung, gerade keine Antwort möglich. Bitte erneut versuchen."
+        : "ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้ ลองถามใหม่อีกครั้งนะคะ";
 
     try {
-      if (!window.FlyReisenAI) throw new Error('NOT_CONFIGURED');
+      if (!window.FlyReisenAI) throw new Error("NOT_CONFIGURED");
 
       var reply = await window.FlyReisenAI.callClaude({
         model: window.FlyReisenAI.MODEL,
-        max_tokens: 400,
+        max_tokens: 700,
         stream: true,
         system: systemWithLang,
         messages: apiMessages,
@@ -476,67 +571,104 @@
             streamingMsg.content = text;
             updateStreamingBubble(text, true);
           }
-        }
+        },
       });
 
-      if (!reply) reply = 'ขออภัยค่ะ ไม่สามารถตอบได้ในขณะนี้ ลองถามใหม่อีกครั้งนะคะ';
-      reply = fixLinks(reply);
-      messages[messages.length - 1] = { role: 'assistant', content: reply };
+      // Prefer streamed text already accumulated if final reply is empty
+      var lastMsg = messages[messages.length - 1];
+      if (
+        (!reply || !String(reply).trim()) &&
+        lastMsg &&
+        lastMsg.streaming &&
+        lastMsg.content
+      ) {
+        reply = lastMsg.content;
+      }
+      if (!reply || !String(reply).trim()) reply = emptyFallback;
+      reply = fixLinks(String(reply));
+      messages[messages.length - 1] = { role: "assistant", content: reply };
     } catch (err) {
       if (messages.length && messages[messages.length - 1].streaming) {
-        messages.pop();
+        // Keep partial streamed text if we already have some content
+        var partial = messages[messages.length - 1].content;
+        if (partial && String(partial).trim()) {
+          messages[messages.length - 1] = {
+            role: "assistant",
+            content: fixLinks(String(partial)),
+          };
+        } else {
+          messages.pop();
+        }
       }
-      if (err && err.message === 'NOT_CONFIGURED') {
-        showError('ยังเชื่อมต่อ AI ไม่ได้ — ตั้ง Cloudflare Worker (production) หรือ dev-config.js (local)');
+      if (err && err.message === "NOT_CONFIGURED") {
+        showError(
+          lang === "en"
+            ? "AI is not connected — configure Cloudflare Worker or dev-config.js"
+            : lang === "de"
+            ? "KI nicht verbunden — Worker oder dev-config.js prüfen"
+            : "ยังเชื่อมต่อ AI ไม่ได้ — ตั้ง Cloudflare Worker (production) หรือ dev-config.js (local)"
+        );
         isLoading = false;
         if (sendBtn) sendBtn.disabled = false;
-        messages.pop();
+        if (messages.length && messages[messages.length - 1].role === "user")
+          messages.pop();
         renderMessages();
         return;
       }
-      if (err && err.message === 'AUTH_INVALID') {
-        var authMsg = window.FlyReisenAI.authErrorMessage(detectPageLang());
+      if (err && err.message === "AUTH_INVALID") {
+        var authMsg = window.FlyReisenAI.authErrorMessage(lang);
         showError(authMsg);
-        messages.push({ role: 'assistant', content: '🐱 ' + authMsg });
+        messages.push({ role: "assistant", content: authMsg });
         isLoading = false;
         if (sendBtn) sendBtn.disabled = false;
         renderMessages();
         return;
       }
-      if (err && err.message === 'MODEL_NOT_FOUND') {
-        var modelMsg = detectPageLang() === 'en'
-          ? 'AI model not found — pull latest ai-client.js from the repo.'
-          : detectPageLang() === 'de'
-            ? 'KI-Modell nicht gefunden — ai-client.js aktualisieren.'
-            : 'ไม่พบ AI model — อัปเดต ai-client.js เป็นเวอร์ชันล่าสุด';
+      if (err && err.message === "MODEL_NOT_FOUND") {
+        var modelMsg =
+          lang === "en"
+            ? "AI model not found — pull latest ai-client.js from the repo."
+            : lang === "de"
+            ? "KI-Modell nicht gefunden — ai-client.js aktualisieren."
+            : "ไม่พบ AI model — อัปเดต ai-client.js เป็นเวอร์ชันล่าสุด";
         showError(modelMsg);
-        messages.push({ role: 'assistant', content: '🐱 ' + modelMsg });
+        messages.push({ role: "assistant", content: modelMsg });
         isLoading = false;
         if (sendBtn) sendBtn.disabled = false;
         renderMessages();
         return;
       }
-      var errMsg = err && err.message ? err.message : 'Network error';
-      messages.push({
-        role: 'assistant',
-        content: 'ขออภัยค่ะ เกิดข้อผิดพลาด: ' + errMsg + '\n\nลองใหม่อีกครั้ง หรือดู FAQ ที่ /th/faq/landing.html'
-      });
+      var errMsg = err && err.message ? err.message : "Network error";
+      var genericErr =
+        lang === "en"
+          ? "Sorry, an error occurred: " +
+            errMsg +
+            "\n\nPlease try again or see /en/faq/landing.html"
+          : lang === "de"
+          ? "Entschuldigung, Fehler: " +
+            errMsg +
+            "\n\nBitte erneut versuchen oder /de/faq/landing.html"
+          : "ขออภัยค่ะ เกิดข้อผิดพลาด: " +
+            errMsg +
+            "\n\nลองใหม่อีกครั้ง หรือดู FAQ ที่ /th/faq/landing.html";
+      messages.push({ role: "assistant", content: genericErr });
     }
 
     isLoading = false;
     if (sendBtn) sendBtn.disabled = false;
     renderMessages();
+    saveMessages();
     if (input) input.focus();
   }
 
   function updateChatWidgetLang(langCode) {
     var lang = CHAT_WIDGET_LANG[langCode] || CHAT_WIDGET_LANG.th;
-    var titleEl = document.querySelector('.fcw-header-title');
-    var subEl = document.querySelector('.fcw-header-sub');
-    var labelEl = document.getElementById('fcwToggleLabel');
-    var inputEl = document.getElementById('fcwInput');
-    var suggestLabelEl = document.querySelector('.fcw-suggest-label');
-    var toggleEl = document.getElementById('fcwToggle');
+    var titleEl = document.querySelector(".fcw-header-title");
+    var subEl = document.querySelector(".fcw-header-sub");
+    var labelEl = document.getElementById("fcwToggleLabel");
+    var inputEl = document.getElementById("fcwInput");
+    var suggestLabelEl = document.querySelector(".fcw-suggest-label");
+    var toggleEl = document.getElementById("fcwToggle");
 
     if (titleEl) titleEl.textContent = lang.title;
     if (subEl) subEl.textContent = lang.sub;
@@ -546,7 +678,7 @@
     if (toggleEl) toggleEl.title = lang.toggleLabel;
 
     var questions = SUGGESTED_QUESTIONS[langCode] || SUGGESTED_QUESTIONS.th;
-    var btns = document.querySelectorAll('.fcw-suggest-btn');
+    var btns = document.querySelectorAll(".fcw-suggest-btn");
     btns.forEach(function (btn, i) {
       if (questions[i]) btn.textContent = questions[i];
     });
@@ -554,19 +686,23 @@
 
   function init() {
     if (window.__flyreisenChatWidgetInit) return;
-    if (window.location.pathname.indexOf('smart-search') !== -1) return;
+    if (window.location.pathname.indexOf("smart-search") !== -1) return;
     window.__flyreisenChatWidgetInit = true;
     injectStyles();
     createWidget();
-    var storedLang = localStorage.getItem('flyreisen24_lang');
-    var pageLang = storedLang || detectPageLang();
+    loadMessages();
+    if (messages.length) {
+      hideSuggestions();
+      renderMessages();
+    }
+    var pageLang = detectPageLang();
     updateChatWidgetLang(pageLang);
   }
 
   window.updateChatWidgetLang = updateChatWidgetLang;
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
