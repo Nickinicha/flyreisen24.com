@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -941,6 +941,7 @@
   function switchLang(lang) {
     if (lang !== 'th' && lang !== 'en' && lang !== 'de') lang = 'th';
     try { sessionStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    try { localStorage.setItem('flyreisen24_lang', lang); } catch (e) {}
     document.documentElement.lang = lang === 'th' ? 'th' : lang;
     var pack = I18N[lang] || I18N.th;
     var fallback = I18N.th;
@@ -979,7 +980,7 @@
   });
 
   var initial = 'th';
-  try { initial = sessionStorage.getItem(STORAGE_KEY) || 'th'; } catch (e) {}
+  try { initial = localStorage.getItem('flyreisen24_lang') || sessionStorage.getItem(STORAGE_KEY) || 'th'; } catch (e) { initial = 'th'; }
   switchLang(initial);
 })();
 </script>
@@ -988,5 +989,6 @@
 <script src="/dev-config.js" onerror="void 0"></script>
 <script src="/ai-client.js?v=3"></script>
 <script src="/chat-widget.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"41fd45d92d6c4c5db11cec69ea465615","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
