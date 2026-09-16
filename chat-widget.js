@@ -390,7 +390,7 @@
 
   function sanitizeAndRender(text) {
     if (!text) return "";
-    text = fixLinks(text);
+    text = fixLinks(String(text));
     var safe = text
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
@@ -415,9 +415,13 @@
       )
       .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
       .replace(/\n/g, "<br>");
+    // Use arguments[length-2/1] because a capturing group shifts offset/string params
     safe = safe.replace(
       /(https?:\/\/[^\s<]+|\/[a-z]{2}\/faq\/[^\s<]+(?:\.html)?)/gi,
-      function (match, offset, whole) {
+      function (match) {
+        var offset = arguments[arguments.length - 2];
+        var whole = arguments[arguments.length - 1];
+        if (typeof whole !== "string") return match;
         var before = whole.substring(Math.max(0, offset - 20), offset);
         if (/href=["']?$/.test(before) || /<a[^>]*$/.test(before)) return match;
         var href =
@@ -425,7 +429,9 @@
             ? match
             : "https://www.flyreisen24.com" + match;
         return (
-          '<a href="' + href + '" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">' +
+          '<a href="' +
+          href +
+          '" target="_blank" rel="noopener noreferrer" style="color:#0056B3;text-decoration:underline;">' +
           match +
           "</a>"
         );
@@ -434,17 +440,18 @@
     return safe;
   }
 
-  function formatPlainText(text) {
-    return sanitizeAndRender(text || "");
-  }
 
   function updateStreamingBubble(text, showCursor) {
     var bubble = document.getElementById("fcwStreamingBubble");
     var container = document.getElementById("fcwMessages");
     if (!bubble || !container) return;
-    bubble.innerHTML =
-      formatPlainText(text) +
-      (showCursor ? '<span class="fcw-stream-cursor">▌</span>' : "");
+    try {
+      bubble.innerHTML =
+        formatPlainText(text) +
+        (showCursor ? '<span class="fcw-stream-cursor">▌</span>' : "");
+    } catch (e) {
+      bubble.textContent = text || "";
+    }
     container.scrollTop = container.scrollHeight;
   }
 
@@ -455,26 +462,36 @@
   function renderMessages() {
     var container = document.getElementById("fcwMessages");
     if (!container) return;
-    container.innerHTML = "";
 
     var hasStreaming = false;
+    var frag = document.createDocumentFragment();
 
     messages.forEach(function (msg) {
       var bubble = document.createElement("div");
       bubble.className = "fcw-bubble " + (msg.role === "user" ? "user" : "ai");
       if (msg.role === "user") {
-        bubble.textContent = msg.content;
+        bubble.textContent = msg.content || "";
       } else if (msg.streaming) {
         hasStreaming = true;
         bubble.id = "fcwStreamingBubble";
-        bubble.innerHTML =
-          formatPlainText(msg.content) +
-          '<span class="fcw-stream-cursor">▌</span>';
+        try {
+          bubble.innerHTML =
+            formatPlainText(msg.content) +
+            '<span class="fcw-stream-cursor">▌</span>';
+        } catch (e) {
+          bubble.textContent = msg.content || "";
+        }
       } else {
-        bubble.innerHTML = linkify(msg.content);
+        try {
+          bubble.innerHTML = linkify(msg.content);
+        } catch (e) {
+          bubble.textContent = msg.content || "";
+        }
       }
-      container.appendChild(bubble);
+      frag.appendChild(bubble);
     });
+    container.innerHTML = "";
+    container.appendChild(frag);
 
     if (isLoading && !hasStreaming) {
       var loading = document.createElement("div");
@@ -520,8 +537,7 @@
     var langHint =
       lang === "en" ? "English" : lang === "de" ? "German" : "Thai";
     // Force reply language from site language choice (not only from user text)
-    var systemWithLang = SYSTEM_PROMPT +
-  '\n\nIMPORTANT: Respond ONLY in ' + langHint + '. Do not use Thai unless the user wrote in Thai.';
+    var systemWithLang =
       SYSTEM_PROMPT +
       "\n\nCurrent site language: " +
       langHint +
