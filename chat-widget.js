@@ -167,21 +167,13 @@
   var CHAT_STORAGE_KEY = "flyreisen24_chat_messages";
 
   function detectPageLang() {
-    // Prefer user language choice from localStorage (set by language switcher)
-    try {
-      var stored = localStorage.getItem("flyreisen24_lang");
-      if (stored === "en" || stored === "de" || stored === "th") return stored;
-    } catch (e) {
-      /* ignore */
-    }
-    var path = window.location.pathname;
-    if (path.indexOf("/en/") !== -1) return "en";
-    if (path.indexOf("/de/") !== -1) return "de";
-    if (path.indexOf("/th/") !== -1) return "th";
-    var docLang = (document.documentElement.lang || "").toLowerCase();
-    if (docLang === "en" || docLang === "de") return docLang;
-    return "th";
-  }
+  var stored = localStorage.getItem('flyreisen24_lang');
+  if (stored === 'en' || stored === 'de' || stored === 'th') return stored;
+  var path = window.location.pathname;
+  if (path.indexOf('/en/') === 0) return 'en';
+  if (path.indexOf('/de/') === 0) return 'de';
+  return 'th';
+}
 
   function saveMessages() {
     try {
@@ -528,7 +520,8 @@
     var langHint =
       lang === "en" ? "English" : lang === "de" ? "German" : "Thai";
     // Force reply language from site language choice (not only from user text)
-    var systemWithLang =
+    var systemWithLang = SYSTEM_PROMPT +
+  '\n\nIMPORTANT: Respond ONLY in ' + langHint + '. Do not use Thai unless the user wrote in Thai.';
       SYSTEM_PROMPT +
       "\n\nCurrent site language: " +
       langHint +
