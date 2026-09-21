@@ -1382,3 +1382,4 @@ img, video, iframe,
     initialize();
   }
 })();
+<script src="/nav-inject.js"></script>
