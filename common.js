@@ -73,6 +73,18 @@
                                 <span id="navTools">เครื่องมือ</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/th/guides/future-air-taxi.html" id="navFutureLink">
+                                <i class="fas fa-helicopter"></i>
+                                <span id="navFuture">อนาคตการเดินทาง</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/th/travel-alerts/index.html" id="navAlertsLink">
+                                <i class="fas fa-bullhorn"></i>
+                                <span id="navAlerts">Travel Alerts</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -119,6 +131,16 @@
             'th': '/tools.html',
             'en': '/tools.html',
             'de': '/tools.html'
+        },
+        'alerts': {
+            'th': '/th/travel-alerts/index.html',
+            'en': '/en/travel-alerts/index.html',
+            'de': '/th/travel-alerts/index.html'
+        },
+        'future': {
+            'th': '/th/guides/future-air-taxi.html',
+            'en': '/en/guides/future-air-taxi.html',
+            'de': '/th/guides/future-air-taxi.html'
         },
         'about': {
             'th': '/th/about_th.html',
@@ -257,6 +279,31 @@
         if (!hasCanonicalStructure) {
             nav.innerHTML = GLOBAL_NAV_MARKUP;
         }
+        ensureResourceNavItems();
+    }
+
+    function ensureResourceNavItems() {
+        const knowledge = document.getElementById('navKnowledgeLink');
+        const wrap = knowledge ? knowledge.closest('ul') : null;
+        if (!wrap) return;
+        const lang = (document.documentElement.lang || localStorage.getItem('flyreisen24_lang') || 'th').slice(0, 2);
+        const alertsHref = (PAGE_MAPPINGS.alerts && PAGE_MAPPINGS.alerts[lang]) || '/th/travel-alerts/index.html';
+        const futureHref = (PAGE_MAPPINGS.future && PAGE_MAPPINGS.future[lang]) || '/th/guides/future-air-taxi.html';
+
+        if (!document.getElementById('navFutureLink')) {
+            const li = document.createElement('li');
+            li.innerHTML = '<a href="' + futureHref + '" id="navFutureLink"><i class="fas fa-helicopter"></i> <span id="navFuture">อนาคตการเดินทาง</span></a>';
+            wrap.appendChild(li);
+        }
+        const existingAlerts = document.getElementById('navAlertsLink');
+        if (!existingAlerts) {
+            const li = document.createElement('li');
+            li.innerHTML = '<a href="' + alertsHref + '" id="navAlertsLink"><i class="fas fa-bullhorn"></i> <span id="navAlerts">Travel Alerts</span></a>';
+            wrap.appendChild(li);
+        } else if (existingAlerts.closest('ul') !== wrap) {
+            const li = existingAlerts.closest('li') || existingAlerts.parentElement;
+            wrap.appendChild(li);
+        }
     }
 
     // ==========================================
@@ -273,6 +320,8 @@
             navKnowledge: '15 คำถามก่อนบิน',
             navFaq: 'คำถามที่พบบ่อย',
             navTools: 'เครื่องมือ',
+            navAlerts: 'Travel Alerts',
+            navFuture: 'อนาคตการเดินทาง',
             navHelp: 'ช่วยเหลือ',
             loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
             sectionTitle: 'วางแผนการเดินทางของคุณ',
@@ -325,6 +374,8 @@
             navKnowledge: '15 Pre-Flight Questions',
             navFaq: 'FAQ',
             navTools: 'Tools',
+            navAlerts: 'Travel Alerts',
+            navFuture: 'Future travel',
             navHelp: 'Help',
             loadingText: 'Loading search form...',
             sectionTitle: 'Plan Your Journey',
@@ -377,6 +428,8 @@
             navKnowledge: '15 Fragen vor dem Flug',
             navFaq: 'FAQ',
             navTools: 'Tools',
+            navAlerts: 'Travel Alerts',
+            navFuture: 'Zukunft des Reisens',
             navHelp: 'Hilfe',
             loadingText: 'Suchformular wird geladen...',
             sectionTitle: 'Planen Sie Ihre Reise',
@@ -457,6 +510,12 @@
 
         const navToolsLink = document.getElementById('navToolsLink');
         if (navToolsLink) navToolsLink.href = PAGE_MAPPINGS['tools'][lang];
+
+        const navAlertsLink = document.getElementById('navAlertsLink');
+        if (navAlertsLink) navAlertsLink.href = PAGE_MAPPINGS['alerts'][lang] || PAGE_MAPPINGS['alerts'].th;
+
+        const navFutureLink = document.getElementById('navFutureLink');
+        if (navFutureLink) navFutureLink.href = PAGE_MAPPINGS['future'][lang] || PAGE_MAPPINGS['future'].th;
 
         const footerLinks = {
             'footerFaqLink':       'faq',
