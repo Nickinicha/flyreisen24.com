@@ -54,6 +54,14 @@
                         <span class="new-badge">NEW</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="/deals" id="navOffersLink" class="top-nav-prominent-link">
+                        <i class="fas fa-tags"></i>
+                        <span id="navOffers">ดีล</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="#" class="dropdown-toggle" aria-expanded="false">
                         <i class="fas fa-book-open"></i>
@@ -316,7 +324,8 @@
             navFlight: 'เที่ยวบิน',
             navHotel: 'โรงแรม',
             navCarRental: 'รถเช่า',
-            navDeals: 'ดีล',
+            navDeals: 'AI Search',
+            navOffers: 'ดีล',
             navKnowledge: '15 คำถามก่อนบิน',
             navFaq: 'คำถามที่พบบ่อย',
             navTools: 'เครื่องมือ',
@@ -370,7 +379,8 @@
             navFlight: 'Flights',
             navHotel: 'Hotels',
             navCarRental: 'Car Rentals',
-            navDeals: 'Deals',
+            navDeals: 'AI Search',
+            navOffers: 'Deals',
             navKnowledge: '15 Pre-Flight Questions',
             navFaq: 'FAQ',
             navTools: 'Tools',
@@ -424,7 +434,8 @@
             navFlight: 'Flüge',
             navHotel: 'Hotels',
             navCarRental: 'Mietwagen',
-            navDeals: 'Angebote',
+            navDeals: 'AI Search',
+            navOffers: 'Angebote',
             navKnowledge: '15 Fragen vor dem Flug',
             navFaq: 'FAQ',
             navTools: 'Tools',
@@ -507,6 +518,9 @@
 
         const navDealsLink = document.getElementById('navDealsLink');
         if (navDealsLink) navDealsLink.href = '/smart-search.html';
+
+        const navOffersLink = document.getElementById('navOffersLink');
+        if (navOffersLink) navOffersLink.href = '/deals';
 
         const navToolsLink = document.getElementById('navToolsLink');
         if (navToolsLink) navToolsLink.href = PAGE_MAPPINGS['tools'][lang];
