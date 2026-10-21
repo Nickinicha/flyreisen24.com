@@ -375,8 +375,38 @@
             footerTerms: 'ข้อกำหนดและเงื่อนไข',
             footerPrivacy: 'นโยบายความเป็นส่วนตัว',
             heroBadge: '✈️ มุมมองจากฝั่งตรงข้าม counter เช็คอิน',
-            heroTitle: 'จองเที่ยวบิน + โรงแรม + ดีล<br><span class="hero-highlight">ในที่เดียว</span>',
-            heroSubtitle: 'เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — เห็นราคาก่อนไปชำระเงิน',
+            heroTitle: 'เปรียบเทียบเที่ยวบิน<br><span class="hero-highlight">พร้อมคลังความรู้ 3 ภาษา</span>',
+            heroSubtitle: 'เปรียบเทียบเที่ยวบิน พร้อมคลังความรู้และ AI Travel Hub 3 ภาษา จากคนที่ทำงานระบบตั๋ว Amadeus มา 16 ปี',
+            heroPrimary: 'เริ่มจากความรู้การบิน →',
+            behindTitle: 'เบื้องหลังเว็บ',
+            behindP1: 'FlyReisen24 ทำโดยคนที่ทำงานออกบัตรโดยสาร ศูนย์บริการสำรองที่นั่ง และปฏิบัติการทัวร์ ใช้ระบบสำรองที่นั่ง Amadeus มานาน 16 ปี',
+            behindP2: 'ครอบคลุมกฎตั๋ว, Fare Classes, Minimum Connection Time, Single PNR และสิทธิ์ผู้โดยสารอย่าง EU261 ไม่ใช่แค่หน้าค้นหาราคา',
+            behindP3: 'เพื่อนคู่คิดด้านการเดินทาง รู้ทันกฎการบิน รักษาสิทธิ์ผู้โดยสาร และวางแผนให้คุ้มค่า',
+            behindLink: 'อ่านเกี่ยวกับเรา',
+            mascotTitle: 'ทีมมาสคอต FlyReisen24',
+            mascotSub: 'สามตัวละครช่วยเล่าเรื่องกฎการบิน ให้เนื้อหาอ่านง่ายขึ้น',
+            mascotWinnerDesc: 'สายลุย เชี่ยวชาญการต่อเครื่องและการล่าไฟลต์คุ้มค่า',
+            mascotChichiDesc: 'สายละเอียด เช็กลิสต์ความพร้อมก่อนบินและกฎเกณฑ์',
+            mascotMeshDesc: 'สายเนี๊ยบ กฎระเบียบ สิทธิ์การชดเชย และระบบหลังบ้าน — ถามได้ที่ AI Hub',
+            guidesTitle: 'คลังความรู้ที่ควรอ่านก่อน',
+            guide1Title: 'เวลาต่อเครื่องขั้นต่ำ',
+            guide1Desc: 'กฎ MCT, ตั๋วใบเดียวกัน และเวลาเผื่อที่ปลอดภัย',
+            guide2Title: 'สะสมไมล์ให้คุ้ม',
+            guide2Desc: 'กลยุทธ์ 3 พันธมิตรการบิน และสิทธิ์ข้ามสายการบิน',
+            guide3Title: 'ถูกปฏิเสธขึ้นเครื่อง',
+            guide3Desc: 'สิทธิ์เมื่อ overbook และข้อควรรู้ของเที่ยวบินเช่าเหมาลำ',
+            guide4Title: 'จองตั๋วให้คุ้ม',
+            guide4Desc: 'ช่วง 8–12 สัปดาห์ และวันบินกลางสัปดาห์ที่มักได้ราคาดี',
+            destTitle: 'ปลายทางที่คนไทยบินยุโรปเจอบ่อย',
+            destSub: 'ภาพรวมเมืองและข้อควรรู้ ไม่มีราคา เพราะราคาตั๋วเปลี่ยนทุกวัน',
+            dest1Title: 'แฟรงก์เฟิร์ต',
+            dest1Desc: 'ฮับต่อเครื่องใหญ่ เช็กเวลาต่อเครื่องก่อนจอง',
+            dest2Title: 'มิวนิก',
+            dest2Desc: 'ทางเข้าเยอรมนีที่ต่อในยุโรปสะดวก',
+            dest3Title: 'ปารีส',
+            dest3Desc: 'ต่อผ่านเยอรมนีเข้า Schengen คนละเรื่องกับแอร์ไซด์',
+            dest4Title: 'AI Travel Hub',
+            dest4Desc: 'ไอเดียแผนทริปเบื้องต้น ไม่ใช่ราคาหรือที่ว่างจริง'
             trustTagline: '🤝 พันธมิตรที่เชื่อถือได้ของเรา',
             trustSafe: 'ชำระเงินบนเว็บพาร์ทเนอร์',
             trustSecure: 'ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส',
@@ -438,8 +468,38 @@
             footerTerms: 'Terms & Conditions',
             footerPrivacy: 'Privacy Policy',
             heroBadge: '✈️ Ground staff perspective — from behind the check-in counter',
-            heroTitle: 'Book Flights + Hotels + Deals<br><span class="hero-highlight">in One Place</span>',
-            heroSubtitle: 'Compare prices from top airlines, hotels, and car rental services worldwide — see the price before you pay',
+            heroTitle: 'Compare flights<br><span class="hero-highlight">with a 3-language knowledge base</span>',
+            heroSubtitle: 'Compare flights, with a knowledge base and AI Travel Hub in 3 languages — from someone who worked Amadeus ticketing for 16 years',
+            heroPrimary: 'Start with flight knowledge →',
+            behindTitle: 'Behind the site',
+            behindP1: 'FlyReisen24 is run by someone who worked in ticketing, reservation call centres and tour operations, using Amadeus for 16 years',
+            behindP2: 'That covers fare rules, fare classes, minimum connection time, single PNR and passenger rights such as EU261 — not just a price search page',
+            behindP3: 'A travel companion that knows the rules, protects passenger rights and helps you plan for value',
+            behindLink: 'About us',
+            mascotTitle: 'The FlyReisen24 mascots',
+            mascotSub: 'Three characters that make flight rules easier to read',
+            mascotWinnerDesc: 'The explorer — connections and value flights',
+            mascotChichiDesc: 'The detail checker — pre-flight lists and rules',
+            mascotMeshDesc: 'The neat one — regulations, compensation rights and back-office systems. Ask in AI Hub',
+            guidesTitle: 'Guides worth reading first',
+            guide1Title: 'Minimum connection time',
+            guide1Desc: 'MCT rules, single-ticket bookings and a safe buffer',
+            guide2Title: 'Miles that are worth it',
+            guide2Desc: 'How the three alliances work, and benefits across airlines',
+            guide3Title: 'Denied boarding',
+            guide3Desc: 'Your rights when a flight is overbooked, and charter caveats',
+            guide4Title: 'Book smarter',
+            guide4Desc: 'The 8–12 week window and midweek flights that often price better',
+            destTitle: 'Europe routes Thai travellers meet often',
+            destSub: 'City notes only. No prices, because fares change every day',
+            dest1Title: 'Frankfurt',
+            dest1Desc: 'A major connection hub. Check connection time before you book',
+            dest2Title: 'Munich',
+            dest2Desc: 'A practical German gateway for connections inside Europe',
+            dest3Title: 'Paris',
+            dest3Desc: 'Connecting through Germany into Schengen is not the same as airside transit',
+            dest4Title: 'AI Travel Hub',
+            dest4Desc: 'A preliminary trip idea, not a live fare or seat'
             trustTagline: '🤝 Partners you can trust',
             trustSafe: 'Payment on partner sites',
             trustSecure: 'Encrypted connection',
@@ -501,8 +561,38 @@
             footerTerms: 'AGB',
             footerPrivacy: 'Datenschutz',
             heroBadge: '✈️ Perspektive vom Check-in-Schalter — 10+ Jahre Bodenabfertigung',
-            heroTitle: 'Flüge + Hotels + Angebote<br><span class="hero-highlight">an einem Ort</span>',
-            heroSubtitle: 'Preise von Top-Airlines, Hotels und Mietwagen weltweit vergleichen — Preis vor der Zahlung sehen',
+            heroTitle: 'Flüge vergleichen<br><span class="hero-highlight">mit Wissensbasis in 3 Sprachen</span>',
+            heroSubtitle: 'Flüge vergleichen, mit Wissensbasis und AI Travel Hub in 3 Sprachen — von jemandem mit 16 Jahren Amadeus-Ticketing',
+            heroPrimary: 'Mit Flugwissen starten →',
+            behindTitle: 'Hinter der Website',
+            behindP1: 'FlyReisen24 kommt von jemandem aus Ticketing, Reservierungs-Callcenter und Reiseveranstaltung, mit 16 Jahren Amadeus',
+            behindP2: 'Das umfasst Tarifregeln, Buchungsklassen, Minimum Connection Time, Single PNR und Fluggastrechte wie EU261 — nicht nur eine Preissuche',
+            behindP3: 'Ein Reisebegleiter, der die Regeln kennt, Rechte schützt und beim Planen hilft',
+            behindLink: 'Über uns',
+            mascotTitle: 'Die FlyReisen24-Maskottchen',
+            mascotSub: 'Drei Figuren, die Flugregeln leichter lesbar machen',
+            mascotWinnerDesc: 'Die Entdeckerin — Umsteigen und günstige Flüge',
+            mascotChichiDesc: 'Die genaue — Checklisten und Regeln vor dem Flug',
+            mascotMeshDesc: 'Die ordentliche — Regeln, Ausgleich und Hintergrundsysteme. Fragen im AI Hub',
+            guidesTitle: 'Wissen, das sich zuerst lohnt',
+            guide1Title: 'Mindestumsteigezeit',
+            guide1Desc: 'MCT, ein Ticket und ein sicherer Puffer',
+            guide2Title: 'Meilen, die sich lohnen',
+            guide2Desc: 'Die drei Allianzen und Vorteile über Airlines hinweg',
+            guide3Title: 'Nicht befördert',
+            guide3Desc: 'Rechte bei Überbuchung und Besonderheiten von Charterflügen',
+            guide4Title: 'Smarter buchen',
+            guide4Desc: 'Das Fenster von 8–12 Wochen und Flüge mitten in der Woche',
+            destTitle: 'Europa-Routen, die Reisende aus Thailand oft treffen',
+            destSub: 'Nur Hinweise zur Stadt. Keine Preise, weil Tarife täglich wechseln',
+            dest1Title: 'Frankfurt',
+            dest1Desc: 'Ein großes Umsteigedrehkreuz. Umsteigezeit vor der Buchung prüfen',
+            dest2Title: 'München',
+            dest2Desc: 'Ein praktisches deutsches Tor für Anschlüsse in Europa',
+            dest3Title: 'Paris',
+            dest3Desc: 'Über Deutschland in den Schengenraum ist nicht dasselbe wie reiner Airside-Transit',
+            dest4Title: 'AI Travel Hub',
+            dest4Desc: 'Eine erste Reiseidee, kein Live-Preis und kein freier Sitz'
             trustTagline: '🤝 Partner, denen Sie vertrauen können',
             trustSafe: 'Zahlung auf Partnerseiten',
             trustSecure: 'Verschlüsselte Verbindung',
@@ -517,6 +607,31 @@
     // ==========================================
     // UPDATE CONTENT
     // ==========================================
+
+    function ensureSharedFooter() {
+        const footer = document.querySelector('footer.main-footer');
+        if (!footer) return;
+        const legal = footer.querySelector('.footer-col ul');
+        const lists = footer.querySelectorAll('.footer-col ul');
+        const legalList = lists[lists.length - 1];
+        if (legalList && !footer.querySelector('#footerImpressum') && !footer.querySelector('a[href*="impressum"]')) {
+            const li = document.createElement('li');
+            li.innerHTML = '<a href="/th/impressum.html" id="footerImpressum">Impressum</a>';
+            legalList.appendChild(li);
+        }
+        if (!footer.querySelector('.footer-social')) {
+            const social = document.createElement('div');
+            social.className = 'footer-social';
+            social.style.cssText = 'display:flex;justify-content:center;gap:18px;margin:18px 0 8px;';
+            social.innerHTML = '<a href="https://www.tiktok.com/@flyreisen24" target="_blank" rel="noopener" aria-label="TikTok" style="color:#111;font-size:22px;"><i class="fab fa-tiktok"></i></a>'
+                + '<a href="https://www.facebook.com/flyreisen24" target="_blank" rel="noopener" aria-label="Facebook" style="color:#1877F2;font-size:22px;"><i class="fab fa-facebook"></i></a>'
+                + '<a href="https://www.youtube.com/@flyreisen24" target="_blank" rel="noopener" aria-label="YouTube" style="color:#FF0000;font-size:22px;"><i class="fab fa-youtube"></i></a>';
+            const bottom = footer.querySelector('.footer-bottom');
+            if (bottom) footer.insertBefore(social, bottom);
+            else footer.appendChild(social);
+        }
+    }
+
     function updateContent(lang) {
         const t = translations[lang];
         if (!t) return;
@@ -536,6 +651,7 @@
         });
         
         updateNavigationLinks(lang);
+        ensureSharedFooter();
     }
 
     // ==========================================
@@ -550,6 +666,19 @@
 
         const navOffersLink = document.getElementById('navOffersLink');
         if (navOffersLink) navOffersLink.href = '/deals';
+
+        const guideMap = {
+            guide1Link: { th: '/th/faq/02-connection-time.html', en: '/en/faq/02-connection-time.html', de: '/de/faq/02-connection-time.html' },
+            guide2Link: { th: '/th/faq/06-frequent-flyer.html', en: '/en/faq/06-frequent-flyer.html', de: '/de/faq/06-frequent-flyer.html' },
+            guide3Link: { th: '/th/faq/07-charter-overbooking.html', en: '/en/faq/07-charter-overbooking.html', de: '/de/faq/07-charter-overbooking.html' },
+            guide4Link: { th: '/th/faq/15-booking-tips.html', en: '/en/faq/15-booking-tips.html', de: '/de/faq/15-booking-tips.html' },
+            behindLink: { th: '/th/about_th.html', en: '/en/about_en.html', de: '/de/about_de.html' }
+        };
+        Object.keys(guideMap).forEach(function(id) {
+            const el = document.getElementById(id);
+            if (el && guideMap[id][lang]) el.href = guideMap[id][lang];
+        });
+
 
         const navToolsLink = document.getElementById('navToolsLink');
         if (navToolsLink) navToolsLink.href = PAGE_MAPPINGS['tools'][lang];
