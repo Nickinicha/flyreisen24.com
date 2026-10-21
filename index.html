@@ -518,7 +518,7 @@
             <div class="nav-right">
                 <a href="/contact.html" class="nav-help">
                     <i class="fas fa-headset"></i>
-                    Help
+                    <span id="navHelp">ช่วยเหลือ</span>
                 </a>
                 <div class="language-dropdown" id="languageDropdown">
                     <button class="lang-current" onclick="toggleLangDropdown()">
@@ -542,7 +542,7 @@
         <div class="hero-content">
             <div class="hero-badge" id="heroBadge">✈️ แพลตฟอร์มเดินทางครบวงจร</div>
             <h1 id="heroTitle">จองเที่ยวบิน + โรงแรม + ดีล<br><span class="hero-highlight">ในที่เดียว</span></h1>
-            <p class="hero-subtitle" id="heroSubtitle">เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — ได้ดีลที่ดีที่สุด ไม่มีค่าธรรมเนียมซ่อน</p>
+            <p class="hero-subtitle" id="heroSubtitle">เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — เปรียบเทียบดีลจากพาร์ทเนอร์ เห็นราคาก่อนไปชำระเงิน</p>
             <div class="hero-stats">
                 <div class="hero-stat"><span class="stat-num">1.4 ล้าน+</span><span class="stat-label" id="statHotels">โรงแรมทั่วโลก</span></div>
                 <div class="hero-stat-divider"></div>
@@ -569,6 +569,7 @@
                     <div class="loading-widget">
                         <div class="spinner"></div>
                         <p id="loadingText">กำลังโหลดแบบฟอร์มค้นหา...</p>
+                        <p style="margin-top:10px;font-size:14px;"><a href="https://flights.flyreisen24.com" style="color:#0056B3;font-weight:600;">ค้นหาเที่ยวบินโดยตรง →</a></p>
                     </div>
                 </div>
             </div>
@@ -614,6 +615,14 @@
                     </div>
                     <span class="btn-action" id="btnDeals">ดูดีลทั้งหมด</span>
                 </a>
+                <a href="/smart-search.html" class="booking-card">
+                    <div>
+                        <i class="fas fa-magic"></i>
+                        <h3 id="cardAiTitle">AI Search <span class="new-badge">NEW</span></h3>
+                        <p id="cardAiDesc">พิมพ์เส้นทางหรืองบประมาณ แล้วให้ระบบช่วยหาตัวเลือกที่ตรงกับทริป</p>
+                    </div>
+                    <span class="btn-action" id="btnAi">ลอง AI Search</span>
+                </a>
             </div>
         </div>
     </section>
@@ -626,12 +635,11 @@
                 <div class="partner-logo-item partner-logo-trip">Trip.com</div>
                 <div class="partner-logo-item partner-logo-klook">Klook</div>
                 <div class="partner-logo-item partner-logo-tp">Travelpayouts</div>
-                <div class="partner-logo-item partner-logo-fs">Formspree</div>
             </div>
             <div class="trust-badges">
-                <div class="trust-badge"><i class="fas fa-shield-alt"></i><span id="trustSafe">ปลอดภัย 100%</span></div>
-                <div class="trust-badge"><i class="fas fa-lock"></i><span id="trustSecure">ข้อมูลเข้ารหัส</span></div>
-                <div class="trust-badge"><i class="fas fa-certificate"></i><span id="trustVerified">พาร์ทเนอร์รับรอง</span></div>
+                <div class="trust-badge"><i class="fas fa-shield-alt"></i><span id="trustSafe">ชำระเงินบนเว็บพาร์ทเนอร์</span></div>
+                <div class="trust-badge"><i class="fas fa-lock"></i><span id="trustSecure">ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส</span></div>
+                <div class="trust-badge"><i class="fas fa-certificate"></i><span id="trustVerified">เชื่อมกับพาร์ทเนอร์จอง</span></div>
                 <div class="trust-badge"><i class="fas fa-headset"></i><span id="trustSupport">ซัพพอร์ตพร้อม</span></div>
             </div>
         </div>
@@ -655,15 +663,12 @@
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/8M.png" alt="Myanmar Airways International" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/EY.png" alt="Etihad" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/LJ.png" alt="Jin Air" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/MD.png" alt="Madagascar Airlines" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/MH.png" alt="Malaysia Airlines" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/NH.png" alt="All Nippon Airways" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/NX.png" alt="Air Macau" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/CA.png" alt="Air China" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/CI.png" alt="China Airlines" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/JV.png" alt="BearSkin Airlines" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/JX.png" alt="StarLux" loading="lazy"></div>
-                <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/JY.png" alt="Inter Caribbean" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/JZ.png" alt="Jet Smart" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/KL.png" alt="Royal Dutch Airlines" loading="lazy"></div>
                 <div class="ticker-item"><img src="https://www.flyreisen24.com/Logos/BY.png" alt="TUI" loading="lazy"></div>
@@ -697,13 +702,13 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3 id="feature2Title">ไม่มีค่าธรรมเนียมซ่อนเร้น</h3>
-                    <p id="feature2Desc">โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย</p>
+                    <h3 id="feature2Title">เห็นราคาก่อนชำระเงิน</h3>
+                    <p id="feature2Desc">ราคาที่แสดงมาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนกดชำระบนหน้าจอง</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⭐</div>
                     <h3 id="feature3Title">ความน่าเชื่อถือสูง</h3>
-                    <p id="feature3Desc">ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัย</p>
+                    <p id="feature3Desc">จองผ่าน Trip.com, Klook และ Travelpayouts เราได้รับค่าคอมมิชชันเมื่อคุณจองผ่านลิงก์เหล่านี้</p>
                 </div>
             </div>
         </div>
@@ -777,9 +782,16 @@
                     <li><a href="/th/about_th.html" id="footerAboutLink">เกี่ยวกับเรา</a></li>
                     <li><a href="/th/terms_th.html" id="footerTermsLink">ข้อกำหนดและเงื่อนไข</a></li>
                     <li><a href="/th/privacy_th.html" id="footerPrivacyLink">นโยบายความเป็นส่วนตัว</a></li>
+                    <li><a href="/th/impressum.html" id="footerImpressum">Impressum</a></li>
                 </ul>
             </div>
         </div>
+        <div class="footer-social" style="display:flex;justify-content:center;gap:18px;margin:18px 0 8px;">
+            <a href="https://www.tiktok.com/@flyreisen24" target="_blank" rel="noopener" aria-label="TikTok" style="color:#fff;font-size:20px;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/flyreisen24" target="_blank" rel="noopener" aria-label="Facebook" style="color:#fff;font-size:20px;"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@flyreisen24" target="_blank" rel="noopener" aria-label="YouTube" style="color:#fff;font-size:20px;"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p id="affiliateNote" style="text-align:center;font-size:12px;opacity:.75;margin:0 20px 10px;">FlyReisen24 เป็นแพลตฟอร์มเปรียบเทียบ การจองและการชำระเงินเกิดบนเว็บของพาร์ทเนอร์ เราอาจได้รับค่าคอมมิชชันจากลิงก์เหล่านี้โดยไม่เพิ่มราคาให้คุณ</p>
         <div class="footer-bottom">
             © 2026 FlyReisen24. All Rights Reserved. | Powered by Travelpayouts
         </div>
