@@ -160,6 +160,11 @@
             'en': '/en/terms_en.html',
             'de': '/de/terms_de.html'
         },
+        'impressum': {
+            'th': '/th/impressum.html',
+            'en': '/en/impressum.html',
+            'de': '/de/impressum.html'
+        },
         'privacy': {
             'th': '/th/privacy_th.html',
             'en': '/en/privacy_en.html',
@@ -350,7 +355,7 @@
             feature2Title: 'ไม่มีค่าธรรมเนียมซ่อนเร้น',
             feature2Desc: 'โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย',
             feature3Title: 'ความน่าเชื่อถือสูง',
-            feature3Desc: 'ร่วมงานกับพันธมิตรที่เชื่อถือได้ การันตีความปลอดภัย',
+            feature3Desc: 'จองผ่าน Trip.com, Klook และ Travelpayouts เราได้รับค่าคอมมิชชันเมื่อคุณจองผ่านลิงก์เหล่านี้',
             contactTitle: 'ติดต่อเรา',
             labelName: 'ชื่อ-นามสกุล *',
             labelEmail: 'อีเมล *',
@@ -371,7 +376,15 @@
             footerPrivacy: 'นโยบายความเป็นส่วนตัว',
             heroBadge: '✈️ มุมมองจากฝั่งตรงข้าม counter เช็คอิน',
             heroTitle: 'จองเที่ยวบิน + โรงแรม + ดีล<br><span class="hero-highlight">ในที่เดียว</span>',
-            heroSubtitle: 'เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — ได้ดีลที่ดีที่สุด ไม่มีค่าธรรมเนียมซ่อน'
+            heroSubtitle: 'เปรียบเทียบราคาจากสายการบิน โรงแรม และบริการรถเช่าชั้นนำทั่วโลก — เห็นราคาก่อนไปชำระเงิน',
+            trustTagline: '🤝 พันธมิตรที่เชื่อถือได้ของเรา',
+            trustSafe: 'ชำระเงินบนเว็บพาร์ทเนอร์',
+            trustSecure: 'ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส',
+            trustVerified: 'เชื่อมกับพาร์ทเนอร์จอง',
+            trustSupport: 'ซัพพอร์ตพร้อม',
+            feature2Title: 'เห็นราคาก่อนชำระเงิน',
+            feature2Desc: 'ราคาที่แสดงมาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนกดชำระบนหน้าจอง',
+            feature3Desc: 'จองผ่าน Trip.com, Klook และ Travelpayouts เราได้รับค่าคอมมิชชันเมื่อคุณจองผ่านลิงก์เหล่านี้'
         },
         'en': {
             navServices: 'Services',
@@ -405,7 +418,7 @@
             feature2Title: 'No Hidden Fees',
             feature2Desc: 'Transparent every step — the price shown is the real price you pay',
             feature3Title: 'High Reliability',
-            feature3Desc: 'Working with trusted partners guaranteeing your safety',
+            feature3Desc: 'Book via Trip.com, Klook and Travelpayouts. We may earn a commission from these links',
             contactTitle: 'Contact Us',
             labelName: 'Name *',
             labelEmail: 'Email *',
@@ -426,7 +439,15 @@
             footerPrivacy: 'Privacy Policy',
             heroBadge: '✈️ Ground staff perspective — from behind the check-in counter',
             heroTitle: 'Book Flights + Hotels + Deals<br><span class="hero-highlight">in One Place</span>',
-            heroSubtitle: 'Compare prices from top airlines, hotels, and car rental services worldwide — best deals, no hidden fees'
+            heroSubtitle: 'Compare prices from top airlines, hotels, and car rental services worldwide — see the price before you pay',
+            trustTagline: '🤝 Partners you can trust',
+            trustSafe: 'Payment on partner sites',
+            trustSecure: 'Encrypted connection',
+            trustVerified: 'Booking partners',
+            trustSupport: 'Support ready',
+            feature2Title: 'See the price before you pay',
+            feature2Desc: 'Prices come from partners. Check the final amount on the booking page before you pay',
+            feature3Desc: 'Book via Trip.com, Klook and Travelpayouts. We may earn a commission from these links'
         },
         'de': {
             navServices: 'Services',
@@ -481,7 +502,15 @@
             footerPrivacy: 'Datenschutz',
             heroBadge: '✈️ Perspektive vom Check-in-Schalter — 10+ Jahre Bodenabfertigung',
             heroTitle: 'Flüge + Hotels + Angebote<br><span class="hero-highlight">an einem Ort</span>',
-            heroSubtitle: 'Preise von Top-Airlines, Hotels und Mietwagen weltweit vergleichen — beste Deals, keine versteckten Gebühren'
+            heroSubtitle: 'Preise von Top-Airlines, Hotels und Mietwagen weltweit vergleichen — Preis vor der Zahlung sehen',
+            trustTagline: '🤝 Partner, denen Sie vertrauen können',
+            trustSafe: 'Zahlung auf Partnerseiten',
+            trustSecure: 'Verschlüsselte Verbindung',
+            trustVerified: 'Buchungspartner',
+            trustSupport: 'Support bereit',
+            feature2Title: 'Preis vor der Zahlung sehen',
+            feature2Desc: 'Preise kommen von Partnern. Prüfen Sie den Endbetrag auf der Buchungsseite',
+            feature3Desc: 'Buchung über Trip.com, Klook und Travelpayouts. Wir können eine Provision erhalten'
         }
     };
 
@@ -537,6 +566,7 @@
             'footerAboutLink':     'about',
             'footerTermsLink':     'terms',
             'footerPrivacyLink':   'privacy',
+            'footerImpressum':     'impressum',
             'footerDeals':         'deals',
             'footerTools':         'tools'
         };
