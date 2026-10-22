@@ -344,7 +344,7 @@
             cardFlightDesc: 'เปรียบเทียบราคาจากสายการบินทั่วโลก รับดีลที่ดีที่สุดสำหรับทริปถัดไปของคุณ',
             btnFlight: 'จองเที่ยวบิน',
             cardHotelTitle: 'โรงแรม & ที่พัก',
-            cardHotelDesc: 'โรงแรม รีสอร์ท และที่พักคุณภาพกว่า 1.4 ล้านแห่ง ในราคาพิเศษเฉพาะคุณ',
+            cardHotelDesc: 'ค้นหาที่พักผ่านพาร์ทเนอร์ ตรวจราคาและเงื่อนไขบนหน้าจองก่อนชำระ',
             btnHotel: 'ดูที่พัก',
             cardDealsTitle: 'ดีลการเดินทาง',
             cardDealsDesc: 'เที่ยวบิน · โรงแรม · กิจกรรม · รถรับส่งสนามบิน · รถเช่า — ครบทุกบริการ เปรียบเทียบง่าย จองได้เลย',
@@ -354,8 +354,8 @@
             feature1Desc: 'ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก',
             feature2Title: 'ไม่มีค่าธรรมเนียมซ่อนเร้น',
             feature2Desc: 'โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย',
-            feature3Title: 'ความน่าเชื่อถือสูง',
-            feature3Desc: 'จองผ่าน Trip.com, Klook และ Travelpayouts เราได้รับค่าคอมมิชชันเมื่อคุณจองผ่านลิงก์เหล่านี้',
+            feature3Title: 'โปร่งใสเรื่องค่าคอมมิชชัน',
+            feature3Desc: 'เขียนโดยคนทำงานตั๋วจริง 3 ภาษา มีคลังคำถามก่อนบินและเครื่องมือฟรี เราได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์โดยไม่บวกราคา',
             contactTitle: 'ติดต่อเรา',
             labelName: 'ชื่อ-นามสกุล *',
             labelEmail: 'อีเมล *',
@@ -404,9 +404,12 @@
             dest2Title: 'มิวนิก',
             dest2Desc: 'ทางเข้าเยอรมนีที่ต่อในยุโรปสะดวก',
             dest3Title: 'ปารีส',
-            dest3Desc: 'ต่อผ่านเยอรมนีเข้า Schengen คนละเรื่องกับแอร์ไซด์',
+            dest3Desc: 'ต่อแฟรงก์เฟิร์ตไปปารีสคือเข้า Schengen ไม่ใช่แค่ผ่านโซนแอร์ไซด์',
             dest4Title: 'AI Travel Hub',
-            dest4Desc: 'ไอเดียแผนทริปเบื้องต้น ไม่ใช่ราคาหรือที่ว่างจริง'
+            dest4Desc: 'ไอเดียแผนทริปเบื้องต้น ไม่ใช่ราคาหรือที่ว่างจริง',
+            aiBandTitle: 'ไอเดียแผนทริปเบื้องต้น',
+            aiBandDesc: 'พิมพ์เส้นทางหรืองบประมาณ ระบบช่วยจัดลำดับเมืองและเวลาเดินทาง ไม่ได้ดึงราคาหรือที่ว่างจริง',
+            aiBandLink: 'ลอง AI Travel Hub'
             trustTagline: '🤝 พันธมิตรที่เชื่อถือได้ของเรา',
             trustSafe: 'ชำระเงินบนเว็บพาร์ทเนอร์',
             trustSecure: 'ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส',
@@ -414,7 +417,7 @@
             trustSupport: 'ซัพพอร์ตพร้อม',
             feature2Title: 'เห็นราคาก่อนชำระเงิน',
             feature2Desc: 'ราคาที่แสดงมาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนกดชำระบนหน้าจอง',
-            feature3Desc: 'จองผ่าน Trip.com, Klook และ Travelpayouts เราได้รับค่าคอมมิชชันเมื่อคุณจองผ่านลิงก์เหล่านี้'
+            feature3Desc: 'เขียนโดยคนทำงานตั๋วจริง 3 ภาษา มีคลังคำถามก่อนบินและเครื่องมือฟรี เราได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์โดยไม่บวกราคา'
         },
         'en': {
             navServices: 'Services',
@@ -447,8 +450,8 @@
             feature1Desc: 'Search and compare flight prices from top airlines worldwide',
             feature2Title: 'No Hidden Fees',
             feature2Desc: 'Transparent every step — the price shown is the real price you pay',
-            feature3Title: 'High Reliability',
-            feature3Desc: 'Book via Trip.com, Klook and Travelpayouts. We may earn a commission from these links',
+            feature3Title: 'Clear about commission',
+            feature3Desc: 'Written by a real ticketing person, in 3 languages, with a pre-flight FAQ and free tools. We may earn a commission without adding to your price',
             contactTitle: 'Contact Us',
             labelName: 'Name *',
             labelEmail: 'Email *',
@@ -497,9 +500,12 @@
             dest2Title: 'Munich',
             dest2Desc: 'A practical German gateway for connections inside Europe',
             dest3Title: 'Paris',
-            dest3Desc: 'Connecting through Germany into Schengen is not the same as airside transit',
+            dest3Desc: 'Frankfurt to Paris enters Schengen. It is not airside transit only',
             dest4Title: 'AI Travel Hub',
-            dest4Desc: 'A preliminary trip idea, not a live fare or seat'
+            dest4Desc: 'A preliminary trip idea, not a live fare or seat',
+            aiBandTitle: 'A preliminary trip idea',
+            aiBandDesc: 'Type a route or a budget. It suggests city order and timing. It does not pull live fares or seats',
+            aiBandLink: 'Try AI Travel Hub'
             trustTagline: '🤝 Partners you can trust',
             trustSafe: 'Payment on partner sites',
             trustSecure: 'Encrypted connection',
@@ -507,7 +513,7 @@
             trustSupport: 'Support ready',
             feature2Title: 'See the price before you pay',
             feature2Desc: 'Prices come from partners. Check the final amount on the booking page before you pay',
-            feature3Desc: 'Book via Trip.com, Klook and Travelpayouts. We may earn a commission from these links'
+            feature3Desc: 'Written by a real ticketing person, in 3 languages, with a pre-flight FAQ and free tools. We may earn a commission without adding to your price'
         },
         'de': {
             navServices: 'Services',
@@ -540,8 +546,8 @@
             feature1Desc: 'Suchen und vergleichen Sie Flugpreise von Top-Airlines weltweit',
             feature2Title: 'Keine versteckten Gebühren',
             feature2Desc: 'Transparent bei jedem Schritt — der angezeigte Preis ist der echte Preis',
-            feature3Title: 'Hohe Zuverlässigkeit',
-            feature3Desc: 'Mit vertrauenswürdigen Partnern, die Ihre Sicherheit garantieren',
+            feature3Title: 'Transparent bei Provision',
+            feature3Desc: 'Geschrieben von jemandem aus dem Ticketing, in 3 Sprachen, mit FAQ und kostenlosen Tools. Provision ohne Aufpreis',
             contactTitle: 'Kontakt',
             labelName: 'Name *',
             labelEmail: 'E-Mail *',
@@ -590,9 +596,12 @@
             dest2Title: 'München',
             dest2Desc: 'Ein praktisches deutsches Tor für Anschlüsse in Europa',
             dest3Title: 'Paris',
-            dest3Desc: 'Über Deutschland in den Schengenraum ist nicht dasselbe wie reiner Airside-Transit',
+            dest3Desc: 'Frankfurt nach Paris bedeutet Einreise in den Schengenraum, nicht nur Airside',
             dest4Title: 'AI Travel Hub',
-            dest4Desc: 'Eine erste Reiseidee, kein Live-Preis und kein freier Sitz'
+            dest4Desc: 'Eine erste Reiseidee, kein Live-Preis und kein freier Sitz',
+            aiBandTitle: 'Eine erste Reiseidee',
+            aiBandDesc: 'Route oder Budget eingeben. Es schlägt Städtereihenfolge und Zeit vor. Keine Live-Preise oder Sitze',
+            aiBandLink: 'AI Travel Hub testen'
             trustTagline: '🤝 Partner, denen Sie vertrauen können',
             trustSafe: 'Zahlung auf Partnerseiten',
             trustSecure: 'Verschlüsselte Verbindung',
@@ -600,7 +609,7 @@
             trustSupport: 'Support bereit',
             feature2Title: 'Preis vor der Zahlung sehen',
             feature2Desc: 'Preise kommen von Partnern. Prüfen Sie den Endbetrag auf der Buchungsseite',
-            feature3Desc: 'Buchung über Trip.com, Klook und Travelpayouts. Wir können eine Provision erhalten'
+            feature3Desc: 'Geschrieben von jemandem aus dem Ticketing, in 3 Sprachen, mit FAQ und kostenlosen Tools. Provision ohne Aufpreis'
         }
     };
 
