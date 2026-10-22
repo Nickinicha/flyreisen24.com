@@ -303,7 +303,13 @@
         .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #f0f0f0; font-size: 13px; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) { .top-nav-menu { gap: 20px; } }
+        @media (max-width: 1024px) {
+            .top-nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; padding: 1rem 1.25rem; box-shadow: 0 5px 10px rgba(0,0,0,.1); gap: 0; }
+            .top-nav-menu.active { display: flex !important; }
+            .menu-toggle { display: block; min-width: 44px; min-height: 44px; }
+            .lang-current { min-height: 44px; }
+            .nav-help span { display: none; }
+        }
         @media (min-width: 769px) and (max-width: 1024px) {
             .hero { padding: 2.5rem 1.25rem 4rem; }
             .hero h1 { font-size: 2.2rem; }
