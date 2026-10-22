@@ -409,7 +409,7 @@
             dest4Desc: 'ไอเดียแผนทริปเบื้องต้น ไม่ใช่ราคาหรือที่ว่างจริง',
             aiBandTitle: 'ไอเดียแผนทริปเบื้องต้น',
             aiBandDesc: 'พิมพ์เส้นทางหรืองบประมาณ ระบบช่วยจัดลำดับเมืองและเวลาเดินทาง ไม่ได้ดึงราคาหรือที่ว่างจริง',
-            aiBandLink: 'ลอง AI Travel Hub'
+            aiBandLink: 'ลอง AI Travel Hub',
             trustTagline: '🤝 พันธมิตรที่เชื่อถือได้ของเรา',
             trustSafe: 'ชำระเงินบนเว็บพาร์ทเนอร์',
             trustSecure: 'ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส',
@@ -505,7 +505,7 @@
             dest4Desc: 'A preliminary trip idea, not a live fare or seat',
             aiBandTitle: 'A preliminary trip idea',
             aiBandDesc: 'Type a route or a budget. It suggests city order and timing. It does not pull live fares or seats',
-            aiBandLink: 'Try AI Travel Hub'
+            aiBandLink: 'Try AI Travel Hub',
             trustTagline: '🤝 Partners you can trust',
             trustSafe: 'Payment on partner sites',
             trustSecure: 'Encrypted connection',
@@ -601,7 +601,7 @@
             dest4Desc: 'Eine erste Reiseidee, kein Live-Preis und kein freier Sitz',
             aiBandTitle: 'Eine erste Reiseidee',
             aiBandDesc: 'Route oder Budget eingeben. Es schlägt Städtereihenfolge und Zeit vor. Keine Live-Preise oder Sitze',
-            aiBandLink: 'AI Travel Hub testen'
+            aiBandLink: 'AI Travel Hub testen',
             trustTagline: '🤝 Partner, denen Sie vertrauen können',
             trustSafe: 'Zahlung auf Partnerseiten',
             trustSecure: 'Verschlüsselte Verbindung',
