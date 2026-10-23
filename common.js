@@ -50,7 +50,7 @@
                 <li>
                     <a href="/smart-search.html" id="navDealsLink" class="top-nav-prominent-link">
                         <i class="fas fa-magic"></i>
-                        <span id="navDeals">AI Search</span>
+                        <span id="navDeals">AI Travel Hub</span>
                         <span class="new-badge">NEW</span>
                     </a>
                 </li>
