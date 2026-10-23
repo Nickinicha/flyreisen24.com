@@ -30,7 +30,7 @@
                         <li>
                             <a href="/smart-search.html">
                                 <i class="fas fa-magic"></i>
-                                Smart Search
+                                AI Travel Hub
                             </a>
                         </li>
                         <li>
@@ -227,6 +227,9 @@
         const path = window.location.pathname;
         
         if (path === '/' || path === '/index.html') return 'index';
+        if (path.includes('impressum')) return 'impressum';
+        if (path.includes('travel-alerts')) return 'alerts';
+        if (path.includes('future-air-taxi')) return 'future';
         if (path.includes('faq')) return 'faq';
         if (path.includes('deals')) return 'deals';
         if (path.includes('tools')) return 'tools';
@@ -322,333 +325,412 @@
     // ==========================================
     // TRANSLATIONS
     // ==========================================
-    const translations = {
-        'th': {
-            navServices: 'บริการ',
-            navResources: 'คลังข้อมูล',
-            navFlight: 'เที่ยวบิน',
-            navHotel: 'โรงแรม',
-            navCarRental: 'รถเช่า',
-            navDeals: 'AI Travel Hub',
-            navOffers: 'ดีล',
-            navKnowledge: '15 คำถามก่อนบิน',
-            navFaq: 'คำถามที่พบบ่อย',
-            navTools: 'เครื่องมือ',
-            navAlerts: 'Travel Alerts',
-            navFuture: 'อนาคตการเดินทาง',
-            navHelp: 'ช่วยเหลือ',
-            loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
-            sectionTitle: 'วางแผนการเดินทางของคุณ',
-            sectionSubtitle: 'บริการครบวงจร สำหรับทริปในฝันของคุณ',
-            cardFlightTitle: 'ตั๋วเครื่องบิน',
-            cardFlightDesc: 'เปรียบเทียบราคาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนชำระ',
-            btnFlight: 'จองเที่ยวบิน',
-            cardHotelTitle: 'โรงแรม & ที่พัก',
-            cardHotelDesc: 'ค้นหาที่พักผ่านพาร์ทเนอร์ ตรวจราคาและเงื่อนไขบนหน้าจองก่อนชำระ',
-            btnHotel: 'ดูที่พัก',
-            cardDealsTitle: 'ดีลการเดินทาง',
-            cardDealsDesc: 'เที่ยวบิน · โรงแรม · กิจกรรม · รถรับส่งสนามบิน · รถเช่า — ครบทุกบริการ เปรียบเทียบง่าย จองได้เลย',
-            btnDeals: 'ดูดีลทั้งหมด',
-            featuresTitle: 'ทำไมต้องเลือกเรา',
-            feature1Title: 'เปรียบเทียบราคา',
-            feature1Desc: 'ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก',
-            feature2Title: 'ไม่มีค่าธรรมเนียมซ่อนเร้น',
-            feature2Desc: 'โปร่งใสทุกขั้นตอน ราคาที่แสดงคือราคาจริงที่คุณต้องจ่าย',
-            feature3Title: 'โปร่งใสเรื่องค่าคอมมิชชัน',
-            feature3Desc: 'เขียนโดยคนทำงานตั๋วจริง 3 ภาษา มีคลังคำถามก่อนบินและเครื่องมือฟรี เราได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์โดยไม่บวกราคา',
-            contactTitle: 'ติดต่อเรา',
-            labelName: 'ชื่อ-นามสกุล *',
-            labelEmail: 'อีเมล *',
-            labelSubject: 'หัวข้อ',
-            labelMessage: 'ข้อความ *',
-            btnSubmit: 'ส่งข้อความ',
-            footerDesc: 'รวบรวมตัวเลือกจากพาร์ทเนอร์ พร้อมความรู้เพื่อตัดสินใจเอง',
-            footerServices: 'บริการของเรา',
-            footerFlights: 'ค้นหาตั๋วเครื่องบิน',
-            footerHotels: 'จองโรงแรมที่พัก',
-            footerDeals: 'ดีลการเดินทาง',
-            footerTools: 'เครื่องมือเดินทาง',
-            footerHelp: 'ช่วยเหลือ',
-            footerContact: 'ติดต่อฝ่ายบริการ',
-            footerLegal: 'ข้อมูลทางกฎหมาย',
-            footerAbout: 'เกี่ยวกับเรา',
-            footerTerms: 'ข้อกำหนดและเงื่อนไข',
-            footerPrivacy: 'นโยบายความเป็นส่วนตัว',
-            heroBadge: '✈️ มุมมองจากฝั่งตรงข้าม counter เช็คอิน',
-            heroTitle: 'เปรียบเทียบเที่ยวบิน<br><span class="hero-highlight">พร้อมคลังความรู้ 3 ภาษา</span>',
-            heroSubtitle: 'เปรียบเทียบเที่ยวบิน พร้อมคลังความรู้เรื่องกฎการบิน และ AI Travel Hub ใน 3 ภาษา',
-            heroPrimary: 'เริ่มจากความรู้การบิน →',
-            behindTitle: 'เบื้องหลังเว็บ',
-            behindP1: 'FlyReisen24 ทำโดยคนที่ทำงานออกบัตรโดยสาร ศูนย์บริการสำรองที่นั่ง และปฏิบัติการทัวร์ โดยใช้ระบบสำรองที่นั่ง Amadeus',
-            behindP2: 'ครอบคลุมกฎตั๋ว, Fare Classes, Minimum Connection Time, Single PNR และสิทธิ์ผู้โดยสารอย่าง EU261 ไม่ใช่แค่หน้าค้นหาราคา',
-            behindP3: 'เพื่อนคู่คิดด้านการเดินทาง ช่วยให้คุณรู้ทันกฎการบิน เข้าใจสิทธิ์ของผู้โดยสาร และวางแผนการเดินทางได้ด้วยตัวเอง',
-            behindLink: 'อ่านเกี่ยวกับเรา',
-            missionTitle: 'พันธกิจ',
-            missionP1: 'FlyReisen24 ก่อตั้งขึ้นเพื่อทำให้การวางแผนเดินทางเข้าใจง่ายขึ้น',
-            missionP2: 'เราเชื่อว่าผู้เดินทางควรได้รับข้อมูลที่ชัดเจนก่อนตัดสินใจ ทั้งเรื่องกฎตั๋ว เวลาต่อเครื่อง และสิทธิ์ของผู้โดยสาร เราจึงรวมคลังความรู้ เครื่องมือ และ AI Travel Hub ไว้ในที่เดียว เพื่อให้คุณเปรียบเทียบตัวเลือกจากพาร์ทเนอร์ได้ด้วยตัวเอง ราคาและเงื่อนไขอาจเปลี่ยนได้ตลอดเวลา จึงควรตรวจรายละเอียดบนหน้าจองก่อนชำระเงินทุกครั้ง',
-            mascotTitle: 'ทีมมาสคอต FlyReisen24',
-            mascotSub: 'สามตัวละครช่วยเล่าเรื่องกฎการบิน ให้เนื้อหาอ่านง่ายขึ้น',
-            mascotWinnerDesc: 'สายลุย เชี่ยวชาญการต่อเครื่องและการล่าไฟลต์คุ้มค่า',
-            mascotChichiDesc: 'สายละเอียด เช็กลิสต์ความพร้อมก่อนบินและกฎเกณฑ์',
-            mascotMeshDesc: 'สายเนี๊ยบ กฎระเบียบ สิทธิ์การชดเชย และระบบหลังบ้าน — ถามได้ที่ AI Hub',
-            guidesTitle: 'คลังความรู้ที่ควรอ่านก่อน',
-            guide1Title: 'เวลาต่อเครื่องขั้นต่ำ',
-            guide1Desc: 'กฎ MCT, ตั๋วใบเดียวกัน และเวลาเผื่อที่ปลอดภัย',
-            guide2Title: 'สะสมไมล์ให้คุ้ม',
-            guide2Desc: 'กลยุทธ์ 3 พันธมิตรการบิน และสิทธิ์ข้ามสายการบิน',
-            guide3Title: 'ถูกปฏิเสธขึ้นเครื่อง',
-            guide3Desc: 'สิทธิ์เมื่อ overbook และข้อควรรู้ของเที่ยวบินเช่าเหมาลำ',
-            guide4Title: 'จองตั๋วให้คุ้ม',
-            guide4Desc: 'ช่วง 8–12 สัปดาห์ และวันบินกลางสัปดาห์ที่มักได้ราคาดี',
-            destTitle: 'ปลายทางที่คนไทยบินยุโรปเจอบ่อย',
-            destSub: 'ภาพรวมเมืองและข้อควรรู้ ไม่มีราคา เพราะราคาตั๋วเปลี่ยนทุกวัน',
-            dest1Title: 'แฟรงก์เฟิร์ต',
-            dest1Desc: 'ฮับต่อเครื่องใหญ่ เช็กเวลาต่อเครื่องก่อนจอง',
-            dest2Title: 'มิวนิก',
-            dest2Desc: 'ทางเข้าเยอรมนีที่ต่อในยุโรปสะดวก',
-            dest3Title: 'ปารีส',
-            dest3Desc: 'ต่อแฟรงก์เฟิร์ตไปปารีสคือเข้า Schengen ไม่ใช่แค่ผ่านโซนแอร์ไซด์',
-            dest4Title: 'AI Travel Hub',
-            dest4Desc: 'ไอเดียแผนทริปเบื้องต้น ไม่ใช่ราคาหรือที่ว่างจริง',
-            aiBandTitle: 'ไอเดียแผนทริปเบื้องต้น',
-            aiBandDesc: 'เล่าความต้องการ เลือกปลายทาง จำนวนวัน งบ และสไตล์ แล้วรับไอเดียแผนทริปเบื้องต้น ไม่ได้ดึงราคาหรือที่ว่างจริง',
-            aiBandLink: 'ลอง AI Travel Hub',
-            trustTagline: '🤝 พันธมิตรที่เชื่อถือได้ของเรา',
-            trustSafe: 'ชำระเงินบนเว็บพาร์ทเนอร์',
-            trustSecure: 'ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส',
-            trustVerified: 'เชื่อมกับพาร์ทเนอร์จอง',
-            trustSupport: 'ซัพพอร์ตพร้อม',
-            feature2Title: 'เห็นราคาก่อนชำระเงิน',
-            feature2Desc: 'ราคาที่แสดงมาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนกดชำระบนหน้าจอง',
-            feature3Desc: 'เขียนโดยคนทำงานตั๋วจริง 3 ภาษา มีคลังคำถามก่อนบินและเครื่องมือฟรี เราได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์โดยไม่บวกราคา'
-        },
-        'en': {
-            navServices: 'Services',
-            navResources: 'Resources',
-            navFlight: 'Flights',
-            navHotel: 'Hotels',
-            navCarRental: 'Car Rentals',
-            navDeals: 'AI Travel Hub',
-            navOffers: 'Deals',
-            navKnowledge: '15 Pre-Flight Questions',
-            navFaq: 'FAQ',
-            navTools: 'Tools',
-            navAlerts: 'Travel Alerts',
-            navFuture: 'Future travel',
-            navHelp: 'Help',
-            loadingText: 'Loading search form...',
-            sectionTitle: 'Plan Your Journey',
-            sectionSubtitle: 'Complete services for your dream trip',
-            cardFlightTitle: 'Flight Tickets',
-            cardFlightDesc: 'Compare prices from our partners and check the final amount before you pay.',
-            btnFlight: 'Book Flights',
-            cardHotelTitle: 'Hotels & Accommodations',
-            cardHotelDesc: 'Over 1.4 million quality hotels, resorts, and accommodations at special prices',
-            btnHotel: 'View Hotels',
-            cardDealsTitle: 'Travel Deals',
-            cardDealsDesc: 'Flights · Hotels · Activities · Airport Transfers · Car Rentals — all in one place',
-            btnDeals: 'View All Deals',
-            featuresTitle: 'Why Choose Us',
-            feature1Title: 'Compare Prices',
-            feature1Desc: 'Search and compare flight prices from top airlines worldwide',
-            feature2Title: 'No Hidden Fees',
-            feature2Desc: 'Transparent every step — the price shown is the real price you pay',
-            feature3Title: 'Clear about commission',
-            feature3Desc: 'Written by a real ticketing person, in 3 languages, with a pre-flight FAQ and free tools. We may earn a commission without adding to your price',
-            contactTitle: 'Contact Us',
-            labelName: 'Name *',
-            labelEmail: 'Email *',
-            labelSubject: 'Subject',
-            labelMessage: 'Message *',
-            btnSubmit: 'Send Message',
-            footerDesc: 'Options from our partners in one place, with the knowledge to decide for yourself.',
-            footerServices: 'Our Services',
-            footerFlights: 'Search Flights',
-            footerHotels: 'Book Hotels',
-            footerDeals: 'Travel Deals',
-            footerTools: 'Travel Tools',
-            footerHelp: 'Help',
-            footerContact: 'Contact Support',
-            footerLegal: 'Legal',
-            footerAbout: 'About Us',
-            footerTerms: 'Terms & Conditions',
-            footerPrivacy: 'Privacy Policy',
-            heroBadge: '✈️ Ground staff perspective — from behind the check-in counter',
-            heroTitle: 'Compare flights<br><span class="hero-highlight">with a 3-language knowledge base</span>',
-            heroSubtitle: 'Compare flights, with a knowledge base on flight rules and an AI Travel Hub in 3 languages.',
-            heroPrimary: 'Start with flight knowledge →',
-            behindTitle: 'Behind the site',
-            behindP1: 'FlyReisen24 is run by someone who has worked in ticketing, reservation call centres and tour operations, using the Amadeus reservation system.',
-            behindP2: 'That covers fare rules, fare classes, minimum connection time, single PNR and passenger rights such as EU261 — not just a price search page',
-            behindP3: 'A travel companion that helps you understand flight rules, know your rights as a passenger and plan your trip on your own.',
-            behindLink: 'About us',
-            missionTitle: 'Mission',
-            missionP1: 'FlyReisen24 was created to make travel planning easier to understand.',
-            missionP2: "We believe travelers should have clear information before they decide: ticket rules, connection times and passenger rights. That's why we bring a knowledge base, tools and the AI Travel Hub together in one place, so you can compare options from our partners yourself. Prices and conditions can change at any time, so always check the details on the booking page before you pay.",
-            mascotTitle: 'The FlyReisen24 mascots',
-            mascotSub: 'Three characters that make flight rules easier to read',
-            mascotWinnerDesc: 'The explorer — connections and value flights',
-            mascotChichiDesc: 'The detail checker — pre-flight lists and rules',
-            mascotMeshDesc: 'The neat one — regulations, compensation rights and back-office systems. Ask in AI Hub',
-            guidesTitle: 'Guides worth reading first',
-            guide1Title: 'Minimum connection time',
-            guide1Desc: 'MCT rules, single-ticket bookings and a safe buffer',
-            guide2Title: 'Miles that are worth it',
-            guide2Desc: 'How the three alliances work, and benefits across airlines',
-            guide3Title: 'Denied boarding',
-            guide3Desc: 'Your rights when a flight is overbooked, and charter caveats',
-            guide4Title: 'Book smarter',
-            guide4Desc: 'The 8–12 week window and midweek flights that often price better',
-            destTitle: 'Europe routes Thai travellers meet often',
-            destSub: 'City notes only. No prices, because fares change every day',
-            dest1Title: 'Frankfurt',
-            dest1Desc: 'A major connection hub. Check connection time before you book',
-            dest2Title: 'Munich',
-            dest2Desc: 'A practical German gateway for connections inside Europe',
-            dest3Title: 'Paris',
-            dest3Desc: 'Frankfurt to Paris enters Schengen. It is not airside transit only',
-            dest4Title: 'AI Travel Hub',
-            dest4Desc: 'A preliminary trip idea, not a live fare or seat',
-            aiBandTitle: 'A preliminary trip idea',
-            aiBandDesc: 'Tell us what you want, pick a destination, days, budget and style, then get a preliminary trip idea. It does not pull live fares or seats',
-            aiBandLink: 'Try AI Travel Hub',
-            trustTagline: '🤝 Partners you can trust',
-            trustSafe: 'Payment on partner sites',
-            trustSecure: 'Encrypted connection',
-            trustVerified: 'Booking partners',
-            trustSupport: 'Support ready',
-            feature2Title: 'See the price before you pay',
-            feature2Desc: 'Prices come from partners. Check the final amount on the booking page before you pay',
-            feature3Desc: 'Written by a real ticketing person, in 3 languages, with a pre-flight FAQ and free tools. We may earn a commission without adding to your price'
-        },
-        'de': {
-            navServices: 'Services',
-            navResources: 'Ressourcen',
-            navFlight: 'Flüge',
-            navHotel: 'Hotels',
-            navCarRental: 'Mietwagen',
-            navDeals: 'AI Travel Hub',
-            navOffers: 'Angebote',
-            navKnowledge: '15 Fragen vor dem Flug',
-            navFaq: 'FAQ',
-            navTools: 'Tools',
-            navAlerts: 'Travel Alerts',
-            navFuture: 'Zukunft des Reisens',
-            navHelp: 'Hilfe',
-            loadingText: 'Suchformular wird geladen...',
-            sectionTitle: 'Planen Sie Ihre Reise',
-            sectionSubtitle: 'Komplettservice für Ihre Traumreise',
-            cardFlightTitle: 'Flugtickets',
-            cardFlightDesc: 'Preise unserer Partner vergleichen und den Endbetrag vor der Zahlung prüfen.',
-            btnFlight: 'Flüge buchen',
-            cardHotelTitle: 'Hotels & Unterkünfte',
-            cardHotelDesc: 'Über 1,4 Millionen Hotels, Resorts und Unterkünfte zu Sonderpreisen',
-            btnHotel: 'Hotels ansehen',
-            cardDealsTitle: 'Reiseangebote',
-            cardDealsDesc: 'Flüge · Hotels · Aktivitäten · Flughafentransfer · Mietwagen — alles an einem Ort',
-            btnDeals: 'Alle Angebote',
-            featuresTitle: 'Warum uns wählen',
-            feature1Title: 'Preise vergleichen',
-            feature1Desc: 'Suchen und vergleichen Sie Flugpreise von Top-Airlines weltweit',
-            feature2Title: 'Keine versteckten Gebühren',
-            feature2Desc: 'Transparent bei jedem Schritt — der angezeigte Preis ist der echte Preis',
-            feature3Title: 'Transparent bei Provision',
-            feature3Desc: 'Geschrieben von jemandem aus dem Ticketing, in 3 Sprachen, mit FAQ und kostenlosen Tools. Provision ohne Aufpreis',
-            contactTitle: 'Kontakt',
-            labelName: 'Name *',
-            labelEmail: 'E-Mail *',
-            labelSubject: 'Betreff',
-            labelMessage: 'Nachricht *',
-            btnSubmit: 'Nachricht senden',
-            footerDesc: 'Angebote unserer Partner an einem Ort, mit dem Wissen, selbst zu entscheiden.',
-            footerServices: 'Unsere Dienste',
-            footerFlights: 'Flüge suchen',
-            footerHotels: 'Hotels buchen',
-            footerDeals: 'Reiseangebote',
-            footerTools: 'Reise-Tools',
-            footerHelp: 'Hilfe',
-            footerContact: 'Support',
-            footerLegal: 'Rechtliches',
-            footerAbout: 'Über uns',
-            footerTerms: 'AGB',
-            footerPrivacy: 'Datenschutz',
-            heroBadge: '✈️ Perspektive vom Check-in-Schalter — 10+ Jahre Bodenabfertigung',
-            heroTitle: 'Flüge vergleichen<br><span class="hero-highlight">mit Wissensbasis in 3 Sprachen</span>',
-            heroSubtitle: 'Flüge vergleichen, mit Wissensbasis zu Flugregeln und AI Travel Hub in 3 Sprachen.',
-            heroPrimary: 'Mit Flugwissen starten →',
-            behindTitle: 'Hinter der Website',
-            behindP1: 'FlyReisen24 wird von jemandem betrieben, der in Ticketing, Reservierungs-Callcenter und Reiseveranstaltung gearbeitet hat, mit dem Reservierungssystem Amadeus',
-            behindP2: 'Das umfasst Tarifregeln, Buchungsklassen, Minimum Connection Time, Single PNR und Fluggastrechte wie EU261 — nicht nur eine Preissuche',
-            behindP3: 'Ein Reisebegleiter, der Ihnen hilft, Flugregeln zu verstehen, Ihre Fluggastrechte zu kennen und Ihre Reise selbst zu planen.',
-            behindLink: 'Über uns',
-            missionTitle: 'Auftrag',
-            missionP1: 'FlyReisen24 wurde gegründet, um die Reiseplanung verständlicher zu machen.',
-            missionP2: 'Wir glauben, dass Reisende vor einer Entscheidung klare Informationen brauchen: zu Tarifbedingungen, Umsteigezeiten und Fluggastrechten. Deshalb bündeln wir Wissensbasis, Tools und den AI Travel Hub an einem Ort, damit Sie die Angebote unserer Partner selbst vergleichen können. Preise und Bedingungen können sich jederzeit ändern. Prüfen Sie daher vor der Zahlung immer die Angaben auf der Buchungsseite.',
-            mascotTitle: 'Die FlyReisen24-Maskottchen',
-            mascotSub: 'Drei Figuren, die Flugregeln leichter lesbar machen',
-            mascotWinnerDesc: 'Die Entdeckerin — Umsteigen und günstige Flüge',
-            mascotChichiDesc: 'Die genaue — Checklisten und Regeln vor dem Flug',
-            mascotMeshDesc: 'Die ordentliche — Regeln, Ausgleich und Hintergrundsysteme. Fragen im AI Hub',
-            guidesTitle: 'Wissen, das sich zuerst lohnt',
-            guide1Title: 'Mindestumsteigezeit',
-            guide1Desc: 'MCT, ein Ticket und ein sicherer Puffer',
-            guide2Title: 'Meilen, die sich lohnen',
-            guide2Desc: 'Die drei Allianzen und Vorteile über Airlines hinweg',
-            guide3Title: 'Nicht befördert',
-            guide3Desc: 'Rechte bei Überbuchung und Besonderheiten von Charterflügen',
-            guide4Title: 'Smarter buchen',
-            guide4Desc: 'Das Fenster von 8–12 Wochen und Flüge mitten in der Woche',
-            destTitle: 'Europa-Routen, die Reisende aus Thailand oft treffen',
-            destSub: 'Nur Hinweise zur Stadt. Keine Preise, weil Tarife täglich wechseln',
-            dest1Title: 'Frankfurt',
-            dest1Desc: 'Ein großes Umsteigedrehkreuz. Umsteigezeit vor der Buchung prüfen',
-            dest2Title: 'München',
-            dest2Desc: 'Ein praktisches deutsches Tor für Anschlüsse in Europa',
-            dest3Title: 'Paris',
-            dest3Desc: 'Frankfurt nach Paris bedeutet Einreise in den Schengenraum, nicht nur Airside',
-            dest4Title: 'AI Travel Hub',
-            dest4Desc: 'Eine erste Reiseidee, kein Live-Preis und kein freier Sitz',
-            aiBandTitle: 'Eine erste Reiseidee',
-            aiBandDesc: 'Erzählen Sie, was Sie möchten, wählen Sie Ziel, Tage, Budget und Stil, und erhalten Sie eine erste Reiseidee. Es werden keine Live-Preise oder Sitze abgerufen',
-            aiBandLink: 'AI Travel Hub testen',
-            trustTagline: '🤝 Partner, denen Sie vertrauen können',
-            trustSafe: 'Zahlung auf Partnerseiten',
-            trustSecure: 'Verschlüsselte Verbindung',
-            trustVerified: 'Buchungspartner',
-            trustSupport: 'Support bereit',
-            feature2Title: 'Preis vor der Zahlung sehen',
-            feature2Desc: 'Preise kommen von Partnern. Prüfen Sie den Endbetrag auf der Buchungsseite',
-            feature3Desc: 'Geschrieben von jemandem aus dem Ticketing, in 3 Sprachen, mit FAQ und kostenlosen Tools. Provision ohne Aufpreis'
-        }
-    };
+    const translations = { ... }; ใน common.js ทั้งก้อน
+// ต้องมี id ใน HTML ตรงกับชื่อคีย์ (ดูหมายเหตุท้ายไฟล์)
+// ==========================================
+const translations = {
+    'th': {
+        // --- Navigation ---
+        navServices: 'บริการ',
+        navResources: 'คลังข้อมูล',
+        navFlight: 'เที่ยวบิน',
+        navHotel: 'โรงแรม',
+        navCarRental: 'รถเช่า',
+        navDeals: 'AI Travel Hub',
+        navOffers: 'ดีล',
+        navKnowledge: '15 คำถามก่อนบิน',
+        navFaq: 'คำถามที่พบบ่อย',
+        navTools: 'เครื่องมือ',
+        navAlerts: 'Travel Alerts',
+        navFuture: 'อนาคตการเดินทาง',
+        navHelp: 'ช่วยเหลือ',
 
-    // ==========================================
-    // UPDATE CONTENT
-    // ==========================================
+        // --- Hero ---
+        loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
+        heroBadge: '✈️ แพลตฟอร์มเดินทางครบวงจร',
+        heroTitle: 'เปรียบเทียบเที่ยวบิน<br><span class="hero-highlight">พร้อมคลังความรู้ 3 ภาษา</span>',
+        heroSubtitle: 'เปรียบเทียบเที่ยวบิน พร้อมคลังความรู้เรื่องกฎการบิน และ AI Travel Hub ใน 3 ภาษา',
+        heroPrimary: 'เริ่มจากความรู้การบิน →',
+        statHotels: 'คำถามก่อนบิน',
+        statAirlines: 'ภาษา',
+        statCountries: 'เครื่องมือเดินทาง',
+        statFree: 'ฟรี',
 
-    function ensureSharedFooter() {
-        const footer = document.querySelector('footer.main-footer');
-        if (!footer) return;
-        const legal = footer.querySelector('.footer-col ul');
-        const lists = footer.querySelectorAll('.footer-col ul');
-        const legalList = lists[lists.length - 1];
-        if (legalList && !footer.querySelector('#footerImpressum') && !footer.querySelector('a[href*="impressum"]')) {
-            const li = document.createElement('li');
-            li.innerHTML = '<a href="/th/impressum.html" id="footerImpressum">Impressum</a>';
-            legalList.appendChild(li);
-        }
-        if (!footer.querySelector('.footer-social')) {
-            const social = document.createElement('div');
-            social.className = 'footer-social';
-            social.style.cssText = 'display:flex;justify-content:center;gap:18px;margin:18px 0 8px;';
-            social.innerHTML = '<a href="https://www.tiktok.com/@flyreisen24" target="_blank" rel="noopener" aria-label="TikTok" style="color:#111;font-size:22px;"><i class="fab fa-tiktok"></i></a>'
-                + '<a href="https://www.facebook.com/flyreisen24" target="_blank" rel="noopener" aria-label="Facebook" style="color:#1877F2;font-size:22px;"><i class="fab fa-facebook"></i></a>'
-                + '<a href="https://www.youtube.com/@flyreisen24" target="_blank" rel="noopener" aria-label="YouTube" style="color:#FF0000;font-size:22px;"><i class="fab fa-youtube"></i></a>';
-            const bottom = footer.querySelector('.footer-bottom');
-            if (bottom) footer.insertBefore(social, bottom);
-            else footer.appendChild(social);
-        }
+        // --- Behind the site ---
+        behindTitle: 'เบื้องหลังเว็บ',
+        behindP1: 'FlyReisen24 ทำโดยคนที่ทำงานออกบัตรโดยสาร ศูนย์บริการสำรองที่นั่ง และปฏิบัติการทัวร์ โดยใช้ระบบสำรองที่นั่ง Amadeus',
+        behindP2: 'ครอบคลุมกฎตั๋ว, Fare Classes, Minimum Connection Time, Single PNR และสิทธิ์ผู้โดยสารอย่าง EU261 ไม่ใช่แค่หน้าค้นหาราคา',
+        behindP3: 'เพื่อนคู่คิดด้านการเดินทาง ช่วยให้คุณรู้ทันกฎการบิน เข้าใจสิทธิ์ของผู้โดยสาร และวางแผนการเดินทางได้ด้วยตัวเอง',
+        behindLink: 'อ่านเกี่ยวกับเรา',
+
+        // --- Mission ---
+        missionTitle: 'พันธกิจ',
+        missionP1: 'FlyReisen24 ก่อตั้งขึ้นเพื่อทำให้การวางแผนเดินทางเข้าใจง่ายขึ้น',
+        missionP2: 'เราเชื่อว่าผู้เดินทางควรได้รับข้อมูลที่ชัดเจนก่อนตัดสินใจ ทั้งเรื่องกฎตั๋ว เวลาต่อเครื่อง และสิทธิ์ของผู้โดยสาร เราจึงรวมคลังความรู้ เครื่องมือ และ AI Travel Hub ไว้ในที่เดียว เพื่อให้คุณเปรียบเทียบตัวเลือกจากพาร์ทเนอร์ได้ด้วยตัวเอง ราคาและเงื่อนไขอาจเปลี่ยนได้ตลอดเวลา จึงควรตรวจรายละเอียดบนหน้าจองก่อนชำระเงินทุกครั้ง',
+
+        // --- Guides ---
+        guidesTitle: 'คลังความรู้ที่ควรอ่านก่อน',
+        guide1Title: 'เวลาต่อเครื่องขั้นต่ำ',
+        guide1Desc: 'กฎ MCT, ตั๋วใบเดียวกัน และเวลาเผื่อที่ปลอดภัย',
+        guide2Title: 'สะสมไมล์ให้คุ้ม',
+        guide2Desc: 'กลยุทธ์ 3 พันธมิตรการบิน และสิทธิ์ข้ามสายการบิน',
+        guide3Title: 'ถูกปฏิเสธขึ้นเครื่อง',
+        guide3Desc: 'สิทธิ์เมื่อ overbook และข้อควรรู้ของเที่ยวบินเช่าเหมาลำ',
+        guide4Title: 'จองตั๋วให้คุ้ม',
+        guide4Desc: 'ช่วง 8–12 สัปดาห์ และวันบินกลางสัปดาห์ที่มักได้ราคาดี',
+        guide5Title: 'เครื่องยังไม่ออก แต่ขึ้นไม่ได้',
+        guide5Desc: 'มาไม่ทันปิดเคาน์เตอร์ แล้วเห็นเครื่องยังจอดอยู่',
+
+        // --- Mascots ---
+        mascotTitle: 'ทีมมาสคอต FlyReisen24',
+        mascotSub: 'สามตัวละครช่วยเล่าเรื่องกฎการบิน ให้เนื้อหาอ่านง่ายขึ้น',
+        mascotWinnerDesc: 'สายลุย เชี่ยวชาญการต่อเครื่องและไฟลต์ที่ควรเช็ก',
+        mascotChichiDesc: 'สายละเอียด เช็กลิสต์ความพร้อมก่อนบินและกฎเกณฑ์',
+        mascotMeshDesc: 'สายเนี๊ยบ กฎระเบียบ สิทธิ์การชดเชย และระบบหลังบ้าน — ถามได้ที่ AI Travel Hub',
+
+        // --- AI Travel Hub band ---
+        aiBandTitle: 'ไอเดียแผนทริปเบื้องต้น',
+        aiBandDesc: 'เล่าความต้องการ เลือกปลายทาง จำนวนวัน งบ และสไตล์ แล้วรับไอเดียแผนทริปเบื้องต้น ไม่ได้ดึงราคาหรือที่ว่างจริง',
+        aiBandLink: 'ลอง AI Travel Hub',
+
+        // --- Destinations ---
+        destTitle: 'ปลายทางที่คนไทยบินยุโรปเจอบ่อย',
+        destSub: 'ภาพรวมเมืองและข้อควรรู้ ไม่มีราคา เพราะราคาตั๋วเปลี่ยนทุกวัน',
+        dest1Title: 'แฟรงก์เฟิร์ต',
+        dest1Desc: 'ฮับต่อเครื่องใหญ่ เช็กเวลาต่อเครื่องก่อนจอง',
+        dest2Title: 'มิวนิก',
+        dest2Desc: 'ทางเข้าเยอรมนีที่ต่อในยุโรปสะดวก',
+        dest3Title: 'ปารีส',
+        dest3Desc: 'ต่อเครื่องที่แฟรงก์เฟิร์ตไปปารีส ต้องผ่านการตรวจเข้าเมือง Schengen ที่แฟรงก์เฟิร์ต ไม่ใช่แค่ผ่านโซนแอร์ไซด์',
+        dest4Title: 'AI Travel Hub',
+        dest4Desc: 'ไอเดียแผนทริปเบื้องต้น ไม่ใช่ราคาหรือที่ว่างจริง',
+
+        // --- Booking cards ---
+        sectionTitle: 'วางแผนการเดินทางของคุณ',
+        sectionSubtitle: 'บริการครบวงจร สำหรับทริปในฝันของคุณ',
+        cardFlightTitle: 'ตั๋วเครื่องบิน',
+        cardFlightDesc: 'เปรียบเทียบราคาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนชำระ',
+        btnFlight: 'จองเที่ยวบิน',
+        cardHotelTitle: 'โรงแรม & ที่พัก',
+        cardHotelDesc: 'ค้นหาที่พักผ่านพาร์ทเนอร์ ตรวจราคาและเงื่อนไขบนหน้าจองก่อนชำระ',
+        btnHotel: 'ดูที่พัก',
+        cardDealsTitle: 'ดีลการเดินทาง',
+        cardDealsDesc: 'เที่ยวบิน · โรงแรม · กิจกรรม · รถรับส่งสนามบิน · รถเช่า — ครบทุกบริการ เปรียบเทียบง่าย จองได้เลย',
+        btnDeals: 'ดูดีลทั้งหมด',
+        cardAiTitle: 'AI Travel Hub',
+        cardAiDesc: 'เล่าความต้องการ เลือกปลายทาง จำนวนวัน งบ และสไตล์ แล้วรับไอเดียแผนทริปเบื้องต้น ไม่ได้ดึงราคาหรือที่ว่างจริง',
+        btnAi: 'ลอง AI Travel Hub',
+
+        // --- Trust ---
+        trustTagline: '🤝 พันธมิตรที่เชื่อถือได้ของเรา',
+        trustSafe: 'ชำระเงินบนเว็บพาร์ทเนอร์',
+        trustSecure: 'ข้อมูลส่งผ่านการเชื่อมต่อที่เข้ารหัส',
+        trustVerified: 'เชื่อมกับพาร์ทเนอร์จอง',
+        trustSupport: 'ซัพพอร์ตพร้อม',
+
+        // --- Features ---
+        featuresTitle: 'ทำไมต้องเลือกเรา',
+        feature1Title: 'เปรียบเทียบราคา',
+        feature1Desc: 'ค้นหาและเปรียบเทียบราคาตั๋วเครื่องบินจากสายการบินชั้นนำทั่วโลก',
+        feature2Title: 'เห็นราคาก่อนชำระเงิน',
+        feature2Desc: 'ราคาที่แสดงมาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนกดชำระบนหน้าจอง',
+        feature3Title: 'โปร่งใสเรื่องค่าคอมมิชชัน',
+        feature3Desc: 'เขียนโดยคนทำงานตั๋วจริง 3 ภาษา มีคลังคำถามก่อนบินและเครื่องมือฟรี เราอาจได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์โดยไม่เพิ่มราคาให้คุณ',
+
+        // --- Contact form ---
+        contactTitle: 'ติดต่อเรา',
+        labelName: 'ชื่อ-นามสกุล *',
+        labelEmail: 'อีเมล *',
+        labelSubject: 'หัวข้อ',
+        labelMessage: 'ข้อความ *',
+        btnSubmit: 'ส่งข้อความ',
+
+        // --- Footer ---
+        footerDesc: 'รวบรวมตัวเลือกจากพาร์ทเนอร์ พร้อมความรู้เพื่อตัดสินใจเอง',
+        footerServices: 'บริการของเรา',
+        footerFlights: 'ค้นหาตั๋วเครื่องบิน',
+        footerHotels: 'จองโรงแรมที่พัก',
+        footerDeals: 'ดีลการเดินทาง',
+        footerTools: 'เครื่องมือเดินทาง',
+        footerHelp: 'ช่วยเหลือ',
+        footerContact: 'ติดต่อฝ่ายบริการ',
+        footerFaqLink: 'คลังความรู้การเดินทาง',
+        footerLegal: 'ข้อมูลทางกฎหมาย',
+        footerAboutLink: 'เกี่ยวกับเรา',
+        footerTermsLink: 'ข้อกำหนดและเงื่อนไข',
+        footerPrivacyLink: 'นโยบายความเป็นส่วนตัว',
+        footerImpressum: 'Impressum',
+        affiliateNote: 'FlyReisen24 เป็นแพลตฟอร์มเปรียบเทียบ การจองและการชำระเงินเกิดบนเว็บของพาร์ทเนอร์ เราอาจได้รับค่าคอมมิชชันจากลิงก์เหล่านี้โดยไม่เพิ่มราคาให้คุณ'
+    },
+
+    'en': {
+        // --- Navigation ---
+        navServices: 'Services',
+        navResources: 'Resources',
+        navFlight: 'Flights',
+        navHotel: 'Hotels',
+        navCarRental: 'Car Rentals',
+        navDeals: 'AI Travel Hub',
+        navOffers: 'Deals',
+        navKnowledge: '15 Pre-Flight Questions',
+        navFaq: 'FAQ',
+        navTools: 'Tools',
+        navAlerts: 'Travel Alerts',
+        navFuture: 'Future travel',
+        navHelp: 'Help',
+
+        // --- Hero ---
+        loadingText: 'Loading search form...',
+        heroBadge: '✈️ All-in-one travel platform',
+        heroTitle: 'Compare flights<br><span class="hero-highlight">with a 3-language knowledge base</span>',
+        heroSubtitle: 'Compare flights, with a knowledge base on flight rules and an AI Travel Hub in 3 languages.',
+        heroPrimary: 'Start with flight knowledge →',
+        statHotels: 'pre-flight questions',
+        statAirlines: 'languages',
+        statCountries: 'travel tools',
+        statFree: 'Free',
+
+        // --- Behind the site ---
+        behindTitle: 'Behind the site',
+        behindP1: 'FlyReisen24 is run by someone who has worked in ticketing, reservation call centres and tour operations, using the Amadeus reservation system.',
+        behindP2: 'That covers fare rules, fare classes, minimum connection time, single PNR and passenger rights such as EU261 — not just a price search page.',
+        behindP3: 'A travel companion that helps you understand flight rules, know your rights as a passenger and plan your trip on your own.',
+        behindLink: 'About us',
+
+        // --- Mission ---
+        missionTitle: 'Our Mission',
+        missionP1: 'FlyReisen24 was created to make travel planning easier to understand.',
+        missionP2: "We believe travelers should have clear information before they decide: ticket rules, connection times and passenger rights. That's why we bring a knowledge base, tools and the AI Travel Hub together in one place, so you can compare options from our partners yourself. Prices and conditions can change at any time, so always check the details on the booking page before you pay.",
+
+        // --- Guides ---
+        guidesTitle: 'Guides worth reading first',
+        guide1Title: 'Minimum connection time',
+        guide1Desc: 'MCT rules, single-ticket bookings and a safe buffer',
+        guide2Title: 'Miles that are worth it',
+        guide2Desc: 'How the three alliances work, and benefits across airlines',
+        guide3Title: 'Denied boarding',
+        guide3Desc: 'Your rights when a flight is overbooked, and charter caveats',
+        guide4Title: 'Book smarter',
+        guide4Desc: 'The 8–12 week window and midweek flights that often price better',
+        guide5Title: "Plane still at the gate, but you can't board",
+        guide5Desc: 'You arrived after check-in closed, and the aircraft is still on the ground',
+
+        // --- Mascots ---
+        mascotTitle: 'The FlyReisen24 mascots',
+        mascotSub: 'Three characters that make flight rules easier to read',
+        mascotWinnerDesc: 'The explorer — connections and flights worth checking',
+        mascotChichiDesc: 'The detail checker — pre-flight lists and rules',
+        mascotMeshDesc: 'The neat one — regulations, compensation rights and back-office systems. Ask in the AI Travel Hub',
+
+        // --- AI Travel Hub band ---
+        aiBandTitle: 'A preliminary trip idea',
+        aiBandDesc: 'Tell us what you want, pick a destination, days, budget and style, then get a preliminary trip idea. It does not pull live fares or seats.',
+        aiBandLink: 'Try AI Travel Hub',
+
+        // --- Destinations ---
+        destTitle: 'Europe routes Thai travellers meet often',
+        destSub: 'City notes only. No prices, because fares change every day',
+        dest1Title: 'Frankfurt',
+        dest1Desc: 'A major connection hub. Check connection time before you book',
+        dest2Title: 'Munich',
+        dest2Desc: 'A practical German gateway for connections inside Europe',
+        dest3Title: 'Paris',
+        dest3Desc: 'Connecting via Frankfurt to Paris means clearing Schengen entry in Frankfurt, not just airside transit',
+        dest4Title: 'AI Travel Hub',
+        dest4Desc: 'A preliminary trip idea, not a live fare or seat',
+
+        // --- Booking cards ---
+        sectionTitle: 'Plan Your Journey',
+        sectionSubtitle: 'Complete services for your dream trip',
+        cardFlightTitle: 'Flight Tickets',
+        cardFlightDesc: 'Compare prices from our partners and check the final amount before you pay.',
+        btnFlight: 'Book Flights',
+        cardHotelTitle: 'Hotels & Accommodations',
+        cardHotelDesc: 'Search accommodation through our partners and check price and conditions on the booking page before you pay.',
+        btnHotel: 'View Hotels',
+        cardDealsTitle: 'Travel Deals',
+        cardDealsDesc: 'Flights · Hotels · Activities · Airport Transfers · Car Rentals — all in one place',
+        btnDeals: 'View All Deals',
+        cardAiTitle: 'AI Travel Hub',
+        cardAiDesc: 'Tell us what you want, pick a destination, days, budget and style, then get a preliminary trip idea. It does not pull live fares or seats.',
+        btnAi: 'Try AI Travel Hub',
+
+        // --- Trust ---
+        trustTagline: '🤝 Partners you can trust',
+        trustSafe: 'Payment on partner sites',
+        trustSecure: 'Encrypted connection',
+        trustVerified: 'Booking partners',
+        trustSupport: 'Support ready',
+
+        // --- Features ---
+        featuresTitle: 'Why Choose Us',
+        feature1Title: 'Compare Prices',
+        feature1Desc: 'Search and compare flight prices from top airlines worldwide',
+        feature2Title: 'See the price before you pay',
+        feature2Desc: 'Prices come from partners. Check the final amount on the booking page before you pay',
+        feature3Title: 'Clear about commission',
+        feature3Desc: 'Written by a real ticketing person, in 3 languages, with a pre-flight FAQ and free tools. We may earn a commission from partner links at no extra cost to you',
+
+        // --- Contact form ---
+        contactTitle: 'Contact Us',
+        labelName: 'Name *',
+        labelEmail: 'Email *',
+        labelSubject: 'Subject',
+        labelMessage: 'Message *',
+        btnSubmit: 'Send Message',
+
+        // --- Footer ---
+        footerDesc: 'Options from our partners in one place, with the knowledge to decide for yourself.',
+        footerServices: 'Our Services',
+        footerFlights: 'Search Flights',
+        footerHotels: 'Book Hotels',
+        footerDeals: 'Travel Deals',
+        footerTools: 'Travel Tools',
+        footerHelp: 'Help',
+        footerContact: 'Contact Support',
+        footerFaqLink: 'Travel knowledge base',
+        footerLegal: 'Legal',
+        footerAboutLink: 'About Us',
+        footerTermsLink: 'Terms & Conditions',
+        footerPrivacyLink: 'Privacy Policy',
+        footerImpressum: 'Impressum',
+        affiliateNote: "FlyReisen24 is a comparison platform. Booking and payment take place on our partners' websites. We may earn a commission from these links at no extra cost to you."
+    },
+
+    'de': {
+        // --- Navigation ---
+        navServices: 'Services',
+        navResources: 'Ressourcen',
+        navFlight: 'Flüge',
+        navHotel: 'Hotels',
+        navCarRental: 'Mietwagen',
+        navDeals: 'AI Travel Hub',
+        navOffers: 'Angebote',
+        navKnowledge: '15 Fragen vor dem Flug',
+        navFaq: 'FAQ',
+        navTools: 'Tools',
+        navAlerts: 'Travel Alerts',
+        navFuture: 'Zukunft des Reisens',
+        navHelp: 'Hilfe',
+
+        // --- Hero ---
+        loadingText: 'Suchformular wird geladen...',
+        heroBadge: '✈️ Reiseplattform an einem Ort',
+        heroTitle: 'Flüge vergleichen<br><span class="hero-highlight">mit Wissensbasis in 3 Sprachen</span>',
+        heroSubtitle: 'Flüge vergleichen, mit Wissensbasis zu Flugregeln und AI Travel Hub in 3 Sprachen.',
+        heroPrimary: 'Mit Flugwissen starten →',
+        statHotels: 'Fragen vor dem Flug',
+        statAirlines: 'Sprachen',
+        statCountries: 'Reise-Tools',
+        statFree: 'Gratis',
+
+        // --- Behind the site ---
+        behindTitle: 'Hinter der Website',
+        behindP1: 'FlyReisen24 wird von jemandem betrieben, der in Ticketing, Reservierungs-Callcenter und Reiseveranstaltung gearbeitet hat, mit dem Reservierungssystem Amadeus.',
+        behindP2: 'Das umfasst Tarifregeln, Buchungsklassen, Minimum Connection Time, Single PNR und Fluggastrechte wie EU261 — nicht nur eine Preissuche.',
+        behindP3: 'Ein Reisebegleiter, der Ihnen hilft, Flugregeln zu verstehen, Ihre Fluggastrechte zu kennen und Ihre Reise selbst zu planen.',
+        behindLink: 'Über uns',
+
+        // --- Mission ---
+        missionTitle: 'Unsere Mission',
+        missionP1: 'FlyReisen24 wurde gegründet, um die Reiseplanung verständlicher zu machen.',
+        missionP2: 'Wir glauben, dass Reisende vor einer Entscheidung klare Informationen brauchen: zu Tarifbedingungen, Umsteigezeiten und Fluggastrechten. Deshalb bündeln wir Wissensbasis, Tools und den AI Travel Hub an einem Ort, damit Sie die Angebote unserer Partner selbst vergleichen können. Preise und Bedingungen können sich jederzeit ändern. Prüfen Sie daher vor der Zahlung immer die Angaben auf der Buchungsseite.',
+
+        // --- Guides ---
+        guidesTitle: 'Wissen, das sich zuerst lohnt',
+        guide1Title: 'Mindestumsteigezeit',
+        guide1Desc: 'MCT, ein Ticket und ein sicherer Puffer',
+        guide2Title: 'Meilen, die sich lohnen',
+        guide2Desc: 'Die drei Allianzen und Vorteile über Airlines hinweg',
+        guide3Title: 'Nicht befördert',
+        guide3Desc: 'Rechte bei Überbuchung und Besonderheiten von Charterflügen',
+        guide4Title: 'Smarter buchen',
+        guide4Desc: 'Das Fenster von 8–12 Wochen und Flüge mitten in der Woche',
+        guide5Title: 'Flugzeug noch am Gate, aber Einsteigen nicht mehr möglich',
+        guide5Desc: 'Check-in bereits geschlossen, obwohl das Flugzeug noch am Boden steht',
+
+        // --- Mascots ---
+        mascotTitle: 'Die FlyReisen24-Maskottchen',
+        mascotSub: 'Drei Figuren, die Flugregeln leichter lesbar machen',
+        mascotWinnerDesc: 'Die Entdeckerin — Umsteigen und Flüge, die man prüfen sollte',
+        mascotChichiDesc: 'Die genaue — Checklisten und Regeln vor dem Flug',
+        mascotMeshDesc: 'Die ordentliche — Regeln, Ausgleichsansprüche und Hintergrundsysteme. Fragen im AI Travel Hub',
+
+        // --- AI Travel Hub band ---
+        aiBandTitle: 'Eine erste Reiseidee',
+        aiBandDesc: 'Beschreiben Sie Ihre Wünsche, wählen Sie Ziel, Dauer, Budget und Stil und erhalten Sie eine erste Reiseidee. Preise und Verfügbarkeit sind nicht enthalten.',
+        aiBandLink: 'AI Travel Hub testen',
+
+        // --- Destinations ---
+        destTitle: 'Europa-Routen, die Reisende aus Thailand oft treffen',
+        destSub: 'Nur Hinweise zur Stadt. Keine Preise, weil Tarife täglich wechseln',
+        dest1Title: 'Frankfurt',
+        dest1Desc: 'Ein großes Umsteigedrehkreuz. Umsteigezeit vor der Buchung prüfen',
+        dest2Title: 'München',
+        dest2Desc: 'Ein praktisches deutsches Tor für Anschlüsse in Europa',
+        dest3Title: 'Paris',
+        dest3Desc: 'Wer über Frankfurt nach Paris umsteigt, durchläuft die Schengen-Einreisekontrolle in Frankfurt, nicht nur den Airside-Transit',
+        dest4Title: 'AI Travel Hub',
+        dest4Desc: 'Eine erste Reiseidee, kein Live-Preis und kein freier Sitz',
+
+        // --- Booking cards ---
+        sectionTitle: 'Planen Sie Ihre Reise',
+        sectionSubtitle: 'Komplettservice für Ihre Traumreise',
+        cardFlightTitle: 'Flugtickets',
+        cardFlightDesc: 'Preise unserer Partner vergleichen und den Endbetrag vor der Zahlung prüfen.',
+        btnFlight: 'Flüge buchen',
+        cardHotelTitle: 'Hotels & Unterkünfte',
+        cardHotelDesc: 'Unterkünfte über unsere Partner suchen und Preis sowie Bedingungen vor der Zahlung auf der Buchungsseite prüfen.',
+        btnHotel: 'Hotels ansehen',
+        cardDealsTitle: 'Reiseangebote',
+        cardDealsDesc: 'Flüge · Hotels · Aktivitäten · Flughafentransfer · Mietwagen — alles an einem Ort',
+        btnDeals: 'Alle Angebote',
+        cardAiTitle: 'AI Travel Hub',
+        cardAiDesc: 'Beschreiben Sie Ihre Wünsche, wählen Sie Ziel, Dauer, Budget und Stil und erhalten Sie eine erste Reiseidee. Preise und Verfügbarkeit sind nicht enthalten.',
+        btnAi: 'AI Travel Hub testen',
+
+        // --- Trust ---
+        trustTagline: '🤝 Partner, denen Sie vertrauen können',
+        trustSafe: 'Zahlung auf Partnerseiten',
+        trustSecure: 'Verschlüsselte Verbindung',
+        trustVerified: 'Buchungspartner',
+        trustSupport: 'Support bereit',
+
+        // --- Features ---
+        featuresTitle: 'Warum uns wählen',
+        feature1Title: 'Preise vergleichen',
+        feature1Desc: 'Suchen und vergleichen Sie Flugpreise von Top-Airlines weltweit',
+        feature2Title: 'Preis vor der Zahlung sehen',
+        feature2Desc: 'Preise kommen von Partnern. Prüfen Sie den Endbetrag auf der Buchungsseite',
+        feature3Title: 'Transparent bei Provision',
+        feature3Desc: 'Geschrieben von jemandem aus dem Ticketing, in 3 Sprachen, mit FAQ und kostenlosen Tools. Wir erhalten möglicherweise eine Provision über Partnerlinks, ohne dass Ihnen Mehrkosten entstehen',
+
+        // --- Contact form ---
+        contactTitle: 'Kontakt',
+        labelName: 'Name *',
+        labelEmail: 'E-Mail *',
+        labelSubject: 'Betreff',
+        labelMessage: 'Nachricht *',
+        btnSubmit: 'Nachricht senden',
+
+        // --- Footer ---
+        footerDesc: 'Angebote unserer Partner an einem Ort, mit dem Wissen, selbst zu entscheiden.',
+        footerServices: 'Unsere Dienste',
+        footerFlights: 'Flüge suchen',
+        footerHotels: 'Hotels buchen',
+        footerDeals: 'Reiseangebote',
+        footerTools: 'Reise-Tools',
+        footerHelp: 'Hilfe',
+        footerContact: 'Support',
+        footerFaqLink: 'Reise-Wissensbasis',
+        footerLegal: 'Rechtliches',
+        footerAboutLink: 'Über uns',
+        footerTermsLink: 'AGB',
+        footerPrivacyLink: 'Datenschutz',
+        footerImpressum: 'Impressum',
+        affiliateNote: 'FlyReisen24 ist eine Vergleichsplattform. Buchung und Zahlung erfolgen auf den Websites unserer Partner. Wir erhalten möglicherweise eine Provision über diese Links, ohne dass Ihnen Mehrkosten entstehen.'
     }
+};
 
     function updateContent(lang) {
         const t = translations[lang];
@@ -690,6 +772,9 @@
             guide2Link: { th: '/th/faq/06-frequent-flyer.html', en: '/en/faq/06-frequent-flyer.html', de: '/de/faq/06-frequent-flyer.html' },
             guide3Link: { th: '/th/faq/07-charter-overbooking.html', en: '/en/faq/07-charter-overbooking.html', de: '/de/faq/07-charter-overbooking.html' },
             guide4Link: { th: '/th/faq/15-booking-tips.html', en: '/en/faq/15-booking-tips.html', de: '/de/faq/15-booking-tips.html' },
+            guide5Link: { th: '/th/faq/16-counter-closed.html', en: '/en/faq/16-counter-closed.html', de: '/de/faq/16-counter-closed.html' },
+            dest1Link: { th: '/th/faq/02-connection-time.html', en: '/en/faq/02-connection-time.html', de: '/de/faq/02-connection-time.html' },
+            dest2Link: { th: '/th/faq/02-connection-time.html', en: '/en/faq/02-connection-time.html', de: '/de/faq/02-connection-time.html' },
             behindLink: { th: '/th/about_th.html', en: '/en/about_en.html', de: '/de/about_de.html' }
         };
         Object.keys(guideMap).forEach(function(id) {
