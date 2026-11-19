@@ -457,4 +457,17 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <url>
+    <loc>https://www.flyreisen24.com/th/faq/16-counter-closed.html</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/en/faq/16-counter-closed.html</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.flyreisen24.com/de/faq/16-counter-closed.html</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
 </urlset>
