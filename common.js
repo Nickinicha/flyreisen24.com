@@ -200,7 +200,14 @@
             return '/' + langCode + '/faq/landing.html' + search + hash;
         }
 
-        const pageType = getCurrentPageType();
+        // Travel alerts / guides — per-article language switch
+    const sectionMatch = path.match(/^\/(?:th|en|de)\/(travel-alerts|guides)\/([^/]+\.html)$/);
+    if (sectionMatch) {
+        const targetLang = (langCode === 'de') ? 'th' : langCode;
+        return '/' + targetLang + '/' + sectionMatch[1] + '/' + sectionMatch[2] + search + hash;
+    }
+
+    const pageType = getCurrentPageType();
         if (PAGE_MAPPINGS[pageType] && PAGE_MAPPINGS[pageType][langCode]) {
             return PAGE_MAPPINGS[pageType][langCode] + search + hash;
         }
@@ -344,18 +351,18 @@ const translations = {
 
         // --- Hero ---
         loadingText: 'กำลังโหลดแบบฟอร์มค้นหา...',
-        heroBadge: '✈️ แพลตฟอร์มเดินทางครบวงจร',
-        heroTitle: 'เปรียบเทียบเที่ยวบิน<br><span class="hero-highlight">พร้อมคลังความรู้ 3 ภาษา</span>',
-        heroSubtitle: 'เปรียบเทียบเที่ยวบิน พร้อมคลังความรู้เรื่องกฎการบิน และ AI Travel Hub ใน 3 ภาษา',
+        heroBadge: '✈️ เปรียบเทียบเที่ยวบิน พร้อมคู่มือกฎการบิน',
+        heroTitle: 'จองตั๋วให้คุ้ม<br><span class="hero-highlight">ต้องรู้กฎก่อนกดจ่าย</span>',
+        heroSubtitle: 'เปรียบเทียบเที่ยวบินจากพาร์ทเนอร์ พร้อมคู่มืออ่านง่าย ต่อเครื่องกี่ชั่วโมงถึงพอ ตั๋วแบบไหนเสี่ยงตกเครื่อง และสิทธิ์ของคุณเมื่อไฟลต์มีปัญหา',
         heroPrimary: 'เริ่มจากความรู้การบิน →',
         statHotels: 'คำถามก่อนบิน',
-        statAirlines: 'ภาษา',
+        statAirlines: 'Travel Hub',
         statCountries: 'เครื่องมือเดินทาง',
         statFree: 'ฟรี',
 
         // --- Behind the site ---
-        behindTitle: 'เบื้องหลังเว็บ',
-        behindP1: 'FlyReisen24 ทำโดยคนที่ทำงานออกบัตรโดยสาร ศูนย์บริการสำรองที่นั่ง และปฏิบัติการทัวร์ โดยใช้ระบบสำรองที่นั่ง Amadeus',
+        behindTitle: 'เว็บนี้ช่วยอะไรคุณ',
+        behindP1: 'FlyReisen24 อธิบายกฎการบินที่ผู้โดยสารมักมารู้ตอนเกิดปัญหาไปแล้ว ด้วยภาษาที่อ่านแล้วเข้าใจ',
         behindP2: 'ครอบคลุมกฎตั๋ว, Fare Classes, Minimum Connection Time, Single PNR และสิทธิ์ผู้โดยสารอย่าง EU261 ไม่ใช่แค่หน้าค้นหาราคา',
         behindP3: 'เพื่อนคู่คิดด้านการเดินทาง ช่วยให้คุณรู้ทันกฎการบิน เข้าใจสิทธิ์ของผู้โดยสาร และวางแผนการเดินทางได้ด้วยตัวเอง',
         behindLink: 'อ่านเกี่ยวกับเรา',
@@ -432,7 +439,7 @@ const translations = {
         feature2Title: 'เห็นราคาก่อนชำระเงิน',
         feature2Desc: 'ราคาที่แสดงมาจากพาร์ทเนอร์ ตรวจยอดสุดท้ายก่อนกดชำระบนหน้าจอง',
         feature3Title: 'โปร่งใสเรื่องค่าคอมมิชชัน',
-        feature3Desc: 'เขียนโดยคนทำงานตั๋วจริง 3 ภาษา มีคลังคำถามก่อนบินและเครื่องมือฟรี เราอาจได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์โดยไม่เพิ่มราคาให้คุณ',
+        feature3Desc: 'มีคลังคำถามก่อนบินและเครื่องมือฟรีให้ใช้ เราอาจได้รับค่าคอมมิชชันจากลิงก์พาร์ทเนอร์ โดยไม่เพิ่มราคาให้คุณ',
 
         // --- Contact form ---
         contactTitle: 'ติดต่อเรา',
@@ -478,18 +485,18 @@ const translations = {
 
         // --- Hero ---
         loadingText: 'Loading search form...',
-        heroBadge: '✈️ All-in-one travel platform',
-        heroTitle: 'Compare flights<br><span class="hero-highlight">with a 3-language knowledge base</span>',
-        heroSubtitle: 'Compare flights, with a knowledge base on flight rules and an AI Travel Hub in 3 languages.',
+        heroBadge: '✈️ Compare flights, with plain-language aviation guides',
+        heroTitle: 'Know the rules<br><span class="hero-highlight">before you pay</span>',
+        heroSubtitle: 'Compare flights from our partners, with plain-language guides: how much connection time you really need, which tickets risk a missed flight, and your rights when a flight goes wrong.',
         heroPrimary: 'Start with flight knowledge →',
         statHotels: 'pre-flight questions',
-        statAirlines: 'languages',
+        statAirlines: 'Travel Hub',
         statCountries: 'travel tools',
         statFree: 'Free',
 
         // --- Behind the site ---
-        behindTitle: 'Behind the site',
-        behindP1: 'FlyReisen24 is run by someone who has worked in ticketing, reservation call centres and tour operations, using the Amadeus reservation system.',
+        behindTitle: 'What this site is for',
+        behindP1: 'FlyReisen24 explains the flight rules passengers usually only learn about when something goes wrong, in plain language.',
         behindP2: 'That covers fare rules, fare classes, minimum connection time, single PNR and passenger rights such as EU261 — not just a price search page.',
         behindP3: 'A travel companion that helps you understand flight rules, know your rights as a passenger and plan your trip on your own.',
         behindLink: 'About us',
@@ -566,7 +573,7 @@ const translations = {
         feature2Title: 'See the price before you pay',
         feature2Desc: 'Prices come from partners. Check the final amount on the booking page before you pay',
         feature3Title: 'Clear about commission',
-        feature3Desc: 'Written by a real ticketing person, in 3 languages, with a pre-flight FAQ and free tools. We may earn a commission from partner links at no extra cost to you',
+        feature3Desc: 'A library of pre-flight guides and free tools. We may earn a commission from partner links, at no extra cost to you.',
 
         // --- Contact form ---
         contactTitle: 'Contact Us',
@@ -612,18 +619,18 @@ const translations = {
 
         // --- Hero ---
         loadingText: 'Suchformular wird geladen...',
-        heroBadge: '✈️ Reiseplattform an einem Ort',
-        heroTitle: 'Flüge vergleichen<br><span class="hero-highlight">mit Wissensbasis in 3 Sprachen</span>',
-        heroSubtitle: 'Flüge vergleichen, mit Wissensbasis zu Flugregeln und AI Travel Hub in 3 Sprachen.',
+        heroBadge: '✈️ Flüge vergleichen, mit verständlichen Ratgebern',
+        heroTitle: 'Erst die Regeln kennen,<br><span class="hero-highlight">dann buchen</span>',
+        heroSubtitle: 'Flüge von Partnern vergleichen, dazu verständliche Ratgeber: wie viel Umsteigezeit wirklich nötig ist, welche Tickets einen verpassten Anschluss riskieren und welche Rechte Sie bei Flugproblemen haben.',
         heroPrimary: 'Mit Flugwissen starten →',
         statHotels: 'Fragen vor dem Flug',
-        statAirlines: 'Sprachen',
+        statAirlines: 'Travel Hub',
         statCountries: 'Reise-Tools',
         statFree: 'Gratis',
 
         // --- Behind the site ---
-        behindTitle: 'Hinter der Website',
-        behindP1: 'FlyReisen24 wird von jemandem betrieben, der in Ticketing, Reservierungs-Callcenter und Reiseveranstaltung gearbeitet hat, mit dem Reservierungssystem Amadeus.',
+        behindTitle: 'Wofür diese Seite da ist',
+        behindP1: 'FlyReisen24 erklärt die Flugregeln, die Reisende oft erst kennenlernen, wenn etwas schiefgeht, in verständlicher Sprache.',
         behindP2: 'Das umfasst Tarifregeln, Buchungsklassen, Minimum Connection Time, Single PNR und Fluggastrechte wie EU261 — nicht nur eine Preissuche.',
         behindP3: 'Ein Reisebegleiter, der Ihnen hilft, Flugregeln zu verstehen, Ihre Fluggastrechte zu kennen und Ihre Reise selbst zu planen.',
         behindLink: 'Über uns',
@@ -700,7 +707,7 @@ const translations = {
         feature2Title: 'Preis vor der Zahlung sehen',
         feature2Desc: 'Preise kommen von Partnern. Prüfen Sie den Endbetrag auf der Buchungsseite',
         feature3Title: 'Transparent bei Provision',
-        feature3Desc: 'Geschrieben von jemandem aus dem Ticketing, in 3 Sprachen, mit FAQ und kostenlosen Tools. Wir erhalten möglicherweise eine Provision über Partnerlinks, ohne dass Ihnen Mehrkosten entstehen',
+        feature3Desc: 'Ratgeber für die Zeit vor dem Flug und kostenlose Tools. Für Klicks auf Partnerlinks erhalten wir möglicherweise eine Provision, für Sie entstehen keine Mehrkosten.',
 
         // --- Contact form ---
         contactTitle: 'Kontakt',
